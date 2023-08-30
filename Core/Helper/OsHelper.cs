@@ -1,0 +1,25 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Core.Helper;
+
+public static class OsHelper
+{
+    public static string GetResourcesPath()
+    {
+        string resourcesPath = string.Empty;
+        if (Environment.OSVersion.Platform == PlatformID.Unix)
+        {
+            resourcesPath = Path.Combine(AppContext.BaseDirectory, "wwwroot", "Resources");
+        }
+        else if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+        {
+            resourcesPath =  Path.Combine(AppContext.BaseDirectory, @"..\..\..\", "wwwroot", "Resources");
+        }
+
+        return resourcesPath;
+    }
+}

@@ -1,0 +1,106 @@
+﻿@using Domain.ViewModel.User;
+@model LoginUserVM
+
+@{
+    ViewData["Title"] = "Üye Girişi / Kaydı";
+}
+
+<section style="background-color: #f0f0f0;">
+    <div class="container" style="padding:1px 0">
+
+        <div class="form-box" id="formscr">
+            <div id="formlogreg">
+            <div class="button-box">
+                <div id="btn"></div>
+                <button type="button" class="toggle-btn" onclick="login()">Giriş Yap</button>
+                <button type="button" class="toggle-btn" onclick="register()">Kayıt Ol</button>
+            </div>
+
+            <form id="login" asp-controller="Account" asp-action="Login" method="post" class="input-groupa">
+                <input type="text" name="Email" class="input-field" placeholder="E-posta" required>
+                <input type="password" name="Password" class="input-field" style="margin-bottom:20px;" placeholder="Şifre" required>
+                <input type="checkbox" class="check-box" name="checkbox">
+                <label for="checkbox" style="width:55%; padding-left:5px;">Şifremi Hatırla</label>
+
+                    <span id="hideform" class="sbclr">Şifremi Unuttum</span>
+                
+                <button type="submit" class="submit-btn">Giriş Yap</button>
+            </form>
+            
+            <form id="register" asp-controller="Account" asp-action="Register" method="post" class="input-groupa">
+                <input type="text" name="Username" class="input-field" placeholder="Kullanıcı Adınız" required>
+                <input type="text" name="Name" class="input-field" placeholder="Adınız" required>
+                <input type="text" name="Surname" class="input-field" placeholder="Soyadınız" required>
+                <input type="text" name="PhoneNumber" class="input-field" placeholder="Telefon Numaranız" required>
+                <input type="text" name="Email" class="input-field" placeholder="E-posta" required>
+                <input type="password" name="Password" class="input-field" placeholder="Şifre" required>
+                <input type="password" name="ConfirmPassword" class="input-field" placeholder="Şifre Tekrar" required>
+                <div style="font-size:13px; color:#ff4b2b;">*Şifreniz en az 7 harfden ve en fazla 64 karakterden oluşmalıdır.</div>
+
+
+                <div style="margin-top:20px;">
+                    <div>
+                        <input type="checkbox" class="check-box" name="checkbox">
+                        Kişisel verilerimin işlenmesine yönelik <a href="#" style="color:black;">aydınlatma metnini</a>  okudum ve anladım.
+                    </div>
+                </div>
+                <button type="submit" class="submit-btn">Kayıt Ol</button>
+            </form>
+            </div>
+            <form class="sifremiu input-groupa" id="fpass">
+                <div class="d-flex justify-content-center" style="cursor:pointer;" id="close">
+                      <img src="~/images/back.png" alt="Kapat">
+                    <span style="padding-top: 5px; padding-left: 10px;font-size: 20px;">Giriş Ekranına Dön</span>
+                </div>
+                <input type="text" name="Email" style="margin-top:20px;" class="input-field" placeholder="E-posta" required>
+                <button type="submit" class="submit-btn" style="margin-top:40px;">Gönder</button>
+
+            </form> 
+            <script>
+                const form = document.getElementById("formlogreg");
+                const hideform = document.getElementById("hideform");
+                const showform = document.getElementById("close");
+                const sifre = document.getElementById("fpass");
+                const formsrc = document.getElementById('formscr');
+
+                hideform.addEventListener("click", () => {
+                    form.style.display = "none";
+                    sifre.style.display = "block";
+                    formsrc.style.height = "300px";
+                });
+
+                showform.addEventListener("click", () => {
+                    form.style.display = "block";
+                    sifre.style.display = "none";
+                    formsrc.style.height = "390px";
+                });
+
+            </script>
+
+        </div>
+
+        <script src="app.js"></script>
+    </div>
+</section>
+
+<script>
+    let x = document.getElementById('login');
+    let y = document.getElementById('register');
+    let z = document.getElementById('btn');
+    let t = document.getElementById('formscr');
+
+    function register() {
+        x.style.left = "400px";
+        y.style.left = "50px";
+        z.style.left = "110px";
+        t.style.height = "700px";
+    
+    }
+
+    function login() {
+        x.style.left = "50px";
+        y.style.left = "450px";
+        z.style.left = "0px";
+        t.style.height = "390px";
+    }
+</script>

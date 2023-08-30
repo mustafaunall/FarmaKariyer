@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UserSecretsId>daa6caf0-943a-4c25-8457-861b9fff3ebf</UserSecretsId>
+    <DockerDefaultTargetOS>Linux</DockerDefaultTargetOS>
+    <DockerComposeProjectPath>..\docker-compose.dcproj</DockerComposeProjectPath>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Resources\Fonts\Pdfs\**" />
+    <Compile Remove="Resources\Pdfs\**" />
+    <Compile Remove="wwwroot\Resources\**" />
+    <Content Remove="Resources\Fonts\Pdfs\**" />
+    <Content Remove="Resources\Pdfs\**" />
+    <Content Remove="wwwroot\Resources\**" />
+    <EmbeddedResource Remove="Resources\Fonts\Pdfs\**" />
+    <EmbeddedResource Remove="Resources\Pdfs\**" />
+    <EmbeddedResource Remove="wwwroot\Resources\**" />
+    <None Remove="Resources\Fonts\Pdfs\**" />
+    <None Remove="Resources\Pdfs\**" />
+    <None Remove="wwwroot\Resources\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="IdentityServer4" Version="4.1.2" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.21" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.21">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.17.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Core\Core.csproj" />
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
+    <ProjectReference Include="..\Domain\Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Resources\Assets\" />
+    <Folder Include="Resources\Fonts\" />
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+</Project>

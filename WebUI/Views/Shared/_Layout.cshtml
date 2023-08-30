@@ -1,0 +1,7 @@
+﻿@using DataAccess.Model.User;
+@using Microsoft.AspNetCore.Identity;
+@inject UserManager<ApplicationUser> UserManager
+
+@*@if (User.Identity.IsAuthenticated) // Kullanıcı giriş yaptıysa true döner*@
+
+@RenderBody()
