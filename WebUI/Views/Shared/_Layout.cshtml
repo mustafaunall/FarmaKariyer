@@ -4,4 +4,312 @@
 
 @*@if (User.Identity.IsAuthenticated) // Kullanıcı giriş yaptıysa true döner*@
 
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Farma Kariyer</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="responsive.css">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <!--jquery-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
+    integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!--font family-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
+</head>
+
+<body>
+  <!--header start-->
+  <section>
+    <header>
+      <div style="height: 15px; background-color: var(--farmared);"></div>
+      <div class="container mt-2 mb-2">
+        <div class="row">
+          <div class="col-md-3 col-sm-12">
+                        <a href="#"><img src="~/images/logo1.png" alt="kodeforest" height="100px"></a>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div class="text-center" style="    
+            height: 100px;
+            align-items: center;
+            display: flex;">
+              <div id="scroll-container">
+                <div id="scroll-text">ilk ve tek eczaneler arası kariyer platformu <span
+                    style="font-weight: bold; color:red;">FarmaKariyer
+                  </span></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-3 col-sm-12 crsocial navsocial d-flex justify-content-center">
+            <div class="city_top_social">
+              <ul class="d-flex">
+                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--navbar-->
+      <div class="navbg" id="stickyj">
+        <div class="container navpadd">
+          <nav class=" navbar navbar-expand-lg navbar-dark">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+              aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav col-md-9">
+                <li class="nav-item">
+                  <a class="nav-link active" aria-current="page" href="#">Anasayfa</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Hakkımızda</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link">İletişim</a>
+                </li>
+                <li class="nav-item dropdown widget_service navdcolor">
+                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                    aria-expanded="false">
+                    Açılır pencere
+                  </a>
+                  <ul class="dropdown-menu p-0">
+                    <li><a class="dropdown-item" href="#">Action</a></li>
+                    <li><a class="dropdown-item" href="#">Another action</a></li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+            <div class="col-md-3 " style="position: relative;">
+              <div class="searchborder"></div>
+              <div class="form-group">
+                <div class="input-group searchform">
+                  <input type="text" class="form-control" placeholder="Arama yap..." id="inputGroup" />
+                  <a href="#"> <!--search icon-->
+                    <span class="input-group-addon me-2" style="position: relative; padding-right: 12px;">
+                      <i class="fa fa-search"></i>
+                      <div style="border-right: 1px solid white; position: absolute; top:0; right:0; height: 20px;">
+                      </div>
+                    </span>
+
+                  </a>
+                  <a href="#"> <!--search icon-->
+                    <span class="input-group-addon">
+                      <i class="fa fa-solid fa-user ms-1 searchprofile"></i>
+                    </span>
+                  </a>
+                </div>
+              </div>
+            </div>
+          </nav>
+          <script> //sticky js
+            var element = document.getElementById("stickyj");
+            $(window).scroll(function () {
+              if ($(this).scrollTop() > 120) {
+                element.classList.add("sticky");
+              } else {
+                element.classList.remove("sticky");
+              }
+            });
+          </script>
+
+          <!--navbar-->
+        </div>
+      </div>
+    </header>
+  </section>
+  <!--header end-->
+
 @RenderBody()
+
+
+  <!--footer start-->
+  <section>
+    <footer class="mt-5">
+      <div class="city_requset_wrap">
+        <div class="container footercon">
+          <div class="row">
+            <div class="col-md-6 col-sm-6">
+              <div class="city_request_list">
+                <div class="city_request_row">
+                  <span><i class="fa-regular fa-circle-question"></i></span>
+                  <div class="city_request_text">
+                    <span>Recent</span>
+                    <h4>Top Request</h4>
+                  </div>
+                </div>
+                <div class="city_request_link">
+                  <ul class="row">
+                    <li><a href="#">Pay a Parking Ticket</a></li>
+                    <li><a href="#">Building Violation</a></li>
+                    <li><a href="#">Affordable Housing</a></li>
+                    <li><a href="#">Graffiti Removal</a></li>
+                    <li><a href="#">Civil Service Exams</a></li>
+                    <li><a href="#">Rodent Baiting</a></li>
+                    <li class="margin0"><a href="#">Cleaning</a></li>
+                    <li class="margin0"><a href="#">Uncleared Sidewalk</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-6 col-sm-6">
+              <div class="city_request_list">
+                <div class="city_request_row">
+                  <span><i class="fa-solid fa-bullhorn"></i></span>
+                  <div class="city_request_text">
+                    <span>Recent</span>
+                    <h4>Announcement</h4>
+                  </div>
+                </div>
+                <div class="city_request_link">
+                  <ul class="row">
+                    <li><a href="#">Pay a Parking Ticket</a></li>
+                    <li><a href="#">Building Violation</a></li>
+                    <li><a href="#">Affordable Housing</a></li>
+                    <li><a href="#">Graffiti Removal</a></li>
+                    <li><a href="#">Civil Service Exams</a></li>
+                    <li><a href="#">Rodent Baiting</a></li>
+                    <li class="margin0"><a href="#">Cleaning</a></li>
+                    <li class="margin0"><a href="#">Uncleared Sidewalk</a></li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="widoverlay ">
+        <div class="overlay">
+          <div class="container footercon">
+            <div class="row">
+              <div class="col-md-3 col-sm-6">
+                <div class="widget_list">
+                  <h4 class="widget_title">Bize Ulaşın</h4>
+                  <div class="widget_text">
+                    <ul class="mb-3">
+                      <li><a href="#"><i class="fa-solid fa-phone"></i><span style="margin-left: 8px;">(212) 569 65
+                            54</span></a></li>
+                      <li><a href="#"><i class="fa-solid fa-envelope"></i><span
+                            style="margin-left: 8px;">farma@kariyer.com</span></a></li>
+                      <li><a href="#"><i class="fa-solid fa-location-dot"></i><span
+                            style="margin-left: 8px;">İstanbul/Türkiye</span></a></li>
+                    </ul>
+                    <p>Adres Bilgisi Adres Bilgisi Adres Bilgisi Adres Bilgisi Adres Bilgisi</p>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="row">
+                  <div class="col-md-4 col-sm-6">
+                    <div class="widget_list">
+                    </div>
+                  </div>
+                  <div class="col-md-4 col-sm-6">
+                  </div>
+                  <div class="col-md-4">
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6">
+                <div class="widget_list">
+                  <h4 class="widget_title">For Appointment</h4>
+                  <div class="widget_text text2">
+                    <ul>
+                      <li><a href="#">Monday<span>08 am - 3 pm</span></a></li>
+                      <li><a href="#">Tusday <span>08 am - 3 pm</span></a></li>
+                      <li><a href="#">Wednesfay<span>08 am - 3 pm</span></a></li>
+                      <li><a href="#">Thursday<span>08 am - 3 pm</span></a></li>
+                      <li><a href="#">FFriday <span>08 am - 3 pm</span></a></li>
+                      <li><a href="#">Saturday - Sunday<span>Closed</span></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="wcopyright row">
+              <div class="col-md-3 col-sm-6">
+                <div class="widget_logo">
+                                    <a href="#"><img src="~/images/logo.png" alt=""></a>
+                </div>
+              </div>
+              <div class="col-md-6">
+                <div class="text-center">
+                  <p>Copyright © 2023 CloudNoyo</p>
+                </div>
+              </div>
+              <div class="col-md-3 col-sm-6 crsocial">
+                <div class="city_top_social">
+                  <ul class="d-flex">
+                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                  </ul>
+                </div>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+
+    </footer>
+  </section>
+  <!--footer end-->
+  <!--owl-carousel-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+  <!--bootstrap5-->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+    crossorigin="anonymous"></script>
+  <script>
+    $(document).ready(function () {
+
+      $("#owl-demo").owlCarousel({
+        navigation: true,
+        items: 1,
+        loop: true,
+        nav: false,
+        dots: false
+      });
+
+    });
+  </script>
+
+  <script>
+    var owl = $('#farmaref');
+    owl.owlCarousel({
+      items: 6,
+      loop: true,
+      dots: false,
+      autoplay: true,
+      autoplayTimeout: 3000,
+      autoplayHoverPause: true
+    });
+    $('.play').on('click', function () {
+      owl.trigger('play.owl.autoplay', [1000])
+    })
+  </script>
+</body>
+
+</html>
