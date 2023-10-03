@@ -15,22 +15,6 @@
     <!-- For IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <title>Farma Kariyer</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="responsive.css">
-
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
-    crossorigin="anonymous" referrerpolicy="no-referrer" />
-  <!--jquery-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
-    integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!--font family-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
-
 
     <!-- master stylesheet -->
     <link rel="stylesheet" href="~/css/style.css">
@@ -40,327 +24,407 @@
     <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
     <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16">
+
+  <!--jquery-->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
+    integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <!--font family-->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
+
 </head>
 
 <body>
-  <!--header start-->
-  <section>
-    <header>
-      <div style="height: 15px; background-color: var(--farmared);"></div>
-      <div class="container mt-2 mb-2">
+    <!--header start-->
+    <div class="boxed_wrapper">
+<!--Start Preloader -->
+@* <div class="preloader"></div> -----------------------------pre-loader---------------------------*@ 
+<!--End Preloader -->  
+
+<!--Start Top bar area -->  
+<section class="top-bar-area">
+    <div class="container">
         <div class="row">
-          <div class="col-md-3 col-sm-12">
-                        <a href="#"><img src="~/images/logo1.png" alt="kodeforest" height="100px"></a>
-          </div>
-          <div class="col-md-6 col-sm-12">
-            <div class="text-center" style="    
+            <div class="col-md-8 col-sm-12 col-xs-12">
+                <div class="top-info">
+                    <ul>
+                        <li><span class="icon-signs"></span>Discover St, New York, NY 10012, USA</li>
+                        <li><span class="icon-clock"></span>Opening Time: Mon-Sat: 09.00 to 18.00</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-8 col-xs-9">
+                <div class="top-right">
+                    <ul>
+                        <li><a href="#">Quick Links</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Register</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-1 col-sm-4 col-xs-3">
+                <div class="language-switcher">
+                    <div id="polyglotLanguageSwitcher">
+                        <form action="#">
+                            <select id="polyglot-language-options">
+                                <option id="en" value="en" selected>Türkçe</option>
+                                <option id="en" value="en">English</option>
+                            </select>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+<!--End Top bar area --> 
+ 
+<!--Start header area-->
+<header class="header-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+                        <div class="logo" style="height:100px;">
+                            <a href="#"><img src="images/logo1.png" alt="kodeforest" style="height:100px;"></a>
+                </div>
+            </div>
+            <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
+                        <div class="text-center" style="
             height: 100px;
             align-items: center;
             display: flex;">
-              <div id="scroll-container">
-                <div id="scroll-text">ilk ve tek eczaneler arası kariyer platformu <span
-                    style="font-weight: bold; color:red;">FarmaKariyer
-                  </span></div>
-              </div>
+                            <div id="scroll-container">
+                                <div id="scroll-text">
+                                    ilk ve tek eczaneler arası kariyer platformu <span style="font-weight: bold; color:red;">
+                                        FarmaKariyer
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
             </div>
-          </div>
-          <div class="col-md-3 col-sm-12 crsocial navsocial d-flex justify-content-center">
-            <div class="city_top_social">
-              <ul class="d-flex">
-                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <!--navbar-->
-      <div class="navbg" id="stickyj">
-        <div class="container navpadd">
-          <nav class=" navbar navbar-expand-lg navbar-dark">
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-              data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-              aria-label="Toggle navigation">
-              <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-              <ul class="navbar-nav col-md-9">
-                <li class="nav-item">
-                  <a class="nav-link active" aria-current="page" href="#">Anasayfa</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="#">Hakkımızda</a>
-                </li>
-
-                <li class="nav-item">
-                  <a class="nav-link">İletişim</a>
-                </li>
-                <li class="nav-item dropdown widget_service navdcolor">
-                  <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-                    aria-expanded="false">
-                    Açılır pencere
-                  </a>
-                  <ul class="dropdown-menu p-0">
-                    <li><a class="dropdown-item" href="#">Action</a></li>
-                    <li><a class="dropdown-item" href="#">Another action</a></li>
-                  </ul>
-                </li>
-              </ul>
-            </div>
-                               @*Burası tekrar yapılacak.*@
-            <div class="col-md-3 " style="position: relative;">
-              <div class="searchborder"></div>
-              <div class="form-group">
-                <div class="input-group searchform">
-                  <input type="text" class="form-control" placeholder="Arama yap..." id="inputGroup" />
-                  <a href="#"> <!--search icon-->
-                    <span class="input-group-addon me-2" style="position: relative; padding-right: 12px;">
-                      <i class="fa fa-search"></i>
-                      <div style="border-right: 1px solid white; position: absolute; top:0; right:0; height: 20px;">
-                      </div>
-                    </span>
-
-                  </a>
-                  <a href="#"> <!--search icon-->
-                    <span class="input-group-addon">
-                      <i class="fa fa-solid fa-user ms-1 searchprofile"></i>
-                    </span>
-                  </a>
+            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                <div class="top-social-links">
+                    <ul>
+                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                    </ul>
                 </div>
-              </div>
-            </div> 
-          </nav>
-          <script> //sticky js
-            var element = document.getElementById("stickyj");
-            $(window).scroll(function () {
-              if ($(this).scrollTop() > 120) {
-                element.classList.add("sticky");
-              } else {
-                element.classList.remove("sticky");
-              }
-            });
-          </script>
-
-          <!--navbar-->
+            </div>
+            
         </div>
-      </div>
-    </header>
-  </section>
-  <!--header end-->
+    </div>
+</header>  
+<!--End header area--> 
 
-@RenderBody()
+<!--Start mainmenu area-->
+<section class="mainmenu-area stricky">
+    <div class="container">
+        <div class="mainmenu-bg">
+            <div class="row">
+                <div class="col-md-10 col-sm-12 col-xs-12">
+                    <!--Start mainmenu-->
+                    <nav class="main-menu">
+                        <div class="navbar-header">   	
+                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                                <span class="icon-bar"></span>
+                            </button>
+                        </div>
+                        <div class="navbar-collapse collapse clearfix">
+                            <ul class="navigation clearfix">
+                                <li class="home current"><a href="index.html"><span class="fa fa-home"></span></a></li>
+                                <li class="dropdown"><a href="about.html">About us</a>
+                                    <ul>
+                                        <li><a href="company-overview.html">Company Overview</a></li>
+                                        <li><a href="company-history.html">Company History</a></li>
+                                        <li><a href="our-team.html">Our Team</a></li>
+                                        <li><a href="our-partner.html">Our Partner</a></li>
+                                        <li><a href="faq.html">FAQ's</a></li>
+                                        <li><a href="client-feedback.html">Client Feedback</a></li>
+                                        <li><a href="404.html">404 Page</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="services.html">Our Services</a>
+                                    <ul>
+                                        <li><a href="business-planning.html">Business Planning</a></li>
+                                        <li><a href="audit-assurance.html">Audit & Assurance</a></li>
+                                        <li><a href="trades-stocks.html">Trades & Stocks</a></li>
+                                        <li><a href="investment-plan.html">Investment Plan</a></li>
+                                        <li><a href="risk-management.html">Risk Management</a></li>
+                                        <li><a href="succession-planning.html">Succession Planning</a></li>
+                                        <li><a href="strategic-planning.html">Strategic Planning</a></li>
+                                        <li><a href="financial-projections.html">Financial Projections</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="blog.html">Latest News</a>
+                                    <ul>
+                                        <li><a href="blog.html">Blog Default</a></li>
+                                        <li><a href="blog-grid.html">Blog Grid View</a></li>
+                                        <li><a href="blog-list.html">Blog List View</a></li>
+                                        <li><a href="blog-single.html">Blog Single Post</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="project.html">Projects</a>
+                                    <ul>
+                                        <li><a href="project-grid.html">Grid View</a></li>
+                                        <li><a href="project-grid-with-text.html">Grid With Text</a></li>
+                                        <li><a href="project.html">Projects Gallery Style</a></li>
+                                        <li><a href="project-single.html">Projects Single Post</a></li>
+                                    </ul>
+                                </li>
+                                <li class="dropdown"><a href="shop.html">Shop</a>
+                                    <ul>
+                                        <li><a href="shop.html">Shop Products</a></li>
+                                        <li><a href="shop-single.html">Single Product</a></li>
+                                        <li><a href="shopping-cart.html">Shopping Cart</a></li>
+                                        <li><a href="checkout.html">Checkout</a></li>
+                                        <li><a href="account.html">My Account</a></li>
+                                    </ul>
+                                </li>
+                                <li><a href="contact.html">Contact Us</a></li>
+                            </ul>
+                        </div>
+                    </nav>
+                    <!--End mainmenu-->
+                    <!--Start search box-->
+                 
+                    <!--End search box-->
+                </div>
+                <div class="col-md-2 col-sm-12 col-xs-12">
+                    <div class="free-consulation-button pull-right">
+                                <a class="thm-btn bg-clr1" href="#">Giriş Yap</a>
+                            </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!--End mainmenu area-->
+
+ @RenderBody()
 
 
   <!--footer start-->
-  <section>
-    <footer class="mt-5">
-      <div class="city_requset_wrap">
-        <div class="container footercon">
-          <div class="row">
-            <div class="col-md-6 col-sm-6">
-              <div class="city_request_list">
-                <div class="city_request_row">
-                  <span><i class="fa-regular fa-circle-question"></i></span>
-                  <div class="city_request_text">
-                    <span>Recent</span>
-                    <h4>Top Request</h4>
-                  </div>
-                </div>
-                <div class="city_request_link">
-                  <ul class="row">
-                    <li><a href="#">Pay a Parking Ticket</a></li>
-                    <li><a href="#">Building Violation</a></li>
-                    <li><a href="#">Affordable Housing</a></li>
-                    <li><a href="#">Graffiti Removal</a></li>
-                    <li><a href="#">Civil Service Exams</a></li>
-                    <li><a href="#">Rodent Baiting</a></li>
-                    <li class="margin0"><a href="#">Cleaning</a></li>
-                    <li class="margin0"><a href="#">Uncleared Sidewalk</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-            <div class="col-md-6 col-sm-6">
-              <div class="city_request_list">
-                <div class="city_request_row">
-                  <span><i class="fa-solid fa-bullhorn"></i></span>
-                  <div class="city_request_text">
-                    <span>Recent</span>
-                    <h4>Announcement</h4>
-                  </div>
-                </div>
-                <div class="city_request_link">
-                  <ul class="row">
-                    <li><a href="#">Pay a Parking Ticket</a></li>
-                    <li><a href="#">Building Violation</a></li>
-                    <li><a href="#">Affordable Housing</a></li>
-                    <li><a href="#">Graffiti Removal</a></li>
-                    <li><a href="#">Civil Service Exams</a></li>
-                    <li><a href="#">Rodent Baiting</a></li>
-                    <li class="margin0"><a href="#">Cleaning</a></li>
-                    <li class="margin0"><a href="#">Uncleared Sidewalk</a></li>
-                  </ul>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-
-      <div class="widoverlay ">
-        <div class="overlay">
-          <div class="container footercon">
-            <div class="row">
-              <div class="col-md-3 col-sm-6">
-                <div class="widget_list">
-                  <h4 class="widget_title">Bize Ulaşın</h4>
-                  <div class="widget_text">
-                    <ul class="mb-3">
-                      <li><a href="#"><i class="fa-solid fa-phone"></i><span style="margin-left: 8px;">(212) 569 65
-                            54</span></a></li>
-                      <li><a href="#"><i class="fa-solid fa-envelope"></i><span
-                            style="margin-left: 8px;">farma@kariyer.com</span></a></li>
-                      <li><a href="#"><i class="fa-solid fa-location-dot"></i><span
-                            style="margin-left: 8px;">İstanbul/Türkiye</span></a></li>
-                    </ul>
-                    <p>Adres Bilgisi Adres Bilgisi Adres Bilgisi Adres Bilgisi Adres Bilgisi</p>
-                  </div>
-                </div>
-              </div>
-              <div class="col-md-6">
-                <div class="row">
-                  <div class="col-md-4 col-sm-6">
-                    <div class="widget_list">
+        <!--Start footer area-->
+        <footer class="footer-area" style="background-image:url(images/widget-bgb.jpg);">
+            <div class="footer-top-area">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="footer-top-content">
+                                <div class="title pull-left">
+                                    <h3>Over 20 years of experience we will ensure you always get the best.</h3>
+                                </div>
+                                <div class="button pull-right">
+                                    <a class="thm-btn bg-clr1" href="#">Book Consultation</a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                  </div>
-                  <div class="col-md-4 col-sm-6">
-                  </div>
-                  <div class="col-md-4">
-                  </div>
                 </div>
-              </div>
-              <div class="col-md-3 col-sm-6">
-                <div class="widget_list">
-                  <h4 class="widget_title">For Appointment</h4>
-                  <div class="widget_text text2">
-                    <ul>
-                      <li><a href="#">Monday<span>08 am - 3 pm</span></a></li>
-                      <li><a href="#">Tusday <span>08 am - 3 pm</span></a></li>
-                      <li><a href="#">Wednesfay<span>08 am - 3 pm</span></a></li>
-                      <li><a href="#">Thursday<span>08 am - 3 pm</span></a></li>
-                      <li><a href="#">FFriday <span>08 am - 3 pm</span></a></li>
-                      <li><a href="#">Saturday - Sunday<span>Closed</span></a></li>
-                    </ul>
-                  </div>
-                </div>
-              </div>
             </div>
-            <div class="wcopyright row">
-              <div class="col-md-3 col-sm-6">
-                <div class="widget_logo">
-                                    <a href="#"><img src="~/images/logo.png" alt=""></a>
+            <div class="container">
+                <div class="row">
+                    <!--Start single footer widget-->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-footer-widget pd-bottom">
+                            <div class="footer-logo">
+                                <a href="index.html">
+                                    <img src="images/logo1.png" alt="Awesome Footer Logo">
+                                </a>
+                            </div>
+                            <div class="our-info">
+                                <p>Our team offers the most up-to-date, sustainable manufacturing solutions. teachings of the great explorer of the truth We only source materials from tried and trusted suppliers.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End single footer widget-->
+                    <!--Start single footer widget-->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-footer-widget wedo pd-left pd-bottom">
+                            <div class="title">
+                                <h3>What We Do</h3>
+                            </div>
+                            <ul class="we-do-list">
+                                <li><a href="#">Business Growth</a></li>
+                                <li><a href="#">Sustainability</a></li>
+                                <li><a href="#">Performance</a></li>
+                                <li><a href="#">Customer Insights</a></li>
+                                <li><a href="#">Organization</a></li>
+                                <li><a href="#">Advanced Analytics</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--Start single footer widget-->
+                    <!--Start single footer widget-->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-footer-widget">
+                            <div class="title">
+                                <h3>Latest News</h3>
+                            </div>
+                            <ul class="latest-news-items">
+                                <li>
+                                    <a href="#">
+                                        Seminar for improve your business<br> profit & loss
+                                    </a>
+                                    <p>August 21, 2016</p>
+                                </li>
+                                <li>
+                                    <a href="#">
+                                        Experts Openion for save money<br> for your future.
+                                    </a>
+                                    <p>March 14, 2016</p>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--End single footer widget-->
+                    <!--Start single footer widget-->
+                    <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
+                        <div class="single-footer-widget pd-top pd-left">
+                            <div class="title">
+                                <h3>Contact Us</h3>
+                            </div>
+                            <ul class="footer-contact-info">
+                                <li>
+                                    <div class="icon-holder">
+                                        <span class="icon-world"></span>
+                                    </div>
+                                    <div class="text-holder">
+                                        <p>22/121 Apple Street, New York,<br> NY 10012, USA</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon-holder">
+                                        <span class="icon-technology-1"></span>
+                                    </div>
+                                    <div class="text-holder">
+                                        <p>Phone: +123-456-7890</p>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="icon-holder">
+                                        <span class="icon-letter-1 bottom-envelop"></span>
+                                    </div>
+                                    <div class="text-holder">
+                                        <p>Mail@Assuranceteam.com</p>
+                                    </div>
+                                </li>
+                            </ul>
+                            <ul class="footer-social-links">
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--End single footer widget-->
                 </div>
-              </div>
-              <div class="col-md-6">
-                <div class="text-center">
-                  <p>Copyright © 2023 CloudNoyo</p>
-                </div>
-              </div>
-              <div class="col-md-3 col-sm-6 crsocial">
-                <div class="city_top_social">
-                  <ul class="d-flex">
-                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-                  </ul>
-                </div>
-              </div>
-
             </div>
-          </div>
-
-        </div>
-      </div>
-
-
-    </footer>
-  </section>
-
+        </footer>
+        <!--End footer area-->
+        <!--Start footer bottom area-->
+        <section class="footer-bottom-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <div class="footer-bottom">
+                            <div class="copyright-text pull-left">
+                                <p>Copyrights © 2024 All Tüm Hakları Saklıdır.<a href="#">FarmaKariyer </a><span style="margin-right:0 5px;"></span><a href="#" style="color:white;">Cloudnoyo</a></p>
+                            </div>
+                            <div class="footer-menu pull-right">
+                                <ul>
+                                    <li><a href="#">Legal</a></li>
+                                    <li><a href="#">Sitemap</a></li>
+                                    <li><a href="#">Privacy Policy</a></li>
+                                    <li><a href="#">Terms & Condition</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!--End footer bottom area-->
+        <!--Scroll to top-->
+        <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
 
 
     <!--Scroll to top-->
     <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
-
-    <!-- main jQuery -->
-    <script src="~/js/jquery-1.11.1.min.js"></script>
-    <!-- bootstrap -->
-    <script src="~/js/bootstrap.min.js"></script>
-    <!-- bx slider -->
-    <script src="~/js/jquery.bxslider.min.js"></script>
-    <!-- count to -->
-    <script src="~/js/jquery.countTo.js"></script>
-    <!-- owl carousel -->
-    <script src="~/js/owl.carousel.min.js"></script>
-    <!-- validate -->
-    <script src="~/js/validation.js"></script>
-    <!-- mixit up -->
-    <script src="~/js/jquery.mixitup.min.js"></script>
-    <!-- easing -->
-    <script src="~/js/jquery.easing.min.js"></script>
-    <!-- gmap helper -->
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHzPSV2jshbjI8fqnC_C4L08ffnj5EN3A"></script>
-    <!--gmap script-->
-    <script src="~/js/gmaps.js"></script>
-    <script src="~/js/map-helper.js"></script>
-    <!-- fancy box -->
-    <script src="~/js/jquery.fancybox.pack.js"></script>
-    <script src="~/js/jquery.appear.js"></script>
-    <!-- isotope script-->
-    <script src="~/js/isotope.js"></script>
-    <script src="~/js/jquery.prettyPhoto.js"></script>
-    <script src="~/js/jquery.bootstrap-touchspin.js"></script>
-    <!-- jQuery timepicker js -->
-    <script src="~/assets/timepicker/timePicker.js"></script>
-    <!-- Bootstrap select picker js -->
-    <script src="~/assets/bootstrap-sl-1.12.1/bootstrap-select.js"></script>
-    <!-- Bootstrap bootstrap touchspin js -->
-    <!-- jQuery ui js -->
-    <script src="~/assets/jquery-ui-1.11.4/jquery-ui.js"></script>
-    <!-- Language Switche  -->
-    <script src="~/assets/language-switcher/jquery.polyglot.language.switcher.js"></script>
-    <!-- Html 5 light box script-->
-    <script src="~/assets/html5lightbox/html5lightbox.js"></script>
-
-    <!-- revolution slider js -->
-    <script src="~/assets/revolution/js/jquery.themepunch.tools.min.js"></script>
-    <script src="~/assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
-    <script src="~/assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-    <script src="~/assets/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-    <script src="~/assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-    <script src="~/assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-    <script src="~/assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
-    <script src="~/assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-    <script src="~/assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-    <script src="~/assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-    <script src="~/assets/revolution/js/extensions/revolution.extension.video.min.js"></script>
-
-
-
-    <!-- thm custom script -->
-    <script src="~/js/custom.js"></script>
+    </div>
+   
 
 
   <!--footer end-->
   <!--owl-carousel-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
-  <!--bootstrap5-->
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
-    crossorigin="anonymous"></script>
+
+
+    <!-- main jQuery -->
+    <script src="js/jquery-1.11.1.min.js"></script>
+    <!-- bootstrap -->
+    <script src="js/bootstrap.min.js"></script>
+    <!-- bx slider -->
+    <script src="js/jquery.bxslider.min.js"></script>
+    <!-- count to -->
+    <script src="js/jquery.countTo.js"></script>
+    <!-- owl carousel -->
+    <script src="js/owl.carousel.min.js"></script>
+    <!-- validate -->
+    <script src="js/validation.js"></script>
+    <!-- mixit up -->
+    <script src="js/jquery.mixitup.min.js"></script>
+    <!-- easing -->
+    <script src="js/jquery.easing.min.js"></script>
+    <!-- gmap helper -->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHzPSV2jshbjI8fqnC_C4L08ffnj5EN3A"></script>
+    <!--gmap script-->
+    <script src="js/gmaps.js"></script>
+    <script src="js/map-helper.js"></script>
+    <!-- fancy box -->
+    <script src="js/jquery.fancybox.pack.js"></script>
+    <script src="js/jquery.appear.js"></script>
+    <!-- isotope script-->
+    <script src="js/isotope.js"></script>
+    <script src="js/jquery.prettyPhoto.js"></script>
+    <script src="js/jquery.bootstrap-touchspin.js"></script>
+    <!-- jQuery timepicker js -->
+    <script src="assets/timepicker/timePicker.js"></script>
+    <!-- Bootstrap select picker js -->
+    <script src="assets/bootstrap-sl-1.12.1/bootstrap-select.js"></script>
+    <!-- Bootstrap bootstrap touchspin js -->
+    <!-- jQuery ui js -->
+    <script src="assets/jquery-ui-1.11.4/jquery-ui.js"></script>
+    <!-- Language Switche  -->
+    <script src="assets/language-switcher/jquery.polyglot.language.switcher.js"></script>
+    <!-- Html 5 light box script-->
+    <script src="assets/html5lightbox/html5lightbox.js"></script>
+
+    <!-- revolution slider js -->
+    <script src="assets/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="assets/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="assets/revolution/js/extensions/revolution.extension.video.min.js"></script>
+
+
+
+    <!-- thm custom script -->
+    <script src="js/custom.js"></script>
+
   <script>
     $(document).ready(function () {
 
@@ -390,5 +454,4 @@
     })
   </script>
 </body>
-
 </html>
