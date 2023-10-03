@@ -2,56 +2,33 @@
     ViewData["Title"] = "Hakkımızda";
 }
 <!--Start breadcrumb area-->
-<section class="breadcrumb-area" style="background-image: url('@Url.Content("~/images/resources/breadcrumb-bg.jpg")');">
+<section class="breadcrumb-area" style="background-image: url(/images/resources/breadcrumb-bg.jpg);">
     <div class="container text-center">
-        <h1>Hakkımızda</h1>
+        <h1>About</h1>
     </div>
 </section>
 <!--End breadcrumb area-->
+<!--Start breadcrumb bottom area-->
+<section class="breadcrumb-botton-area">
+    <div class="container">
+        <div class="left pull-left">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                <li>About Us</li>
+            </ul>
+        </div>
+        <div class="right pull-right">
+            <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i>Share</a>
+        </div>
+    </div>
+</section>
+<!--End breadcrumb bottom area-->
 <!--Start company overview area-->
 <section class="company-overview-area">
     <div class="container">
-        <div class="col-lg-3 col-md-4 col-sm-7 col-xs-12 pull-left">
-            <div class="left-sidebar">
-                <!--Start single sidebar-->
-                <div class="single-sidebar">
-                    <ul class="page-link">
-                        <li>
-                            <a href="@Url.Action("Contact","Home")">
-                                İletişim
-                                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("AboutUs","Home")">
-                                Hakkımızda
-                                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("OurPartners","Home")">
-                                Partnerlerimiz
-                                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("FeedBacks","Home")">
-                                Geri Dönüşler
-                                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                        <li>
-                            <a href="@Url.Action("Faq","Home")">
-                                Sıkça Sorulan Sorular
-                                <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
         <div class="row">
-            <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 pull-right">
+            <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12 pull-right">
                 <div class="row">
                     <div class="col-md-12">
                         <div class="top-img-box">
@@ -60,7 +37,7 @@
                     </div>
                 </div>
                 <div class="row overview-content-pdbottom">
-                    <div class="col-md-12">
+                    <div class="col-md-7">
                         <div class="overview-content">
                             <div class="sec-title">
                                 <h1>Overview</h1>
@@ -72,12 +49,46 @@
                             </div>
                         </div>
                     </div>
+                    <div class="col-md-5">
+                        <div class="progress-br">
+                            <div class="pgrs-bar-wrapper">
+                                <div class="inner-box">
+                                    <ul class="pgrs-bar">
+                                        <li>
+                                            <h5>Consulting</h5>
+                                            <div class="box">
+                                                <div class="inner wow fadeInLeft" data-wow-duration="2s" data-wow-delay="0s" data-wow-offset="0" style="width: 90%;">
+                                                    <span>90%</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h5>Finance</h5>
+                                            <div class="box">
+                                                <div class="inner wow fadeInLeft" data-wow-duration="2s" data-wow-delay=".5s" data-wow-offset="0" style="width: 65%;">
+                                                    <span>65%</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <h5>Marketing</h5>
+                                            <div class="box">
+                                                <div class="inner wow fadeInLeft" data-wow-duration="2s" data-wow-delay=".5s" data-wow-offset="0" style="width: 80%;">
+                                                    <span>80%</span>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
                 <div class="row">
-                    <div class="col-md-6">
+                    <div class="col-md-7">
                         <div class="mission-content">
                             <div class="sec-title">
-                                <h3>Our Mission</h3>
+                                <h3>Vizyonumuz & Misyonumuz</h3>
                                 <span class="border"></span>
                             </div>
                             <ul>
@@ -112,24 +123,128 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-6">
+                    <div class="col-md-5">
                         <div class="mission-video-gallery">
                             <div class="video-holder">
                                 <img src="~/images/company-overview/mission-video-gallery.jpg" alt="Awesome Video Gallery">
-                                <div class="overlay-gallery">
-                                    <div class="icon-holder">
-                                        <div class="icon">
-                                            <a class="html5lightbox" title="Assurance Video Gallery" href="https://www.youtube.com/watch?v=XOv7RmXi7VE"><img src="images/icon/play-btn-1.png" alt="Play Button"></a>
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
 
+  
+
+
             </div>
-            
+            <div class="col-lg-3 col-md-4 col-sm-7 col-xs-12 pull-left">
+                <div class="left-sidebar">
+                    <!--Start single sidebar-->
+                    <div class="single-sidebar">
+                        <ul class="page-link">
+                            <li>
+                                <a class="active" href="company-overview.html">
+                                    Company Overview
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="company-history.html">
+                                    Company History
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="our-team.html">
+                                    Our Team
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="faq.html">
+                                    FAQ’s
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="our-partner.html">
+                                    Our Partner
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="client-feedback.html">
+                                    Client Feedback
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--End single sidebar-->
+                    <!--Start single sidebar-->
+                    <div class="single-sidebar">
+                        <ul class="download-link">
+                            <li>
+                                <a href="#">
+                                    <div class="icon-holder">
+                                        <span class="icon-pdf"></span>
+                                    </div>
+                                    <div class="title-holder">
+                                        <h5>Our Presentation.PDF</h5>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <div class="icon-holder">
+                                        <span class="icon-word-document"></span>
+                                    </div>
+                                    <div class="title-holder">
+                                        <h5>Financial Report.DOC</h5>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <!--End single sidebar-->
+                    <!--Start single sidebar-->
+                    <div class="single-sidebar">
+                        <div class="sidebar-testimonial">
+                            <div class="text-box">
+                                <p>They have got my project on time with competition well organized and very experienced team of professional engineers and good leaders.</p>
+                            </div>
+                            <div class="client-info">
+                                <div class="img-box">
+                                    <img src="~/images/testimonial/sidebar-testimonial.png" alt="Client Photo">
+                                </div>
+                                <div class="title-box">
+                                    <h4>Mark Vilton <span>- Villo Ceo</span></h4>
+                                    <div class="review-box">
+                                        <ul>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                            <li><i class="fa fa-star"></i></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--End single sidebar-->
+                    <!--Start single sidebar-->
+                    <div class="single-sidebar">
+                        <div class="business-enquiry">
+                            <h4>For Business Enquiry</h4>
+                            <p>
+                                You can also send us an <a href="#">email</a> and we’ll get in touch shortly, or You can call to our toll free number<br>
+                                <a href="#">(+91) 1800-700-6202.</a>
+                            </p>
+                        </div>
+                    </div>
+                    <!--End single sidebar-->
+                </div>
+            </div>
 
         </div>
     </div>
