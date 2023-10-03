@@ -5582,5 +5582,6 @@ select:focus {
 .project-single-area .bottom .icon-holder a:hover i{
   color: #ff2b58;
 }
-
-
+.owl-item{
+    margin-right:7px;
+}
