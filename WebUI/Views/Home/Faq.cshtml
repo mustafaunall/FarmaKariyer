@@ -1,121 +1,91 @@
 ﻿@{
     ViewData["Title"] = "Sıkça Sorulan Sorular";
 }
+
 <!--Start breadcrumb area-->
-<section class="breadcrumb-area" style="background-image: url('@Url.Content("~/images/resources/breadcrumb-bg.jpg")');">
+<section class="breadcrumb-area" style="background-image: url(~/images/resources/breadcrumb-bg.jpg);">
     <div class="container text-center">
         <h1>Sıkça Sorulan Sorular</h1>
     </div>
 </section>
 <!--End breadcrumb area-->
+<!--Start breadcrumb bottom area-->
+<section class="breadcrumb-botton-area">
+    <div class="container">
+        <div class="left pull-left">
+            <ul>
+                <li><a href="index.html">Anasayfa</a></li>
+                <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                <li>Sıkça Sorulan Sorular</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--End breadcrumb bottom area-->
 <!--Start faq content area-->
 <section class="faq-content-area">
     <div class="container">
         <div class="row">
-
-            @**********************************buraya bak*****************************@
-           <div class="col-lg-3 col-md-4 col-sm-7 col-xs-12 float-start">
-                <div class="left-sidebar">
-                    <!--Start single sidebar-->
-                    <div class="single-sidebar">
-                        <ul class="page-link">
-                            <li>
-                                <a href="@Url.Action("Contact","Home")">
-                                    İletişim
-                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("AboutUs","Home")">
-                                    Hakkımızda
-                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li>
-                            <li>
-                                <a href="@Url.Action("OurPartners","Home")">
-                                    Partnerlerimiz
-                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("FeedBacks","Home")">
-                                    Geri Dönüşler
-                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="@Url.Action("Faq","Home")">
-                                    Sıkça Sorulan Sorular
-                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--End single sidebar-->
-                    <!--Start single sidebar-->
-                </div>
-            </div>
-            <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12 float-end">
+            <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12 pull-right">
                 <div class="content-box">
                     <div class="accordion-box">
                         <!--Start single accordion box-->
                         <div class="accordion accordion-block">
-                            <div class="accord-btn">
-                                <h4>Assurance Consulting have a unique way of working</h4>
-                            </div>
-                            <div class="accord-content">
-                                <p>Supported by a robust sales force and tight cost controls, Pharm Ltd. experienced sustained double-digit growth over a number of years, only too find that their supply chains struggled to keep seds pace. In particulars, the initial state off the company’s sales denouncings pleasure and praisings pain was born and I will give you a complete </p>
-                            </div>
-                        </div>
-                        <!--End single accordion box-->
-                        <!--Start single accordion box-->
-                        <div class="accordion accordion-block">
                             <div class="accord-btn active">
-                                <h4>We bring together the best people to the world</h4>
+                                <h4>Yapay zeka nedir ?</h4>
                             </div>
                             <div class="accord-content collapsed">
-                                <p>Supported by a robust sales force and tight cost controls, Pharm Ltd. experienced sustained double-digit growth over a number of years, only too find that their supply chains struggled to keep seds pace. In particulars, the initial state off the company’s sales denouncings pleasure and praisings pain was born and I will give you a complete </p>
+                                <p>Yapay zeka, bilgisayar sistemlerinin insan benzeri düşünme ve öğrenme yeteneklerini simüle etmek için kullanılan bir teknoloji dalıdır.</p>
                             </div>
                         </div>
                         <!--End single accordion box-->
                         <!--Start single accordion box-->
                         <div class="accordion accordion-block">
                             <div class="accord-btn">
-                                <h4>How do I submit a sponsorship request?</h4>
+                                <h4>Yapay zeka nasıl çalışır ?</h4>
                             </div>
                             <div class="accord-content">
-                                <p>Supported by a robust sales force and tight cost controls, Pharm Ltd. experienced sustained double-digit growth over a number of years, only too find that their supply chains struggled to keep seds pace. In particulars, the initial state off the company’s sales denouncings pleasure and praisings pain was born and I will give you a complete </p>
+                                <p>Yapay zeka, algoritmalar, veri ve hesaplama gücü kullanılarak bilgisayarların öğrenme, problem çözme ve tahmin yapma yeteneklerini geliştiren bir bilim dalıdır.</p>
                             </div>
                         </div>
                         <!--End single accordion box-->
                         <!--Start single accordion box-->
                         <div class="accordion accordion-block">
                             <div class="accord-btn">
-                                <h4>Is it true that you are giving away mobile phones and laptops?</h4>
+                                <h4>Makine öğrenmesi nedir ?</h4>
                             </div>
                             <div class="accord-content">
-                                <p>Supported by a robust sales force and tight cost controls, Pharm Ltd. experienced sustained double-digit growth over a number of years, only too find that their supply chains struggled to keep seds pace. In particulars, the initial state off the company’s sales denouncings pleasure and praisings pain was born and I will give you a complete </p>
+                                <p>Makine öğrenmesi, bilgisayar sistemlerinin deneyimlerden öğrenmesine izin veren bir yapay zeka alt dalıdır. Algoritmalar, veri kullanarak modeller oluşturur ve gelecekteki verileri tahmin etmek için kullanılır.</p>
                             </div>
                         </div>
                         <!--End single accordion box-->
                         <!--Start single accordion box-->
                         <div class="accordion accordion-block">
                             <div class="accord-btn">
-                                <h4>Are you giving away mobile phones and laptops?</h4>
+                                <h4>Derin öğrenme nedir ?</h4>
                             </div>
                             <div class="accord-content">
-                                <p>Supported by a robust sales force and tight cost controls, Pharm Ltd. experienced sustained double-digit growth over a number of years, only too find that their supply chains struggled to keep seds pace. In particulars, the initial state off the company’s sales denouncings pleasure and praisings pain was born and I will give you a complete.</p>
+                                <p>Derin öğrenme, yapay sinir ağları adı verilen çok katmanlı yapay ağları kullanarak karmaşık desenleri ve temsillemeleri öğreten bir makine öğrenmesi alt dalıdır.</p>
                             </div>
                         </div>
                         <!--End single accordion box-->
                         <!--Start single accordion box-->
                         <div class="accordion accordion-block">
                             <div class="accord-btn">
-                                <h4>I am a student, can I become a trainee at your company?</h4>
+                                <h4>Robotik nedir ?</h4>
                             </div>
                             <div class="accord-content">
-                                <p>Supported by a robust sales force and tight cost controls, Pharm Ltd. experienced sustained double-digit growth over a number of years, only too find that their supply chains struggled to keep seds pace. In particulars, the initial state off the company’s sales denouncings pleasure and praisings pain was born and I will give you a complete </p>
+                                <p>Robotik, bilgisayar bilimleri, mühendislik ve yapay zeka gibi alanların birleşimiyle, otomatik olarak kontrol edilen fiziksel cihazlar veya robotlar oluşturmayı amaçlayan bir teknoloji dalıdır.</p>
+                            </div>
+                        </div>
+                        <!--End single accordion box-->
+                        <!--Start single accordion box-->
+                        <div class="accordion accordion-block">
+                            <div class="accord-btn">
+                                <h4>Büyük veri nedir ?</h4>
+                            </div>
+                            <div class="accord-content">
+                                <p>Büyük veri, geleneksel veritabanları ve veri işleme yöntemleri ile yönetilemeyecek kadar büyük, karmaşık ve hızlı bir şekilde üretilen veri setlerini ifade eder. Bu veriler, analiz edilerek değerli bilgiler elde etmemize olanak sağlar. </p>
                             </div>
                         </div>
                         <!--End single accordion box-->
@@ -132,20 +102,20 @@
                         <!--Start single accordion box-->
                         <div class="accordion accordion-block">
                             <div class="accord-btn">
-                                <h4>What kind of financial advice do you give?</h4>
+                                <h4>Yapay zeka etik sorunları nelerdir ?</h4>
                             </div>
                             <div class="accord-content">
-                                <p>Supported by a robust sales force and tight cost controls, Pharm Ltd. experienced sustained double-digit growth over a number of years, only too find that their supply chains struggled to keep seds pace. In particulars, the initial state off the company’s sales denouncings pleasure and praisings pain was born and I will give you a complete </p>
+                                <p>Yapay zeka etik sorunları, özel hayatın gizliliği, veri güvenliği, otomatik karar verme süreçlerindeki önyargılar, iş kaybı ve robotların insanlarla etkileşimi gibi konuları içerir.</p>
                             </div>
                         </div>
                         <!--End single accordion box-->
                         <!--Start single accordion box-->
                         <div class="accordion accordion-block">
                             <div class="accord-btn">
-                                <h4>Does Dynamic share my contact info with others?</h4>
+                                <h4>Yapay zeka gelecekte insan işlerini elinden alacak mı ?</h4>
                             </div>
                             <div class="accord-content">
-                                <p>Supported by a robust sales force and tight cost controls, Pharm Ltd. experienced sustained double-digit growth over a number of years, only too find that their supply chains struggled to keep seds pace. In particulars, the initial state off the company’s sales denouncings pleasure and praisings pain was born and I will give you a complete </p>
+                                <p>Yapay zeka işleri otomatikleştirebilir, ancak yeni iş alanları yaratma potansiyeline de sahiptir. İnsanlar ve yapay zeka birlikte çalışarak daha verimli sonuçlar elde edebilir.</p>
                             </div>
                         </div>
                         <!--End single accordion box-->
@@ -153,7 +123,7 @@
                 </div>
                 <div class="faq-form">
                     <div class="sec-title">
-                        <h3>Did’nt Find Answer, Contact Us</h3>
+                        <h3>Cevap Bulamadıysanız Bize Ulaşın</h3>
                         <span class="border"></span>
                     </div>
                     <form id="faq-form" action="#">
@@ -175,7 +145,52 @@
                     </form>
                 </div>
             </div>
-
+            <div class="col-lg-3 col-md-4 col-sm-7 col-xs-12 pull-left">
+                <div class="left-sidebar">
+                    <!--Start single sidebar-->
+                    <div class="single-sidebar">
+                        <ul class="page-link">
+                            <li>
+                                <a href="@Url.Action("Contact","Home")">
+                                    İletişim
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("AboutUs","Home")">
+                                    Hakkımızda
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("OurPartners","Home")">
+                                    Partnerlerimiz
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="@Url.Action("Faq","Home")">
+                                    Sıkça Sorulan Sorular
+                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                                </a>
+                            </li>
+                            <li>
+                        </ul>
+                    </div>
+                    <!--End single sidebar-->
+                    <!--Start single sidebar-->
+                    <div class="single-sidebar">
+                        <div class="business-enquiry">
+                            <h4>Partnerlik İçin</h4>
+                            <p>
+                                Ayrıca bize bir <a href="#">E-Mail</a> gönderebilirsiniz, kısa süre içinde sizinle iletişime geçeceğiz veya ücretsiz numaramızı arayabilirsiniz.<br>
+                                <a href="#">0 543 648 44 77.</a>
+                            </p>
+                        </div>
+                    </div>
+                    <!--End single sidebar-->
+                </div>
+            </div>
         </div>
     </div>
 </section>

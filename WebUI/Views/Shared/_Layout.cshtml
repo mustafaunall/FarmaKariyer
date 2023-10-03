@@ -21,9 +21,9 @@
     <!-- Responsive stylesheet -->
     <link rel="stylesheet" href="~/css/responsive.css">
     <!-- Favicon -->
-    <link rel="apple-touch-icon" sizes="180x180" href="images/favicon/apple-touch-icon.png">
-    <link rel="icon" type="image/png" href="images/favicon/favicon-32x32.png" sizes="32x32">
-    <link rel="icon" type="image/png" href="images/favicon/favicon-16x16.png" sizes="16x16">
+    <link rel="apple-touch-icon" sizes="180x180" href="~/images/favicon/apple-touch-icon.png">
+    <link rel="icon" type="image/png" href="~/images/favicon/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="~/images/favicon/favicon-16x16.png" sizes="16x16">
 
   <!--jquery-->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
@@ -49,33 +49,17 @@
             <div class="col-md-8 col-sm-12 col-xs-12">
                 <div class="top-info">
                     <ul>
-                        <li><span class="icon-signs"></span>Discover St, New York, NY 10012, USA</li>
-                        <li><span class="icon-clock"></span>Opening Time: Mon-Sat: 09.00 to 18.00</li>
+                                <li>
+                                    <span class="icon-signs"></span>Merkez Mah. Şebboy Sok. no:57/12
+                                    İstanbul, 34450, TR
+                                </li>
+                                <li>
+                                    <span class="icon-clock"></span>Pazartesiden Cumartesiye: 09.00 - 18.00
+                                    Pazar: Kapalı
+                                </li>
                     </ul>
                 </div>
             </div>
-            <div class="col-md-3 col-sm-8 col-xs-9">
-                <div class="top-right">
-                    <ul>
-                        <li><a href="#">Quick Links</a></li>
-                        <li><a href="#">Support</a></li>
-                        <li><a href="#">Register</a></li>
-                    </ul>
-                </div>
-            </div>
-            <div class="col-md-1 col-sm-4 col-xs-3">
-                <div class="language-switcher">
-                    <div id="polyglotLanguageSwitcher">
-                        <form action="#">
-                            <select id="polyglot-language-options">
-                                <option id="en" value="en" selected>Türkçe</option>
-                                <option id="en" value="en">English</option>
-                            </select>
-                        </form>
-                    </div>
-                </div>
-            </div>
-            
         </div>
     </div>
 </section>
@@ -87,7 +71,7 @@
         <div class="row">
             <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
                         <div class="logo" style="height:100px;">
-                            <a href="#"><img src="images/logo1.png" alt="kodeforest" style="height:100px;"></a>
+                            <a href="#"><img src="~/images/logo1.png" alt="kodeforest" style="height:100px;"></a>
                 </div>
             </div>
             <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
@@ -137,56 +121,11 @@
                         </div>
                         <div class="navbar-collapse collapse clearfix">
                             <ul class="navigation clearfix">
-                                <li class="home current"><a href="index.html"><span class="fa fa-home"></span></a></li>
-                                <li class="dropdown"><a href="@Url.Action("AboutUs","Home")">About us</a>
-                                    <ul>
-                                        <li><a href="company-overview.html">Company Overview</a></li>
-                                        <li><a href="company-history.html">Company History</a></li>
-                                        <li><a href="our-team.html">Our Team</a></li>
-                                        <li><a href="our-partner.html">Our Partner</a></li>
-                                        <li><a href="faq.html">FAQ's</a></li>
-                                        <li><a href="client-feedback.html">Client Feedback</a></li>
-                                        <li><a href="404.html">404 Page</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="services.html">Our Services</a>
-                                    <ul>
-                                        <li><a href="business-planning.html">Business Planning</a></li>
-                                        <li><a href="audit-assurance.html">Audit & Assurance</a></li>
-                                        <li><a href="trades-stocks.html">Trades & Stocks</a></li>
-                                        <li><a href="investment-plan.html">Investment Plan</a></li>
-                                        <li><a href="risk-management.html">Risk Management</a></li>
-                                        <li><a href="succession-planning.html">Succession Planning</a></li>
-                                        <li><a href="strategic-planning.html">Strategic Planning</a></li>
-                                        <li><a href="financial-projections.html">Financial Projections</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="blog.html">Latest News</a>
-                                    <ul>
-                                        <li><a href="blog.html">Blog Default</a></li>
-                                        <li><a href="blog-grid.html">Blog Grid View</a></li>
-                                        <li><a href="blog-list.html">Blog List View</a></li>
-                                        <li><a href="blog-single.html">Blog Single Post</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="project.html">Projects</a>
-                                    <ul>
-                                        <li><a href="project-grid.html">Grid View</a></li>
-                                        <li><a href="project-grid-with-text.html">Grid With Text</a></li>
-                                        <li><a href="project.html">Projects Gallery Style</a></li>
-                                        <li><a href="project-single.html">Projects Single Post</a></li>
-                                    </ul>
-                                </li>
-                                <li class="dropdown"><a href="shop.html">Shop</a>
-                                    <ul>
-                                        <li><a href="shop.html">Shop Products</a></li>
-                                        <li><a href="shop-single.html">Single Product</a></li>
-                                        <li><a href="shopping-cart.html">Shopping Cart</a></li>
-                                        <li><a href="checkout.html">Checkout</a></li>
-                                        <li><a href="account.html">My Account</a></li>
-                                    </ul>
-                                </li>
-                                <li><a href="contact.html">Contact Us</a></li>
+                                        <li class="home current"><a href="@Url.Action("Index","Home")"><span class="fa fa-home"></span></a></li>
+                                <li class="dropdown"><a href="@Url.Action("OurPartners","Home")">Partner</a></li>
+                                <li class="dropdown"><a href="@Url.Action("Faq","Home")">SSS</a></li>
+                                <li class="dropdown"><a href="@Url.Action("AboutUs","Home")">Hakkımızda</a></li>
+                                <li class="dropdown"><a href="@Url.Action("Contact","Home")">İletişim</a></li>
                             </ul>
                         </div>
                     </nav>
@@ -211,17 +150,17 @@
 
   <!--footer start-->
         <!--Start footer area-->
-        <footer class="footer-area" style="background-image:url(images/widget-bgb.jpg);">
+        <footer class="footer-area" style="background-image:url(~/images/widget-bgb.jpg);">
             <div class="footer-top-area">
                 <div class="container">
                     <div class="row">
                         <div class="col-md-12">
                             <div class="footer-top-content">
                                 <div class="title pull-left">
-                                    <h3>Over 20 years of experience we will ensure you always get the best.</h3>
+                                    <h3>20 yılı aşkın tecrübemizle her zaman en iyisini almanızı sağlayacağız.</h3>
                                 </div>
                                 <div class="button pull-right">
-                                    <a class="thm-btn bg-clr1" href="#">Book Consultation</a>
+                                    <a class="thm-btn bg-clr1" href="#">Bize Ulaş</a>
                                 </div>
                             </div>
                         </div>
@@ -235,11 +174,11 @@
                         <div class="single-footer-widget pd-bottom">
                             <div class="footer-logo">
                                 <a href="index.html">
-                                    <img src="images/logo1.png" alt="Awesome Footer Logo">
+                                    <img src="~/images/logo1.png" alt="Awesome Footer Logo">
                                 </a>
                             </div>
                             <div class="our-info">
-                                <p>Our team offers the most up-to-date, sustainable manufacturing solutions. teachings of the great explorer of the truth We only source materials from tried and trusted suppliers.</p>
+                                <p>Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.</p>
                             </div>
                         </div>
                     </div>
@@ -288,7 +227,7 @@
                     <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
                         <div class="single-footer-widget pd-top pd-left">
                             <div class="title">
-                                <h3>Contact Us</h3>
+                                <h3>Bize Ulaş</h3>
                             </div>
                             <ul class="footer-contact-info">
                                 <li>
@@ -296,7 +235,7 @@
                                         <span class="icon-world"></span>
                                     </div>
                                     <div class="text-holder">
-                                        <p>22/121 Apple Street, New York,<br> NY 10012, USA</p>
+                                        <p>Adres Bilgisi</p>
                                     </div>
                                 </li>
                                 <li>
@@ -304,7 +243,7 @@
                                         <span class="icon-technology-1"></span>
                                     </div>
                                     <div class="text-holder">
-                                        <p>Phone: +123-456-7890</p>
+                                        <p>Telefon : 0 212 485 77 44</p>
                                     </div>
                                 </li>
                                 <li>
@@ -312,14 +251,14 @@
                                         <span class="icon-letter-1 bottom-envelop"></span>
                                     </div>
                                     <div class="text-holder">
-                                        <p>Mail@Assuranceteam.com</p>
+                                        <p>info@farmakariyer.com</p>
                                     </div>
                                 </li>
                             </ul>
                             <ul class="footer-social-links">
                                 <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-youtube" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
                                 <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
@@ -368,62 +307,62 @@
 
 
     <!-- main jQuery -->
-    <script src="js/jquery-1.11.1.min.js"></script>
+    <script src="~/js/jquery-1.11.1.min.js"></script>
     <!-- bootstrap -->
-    <script src="js/bootstrap.min.js"></script>
+    <script src="~/js/bootstrap.min.js"></script>
     <!-- bx slider -->
-    <script src="js/jquery.bxslider.min.js"></script>
+    <script src="~/js/jquery.bxslider.min.js"></script>
     <!-- count to -->
-    <script src="js/jquery.countTo.js"></script>
+    <script src="~/js/jquery.countTo.js"></script>
     <!-- owl carousel -->
-    <script src="js/owl.carousel.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
     <!-- validate -->
-    <script src="js/validation.js"></script>
+    <script src="~/js/validation.js"></script>
     <!-- mixit up -->
-    <script src="js/jquery.mixitup.min.js"></script>
+    <script src="~/js/jquery.mixitup.min.js"></script>
     <!-- easing -->
-    <script src="js/jquery.easing.min.js"></script>
+    <script src="~/js/jquery.easing.min.js"></script>
     <!-- gmap helper -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHzPSV2jshbjI8fqnC_C4L08ffnj5EN3A"></script>
     <!--gmap script-->
-    <script src="js/gmaps.js"></script>
-    <script src="js/map-helper.js"></script>
+    <script src="~/js/gmaps.js"></script>
+    <script src="~/js/map-helper.js"></script>
     <!-- fancy box -->
-    <script src="js/jquery.fancybox.pack.js"></script>
-    <script src="js/jquery.appear.js"></script>
+    <script src="~/js/jquery.fancybox.pack.js"></script>
+    <script src="~/js/jquery.appear.js"></script>
     <!-- isotope script-->
-    <script src="js/isotope.js"></script>
-    <script src="js/jquery.prettyPhoto.js"></script>
-    <script src="js/jquery.bootstrap-touchspin.js"></script>
+    <script src="~/js/isotope.js"></script>
+    <script src="~/js/jquery.prettyPhoto.js"></script>
+    <script src="~/js/jquery.bootstrap-touchspin.js"></script>
     <!-- jQuery timepicker js -->
-    <script src="assets/timepicker/timePicker.js"></script>
+    <script src="~/assets/timepicker/timePicker.js"></script>
     <!-- Bootstrap select picker js -->
-    <script src="assets/bootstrap-sl-1.12.1/bootstrap-select.js"></script>
+    <script src="~/assets/bootstrap-sl-1.12.1/bootstrap-select.js"></script>
     <!-- Bootstrap bootstrap touchspin js -->
     <!-- jQuery ui js -->
-    <script src="assets/jquery-ui-1.11.4/jquery-ui.js"></script>
+    <script src="~/assets/jquery-ui-1.11.4/jquery-ui.js"></script>
     <!-- Language Switche  -->
-    <script src="assets/language-switcher/jquery.polyglot.language.switcher.js"></script>
+    <script src="~/assets/language-switcher/jquery.polyglot.language.switcher.js"></script>
     <!-- Html 5 light box script-->
-    <script src="assets/html5lightbox/html5lightbox.js"></script>
+    <script src="~/assets/html5lightbox/html5lightbox.js"></script>
 
     <!-- revolution slider js -->
-    <script src="assets/revolution/js/jquery.themepunch.tools.min.js"></script>
-    <script src="assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
-    <script src="assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
-    <script src="assets/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
-    <script src="assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
-    <script src="assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
-    <script src="assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
-    <script src="assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
-    <script src="assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
-    <script src="assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
-    <script src="assets/revolution/js/extensions/revolution.extension.video.min.js"></script>
+    <script src="~/assets/revolution/js/jquery.themepunch.tools.min.js"></script>
+    <script src="~/assets/revolution/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.layeranimation.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.migration.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.navigation.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
+    <script src="~/assets/revolution/js/extensions/revolution.extension.video.min.js"></script>
 
 
 
     <!-- thm custom script -->
-    <script src="js/custom.js"></script>
+    <script src="~/js/custom.js"></script>
 
   <script>
     $(document).ready(function () {

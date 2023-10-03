@@ -29,15 +29,15 @@ public class HomeController : Controller
     {
         return View();
     }
-    public IActionResult FeedBacks()
-    {
-        return View();
-    }
     public IActionResult OurPartners()
     {
         return View();
     }
     public IActionResult AboutUs()
+    {
+        return View();
+    }
+    public IActionResult Pricing()
     {
         return View();
     }
