@@ -5,62 +5,97 @@
     ViewData["Title"] = "Üye Girişi / Kaydı";
 }
 
-<section style=" margin-top: 40px;">
+<section style=" margin-top: 35px;">
     <div class="row">
         <div class="col-lg-3">
             <div class="account-head" style="background-image:url(/images/Login.jpg)"></div>
         </div>
         <div>
             <div class="col-lg-9">
-                <div class="account-container">
-                    <div class="heading-bx left">
-                        <h2 class="title-head">
-                            Login to your
-                            <span>Account</span>
-                        </h2>
-                        <p>
-                            Don't have an account?
-                            <a href="#" class="cr">
-                                Create one here
-                            </a>
-                        </p>
-                    </div>
-                    <form class="contact-bx">
-                        <div class="row placeani">
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <input name="name" type="text" placeholder="E-Posta" class="form-control">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-group">
-                                    <div class="input-group">
-                                        <input name="email" type="password" class="form-control" placeholder="Your Password">
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-12">
-                                <div class="form-group form-forget">
-                                    <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                        <label class="custom-control-label" for="customControlAutosizing">Remember me</label>
-                                    </div><a class="ml-auto" href="/react/forget-password">Forgot Password?</a>
-                                </div>
-                            </div>
-                            <div class="col-lg-12 m-b30">
-                                <button name="submit" type="submit" value="Submit" class="btn button-md">Login</button>
-                            </div>
+                <div style="
 
+align-items:center;
+display:flex;
+ min-height: 100vh;">
+                    <div class="account-container">
+                        <div class="heading-bx left">
+                            <h2 class="title-head" style="font-size:34px;">
+                                <span style="color:black;">Hesabınıza</span>
+                                <span>Giriş Yapın</span>
+                            </h2>
+                            <p>
+                                Hesabınız Yok mu ?
+                                <a href="@Url.Action("Register","Account")" class="cr">
+                                    Hemen Kayıt Ol
+                                </a>
+                            </p>
                         </div>
-                    </form>
-                </div>
+                        <form class="contact-bx">
+                            <div class="row placeani">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input name="name" type="text" placeholder="E-Posta" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input name="email" type="password" class="form-control" placeholder="Your Password">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group form-forget">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                                            <label class="custom-control-label" for="customControlAutosizing">Remember me</label>
+                                        </div><a class="ml-auto" href="/react/forget-password">Forgot Password?</a>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12 m-b30">
+                                    <button name="submit" type="submit" value="Submit" class="btn button-md">Giriş Yap</button>
+                                </div>
+
+                            </div>
+                        </form>
+                    </div>
+              </div>
             </div>
         </div>
     </div>
 </section>
 <style>
+    .account-container .btn.button-md {
+        padding: 12px 40px;
+        background-color: #ff2b58;
+        color:White;
+        transition: all 0.3s ease-in-out;
+    }
+
+        .account-container .btn.button-md:hover{
+            background-color: #2b2c36;
+            transition: all 0.3s ease-in-out;
+        }
+        .contact-bx .form-control {
+        height: 50px;
+        border-color: rgba(0,0,0,.2);
+        box-shadow: none;
+        height: 45px;
+        font-size: 15px;
+        line-height: 20px;
+
+    }
+
+    .form-group {
+        margin-bottom: 25px;
+    }
+
+    .contact-bx .input-group .form-control:focus, .courses-search-bx .input-group .form-control:focus {
+        border-color: #ff2b58;
+        box-shadow: none;
+    }
     .heading-bx.left p, .heading-bx.text-center p{
         font-size:18px;
     }
@@ -75,7 +110,7 @@
         width: 100%;
     }
     .cr:hover{
-        color:red;
+        color: #ff2b58;
     }
     .placeani input{
         border-width: 0 0 2px;
@@ -88,7 +123,7 @@
         margin-top: 0;
         padding-left: 15px;
         display: inline-block;
-        border-left: 5px solid #f7b205;
+        border-left: 5px solid #ff2b58;
     }
 
     .account-container .btn.button-md {
