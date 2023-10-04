@@ -10,11 +10,9 @@ namespace WebUI.Controllers;
 public class HomeController : Controller
 {
     private readonly UserDbContext _userContext;
-    private readonly AdminDbContext _adminContext;
-    public HomeController(UserDbContext userContext, AdminDbContext adminContext)
+    public HomeController(UserDbContext userContext)
     {
         _userContext = userContext;
-        _adminContext = adminContext;
     }
 
     public IActionResult Index()

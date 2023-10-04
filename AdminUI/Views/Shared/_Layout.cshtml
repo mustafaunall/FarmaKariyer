@@ -1,6 +1,6 @@
-﻿@using DataAccess.Model.Admin;
+﻿@using DataAccess.Model;
 @using Microsoft.AspNetCore.Identity;
-@inject UserManager<ApplicationAdminUser> _userManager
+@inject UserManager<ApplicationUser> _userManager
 @{
     var currentUser = await _userManager.GetUserAsync(User);
 }

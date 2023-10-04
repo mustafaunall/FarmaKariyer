@@ -10,11 +10,9 @@ namespace WebUI.Controllers;
 public class JobAdvertController : Controller
 {
     private readonly UserDbContext _userContext;
-    private readonly AdminDbContext _adminContext;
-    public JobAdvertController(UserDbContext userContext, AdminDbContext adminContext)
+    public JobAdvertController(UserDbContext userContext)
     {
         _userContext = userContext;
-        _adminContext = adminContext;
     }
 
     public IActionResult List()

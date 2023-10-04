@@ -1,5 +1,5 @@
 ﻿using DataAccess.Context;
-using DataAccess.Model.User;
+using DataAccess.Model;
 using Domain.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
@@ -11,14 +11,14 @@ namespace AdminUI.Controllers;
 [Authorize]
 public class HomeController : Controller
 {
-    private readonly AdminDbContext _context;
+    private readonly UserDbContext _context;
     private readonly UserDbContext _userContext;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly ILogger<HomeController> _logger;
 
     public HomeController(
         ILogger<HomeController> logger,
-        AdminDbContext context,
+        UserDbContext context,
         UserDbContext userContext,
         UserManager<ApplicationUser> userManager)
     {

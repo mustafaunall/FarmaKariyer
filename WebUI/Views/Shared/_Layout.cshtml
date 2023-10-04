@@ -1,8 +1,7 @@
-﻿@using DataAccess.Model.User;
+﻿@using DataAccess.Model;
 @using Microsoft.AspNetCore.Identity;
-@inject UserManager<ApplicationUser> UserManager
 
-@*@if (User.Identity.IsAuthenticated) // Kullanıcı giriş yaptıysa true döner*@
+@inject UserManager<ApplicationUser> UserManager
 
 <!doctype html>
 <html lang="en">
@@ -136,7 +135,14 @@
                 </div>
                 <div class="col-md-2 col-sm-12 col-xs-12">
                     <div class="free-consulation-button pull-right">
-                                <a class="thm-btn bg-clr1" href="#">GİRİŞ Yap / Üye Ol</a>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <a class="thm-btn bg-clr1" href="@Url.Action("Profile", "Account")">Profil</a>
+                                }
+                                else
+                                {
+                                    <a class="thm-btn bg-clr1" href="@Url.Action("Login", "Account")">Giriş Yap / Üye Ol</a>
+                                }
                             </div>
                 </div>
             </div>

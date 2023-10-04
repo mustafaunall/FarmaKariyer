@@ -3,22 +3,22 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Domain.ViewModel.Admin;
 using DataAccess.Context;
-using DataAccess.Model.Admin;
+using DataAccess.Model;
 
 namespace AdminUI.Controllers;
 
 public class AccountController : Controller
 {
-    private readonly AdminDbContext _context;
-    private readonly UserManager<ApplicationAdminUser> _userManager;
-    private readonly SignInManager<ApplicationAdminUser> _signInManager;
+    private readonly UserDbContext _context;
+    private readonly UserManager<ApplicationUser> _userManager;
+    private readonly SignInManager<ApplicationUser> _signInManager;
     private readonly ILogger<AccountController> _logger;
 
     public AccountController(
         ILogger<AccountController> logger,
-        UserManager<ApplicationAdminUser> userManager,
-        SignInManager<ApplicationAdminUser> signInManager,
-        AdminDbContext context)
+        UserManager<ApplicationUser> userManager,
+        SignInManager<ApplicationUser> signInManager,
+        UserDbContext context)
     {
         _logger = logger;
         _userManager = userManager;
@@ -73,7 +73,7 @@ public class AccountController : Controller
     {
         if (ModelState.IsValid)
         {
-            var user = new ApplicationAdminUser { UserName = model.Username, Email = model.Email };
+            var user = new ApplicationUser { UserName = model.Username, Email = model.Email };
             var result = await _userManager.CreateAsync(user, model.Password);
             if (result.Succeeded)
             {

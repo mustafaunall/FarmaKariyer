@@ -1,6 +1,5 @@
 ﻿using DataAccess.Context;
-using DataAccess.Model.Admin;
-using DataAccess.Model.User;
+using DataAccess.Model;
 using DotNetEd.CoreAdmin;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -10,11 +9,8 @@ var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 
-builder.Services.AddDbContext<AdminDbContext>(options =>
-options.UseNpgsql("host=80.253.246.121; port=5454; FarmaKariyerAdmin; username=postgres; password=Secure2023Password."));
-
 builder.Services.AddDbContext<UserDbContext>(options =>
-options.UseNpgsql("host=80.253.246.121; port=5454; FarmaKariyer; username=postgres; password=Secure2023Password."));
+options.UseNpgsql("host=80.253.246.121; port=5454; database=FarmaKariyer; username=postgres; password=Secure2023Password."));
 
 builder.Services.AddCoreAdmin(new CoreAdminOptions()
 {
@@ -23,17 +19,9 @@ builder.Services.AddCoreAdmin(new CoreAdminOptions()
     }
 });
 
-builder.Services.AddIdentity<ApplicationAdminUser, IdentityRole<int>>()
-        .AddEntityFrameworkStores<AdminDbContext>()
+builder.Services.AddIdentity<ApplicationUser, IdentityRole<int>>()
+        .AddEntityFrameworkStores<UserDbContext>()
         .AddDefaultTokenProviders();
-
-//builder.Services.AddIdentity<ApplicationUser, IdentityRole<int>>()
-//        .AddEntityFrameworkStores<UserDbContext>()
-//        .AddDefaultTokenProviders();
-
-builder.Services.AddIdentityCore<ApplicationUser>().AddRoles<IdentityRole<int>>()
-          .AddEntityFrameworkStores<UserDbContext>()
-          .AddDefaultTokenProviders();
 
 builder.Services.Configure<IdentityOptions>(options =>
 {

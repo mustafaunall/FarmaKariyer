@@ -4,7 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Domain.ViewModel.User;
 using Microsoft.EntityFrameworkCore;
 using DataAccess.Context;
-using DataAccess.Model.User;
+using System.Xml.Linq;
+using Microsoft.AspNetCore.Mvc.ModelBinding;
+using Core.Helper;
+using DataAccess.Model;
+using WebUI.Attributes;
 
 namespace WebUI.Controllers;
 
@@ -104,6 +108,7 @@ public class AccountController : Controller
         }
     }
 
+    [CheckSession]
     public IActionResult Login()
     {
         return View();
@@ -113,6 +118,8 @@ public class AccountController : Controller
     {
         return View();
     }
+
+    [CheckSession]
     public IActionResult Register()
     {
         return View();
@@ -148,30 +155,27 @@ public class AccountController : Controller
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> Register(RegisterUserVM model)
     {
-        if (ModelState.IsValid)
+        var user = new ApplicationUser
         {
-            var user = new ApplicationUser
-            {
-                UserName = model.Username,
-                Email = model.Email,
-                PhoneNumber = model.PhoneNumber,
-                Name = model.Name,
-                Surname = model.Surname,
-            };
-            var result = await _userManager.CreateAsync(user, model.Password);
-            if (result.Succeeded)
-            {
-                await _signInManager.SignInAsync(user, isPersistent: false);
+            UserName = StringHelper.ConvertToEnglish(model.Name + model.Surname).ToLower(),
+            Email = model.Email,
+            PhoneNumber = model.PhoneNumber,
+            Name = model.Name,
+            Surname = model.Surname,
+        };
+        var result = await _userManager.CreateAsync(user, model.Password);
+        if (result.Succeeded)
+        {
+            await _signInManager.SignInAsync(user, isPersistent: false);
 
-                return RedirectToAction("Index", "Home");
-            }
-            foreach (var error in result.Errors)
-            {
-                ModelState.AddModelError(string.Empty, error.Description);
-            }
+            return RedirectToAction("Index", "Home");
+        }
+        foreach (var error in result.Errors)
+        {
+            ModelState.AddModelError(string.Empty, error.Description);
         }
 
-        return RedirectToActionPermanent("Login", model);
+        return RedirectToAction("Profile", "Account");
     }
 
     [Authorize]

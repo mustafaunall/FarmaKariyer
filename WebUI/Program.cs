@@ -1,7 +1,7 @@
 using Core.Helper;
 using Core.Services;
 using DataAccess.Context;
-using DataAccess.Model.User;
+using DataAccess.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using QuestPDF.Infrastructure;
@@ -14,10 +14,7 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<PdfService>();
 
 builder.Services.AddDbContext<UserDbContext>(options =>
-options.UseNpgsql("host=80.253.246.121; port=5454; FarmaKariyer; username=postgres; password=Secure2023Password."));
-
-builder.Services.AddDbContext<AdminDbContext>(options =>
-options.UseNpgsql("host=80.253.246.121; port=5454; FarmaKariyerAdmin; username=postgres; password=Secure2023Password."));
+options.UseNpgsql("host=80.253.246.121; port=5454; database=FarmaKariyer; username=postgres; password=Secure2023Password."));
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole<int>>()
         .AddEntityFrameworkStores<UserDbContext>()
