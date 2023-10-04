@@ -147,35 +147,35 @@ input:-webkit-autofill:focus {
 
 /*________________Rev slider wrapper css_____ */
 .rev_slider_wrapper .slide-content-box.middle-slide .button a {
-  border: 2px solid #ffffff;
-  color: #fefefe;
-  font-family: "Poppins",sans-serif;
-  font-size: 14px;
-  font-weight: 600;
-  padding: 12px 48px 11px;
-  text-transform: uppercase;
-  transition: all 500ms ease !important;
+    border: 2px solid #ffffff;
+    color: #fefefe;
+    font-family: "Poppins",sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 12px 48px 11px;
+    text-transform: uppercase;
+    transition: all 500ms ease !important;
+    background-color: #ff2b58;
 }
 
-
-/*________________Single blog post css_____ */
-.single-blog-post .img-holder .overlay-style-one .box .content a i {
-    background: #ff2b58 none repeat scroll 0 0;
-    border: 1px solid #fff;
-    color: #fff;
-    font-size: 15px;
-    height: 40px;
-    line-height: 40px;
-    opacity: 0;
-    -webkit-transform: translate3d(0px, 50px, 0px);
-    transform: translate3d(0px, 50px, 0px);
-    -webkit-transition: all 0.4s ease 0s !important;
-    transition: all 0.4s ease 0s !important;
-    display: inline-block;
-    width: 45px;
-    border-radius: 20px 20px 0px 0px;
-    border-bottom: none;
-}
+    /*________________Single blog post css_____ */
+    .single-blog-post .img-holder .overlay-style-one .box .content a i {
+        background: #ff2b58 none repeat scroll 0 0;
+        border: 1px solid #fff;
+        color: #fff;
+        font-size: 15px;
+        height: 40px;
+        line-height: 40px;
+        opacity: 0;
+        -webkit-transform: translate3d(0px, 50px, 0px);
+        transform: translate3d(0px, 50px, 0px);
+        -webkit-transition: all 0.4s ease 0s !important;
+        transition: all 0.4s ease 0s !important;
+        display: inline-block;
+        width: 45px;
+        border-radius: 20px 20px 0px 0px;
+        border-bottom: none;
+    }
 
 
 /*________________Brand area css_____ */

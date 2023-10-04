@@ -871,11 +871,11 @@ select:focus {
 
 .rev_slider_wrapper .slide-content-box.middle-slide h1{
   text-align: center;
-  color: #fff;
+  color: black;
 }
 
-.rev_slider_wrapper .slide-content-box.middle-slide .button a:hover{
-  background: #ff2b58;
+.rev_slider_wrapper .slide-content-box.middle-slide .button a:hover {
+    background:#2b2c36;
 }
 
 .tparrows {
@@ -1492,7 +1492,7 @@ select:focus {
 }
 .single-blog-post .text-holder .meta-info .right {
     border-left: 1px solid #f4f4f4;
-    width: 55px;
+    width: 100px;
     text-align: center;
     display: block;
     height: 52px;
