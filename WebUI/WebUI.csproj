@@ -148,6 +148,26 @@
     <None Include="wwwroot\js\owl.carousel.min.js" />
     <None Include="wwwroot\js\validation.js" />
     <None Include="wwwroot\js\wow.min.js" />
+    <None Include="wwwroot\user\plugins\bootstrap\js\bootstrap.bundle.js" />
+    <None Include="wwwroot\user\plugins\bootstrap\js\bootstrap.bundle.js.map" />
+    <None Include="wwwroot\user\plugins\bootstrap\js\bootstrap.bundle.min.js" />
+    <None Include="wwwroot\user\plugins\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <None Include="wwwroot\user\plugins\bootstrap\js\bootstrap.js" />
+    <None Include="wwwroot\user\plugins\bootstrap\js\bootstrap.js.map" />
+    <None Include="wwwroot\user\plugins\bootstrap\js\bootstrap.min.js" />
+    <None Include="wwwroot\user\plugins\bootstrap\js\bootstrap.min.js.map" />
+    <None Include="wwwroot\user\plugins\fontawesome-free\webfonts\fa-brands-400.svg" />
+    <None Include="wwwroot\user\plugins\fontawesome-free\webfonts\fa-brands-400.woff2" />
+    <None Include="wwwroot\user\plugins\fontawesome-free\webfonts\fa-regular-400.svg" />
+    <None Include="wwwroot\user\plugins\fontawesome-free\webfonts\fa-regular-400.woff2" />
+    <None Include="wwwroot\user\plugins\fontawesome-free\webfonts\fa-solid-900.svg" />
+    <None Include="wwwroot\user\plugins\fontawesome-free\webfonts\fa-solid-900.woff2" />
+    <None Include="wwwroot\user\plugins\jquery\jquery.js" />
+    <None Include="wwwroot\user\plugins\jquery\jquery.min.js" />
+    <None Include="wwwroot\user\plugins\jquery\jquery.min.map" />
+    <None Include="wwwroot\user\plugins\jquery\jquery.slim.js" />
+    <None Include="wwwroot\user\plugins\jquery\jquery.slim.min.js" />
+    <None Include="wwwroot\user\plugins\jquery\jquery.slim.min.map" />
   </ItemGroup>
 
 </Project>
