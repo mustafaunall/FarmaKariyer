@@ -2950,7 +2950,6 @@ select:focus {
 
 }
 .sidebar-wrapper .single-sidebar {
-  overflow: hidden;
   margin-bottom: 60px;
   position: relative;
 }
@@ -3019,8 +3018,7 @@ select:focus {
 }
 .single-sidebar .categories li {
     border-bottom: 1px solid #f4f4f4;
-    margin-bottom: 12px;
-    padding-bottom: 11px;
+    padding: 5px 0;
 }
 .single-sidebar .categories li:last-child {
     margin-bottom: 0;
