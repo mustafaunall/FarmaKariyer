@@ -118,6 +118,7 @@
     <None Include="wwwroot\fonts\glyphicons-halflings-regular.woff2" />
     <None Include="wwwroot\fonts\icomoon.svg" />
     <None Include="wwwroot\images\favicon\safari-pinned-tab.svg" />
+    <None Include="wwwroot\images\sss.png" />
     <None Include="wwwroot\inc\appointment.php" />
     <None Include="wwwroot\inc\phpmailer\class.phpmailer.php" />
     <None Include="wwwroot\inc\phpmailer\class.phpmaileroauth.php" />
