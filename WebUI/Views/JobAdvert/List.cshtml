@@ -9,14 +9,13 @@
     ViewData["Title"] = "Anasayfa";
 }
 
-<!--Start breadcrumb area-->     
+<!--Start breadcrumb area-->
 <section class="breadcrumb-area" style="background-image: url(/images/sss.png);">
-	<div class="container text-center">
-		<h1>Shop Products</h1>
-	</div>
+    <div class="container text-center">
+        <h1>Shop Products</h1>
+    </div>
 </section>
 <!--End breadcrumb area-->
-
 <!--Start breadcrumb bottom area-->
 <section class="breadcrumb-botton-area">
     <div class="container">
@@ -25,12 +24,11 @@
                 <li><a href="index.html">Anasayfa</a></li>
                 <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
                 <li>İlanlar</li>
-            </ul>    
-        </div> 
+            </ul>
+        </div>
     </div>
 </section>
 <!--End breadcrumb bottom area-->
-
 <!--Start blog area-->
 <section id="shop-area" class="main-shop-area">
     <div class="container">
@@ -309,176 +307,235 @@
             <div class="col-lg-3 col-md-4 col-sm-7 col-xs-12">
                 <div class="sidebar-wrapper">
                     <!--Start single sidebar-->
-                    <div class="single-sidebar">
-                        <form class="search-form" action="#">
-                            <input placeholder="Search..." type="text">
-                            <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
-                        </form>
-                    </div>
                     <!--End single sidebar-->
                     <!--Start single sidebar-->
                     <div class="single-sidebar">
                         <div class="sec-title">
-                            <h3>Categories</h3>
+                            <h3>Lokasyon</h3>
                             <span class="border"></span>
                         </div>
                         <ul class="categories clearfix">
                             <li>
-                                <a href="#">
-                                    Eczane
-                                </a>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                        İl
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">İstanbul</a></li>
+                                        <li><a href="#">İzmir</a></li>
+                                        <li><a href="#">Ankara</a></li>
+                                    </ul>
+                                </div>
                             </li>
                             <li>
-                                <a href="#">
-                                    Teknisyen
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Healthcare Companies
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Industrial Goods & Services
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                    <!--End single sidebar-->
-                    <!--Start single sidebar-->
-                    <div class="single-sidebar">
-                        <div class="sec-title">
-                            <h3>Filter By Price</h3>
-                            <span class="border"></span>
-                        </div>
-                        <div class="price-ranger">
-                            <div id="slider-range"></div>
-                            <div class="ranger-min-max-block">
-                                <input class="thm-btn bg-clr1" type="submit" value="Filter">
-                                <span>Price:</span>
-                                <input type="text" readonly class="min">
-                                <span>-</span>
-                                <input type="text" readonly class="max">
-                            </div>
-                        </div>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                        İlçe
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Eyüp</a></li>
+                                        <li><a href="#">Kadıköy</a></li>
+                                        <li><a href="#">Sefaköy</a></li>
+                                    </ul>
+                                </div>
 
-                    </div>
-                    <!--End single sidebar-->
-                    <!--Start single sidebar-->
-                    <div class="single-sidebar">
-                        <div class="sec-title">
-                            <h3>Latest Products</h3>
-                            <span class="border"></span>
-                        </div>
-                        <ul class="latest-product">
-                            <li>
-                                <div class="img-holder">
-                                    <img src="~/images/shop/product-thumb-1.jpg" alt="Awesome Image">
-                                    <div class="overlay-style-one">
-                                        <div class="box">
-                                            <div class="content">
-                                                <a href="#"><i class="fa fa-link" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="title-holder">
-                                    <a href="#">
-                                        <h4>The Innovators</h4>
-                                    </a>
-                                    <h5>$34.99</h5>
-                                    <div class="review-box">
-                                        <ul>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="img-holder">
-                                    <img src="~/images/shop/product-thumb-2.jpg" alt="Awesome Image">
-                                    <div class="overlay-style-one">
-                                        <div class="box">
-                                            <div class="content">
-                                                <a href="#"><i class="fa fa-link" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="title-holder">
-                                    <a href="#">
-                                        <h4>Good to Great</h4>
-                                    </a>
-                                    <h5>$24.00</h5>
-                                    <div class="review-box">
-                                        <ul>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <li>
-                                <div class="img-holder">
-                                    <img src="~/images/shop/product-thumb-3.jpg" alt="Awesome Image">
-                                    <div class="overlay-style-one">
-                                        <div class="box">
-                                            <div class="content">
-                                                <a href="#"><i class="fa fa-link" aria-hidden="true"></i></a>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="title-holder">
-                                    <a href="#">
-                                        <h4>Built to Last</h4>
-                                    </a>
-                                    <h5>$24.99</h5>
-                                    <div class="review-box">
-                                        <ul>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                            <li><i class="fa fa-star"></i></li>
-                                        </ul>
-                                    </div>
-                                </div>
                             </li>
                         </ul>
                     </div>
-                    <!--End single sidebar-->
-                    <!--Start single sidebar-->
                     <div class="single-sidebar">
                         <div class="sec-title">
-                            <h3>Product Tags</h3>
+                            <h3>Lokasyon</h3>
                             <span class="border"></span>
                         </div>
-                        <ul class="product-tag">
-                            <li><a href="#">Idea</a></li>
-                            <li><a href="#">Finance</a></li>
-                            <li><a href="#">Experts</a></li>
-                            <li><a href="#">Marketing</a></li>
-                            <li><a href="#">Services</a></li>
-                            <li><a href="#">Tips</a></li>
-                            <li><a href="#">Growth</a></li>
-                            <li><a href="#">Wealth</a></li>
+                        <ul class="categories clearfix">
+                            <li>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                        İl
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">İstanbul</a></li>
+                                        <li><a href="#">İzmir</a></li>
+                                        <li><a href="#">Ankara</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                        İlçe
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Eyüp</a></li>
+                                        <li><a href="#">Kadıköy</a></li>
+                                        <li><a href="#">Sefaköy</a></li>
+                                    </ul>
+                                </div>
+
+                            </li>
                         </ul>
                     </div>
-                    <!--End single sidebar-->
+                    <div class="single-sidebar">
+                        <div class="sec-title">
+                            <h3>Lokasyon</h3>
+                            <span class="border"></span>
+                        </div>
+                        <ul class="categories clearfix">
+                            <li>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                        İl
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">İstanbul</a></li>
+                                        <li><a href="#">İzmir</a></li>
+                                        <li><a href="#">Ankara</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                        İlçe
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Eyüp</a></li>
+                                        <li><a href="#">Kadıköy</a></li>
+                                        <li><a href="#">Sefaköy</a></li>
+                                    </ul>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="single-sidebar">
+                        <div class="sec-title">
+                            <h3>Lokasyon</h3>
+                            <span class="border"></span>
+                        </div>
+                        <ul class="categories clearfix">
+                            <li>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                        İl
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">İstanbul</a></li>
+                                        <li><a href="#">İzmir</a></li>
+                                        <li><a href="#">Ankara</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                        İlçe
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Eyüp</a></li>
+                                        <li><a href="#">Kadıköy</a></li>
+                                        <li><a href="#">Sefaköy</a></li>
+                                    </ul>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="single-sidebar">
+                        <div class="sec-title">
+                            <h3>Lokasyon</h3>
+                            <span class="border"></span>
+                        </div>
+                        <ul class="categories clearfix">
+                            <li>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                        İl
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">İstanbul</a></li>
+                                        <li><a href="#">İzmir</a></li>
+                                        <li><a href="#">Ankara</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                        İlçe
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Eyüp</a></li>
+                                        <li><a href="#">Kadıköy</a></li>
+                                        <li><a href="#">Sefaköy</a></li>
+                                    </ul>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="single-sidebar">
+                        <div class="sec-title">
+                            <h3>Lokasyon</h3>
+                            <span class="border"></span>
+                        </div>
+                        <ul class="categories clearfix">
+                            <li>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                        İl
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">İstanbul</a></li>
+                                        <li><a href="#">İzmir</a></li>
+                                        <li><a href="#">Ankara</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="dropdown">
+                                    <button class="btn dropdown-toggle" type="button" data-toggle="dropdown">
+                                        İlçe
+                                        <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Eyüp</a></li>
+                                        <li><a href="#">Kadıköy</a></li>
+                                        <li><a href="#">Sefaköy</a></li>
+                                    </ul>
+                                </div>
+
+                            </li>
+                        </ul>
+                    </div>
                 </div>
             </div>
             <!--End Sidebar Wrapper-->
-
         </div>
     </div>
-</section> 
-<!--End blog area-->   
+</section>
+<!--End blog area-->
+<style>
+    .btn{
+        text-align: left;
+        width: 100%;
+        min-height:50px;
+    }
+    .dropdown-menu{
+    width:100%;
+    }
+    .dropdown-menu{
+        appearance:none;
+    }
+</style>
