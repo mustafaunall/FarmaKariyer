@@ -5585,3 +5585,114 @@ select:focus {
 .owl-item{
     margin-right:7px;
 }
+
+/*******/
+
+.account-container .btn.button-md {
+    padding: 12px 40px;
+    background-color: #ff2b58;
+    color: White;
+    transition: all 0.3s ease-in-out;
+}
+
+    .account-container .btn.button-md:hover {
+        background-color: #2b2c36;
+        transition: all 0.3s ease-in-out;
+    }
+
+.contact-bx .form-control {
+    height: 50px;
+    border-color: rgba(0,0,0,.2);
+    box-shadow: none;
+    height: 45px;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.contact-bx .input-group .form-control:focus, .courses-search-bx .input-group .form-control:focus {
+    border-color: #ff2b58;
+    box-shadow: none;
+}
+
+.heading-bx.left p, .heading-bx.text-center p {
+    font-size: 18px;
+}
+
+.cr {
+    color: black;
+    text-decoration: underline;
+    padding-bottom: 0;
+}
+
+.input-group {
+    width: 100%;
+}
+
+.cr:hover {
+    color: #ff2b58;
+}
+
+.placeani input {
+    border-width: 0 0 2px;
+    background-color: transparent;
+    padding: 10px 0;
+}
+
+.heading-bx.left .title-head, .heading-bx.text-center .title-head {
+    margin-bottom: 10px;
+    margin-top: 0;
+    padding-left: 15px;
+    display: inline-block;
+    border-left: 5px solid #ff2b58;
+}
+
+.account-container .btn.button-md {
+    padding: 12px 40px;
+}
+
+.account-head {
+    left: 0;
+    top: 0;
+    z-index: 1;
+    width: 500px;
+    min-width: 500px;
+    height: 100vh;
+    background-position: 50%;
+    text-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    vertical-align: middle;
+    display: -webkit-flex;
+    display: flex;
+    position: relative;
+}
+
+    .account-head:after {
+        background: linear-gradient(45deg,#4c1864,#3f189a);
+        opacity: .9;
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        z-index: -1;
+        width: 100%;
+        height: 100%;
+    }
+
+.account-container {
+    max-width: 400px;
+    margin: auto;
+    padding: 30px 0;
+}
+
+.heading-bx {
+    margin-bottom: 50px;
+}
+
+@@media only screen and (max-width: 991px) .account-container {
+    padding: 50px 20px;
+}
