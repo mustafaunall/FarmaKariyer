@@ -5493,7 +5493,7 @@ select:focus {
 
 .project-single-area .project-analysis {
     overflow: hidden;
-    padding-top: 80px;
+    padding-top: 40px;
 }
 .project-single-area .project-analysis .text-holder {
     margin-top: -7px;
@@ -5504,8 +5504,8 @@ select:focus {
 
 .project-single-area .project-result {
     overflow: hidden;
-    margin-bottom: 80px;
-    margin-top: 80px;
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
 .project-single-area .project-result .text-holder {
     margin-top: -6px;
