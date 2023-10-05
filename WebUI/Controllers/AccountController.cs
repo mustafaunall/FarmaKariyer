@@ -9,10 +9,11 @@ using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Core.Helper;
 using DataAccess.Model;
 using WebUI.Attributes;
+using WebUI.Extensions;
 
 namespace WebUI.Controllers;
 
-public class AccountController : Controller
+public class AccountController : BaseController
 {
     private readonly UserDbContext _context;
     private readonly UserManager<ApplicationUser> _userManager;
@@ -52,14 +53,13 @@ public class AccountController : Controller
     {
         if (!ModelState.IsValid || vm == null)
         {
-            return RedirectPermanent("/Account/Profile");
+            Notification("Lütfen tüm alanları doldurunuz!", NotificationType.Info);
+            return RedirectToAction(nameof(Profile));
         }
 
         try
         {
             var user = await _userManager.GetUserAsync(User);
-            if (!string.IsNullOrEmpty(vm.UserName))
-                user.UserName = vm.UserName.Trim();
             if (!string.IsNullOrEmpty(vm.Name))
                 user.Name = vm.Name.Trim();
             if (!string.IsNullOrEmpty(vm.Surname))
@@ -69,11 +69,13 @@ public class AccountController : Controller
             if (!string.IsNullOrEmpty(vm.Email))
                 user.Email = vm.Email.Trim();
             await _userManager.UpdateAsync(user);
-            return RedirectPermanent("/Account/Profile");
+            Notification("Kullanıcı bilgileri başarıyla güncellendi.", NotificationType.Success);
+            return RedirectToAction(nameof(Profile));
         }
         catch (Exception)
         {
-            return RedirectPermanent("/Account/Profile");
+            Notification("Kullanıcı bilgileri güncellenirken bir hata oluştu!", NotificationType.Error);
+            return RedirectToAction(nameof(Profile));
         }
     }
 
