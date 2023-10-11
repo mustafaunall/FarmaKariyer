@@ -5658,7 +5658,6 @@ select:focus {
     z-index: 1;
     width: 500px;
     min-width: 500px;
-    height: 100vh;
     background-position: 50%;
     text-align: center;
     -webkit-align-items: center;
