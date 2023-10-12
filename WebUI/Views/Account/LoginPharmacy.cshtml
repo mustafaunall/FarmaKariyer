@@ -1,0 +1,97 @@
+﻿@using Domain.ViewModel.User;
+@model LoginUserVM
+
+@{
+    ViewData["Title"] = "Eczane Girişi";
+}
+
+<div class="container" style="margin-top:35px;">
+    <div style="margin-top:40px;">
+        <div class="row" style="justify-content:center; display:flex;">
+            <div class="col-lg-3" style="  transform: skewX(-20deg);">
+                <a href="@Url.Action("Login","Account")" class="thm-btn bg-clr1 loginbtn" style="padding:10px;">
+                    <h1 class="text-center" style="color:white;  transform: skewX(20deg); font-size:28px;">Kullanıcı GİRİŞİ</h1>
+                </a>
+            </div>
+            <div class="col-lg-1"></div>
+            <div class="col-lg-3" style=" transform: skewX(-20deg);">
+                <a href="@Url.Action("LoginPharmacy","Account")" class="thm-btn bg-clr1" style="padding:10px;">
+                    <h1 class="text-center" style="color:white;  transform: skewX(20deg); font-size:28px;">Eczane GİRİŞİ</h1>
+                </a>
+            </div>
+        </div>
+    </div>
+    <style>
+        .loginbtn{
+            opacity: 0.7;
+        }
+        .loginbtn:hover{
+            opacity:1;
+        }
+
+    </style>
+    <div class="clearfix"></div>
+    <section style=" margin-top: 35px;">
+        <div class="row">
+            <div class="col-lg-6">
+                <div style="display:flex; justify-content:center;align-items:center; padding:15px 0;">
+                    <img src="~/images/ffarma.png" />
+                </div>
+            </div>
+            <div>
+                <div class="col-lg-6">
+                    <div style="
+
+align-items:center;
+display:flex;">
+                        <div class="account-container">
+                            <div class="heading-bx left">
+                                <h2 class="title-head" style="font-size:34px;">
+                                    <span style="color:black;">Hesabınıza</span>
+                                    <span>Giriş Yapın</span>
+                                </h2>
+                                <p>
+                                    Hesabınız Yok mu ?
+                                    <a href="@Url.Action("Register","Account")" class="cr">
+                                        Hemen Kayıt Ol
+                                    </a>
+                                </p>
+                            </div>
+                            <form class="contact-bx" method="post" asp-controller="Account" asp-action="Login">
+                                <div class="row placeani">
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input name="Email" type="email" placeholder="E-Posta" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input name="Password" type="password" class="form-control" placeholder="Your Password">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group form-forget">
+                                            <div class="custom-control custom-checkbox">
+                                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                                                <label class="custom-control-label" for="customControlAutosizing">Remember me</label>
+                                            </div><a class="ml-auto" href="/react/forget-password">Forgot Password?</a>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 m-b30">
+                                        <button name="submit" type="submit" value="Submit" class="btn button-md">Giriş Yap</button>
+                                    </div>
+
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>

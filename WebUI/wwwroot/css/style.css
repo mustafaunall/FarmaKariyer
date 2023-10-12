@@ -1406,9 +1406,9 @@ select:focus {
 .single-blog-post .img-holder .overlay-style-one .box .content {
     vertical-align: bottom;
 }
-.single-blog-post:hover .img-holder .overlay-style-one{
+/*.single-blog-post:hover .img-holder .overlay-style-one{
     background: rgba(255, 43, 88, 0.80);
-}
+*/}
 .single-blog-post .img-holder img {
     transform: scale(1);
     transition: all 0.5s ease 0s;
