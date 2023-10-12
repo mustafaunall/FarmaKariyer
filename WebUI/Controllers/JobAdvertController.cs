@@ -15,7 +15,19 @@ public class JobAdvertController : Controller
         _userContext = userContext;
     }
 
-    public IActionResult List()
+    public IActionResult Pharmacy()
+    {
+        return View();
+    }
+    public IActionResult Technician()
+    {
+        return View();
+    }
+    public IActionResult Intern()
+    {
+        return View();
+    }
+    public IActionResult License()
     {
         return View();
     }

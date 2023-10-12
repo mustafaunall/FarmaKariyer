@@ -78,7 +78,51 @@ display:flex;">
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <div class="input-group">
+                                                <input name="PharmacyName" type="text" placeholder="Eczane Adı" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
                                                 <input name="PhoneNumber" type="text" placeholder="Telefon Numaranız" class="form-control">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+
+                                                <input type="text" class="form-control" id="glnNumber" placeholder="GLN Numaranız:">
+
+                                                <script>
+                                                    const initialValue = "8680001";
+
+                                                    $("#glnNumber").mouseover(function () {
+                                                        if ($(this).val() === "") {
+                                                            $(this).val(initialValue);
+                                                        }
+                                                    });
+
+                                                    $("#glnNumber").mouseout(function () {
+                                                        if ($(this).val() === initialValue) {
+                                                            $(this).val("");
+                                                            $(this).attr("placeholder", "GLN Numaranız:");
+                                                        }
+                                                    });
+
+                                                    $("#glnNumber").on('input', function () {
+                                                        if ($(this).val().substr(0, initialValue.length) !== initialValue) {
+                                                            $(this).val(initialValue);
+                                                        }
+                                                    });
+
+                                                    $("#glnNumber").keypress(function () {
+                                                        if ($(this).val().length >= 13) {
+                                                            return false;
+                                                        }
+                                                    });
+                                                </script>
                                             </div>
                                         </div>
                                     </div>
@@ -107,15 +151,13 @@ display:flex;">
                                         <div class="form-group form-forget">
                                             <div class="custom-control custom-checkbox">
                                                 <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
-                                                <label class="custom-control-label" for="customControlAutosizing">Remember me</label>
-                                            </div><a class="ml-auto" href="/react/forget-password">Forgot Password?</a>
+                                                <label class="custom-control-label" for="customControlAutosizing"><a href="#" style="color:black;">Koşulları Kabul Ediyorum</a></label>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-12 m-b30">
+                                            <button name="submit" type="submit" value="Submit" class="btn button-md">Kayıt Ol</button>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 m-b30">
-                                        <button name="submit" type="submit" value="Submit" class="btn button-md">Kayıt Ol</button>
-                                    </div>
-
-                                </div>
                             </form>
                         </div>
                     </div>

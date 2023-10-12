@@ -1,0 +1,322 @@
+﻿@using Domain.ViewModel.User;
+@model LoginUserVM
+
+@{
+    ViewData["Title"] = "Şifremi Unuttum";
+}
+
+@{
+    ViewData["Title"] = "Anasayfa";
+}
+
+<!--Start breadcrumb area-->
+<section class="breadcrumb-area" style="background-image: url(/images/sss.png);">
+    <div class="container text-center">
+        <h1>Staj İlanları</h1>
+    </div>
+</section>
+<!--End breadcrumb area-->
+<!--Start breadcrumb bottom area-->
+<section class="breadcrumb-botton-area">
+    <div class="container">
+        <div class="left pull-left">
+            <ul>
+                <li><a href="@Url.Action("Index","Home")">Anasayfa</a></li>
+                <li><i class="fa fa-angle-right" style="color:black;" aria-hidden="true"></i></li>
+                <li><a href="index.html">İlanlar</a></li>
+                <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
+                <li>Staj İlanları</li>
+            </ul>
+        </div>
+    </div>
+</section>
+<!--End breadcrumb bottom area-->
+<!--Start blog area-->
+<section id="shop-area" class="main-shop-area">
+    <div class="container">
+        <div class="row">
+            <!--Start sidebar Wrapper-->
+            <div class="col-lg-3 col-md-4 col-sm-7 col-xs-12">
+                <div class="sidebar-wrapper">
+                    <div class="single-sidebar">
+                        <div class="sec-title">
+                            <h3>Lokasyon</h3>
+                            <span class="border"></span>
+                        </div>
+                        <ul class="categories clearfix">
+                            <li>
+                                <select class="form-control" id="ilseciniz">
+                                    <option value="" disabled selected>İl Seçiniz</option>
+                                    <option value="1">İstanbul</option>
+                                    <option value="1">Antalya</option>
+                                    <option value="1">İzmir</option>
+                                </select>
+                            </li>
+                            <li>
+                                <select class="form-control" id="ilceSeciniz">
+                                    <option value="" disabled selected>İlçe Seçiniz</option>
+                                    <option value="1">Kadıköy</option>
+                                    <option value="1">Eyüp</option>
+                                    <option value="1">Sefaköy</option>
+                                    
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="single-sidebar">
+                        <div class="sec-title">
+                            <h3>Eczane Kategorisi</h3>
+                            <span class="border"></span>
+                        </div>
+                        <ul class="categories clearfix">
+                            <li>
+                                <select class="form-control" id="yilSeciniz">
+                                    <option value="" disabled selected>Eczane Tipi</option>
+                                    <option value="1">Ünite</option>
+                                    <option value="2">Cadde</option>
+                                    <option value="3">AVM</option>
+                                    <option value="4">Semt</option>
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
+                <div class="shop-content">
+                    <div class="row" style="padding-left:30px;">
+                        <div class="single-blog-post">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="img-holder">
+                                        <img src="~/images/logoadvertt.png" alt="Awesome Image">
+                                        <div class="published-date">
+                                            <h3>21 Ekim</h3>
+                                        </div>
+                                        <div class="overlay-style-one">
+                                            <div class="box">
+                                                <div class="content">
+                                                    <div style="background-color:white; padding:5px;"><span style="color:#ff2b58;">Betül Eczanesi</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="text-holder">
+                                        <a href="blog-single.html">
+                                            <h3 class="blog-title">Faruk Eczanesi Teknisyen Aranıyor...</h3>
+                                        </a>
+                                        <div class="text">
+                                            <p>These men promptly escaped frotm maximum security stockade to the underground. The Brady Bunch the Brady seds Buncn what do you think, which is that greatest.</p>
+                                        </div>
+                                        <div class="meta-info clearfix">
+                                            <div class="left pull-left">
+                                                <ul class="post-info">
+                                                    <li>Sahibi <a href="#">Batuhan Özdemir</a></li>
+                                                    <li><a href="#">Eczane, Teknisyen</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="right pull-right">
+                                                <a class="thm-btn bg-clr1" style="padding:0px 8px;" type="submit" href="@Url.Action("Detail","JobAdvert")" data-loading-text="Please wait...">İncele</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-blog-post">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="img-holder">
+                                        <img src="~/images/logoadvertt.png" alt="Awesome Image">
+                                        <div class="published-date">
+                                            <h3>21 Ekim</h3>
+                                        </div>
+                                        <div class="overlay-style-one">
+                                            <div class="box">
+                                                <div class="content">
+                                                    <div style="background-color:white; padding:5px;"><span style="color:#ff2b58;">Betül Eczanesi</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="text-holder">
+                                        <a href="blog-single.html">
+                                            <h3 class="blog-title">Faruk Eczanesi Teknisyen Aranıyor...</h3>
+                                        </a>
+                                        <div class="text">
+                                            <p>These men promptly escaped frotm maximum security stockade to the underground. The Brady Bunch the Brady seds Buncn what do you think, which is that greatest.</p>
+                                        </div>
+                                        <div class="meta-info clearfix">
+                                            <div class="left pull-left">
+                                                <ul class="post-info">
+                                                    <li>Sahibi <a href="#">Batuhan Özdemir</a></li>
+                                                    <li><a href="#">Eczane, Teknisyen</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="right pull-right">
+                                                <a class="thm-btn bg-clr1" style="padding:0px 8px;" type="submit" href="@Url.Action("Detail","JobAdvert")" data-loading-text="Please wait...">İncele</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          <div class="single-blog-post">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="img-holder">
+                                        <img src="~/images/logoadvertt.png" alt="Awesome Image">
+                                        <div class="published-date">
+                                            <h3>21 Ekim</h3>
+                                        </div>
+                                        <div class="overlay-style-one">
+                                            <div class="box">
+                                                <div class="content">
+                                                    <div style="background-color:white; padding:5px;"><span style="color:#ff2b58;">Betül Eczanesi</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="text-holder">
+                                        <a href="blog-single.html">
+                                            <h3 class="blog-title">Faruk Eczanesi Teknisyen Aranıyor...</h3>
+                                        </a>
+                                        <div class="text">
+                                            <p>These men promptly escaped frotm maximum security stockade to the underground. The Brady Bunch the Brady seds Buncn what do you think, which is that greatest.</p>
+                                        </div>
+                                        <div class="meta-info clearfix">
+                                            <div class="left pull-left">
+                                                <ul class="post-info">
+                                                    <li>Sahibi <a href="#">Batuhan Özdemir</a></li>
+                                                    <li><a href="#">Eczane, Teknisyen</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="right pull-right">
+                                                <a class="thm-btn bg-clr1" style="padding:0px 8px;" type="submit" href="@Url.Action("Detail","JobAdvert")" data-loading-text="Please wait...">İncele</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                          <div class="single-blog-post">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="img-holder">
+                                        <img src="~/images/logoadvertt.png" alt="Awesome Image">
+                                        <div class="published-date">
+                                            <h3>21 Ekim</h3>
+                                        </div>
+                                        <div class="overlay-style-one">
+                                            <div class="box">
+                                                <div class="content">
+                                                    <div style="background-color:white; padding:5px;"><span style="color:#ff2b58;">Betül Eczanesi</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="text-holder">
+                                        <a href="blog-single.html">
+                                            <h3 class="blog-title">Faruk Eczanesi Teknisyen Aranıyor...</h3>
+                                        </a>
+                                        <div class="text">
+                                            <p>These men promptly escaped frotm maximum security stockade to the underground. The Brady Bunch the Brady seds Buncn what do you think, which is that greatest.</p>
+                                        </div>
+                                        <div class="meta-info clearfix">
+                                            <div class="left pull-left">
+                                                <ul class="post-info">
+                                                    <li>Sahibi <a href="#">Batuhan Özdemir</a></li>
+                                                    <li><a href="#">Eczane, Teknisyen</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="right pull-right">
+                                                <a class="thm-btn bg-clr1" style="padding:0px 8px;" type="submit" href="@Url.Action("Detail","JobAdvert")" data-loading-text="Please wait...">İncele</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="single-blog-post">
+                            <div class="row">
+                                <div class="col-md-5">
+                                    <div class="img-holder">
+                                        <img src="~/images/logoadvertt.png" alt="Awesome Image">
+                                        <div class="published-date">
+                                            <h3>21 Ekim</h3>
+                                        </div>
+                                        <div class="overlay-style-one">
+                                            <div class="box">
+                                                <div class="content">
+                                                    <div style="background-color:white; padding:5px;"><span style="color:#ff2b58;">Betül Eczanesi</span></div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-7">
+                                    <div class="text-holder">
+                                        <a href="blog-single.html">
+                                            <h3 class="blog-title">Faruk Eczanesi Teknisyen Aranıyor...</h3>
+                                        </a>
+                                        <div class="text">
+                                            <p>These men promptly escaped frotm maximum security stockade to the underground. The Brady Bunch the Brady seds Buncn what do you think, which is that greatest.</p>
+                                        </div>
+                                        <div class="meta-info clearfix">
+                                            <div class="left pull-left">
+                                                <ul class="post-info">
+                                                    <li>Sahibi <a href="#">Batuhan Özdemir</a></li>
+                                                    <li><a href="#">Eczane, Teknisyen</a></li>
+                                                </ul>
+                                            </div>
+                                            <div class="right pull-right">
+                                                <a class="thm-btn bg-clr1" style="padding:0px 8px;" type="submit" href="@Url.Action("Detail","JobAdvert")" data-loading-text="Please wait...">İncele</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Start post pagination-->
+                    <div class="row">
+                        <div class="col-md-12">
+                            <ul class="post-pagination text-center">
+                                <li><a href="#"><i class="fa fa-caret-left" aria-hidden="true"></i></a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li><a href="#">2</a></li>
+                                <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!--End post pagination-->
+                </div>
+            </div>
+     
+            <!--End Sidebar Wrapper-->
+        </div>
+    </div>
+</section>
+<!--End blog area-->
+<style>
+    .btn{
+        text-align: left;
+        width: 100%;
+        min-height:50px;
+    }
+    .dropdown-menu{
+    width:100%;
+    padding-left:10px;
+    }
+    .dropdown-menu{
+        appearance:none;
+    }
+</style>

@@ -123,12 +123,12 @@
                             <ul class="navigation clearfix">
                                         <li class="home current"><a href="@Url.Action("Index","Home")"><span class="fa fa-home"></span></a></li>
                                         <li class="dropdown">
-                                            <a href="@Url.Action("List","JobAdvert")">İlanlar</a>
+                                            <a href="#">İlanlar</a>
                                             <ul>
-                                                <li><a href="@Url.Action("List","JobAdvert")">Eczane</a></li>
-                                                <li><a href="@Url.Action("List","JobAdvert")">Teknisyen</a></li>
-                                                <li><a href="@Url.Action("List","JobAdvert")">Staj</a></li>
-                                                <li><a href="@Url.Action("List","JobAdvert")">Ruhsat</a></li>
+                                                <li><a href="@Url.Action("Pharmacy","JobAdvert")">Eczane</a></li>
+                                                <li><a href="@Url.Action("Technician","JobAdvert")">Teknisyen</a></li>
+                                                <li><a href="@Url.Action("Intern","JobAdvert")">Staj</a></li>
+                                                <li><a href="@Url.Action("License","JobAdvert")">Ruhsat</a></li>
                                         
                                             </ul>
                                         </li>
@@ -209,7 +209,7 @@
                             </div>
                             <ul class="we-do-list">
                                 <li><a href="#">İlanlarımız</a></li>
-                                <li><a href="#">Partnerlerimiz</a></li>
+                              @*   <li><a href="#">Partnerlerimiz</a></li> *@
                                 <li><a href="#">Hakkımızda</a></li>
                                 <li><a href="#">İletişim</a></li>
                                 <li><a href="#">SSS</a></li>
