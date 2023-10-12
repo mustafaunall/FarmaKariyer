@@ -119,6 +119,10 @@ public class AccountController : BaseController
     {
         return View();
     }
+    public IActionResult RegisterPharmacy()
+    {
+        return View();
+    }
 
     public IActionResult ForgotPassword()
     {

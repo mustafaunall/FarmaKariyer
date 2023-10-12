@@ -2,33 +2,34 @@
 @model LoginUserVM
 
 @{
-    ViewData["Title"] = "Kayıt Ol";
+    ViewData["Title"] = "Eczane Kayıt Ol";
 }
 
 <div class="container" style="margin-top:35px;">
     <div style="margin-top:40px;">
         <div class="row" style="justify-content:center; display:flex;">
             <div class="col-lg-3" style="  transform: skewX(-20deg);">
-                <a href="@Url.Action("Register","Account")" class="thm-btn bg-clr1" style="padding:10px;">
+                <a href="@Url.Action("Register","Account")" class="thm-btn bg-clr1 loginbtn" style="padding:10px;">
                     <h1 class="text-center" style="color:white;  transform: skewX(20deg); font-size:26px;">Kullanıcı Kayıt Ol</h1>
                 </a>
             </div>
             <div class="col-lg-1"></div>
             <div class="col-lg-3" style=" transform: skewX(-20deg);">
-                <a href="@Url.Action("RegisterPharmacy","Account")" class="thm-btn bg-clr1 logbtn" style="padding:10px;">
+                <a href="@Url.Action("RegisterPharmacy","Account")" class="thm-btn bg-clr1 " style="padding:10px;">
                     <h1 class="text-center" style="color:white;  transform: skewX(20deg); font-size:26px;">Eczane Kayıt Ol</h1>
                 </a>
             </div>
         </div>
     </div>
     <style>
-        .logbtn {
+        .loginbtn {
             opacity: 0.7;
         }
 
-            .logbtn:hover {
+            .loginbtn:hover {
                 opacity: 1;
             }
+
     </style>
     <div class="clearfix"></div>
     <section style=" margin-top: 35px;">
@@ -40,7 +41,10 @@
             </div>
             <div>
                 <div class="col-lg-6">
-                    <div style="align-items:center; display:flex;">
+                    <div style="
+
+align-items:center;
+display:flex;">
                         <div class="account-container">
                             <div class="heading-bx left">
                                 <h2 class="title-head" style="font-size:34px;">
@@ -48,8 +52,8 @@
                                     <span>Kayıt Olun</span>
                                 </h2>
                                 <p>
-                                    Zaten Hesabınız Var mı ? 
-                                    <a href="@Url.Action("Login","Account")" class="cr">
+                                    Zaten Hesabınız Var mı ?
+                                    <a href="@Url.Action("LoginPharmacy","Account")" class="cr">
                                         Hemen Giriş Yap
                                     </a>
                                 </p>
