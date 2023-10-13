@@ -12,4 +12,11 @@ public class ApplicationUser : IdentityUser<int>
     public string? Province { get; set; }
     public string? District { get; set; }
     public string? Address { get; set; }
+    public ApplicationUserType Type { get; set; }
+}
+
+public enum ApplicationUserType
+{
+    USER,
+    PHARMACY
 }

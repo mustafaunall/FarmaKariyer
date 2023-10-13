@@ -13,6 +13,7 @@ using WebUI.Extensions;
 
 namespace WebUI.Areas.Pharmacy.Controllers;
 
+[Area("Pharmacy")]
 public class AccountController : BaseController
 {
     private readonly UserDbContext _context;

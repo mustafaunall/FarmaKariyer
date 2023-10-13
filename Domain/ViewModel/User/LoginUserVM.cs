@@ -9,4 +9,5 @@ public class LoginUserVM
 
     [Required]
     public string Password { get; set; }
+    public int UserType { get; set; }
 }

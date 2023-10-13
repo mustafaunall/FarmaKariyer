@@ -13,6 +13,7 @@ using WebUI.Extensions;
 
 namespace WebUI.Areas.User.Controllers;
 
+[Area("User")]
 public class AccountController : BaseController
 {
     private readonly UserDbContext _context;
