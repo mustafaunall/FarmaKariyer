@@ -1,19 +1,22 @@
-﻿@using Domain.Model;
+﻿@using Core.Services;
+@using DataAccess.Context;
+@using Domain.Model;
 @using Microsoft.AspNetCore.Identity;
 
-@inject UserManager<ApplicationUser> UserManager
+@inject UserManager<ApplicationUser> _userManager
+@inject DbService _dbService
 
 <!doctype html>
 <html lang="en">
 
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- responsive meta -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- For IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <title>Farma Kariyer</title>
+    <title>Farma Kariyer</title>
 
     <!-- master stylesheet -->
     <link rel="stylesheet" href="~/css/style.css">
@@ -24,12 +27,12 @@
     <link rel="icon" type="image/png" href="~/images/favicon/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="~/images/favicon/favicon-16x16.png" sizes="16x16">
 
-  <!--jquery-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
-    integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-  <!--font family-->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <!--jquery-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
+            integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
+            crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--font family-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.min.css" integrity="sha256-sWZjHQiY9fvheUAOoxrszw9Wphl3zqfVaz1kZKEvot8=" crossorigin="anonymous">
 
@@ -38,17 +41,16 @@
 <body>
     <!--header start-->
     <div class="boxed_wrapper">
-<!--Start Preloader -->
-@* <div class="preloader"></div> -----------------------------pre-loader---------------------------*@ 
-<!--End Preloader -->  
-
-<!--Start Top bar area -->  
-<section class="top-bar-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-8 col-sm-12 col-xs-12">
-                <div class="top-info">
-                    <ul>
+        <!--Start Preloader -->
+        @* <div class="preloader"></div> -----------------------------pre-loader---------------------------*@
+        <!--End Preloader -->
+        <!--Start Top bar area -->
+        <section class="top-bar-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-8 col-sm-12 col-xs-12">
+                        <div class="top-info">
+                            <ul>
                                 <li>
                                     <span class="icon-signs"></span>Merkez Mah. Şebboy Sok. no:57/12
                                     İstanbul, 34450, TR
@@ -57,24 +59,23 @@
                                     <span class="icon-clock"></span>Pazartesiden Cumartesiye: 09.00 - 18.00
                                     Pazar: Kapalı
                                 </li>
-                    </ul>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-<!--End Top bar area --> 
- 
-<!--Start header area-->
-<header class="header-area">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
+        </section>
+        <!--End Top bar area -->
+        <!--Start header area-->
+        <header class="header-area">
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
                         <div class="logo" style="height:100px;">
                             <a href="@Url.Action("Index","Home")"><img src="~/images/logo1.png" alt="kodeforest" style="height:100px;"></a>
-                </div>
-            </div>
-            <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
+                        </div>
+                    </div>
+                    <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
                         <div class="text-center" style="
             height: 100px;
             align-items: center;
@@ -87,40 +88,39 @@
                                 </div>
                             </div>
                         </div>
-            </div>
-            <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
-                <div class="top-social-links">
-                    <ul>
-                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
-                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                    </ul>
+                    </div>
+                    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12">
+                        <div class="top-social-links">
+                            <ul>
+                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-google-plus" aria-hidden="true"></i></a></li>
+                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>
+
                 </div>
             </div>
-            
-        </div>
-    </div>
-</header>  
-<!--End header area--> 
-
-<!--Start mainmenu area-->
-<section class="mainmenu-area stricky">
-    <div class="container">
-        <div class="mainmenu-bg">
-            <div class="row">
-                <div class="col-md-10 col-sm-12 col-xs-12">
-                    <!--Start mainmenu-->
-                    <nav class="main-menu">
-                        <div class="navbar-header">   	
-                            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                                <span class="icon-bar"></span>
-                            </button>
-                        </div>
-                        <div class="navbar-collapse collapse clearfix">
-                            <ul class="navigation clearfix">
+        </header>
+        <!--End header area-->
+        <!--Start mainmenu area-->
+        <section class="mainmenu-area stricky">
+            <div class="container">
+                <div class="mainmenu-bg">
+                    <div class="row">
+                        <div class="col-md-10 col-sm-12 col-xs-12">
+                            <!--Start mainmenu-->
+                            <nav class="main-menu">
+                                <div class="navbar-header">
+                                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                        <span class="icon-bar"></span>
+                                    </button>
+                                </div>
+                                <div class="navbar-collapse collapse clearfix">
+                                    <ul class="navigation clearfix">
                                         <li class="home current"><a href="@Url.Action("Index","Home")"><span class="fa fa-home"></span></a></li>
                                         <li class="dropdown">
                                             <a href="#">İlanlar</a>
@@ -129,44 +129,54 @@
                                                 <li><a href="@Url.Action("Technician","JobAdvert")">Teknisyen İlanları</a></li>
                                                 <li><a href="@Url.Action("Intern","JobAdvert")">Stajyer İlanları</a></li>
                                                 <li><a href="@Url.Action("License","JobAdvert")">Ruhsat İlanları</a></li>
-                                        
+
                                             </ul>
                                         </li>
 
-                                      @*   <li class="dropdown"><a href="@Url.Action("OurPartners","Home")">Partner</a></li> *@
-                                <li class="dropdown"><a href="@Url.Action("Faq","Home")">SSS</a></li>
-                                <li class="dropdown"><a href="@Url.Action("AboutUs","Home")">Hakkımızda</a></li>
-                                <li class="dropdown"><a href="@Url.Action("Contact","Home")">İLETİŞİM</a></li>
-                            </ul>
+                                        @*   <li class="dropdown"><a href="@Url.Action("OurPartners","Home")">Partner</a></li> *@
+                                        <li class="dropdown"><a href="@Url.Action("Faq","Home")">SSS</a></li>
+                                        <li class="dropdown"><a href="@Url.Action("AboutUs","Home")">Hakkımızda</a></li>
+                                        <li class="dropdown"><a href="@Url.Action("Contact","Home")">İLETİŞİM</a></li>
+                                    </ul>
+                                </div>
+                            </nav>
+                            <!--End mainmenu-->
+                            <!--Start search box-->
+                            <!--End search box-->
                         </div>
-                    </nav>
-                    <!--End mainmenu-->
-                    <!--Start search box-->
-                 
-                    <!--End search box-->
-                </div>
-                <div class="col-md-2 col-sm-12 col-xs-12">
-                    <div class="free-consulation-button pull-right">
+                        <div class="col-md-2 col-sm-12 col-xs-12">
+                            <div class="free-consulation-button pull-right">
                                 @if (User.Identity.IsAuthenticated)
                                 {
-                                    <a class="thm-btn bg-clr1" href="@Url.Action("Profile", "Account")">Profil</a>
+                                    var user = await _dbService.GetSessionUser(User);
+
+                                    if (user != null)
+                                    {
+                                        if (user.Type == ApplicationUserType.USER)
+                                        {
+                                            <a class="thm-btn bg-clr1" href="/User/Account/Profile">Profil</a>
+                                        }
+                                        else if (user.Type == ApplicationUserType.PHARMACY)
+                                        {
+                                            <a class="thm-btn bg-clr1" href="/Pharmacy/Account/Profile">Profil</a>
+                                        }
+                                    }
                                 }
                                 else
                                 {
-                                    <a class="thm-btn bg-clr1" href="@Url.Action("Login", "Account")">Giriş Yap / Üye Ol</a>
+                                    <a class="thm-btn bg-clr1" href="@Url.Action("LoginUser", "Account")">Giriş Yap / Üye Ol</a>
                                 }
                             </div>
+                        </div>
+                    </div>
                 </div>
             </div>
-        </div>
-    </div>
-</section>
-<!--End mainmenu area-->
-
- @RenderBody()
+        </section>
+        <!--End mainmenu area-->
+        @RenderBody()
 
 
-  <!--footer start-->
+        <!--footer start-->
         <!--Start footer area-->
         <footer class="footer-area" style="background-image:url(~/images/widget-bgb.jpg);">
             <div class="footer-top-area">
@@ -209,7 +219,7 @@
                             </div>
                             <ul class="we-do-list">
                                 <li><a href="#">İlanlarımız</a></li>
-                              @*   <li><a href="#">Partnerlerimiz</a></li> *@
+                                @*   <li><a href="#">Partnerlerimiz</a></li> *@
                                 <li><a href="#">Hakkımızda</a></li>
                                 <li><a href="#">İletişim</a></li>
                                 <li><a href="#">SSS</a></li>
@@ -286,13 +296,13 @@
                             <div class="copyright-text" style="text-align:center;">
                                 <p>Copyrights © 2024 All Tüm Hakları Saklıdır. <a href="#">FarmaKariyer </a><span style="margin-right:0 5px;"></span><a href="#" style="color:white;">Cloudnoyo</a></p>
                             </div>
-                         @*    <div class="footer-menu pull-right">
-                                <ul>
-                                    <li><a href="#">Legal</a></li>
-                                    <li><a href="#">Sitemap</a></li>
-                                    <li><a href="#">Privacy Policy</a></li>
-                                    <li><a href="#">Terms & Condition</a></li>
-                                </ul>
+                            @*    <div class="footer-menu pull-right">
+                            <ul>
+                            <li><a href="#">Legal</a></li>
+                            <li><a href="#">Sitemap</a></li>
+                            <li><a href="#">Privacy Policy</a></li>
+                            <li><a href="#">Terms & Condition</a></li>
+                            </ul>
                             </div> *@
                         </div>
                     </div>
@@ -304,15 +314,15 @@
         <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
 
 
-    <!--Scroll to top-->
-    <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
+        <!--Scroll to top-->
+        <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
     </div>
-   
 
 
-  <!--footer end-->
-  <!--owl-carousel-->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
+
+    <!--footer end-->
+    <!--owl-carousel-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
 
     <!-- main jQuery -->
@@ -375,33 +385,33 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js" integrity="sha256-t0FDfwj/WoMHIBbmFfuOtZv1wtA977QCfsFR3p1K4No=" crossorigin="anonymous"></script>
     @await Html.PartialAsync("_NotificationPartial")
 
-  <script>
-    $(document).ready(function () {
+    <script>
+        $(document).ready(function () {
 
-      $("#owl-demo").owlCarousel({
-        navigation: true,
-        items: 1,
-        loop: true,
-        nav: false,
-        dots: false
-      });
+            $("#owl-demo").owlCarousel({
+                navigation: true,
+                items: 1,
+                loop: true,
+                nav: false,
+                dots: false
+            });
 
-    });
-  </script>
+        });
+    </script>
 
-  <script>
-    var owl = $('#farmaref');
-    owl.owlCarousel({
-      items: 6,
-      loop: true,
-      dots: false,
-      autoplay: true,
-      autoplayTimeout: 3000,
-      autoplayHoverPause: true
-    });
-    $('.play').on('click', function () {
-      owl.trigger('play.owl.autoplay', [1000])
-    })
-  </script>
+    <script>
+        var owl = $('#farmaref');
+        owl.owlCarousel({
+            items: 6,
+            loop: true,
+            dots: false,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true
+        });
+        $('.play').on('click', function () {
+            owl.trigger('play.owl.autoplay', [1000])
+        })
+    </script>
 </body>
 </html>

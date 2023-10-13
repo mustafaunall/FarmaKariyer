@@ -30,12 +30,6 @@ public class AccountController : BaseController
     }
 
     [Authorize]
-    public IActionResult Index()
-    {
-        return RedirectPermanent("/Account/Profile");
-    }
-
-    [Authorize]
     public async Task<IActionResult> Profile()
     {
         if (User.Identity.IsAuthenticated)

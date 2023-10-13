@@ -13,6 +13,8 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddScoped<PdfService>();
 
+builder.Services.AddScoped<DbService>();
+
 builder.Services.AddDbContext<UserDbContext>(options =>
 options.UseNpgsql("host=80.253.246.121; port=5454; database=FarmaKariyer; username=postgres; password=Secure2023Password."));
 

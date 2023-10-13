@@ -12,6 +12,13 @@ public class ApplicationUser : IdentityUser<int>
     public string? Province { get; set; }
     public string? District { get; set; }
     public string? Address { get; set; }
+
+    #region Pharmacy
+
+    public string? PharmacyName { get; set; }
+    public string? GLNCode { get; set; }
+
+    #endregion
     public ApplicationUserType Type { get; set; }
 }
 

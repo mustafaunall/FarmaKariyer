@@ -1,5 +1,5 @@
 ﻿@using Domain.ViewModel.User;
-@model LoginUserVM
+@model RegisterPharmacyVM
 
 @{
     ViewData["Title"] = "Eczane Kayıt Ol";
@@ -59,33 +59,33 @@ display:flex;">
                                 </p>
                             </div>
 
-                            <form class="contact-bx" method="post" asp-controller="Account" asp-action="Register">
+                            <form class="contact-bx" method="post" asp-controller="Account" asp-action="RegisterPharmacy">
                                 <div class="row placeani">
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <div class="input-group">
-                                                <input name="Name" type="text" placeholder="Adınız" class="form-control">
+                                                <input asp-for="Name" type="text" placeholder="Adınız" class="form-control">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <div class="input-group">
-                                                <input name="Surname" type="text" placeholder="Soyadınız" class="form-control">
+                                                <input asp-for="Surname" type="text" placeholder="Soyadınız" class="form-control">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <div class="input-group">
-                                                <input name="PharmacyName" type="text" placeholder="Eczane Adı" class="form-control">
+                                                <input asp-for="PharmacyName" type="text" placeholder="Eczane Adı" class="form-control">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <div class="input-group">
-                                                <input name="PhoneNumber" type="text" placeholder="Telefon Numaranız" class="form-control">
+                                                <input asp-for="PhoneNumber" type="text" placeholder="Telefon Numaranız" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -93,7 +93,7 @@ display:flex;">
                                         <div class="form-group">
                                             <div class="input-group">
 
-                                                <input type="text" class="form-control" id="glnNumber" placeholder="GLN Numaranız:">
+                                                <input type="text" asp-for="GLNCode" class="form-control" id="glnNumber" placeholder="GLN Numaranız:">
 
                                                 <script>
                                                     const initialValue = "8680001";
@@ -129,33 +129,33 @@ display:flex;">
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <div class="input-group">
-                                                <input name="Email" type="email" placeholder="E-Posta Adresiniz" class="form-control">
+                                                <input asp-for="Email" type="email" placeholder="E-Posta Adresiniz" class="form-control">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <div class="input-group">
-                                                <input name="Password" type="password" class="form-control" placeholder="Şifreniz">
+                                                <input asp-for="Password" type="password" class="form-control" placeholder="Şifreniz">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <div class="input-group">
-                                                <input name="ConfirmPassword" type="password" class="form-control" placeholder="Şifreniz Tekrar">
+                                                <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Şifreniz Tekrar">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group form-forget">
                                             <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
+                                                <input type="checkbox" required class="custom-control-input" id="customControlAutosizing">
                                                 <label class="custom-control-label" for="customControlAutosizing"><a href="#" style="color:black;">Koşulları Kabul Ediyorum</a></label>
                                             </div>
                                         </div>
                                         <div class="col-lg-12 m-b30">
-                                            <button name="submit" type="submit" value="Submit" class="btn button-md">Kayıt Ol</button>
+                                            <button type="submit" value="Submit" class="btn button-md">Kayıt Ol</button>
                                         </div>
                                     </div>
                             </form>

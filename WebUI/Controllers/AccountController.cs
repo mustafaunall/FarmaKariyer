@@ -28,6 +28,25 @@ public class AccountController : BaseController
         _context = context;
     }
 
+    public async Task<IActionResult> Profile()
+    {
+        if (!User.Identity.IsAuthenticated)
+            return RedirectToAction("Index", "Home");
+
+        var u = await _userManager.GetUserAsync(User);
+        var user = _context.Users.Where(x => x.Id == u.Id).FirstOrDefault();
+
+        if (user == null)
+            return RedirectToAction("Index", "Home");
+
+        if (user.Type == ApplicationUserType.USER)
+            return RedirectPermanent("/User/Account/Profile");
+        else if (user.Type == ApplicationUserType.PHARMACY)
+            return RedirectPermanent("/Pharmacy/Account/Profile");
+        else
+            return RedirectToAction("Index", "Home");
+    }
+
     [CheckSession]
     public IActionResult LoginUser()
     {
@@ -90,17 +109,16 @@ public class AccountController : BaseController
             if (result.Succeeded)
             {
                 if (user.Type == ApplicationUserType.USER)
-                    return RedirectToAction("Profile", "Account", new { area = "User" });
+                    return RedirectPermanent("/User/Account/Profile");
                 else if (user.Type == ApplicationUserType.PHARMACY)
-                    return RedirectToAction("Profile", "Account", new { area = "Pharmacy" });
+                    return RedirectPermanent("/Pharmacy/Account/Profile");
             }
             else
             {
-                ModelState.AddModelError("", "Invalid login attempt");
-                return View(model);
+                return RedirectToAction("LoginUser", "Account");
             }
         }
-        return View();
+        return RedirectToAction("LoginUser", "Account");
     }
 
     [HttpPost]
@@ -110,7 +128,8 @@ public class AccountController : BaseController
     {
         var user = new ApplicationUser
         {
-            UserName = StringHelper.ConvertToEnglish(model.Name + model.Surname).ToLower(),
+            //UserName = StringHelper.ConvertToEnglish(model.Name + model.Surname).ToLower(),
+            UserName = model.Email,
             Email = model.Email,
             PhoneNumber = model.PhoneNumber,
             Name = model.Name,
@@ -122,49 +141,53 @@ public class AccountController : BaseController
         {
             await _signInManager.SignInAsync(user, isPersistent: false);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectPermanent("/User/Account/Profile");
         }
         foreach (var error in result.Errors)
         {
             ModelState.AddModelError(string.Empty, error.Description);
         }
 
-        return RedirectToAction("Profile", "Account");
+        return RedirectToAction("Index", "Home");
     }
 
     [HttpPost]
     [AllowAnonymous]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> RegisterPharmacy(RegisterUserVM model)
+    public async Task<IActionResult> RegisterPharmacy(RegisterPharmacyVM model)
     {
         var user = new ApplicationUser
         {
-            UserName = StringHelper.ConvertToEnglish(model.Name + model.Surname).ToLower(),
+            //UserName = StringHelper.ConvertToEnglish(model.Name + model.Surname).ToLower(),
+            UserName = model.Email,
             Email = model.Email,
             PhoneNumber = model.PhoneNumber,
             Name = model.Name,
             Surname = model.Surname,
             Type = ApplicationUserType.PHARMACY,
+
+            PharmacyName = model.PharmacyName,
+            GLNCode = model.GLNCode,
         };
         var result = await _userManager.CreateAsync(user, model.Password);
         if (result.Succeeded)
         {
             await _signInManager.SignInAsync(user, isPersistent: false);
 
-            return RedirectToAction("Index", "Home");
+            return RedirectPermanent("/Pharmacy/Account/Profile");
         }
         foreach (var error in result.Errors)
         {
             ModelState.AddModelError(string.Empty, error.Description);
         }
 
-        return RedirectToAction("Profile", "Account");
+        return RedirectToAction("Index", "Home");
     }
 
     [Authorize]
     public async Task<IActionResult> Logout()
     {
         await _signInManager.SignOutAsync();
-        return RedirectToAction("Login", "Account");
+        return RedirectToAction("LoginUser", "Account");
     }
 }
