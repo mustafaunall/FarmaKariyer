@@ -135,6 +135,10 @@ public class AccountController : BaseController
     {
         return View();
     }
+    public IActionResult PharmacyJobAdvert()
+    {
+        return View();
+    }
 
     public IActionResult ForgotPassword()
     {
