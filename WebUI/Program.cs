@@ -1,7 +1,7 @@
 using Core.Helper;
 using Core.Services;
 using DataAccess.Context;
-using DataAccess.Model;
+using Domain.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using QuestPDF.Infrastructure;

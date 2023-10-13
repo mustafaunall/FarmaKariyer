@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using System.ComponentModel;
 
-namespace DataAccess.Model;
+namespace Domain.Model;
 
 public class ApplicationUser : IdentityUser<int>
 {

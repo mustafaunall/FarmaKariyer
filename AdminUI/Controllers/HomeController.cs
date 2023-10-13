@@ -1,5 +1,5 @@
 ﻿using DataAccess.Context;
-using DataAccess.Model;
+using Domain.Model;
 using Domain.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Domain.ViewModel.Admin;
 using DataAccess.Context;
-using DataAccess.Model;
+using Domain.Model;
 
 namespace AdminUI.Controllers;
 

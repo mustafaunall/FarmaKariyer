@@ -7,7 +7,7 @@ using DataAccess.Context;
 using System.Xml.Linq;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Core.Helper;
-using DataAccess.Model;
+using Domain.Model;
 using WebUI.Attributes;
 using WebUI.Extensions;
 

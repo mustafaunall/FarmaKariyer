@@ -1,5 +1,5 @@
 ﻿using DataAccess.Context;
-using DataAccess.Model;
+using Domain.Model;
 using DotNetEd.CoreAdmin;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
