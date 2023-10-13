@@ -11,9 +11,9 @@
   <ItemGroup>
     <PackageReference Include="CoreAdmin" Version="2.7.0" />
     <PackageReference Include="IdentityServer4" Version="4.1.2" />
-    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.21" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.21" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.21">
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="6.0.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="6.0.23" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="6.0.23">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
