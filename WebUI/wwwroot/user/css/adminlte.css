@@ -2580,17 +2580,17 @@ fieldset:disabled a.btn {
 }
 
 .btn-primary {
-  color: #fff;
-  background-color: #007bff;
-  border-color: #007bff;
-  box-shadow: none;
+    color: #fff;
+    background-color: #ff2b58;
+    border-color: #ff2b58;
+    box-shadow: none;
 }
 
-.btn-primary:hover {
-  color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
-}
+    .btn-primary:hover {
+        color: #fff;
+        background-color: #2b2c36;
+        border-color: #0062cc;
+    }
 
 .btn-primary:focus, .btn-primary.focus {
   color: #fff;
@@ -4069,7 +4069,7 @@ input[type="button"].btn-block {
 }
 
 .custom-file-input:lang(en) ~ .custom-file-label::after {
-  content: "Browse";
+  content: "Dosya Ekle";
 }
 
 .custom-file-input ~ .custom-file-label[data-browse]::after {
@@ -26650,7 +26650,7 @@ body.text-sm .input-group-text {
 }
 
 .card-primary:not(.card-outline) > .card-header {
-  background-color: #007bff;
+    background-color: #ff2b58;
 }
 
 .card-primary:not(.card-outline) > .card-header,

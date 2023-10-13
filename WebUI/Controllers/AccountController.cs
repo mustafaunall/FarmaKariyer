@@ -123,6 +123,18 @@ public class AccountController : BaseController
     {
         return View();
     }
+    public IActionResult CV()
+    {
+        return View();
+    }
+    public IActionResult TechnicianCV()
+    {
+        return View();
+    }
+    public IActionResult InternCV()
+    {
+        return View();
+    }
 
     public IActionResult ForgotPassword()
     {
