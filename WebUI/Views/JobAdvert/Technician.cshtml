@@ -2,17 +2,12 @@
 @model LoginUserVM
 
 @{
-    ViewData["Title"] = "Şifremi Unuttum";
+    ViewData["Title"] = "TEknisyen İlanları";
 }
-
-@{
-    ViewData["Title"] = "Anasayfa";
-}
-
 <!--Start breadcrumb area-->
 <section class="breadcrumb-area" style="background-image: url(/images/sss.png);">
     <div class="container text-center">
-        <h1>İlanlar</h1>
+        <h1>Teknisyen İlanları</h1>
     </div>
 </section>
 <!--End breadcrumb area-->
@@ -21,9 +16,11 @@
     <div class="container">
         <div class="left pull-left">
             <ul>
-                <li><a href="index.html">Anasayfa</a></li>
+                <li><a href="@Url.Action("Index","Home")">Anasayfa</a></li>
+                <li><i class="fa fa-angle-right" style="color:black;" aria-hidden="true"></i></li>
+                <li><a href="index.html">İlanlar</a></li>
                 <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                <li>İlanlar</li>
+                <li>Teknisyen İlanları</li>
             </ul>
         </div>
     </div>
