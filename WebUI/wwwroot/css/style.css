@@ -5718,6 +5718,9 @@ select:focus {
     margin-bottom: 50px;
 }
 
-@@media only screen and (max-width: 991px) .account-container {
-    padding: 50px 20px;
+@media only screen and (max-width: 991px) {
+    .account-container {
+        padding: 50px 20px;
+    }
 }
+

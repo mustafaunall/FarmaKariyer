@@ -76,6 +76,7 @@
                                         <option>Teknisyen</option>
                                         <option>Stajyer</option>
                                         <option>Yardımcı Eczacı</option>
+                                        <option>İkinci Eczacı</option>
                                         <option>Ruhsat</option>
                                         <option>Diğer</option>
                                     </select>
@@ -119,11 +120,11 @@
                                             inputHtml += '<option>1</option>';
                                             inputHtml += '<option>2</option>';
                                             inputHtml += '<option>3</option>';
-                                            inputHtml += '<option>5</option>';
+                                            inputHtml += '<option>4</option>';
                                             inputHtml += '<option>5-10</option>';
-                                            inputHtml += '<option>10-15</option>';
-                                            inputHtml += '<option>15-20</option>';
-                                            inputHtml += '<option>20+</option>';
+                                            inputHtml += '<option>11-15</option>';
+                                            inputHtml += '<option>16-20</option>';
+                                            inputHtml += '<option>21+</option>';
                                             inputHtml += '</select>';
                                             inputHtml += '</div>';
                                             inputHtml += '</div>';
@@ -158,15 +159,53 @@
                                             inputHtml += '</div>';
                                             inputHtml += '<ul class="categories clearfix uljobs">';
                                             inputHtml += '<li>';
-                                            inputHtml += '<select class="form-control" id="maasaraligi">';
-                                            inputHtml += '<option value="" disabled selected>Maaş Seçiniz</option>';
-                                            inputHtml += '<option value="Asgari Ücret">Asgari Ücret</option>';
-                                            inputHtml += '<option value="20.000">20.000</option>';
-                                            inputHtml += '<option value="30.000">30.000</option>';
-                                            inputHtml += '</select>';
+                                            inputHtml += '<div style="display: flex; align-items: center;">';
+                                            inputHtml += '<input type="number" class="form-control" id="maasaraligi" placeholder="Ortalama Maaş Giriniz" min="0" pattern="\\d+" style="flex: 1;">';
+                                            inputHtml += '<span style="margin-left: 5px;">TL</span>';
+                                            inputHtml += '</div>';
                                             inputHtml += '</li>';
                                             inputHtml += '</ul>';
                                             inputHtml += '</div>';
+
+                                            // Bilgiler Başlığı
+                                            inputHtml += '<div class="form-group">';
+                                            inputHtml += '    <div class="sec-title">';
+                                            inputHtml += '        <label>Bilgiler</label>';
+                                            inputHtml += '    </div>';
+                                            inputHtml += '    <div>';  // flex sınıflarını kaldırdım
+
+                                            // Reçete Bilgisi
+                                            inputHtml += '        <div class="form-check">';
+                                            inputHtml += '            <input class="form-check-input" type="checkbox" name="infoType" id="receteBilgisi" value="1">';
+                                            inputHtml += '            <label class="form-check-label" for="receteBilgisi">Reçete Bilgisi</label>';
+                                            inputHtml += '        </div>';
+
+                                            // Özel Sigorta Girişi
+                                            inputHtml += '        <div class="form-check">';
+                                            inputHtml += '            <input class="form-check-input" type="checkbox" name="infoType" id="ozelSigorta" value="2">';
+                                            inputHtml += '            <label class="form-check-label" for="ozelSigorta">Özel Sigorta Girişi</label>';
+                                            inputHtml += '        </div>';
+
+                                            // OTC Bilgisi
+                                            inputHtml += '        <div class="form-check">';
+                                            inputHtml += '            <input class="form-check-input" type="checkbox" name="infoType" id="otcBilgisi" value="3">';
+                                            inputHtml += '            <label class="form-check-label" for="otcBilgisi">OTC Bilgisi</label>';
+                                            inputHtml += '        </div>';
+
+                                            // Dermokozmetik Bilgisi
+                                            inputHtml += '        <div class="form-check">';
+                                            inputHtml += '            <input class="form-check-input" type="checkbox" name="infoType" id="dermoBilgisi" value="4">';
+                                            inputHtml += '            <label class="form-check-label" for="dermoBilgisi">Dermokozmetik Bilgisi</label>';
+                                            inputHtml += '        </div>';
+
+                                            // Ekstra
+                                            inputHtml += '        <div class="form-check">';
+                                            inputHtml += '            <input class="form-check-input" type="checkbox" name="infoType" id="extra" value="5">';
+                                            inputHtml += '            <label class="form-check-label" for="extra">Ekstra</label>';
+                                            inputHtml += '        </div>';
+
+                                            inputHtml += '    </div>';  // div kapanışı
+                                            inputHtml += '</div>';  // form-group kapanışı
                                         }
                                         else if (selectedValue === 'Yardımcı Eczacı') {
                                             inputHtml += '<div class="form-group">';
@@ -180,11 +219,11 @@
                                             inputHtml += '<option>1</option>';
                                             inputHtml += '<option>2</option>';
                                             inputHtml += '<option>3</option>';
-                                            inputHtml += '<option>5</option>';
+                                            inputHtml += '<option>4</option>';
                                             inputHtml += '<option>5-10</option>';
-                                            inputHtml += '<option>10-15</option>';
-                                            inputHtml += '<option>15-20</option>';
-                                            inputHtml += '<option>20+</option>';
+                                            inputHtml += '<option>11-15</option>';
+                                            inputHtml += '<option>16-20</option>';
+                                            inputHtml += '<option>21+</option>';
                                             inputHtml += '</select>';
                                             inputHtml += '</div>';
                                             inputHtml += '</div>';
@@ -192,6 +231,7 @@
                                         else if(selectedValue ==='Ruhsat'){
                                             // Metre Kare Alanı
                                             inputHtml += '<div class="form-group">';
+                                            inputHtml += '<h2>Ruhsat İçin Özel Arama</h2>';
                                             inputHtml += '    <div class="sec-title">';
                                             inputHtml += '        <label>Metre Kare</label>';
                                             inputHtml += '    </div>';
@@ -211,56 +251,52 @@
                                             inputHtml += '</div>';
                                             // Ciro Alanı
                                             inputHtml += '<div class="form-group">';
-                                            inputHtml += '    <div class="sec-title">';
-                                            inputHtml += '        <label>Ciro</label>';
-                                            inputHtml += '    </div>';
-                                            inputHtml += '    <ul class="categories clearfix uljobs">';
-                                            inputHtml += '        <li>';
-                                            inputHtml += '            <select class="form-control" id="dailyRevenue">';
-                                            inputHtml += '                <option value="" disabled="" selected="">Günlük Ciro</option>';
-                                            inputHtml += '                <option value="1">1,000 - 3,000</option>';
-                                            inputHtml += '                <option value="1">3,000 - 5,000</option>';
-                                            inputHtml += '                <option value="1">5,000 - 7,000</option>';
-                                            inputHtml += '                <option value="1">7,000 - 10,000</option>';
-                                            inputHtml += '                <option value="1">10,000 - 15,000</option>';
-                                            inputHtml += '                <option value="1">15,000+</option>';
-                                            inputHtml += '            </select>';
-                                            inputHtml += '        </li>';
-                                            inputHtml += '    </ul>';
+                                            inputHtml += '<div class="sec-title">';
+                                            inputHtml += '<label>Maaş Aralığı</label>';
                                             inputHtml += '</div>';
-                                            //Ruhsat Bilgisi
-                                            inputHtml += '<div class="form-group">';
-                                            inputHtml += '<h2>Ruhsat İçin Özel Arama</h2>';
+                                            inputHtml += '<ul class="categories clearfix uljobs">';
+                                            inputHtml += '<li>';
+                                            inputHtml += '<div style="display: flex; align-items: center;">';
+                                            inputHtml += '<input type="number" class="form-control" id="maasaraligi" placeholder="Aylık Ciro" min="0" pattern="\\d+" style="flex: 1;">';
+                                            inputHtml += '<span style="margin-left: 5px;">TL</span>';
                                             inputHtml += '</div>';
+                                            inputHtml += '</li>';
+                                            inputHtml += '</ul>';
+                                            inputHtml += '</div>';
+                                            // Ruhsat
                                             inputHtml += '<div class="form-group">';
                                             inputHtml += '    <div class="sec-title">';
                                             inputHtml += '        <label>Ruhsat</label>';
                                             inputHtml += '    </div>';
-                                            inputHtml += '    <ul class="categories clearfix uljobs">';
-                                            inputHtml += '        <li>';
-                                            inputHtml += '            <select class="form-control" id="employeecount">';
-                                            inputHtml += '                <option value="" disabled="" selected="">Ruhsat Devir Durumu</option>';
-                                            inputHtml += '                <option value="1">Ruhsatlı</option>';
-                                            inputHtml += '                <option value="1">Ruhsatsız</option>';
-                                            inputHtml += '            </select>';
-                                            inputHtml += '        </li>';
-                                            inputHtml += '    </ul>';
+                                            inputHtml += '    <div class="d-flex">';
+                                            inputHtml += '        <div class="form-check mr-3">';
+                                            inputHtml += '            <input class="form-check-input" type="radio" name="ruhsatRight" id="ruhsatRightYes" value="1">';
+                                            inputHtml += '            <label class="form-check-label" for="ruhsatRightYes">Ruhsat Var</label>';
+                                            inputHtml += '        </div>';
+                                            inputHtml += '        <div class="form-check">';
+                                            inputHtml += '            <input class="form-check-input" type="radio" name="ruhsatRight" id="ruhsatRightNo" value="0">';
+                                            inputHtml += '            <label class="form-check-label" for="ruhsatRightNo">Ruhsat Yok</label>';
+                                            inputHtml += '        </div>';
+                                            inputHtml += '    </div>';
                                             inputHtml += '</div>';
+
                                             // Taşıma
                                             inputHtml += '<div class="form-group">';
                                             inputHtml += '    <div class="sec-title">';
                                             inputHtml += '        <label>Taşıma</label>';
                                             inputHtml += '    </div>';
-                                            inputHtml += '    <ul class="categories clearfix uljobs">';
-                                            inputHtml += '        <li>';
-                                            inputHtml += '            <select class="form-control" id="transportRight">';
-                                            inputHtml += '                <option value="" disabled="" selected="">Taşıma Hakkı Durumu</option>';
-                                            inputHtml += '                <option value="1">Taşıma Hakkı Var</option>';
-                                            inputHtml += '                <option value="1">Taşıma Hakkı Yok</option>';
-                                            inputHtml += '            </select>';
-                                            inputHtml += '        </li>';
-                                            inputHtml += '    </ul>';
+                                            inputHtml += '    <div class="d-flex">';
+                                            inputHtml += '        <div class="form-check mr-3">';
+                                            inputHtml += '            <input class="form-check-input" type="radio" name="transportRight" id="transportRightYes" value="1">';
+                                            inputHtml += '            <label class="form-check-label" for="transportRightYes">Taşıma Hakkı Var</label>';
+                                            inputHtml += '        </div>';
+                                            inputHtml += '        <div class="form-check">';
+                                            inputHtml += '            <input class="form-check-input" type="radio" name="transportRight" id="transportRightNo" value="0">';
+                                            inputHtml += '            <label class="form-check-label" for="transportRightNo">Taşıma Hakkı Yok</label>';
+                                            inputHtml += '        </div>';
+                                            inputHtml += '    </div>';
                                             inputHtml += '</div>';
+
                                         }
                                         else if (selectedValue === 'Diğer') {
                                             inputHtml += '<div class="form-group">';
@@ -299,5 +335,16 @@
         list-style: none;
         margin: 0;
         padding: 0;
+    }
+
+    input::-webkit-outer-spin-button,
+    input::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+
+    /* Firefox */
+    input[type=number] {
+        -moz-appearance: textfield;
     }
 </style>
