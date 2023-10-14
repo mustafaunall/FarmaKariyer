@@ -8,18 +8,18 @@
 <div class="container" style="margin-top:35px;">
     <div style="margin-top:40px;">
         <div class="row" style="justify-content:center; display:flex;">
-            <div class="col-lg-3" style="  transform: skewX(-20deg);">
-                <a href="@Url.Action("Register","Account")" class="thm-btn bg-clr1 loginbtn" style="padding:10px;">
-                    <h1 class="text-center" style="color:white;  transform: skewX(20deg); font-size:26px;">Kullanıcı Kayıt Ol</h1>
+            <div class="col-lg-3" style="transform: skewX(-20deg); margin-right: 20px;">
+                <a href="@Url.Action("RegisterUser","Account")" class="thm-btn bg-clr1 loginbtn" style="padding:10px;">
+                    <h1 class="text-center" style="color:white; transform: skewX(20deg); font-size:26px;">Kullanıcı Kayıt Ol</h1>
                 </a>
             </div>
-            <div class="col-lg-1"></div>
-            <div class="col-lg-3" style=" transform: skewX(-20deg);">
+            <div class="col-lg-3" style="transform: skewX(-20deg); margin-left: 20px;">
                 <a href="@Url.Action("RegisterPharmacy","Account")" class="thm-btn bg-clr1 " style="padding:10px;">
-                    <h1 class="text-center" style="color:white;  transform: skewX(20deg); font-size:26px;">Eczane Kayıt Ol</h1>
+                    <h1 class="text-center" style="color:white; transform: skewX(20deg); font-size:26px;">Eczane Kayıt Ol</h1>
                 </a>
             </div>
         </div>
+
     </div>
     <style>
         .loginbtn {
@@ -64,14 +64,14 @@ display:flex;">
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <div class="input-group">
-                                                <input asp-for="Name" type="text" placeholder="Adınız" class="form-control">
+                                                <input asp-for="Name" type="text" placeholder="Eczacı Adı" class="form-control">
                                             </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <div class="input-group">
-                                                <input asp-for="Surname" type="text" placeholder="Soyadınız" class="form-control">
+                                                <input asp-for="Surname" type="text" placeholder="Eczacı Soyadı" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -79,13 +79,6 @@ display:flex;">
                                         <div class="form-group">
                                             <div class="input-group">
                                                 <input asp-for="PharmacyName" type="text" placeholder="Eczane Adı" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input asp-for="PhoneNumber" type="text" placeholder="Telefon Numaranız" class="form-control">
                                             </div>
                                         </div>
                                     </div>
@@ -123,6 +116,13 @@ display:flex;">
                                                         }
                                                     });
                                                 </script>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <div class="input-group">
+                                                <input asp-for="PhoneNumber" type="text" placeholder="Telefon Numaranız" class="form-control">
                                             </div>
                                         </div>
                                     </div>

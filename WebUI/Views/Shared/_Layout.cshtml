@@ -27,6 +27,7 @@
     <link rel="icon" type="image/png" href="~/images/favicon/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="~/images/favicon/favicon-16x16.png" sizes="16x16">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--jquery-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.js"
             integrity="sha512-8Z5++K1rB3U+USaLKG6oO8uWWBhdYsM3hmdirnOEWp8h2B1aOikj5zBzlXs8QOrvY9OxEnD2QDkbSKKpfqcIWw=="
@@ -125,14 +126,22 @@
                                         <li class="dropdown">
                                             <a href="#">İlanlar</a>
                                             <ul>
-                                                <li><a href="@Url.Action("Pharmacy","JobAdvert")">Eczane</a></li>
-                                                <li><a href="@Url.Action("Technician","JobAdvert")">Teknisyen İlanları</a></li>
+                                                <li id="mainMenuItem">
+                                                    <a style="display: flex; justify-content: space-between;" href="@Url.Action("Technician", "JobAdvert")">
+                                                        Teknisyen İlanları
+                                                        <i class="fa-solid fa-angle-right"></i>
+                                                    </a>
+                                                    <div id="subMenu">
+                                                        <a href="@Url.Action("Technician", "JobAdvert")" class="submenuder">Dermokozmetik Elemanı</a>
+                                                    </div>
+                                                </li>
+
                                                 <li><a href="@Url.Action("Intern","JobAdvert")">Stajyer İlanları</a></li>
                                                 <li><a href="@Url.Action("License","JobAdvert")">Ruhsat İlanları</a></li>
+                                                <li class="dropdown"><a href="@Url.Action("Contact","Home")">Diğer İlanlar</a></li>
 
                                             </ul>
                                         </li>
-
                                         @*   <li class="dropdown"><a href="@Url.Action("OurPartners","Home")">Partner</a></li> *@
                                         <li class="dropdown"><a href="@Url.Action("Faq","Home")">SSS</a></li>
                                         <li class="dropdown"><a href="@Url.Action("AboutUs","Home")">Hakkımızda</a></li>
@@ -140,6 +149,7 @@
                                     </ul>
                                 </div>
                             </nav>
+                          
                             <!--End mainmenu-->
                             <!--Start search box-->
                             <!--End search box-->
