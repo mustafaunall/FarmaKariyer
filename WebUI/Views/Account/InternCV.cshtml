@@ -60,58 +60,31 @@
             <div class="col-md-6">
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Eğitim Bilgileri</h3>
-                    </div>
-                    <form>
-                        <div class="card-body">
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Okul İsmi</label>
-                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Okul İsmi">
-                            </div>
-                            <div class="form-group">
-                                <label>Eğitim Durumu</label>
-                                <select class="form-control">
-                                    <option disabled selected>Eğitim Durumunuzu Seçiniz</option>
-                                    <option>3.Sınıf</option>
-                                    <option>4.Sınıf</option>
-                                    <option>Mezun(Yardımcı Eczacı)</option>
-                                </select>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Açıklama</label>
-                                <textarea class="form-control" rows="3" placeholder="Açıklama"></textarea>
-                            </div>
-                            <div class="form-group">
-                                <label for="exampleInputEmail1">Dosya Ekle</label>
-                                <div class="custom-file">
-                                    <input type="file" class="custom-file-input" id="customFile" accept=".docx, .pdf, .png, .jpg, .jpeg">
-                                    <label class="custom-file-label" for="customFile">Dosya Ekle</label>
-                                </div>
-                            </div>
-                        </div>
-                    </form>
-                </div>
-            </div>
-            <div class="col-md-6">
-                <div class="card card-primary">
-                    <div class="card-header">
                         <h3 class="card-title">Yabancı Dil Bilgisi</h3>
                     </div>
                     <form>
                         <div class="card-body">
-                                <label>Yabancı Dil</label>
-                                <div class="form-group d-flex justify-content-between" id="mainContainer">
-                                    <input type="number" id="numberInput" class="form-control" placeholder="Kaç Adet Dil Biliyorsunuz?">
-                                </div>
-                                <div id="textBoxContainer">
-                                    <!--Diller-->
-                                </div>
+                            <label>Yabancı Dil</label>
+                            <div class="form-group d-flex justify-content-between" id="mainContainer">
+                                <input type="number" id="numberInput" class="form-control" placeholder="Kaç Adet Dil Biliyorsunuz?">
+                            </div>
+                            <div id="textBoxContainer">
+                                <!--Diller-->
+                            </div>
                             <script>
                                 const numberInput = document.getElementById('numberInput');
                                 const textBoxContainer = document.getElementById('textBoxContainer');
+
                                 numberInput.addEventListener('input', function () {
                                     textBoxContainer.innerHTML = '';
-                                    const count = parseInt(numberInput.value);
+
+                                    let count = parseInt(numberInput.value);
+
+                                    // En fazla 7 adet dil girişi için kontrol
+                                    if (count > 7) {
+                                        count = 7;
+                                        numberInput.value = 7;
+                                    }
                                     for (let i = 0; i < count; i++) {
                                         const formGroup = document.createElement('div');
                                         formGroup.className = 'form-group d-flex justify-content-between';
@@ -121,6 +94,14 @@
                                         newInput.placeholder = `${i + 1}. Dil`;
                                         newInput.className = 'form-control';
                                         newInput.style.marginRight = '10px';
+
+                                        // Sayısal girişi engelleme
+                                        newInput.addEventListener('keypress', function (e) {
+                                            const char = String.fromCharCode(e.which);
+                                            if (!isNaN(char)) {
+                                                e.preventDefault();
+                                            }
+                                        });
                                         const select = document.createElement('select');
                                         select.className = 'form-control';
                                         const firstOption = document.createElement('option');
@@ -129,17 +110,20 @@
                                         firstOption.disabled = true;
                                         firstOption.selected = true;
                                         select.appendChild(firstOption);
+
                                         ["Başlangıç", "Temel", "Orta", "İyi", "İleri"].forEach(function (level) {
                                             const option = document.createElement('option');
                                             option.value = level;
                                             option.text = level;
                                             select.appendChild(option);
                                         });
+
                                         formGroup.appendChild(newInput);
                                         formGroup.appendChild(select);
                                         textBoxContainer.appendChild(formGroup);
                                     }
                                 });
+
                             </script>
                             @*  <div class="form-group">
                             <label for="exampleInputFile">File input</label>
@@ -161,6 +145,43 @@
                     </form>
                 </div>
             </div>
+            <div class="col-md-6">
+                <div class="card card-primary">
+                    <div class="card-header">
+                        <h3 class="card-title">Eğitim Bilgileri</h3>
+                    </div>
+                    <form>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Okul İsmi</label>
+                                <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Okul İsmi">
+                    
+                            </div>
+                            <div class="form-group">
+                                <label>Eğitim Durumu</label>
+                                <select class="form-control">
+                                    <option disabled selected>Eğitim Durumunuzu Seçiniz</option>
+                                    <option>3.Sınıf</option>
+                                    <option>4.Sınıf</option>
+                                    <option>Mezun</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Açıklama</label>
+                                <textarea class="form-control" rows="3" placeholder="Açıklama"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">CV Ekle</label>
+                                <div class="custom-file">
+                                    <input type="file" class="custom-file-input" id="customFile" accept=".docx, .pdf, .png, .jpg, .jpeg">
+                                    <label class="custom-file-label" for="customFile">CV Dosyasını Ekle</label>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+         
            
             <div class="col-md-12">
                 <div class="d-flex justify-content-center">
