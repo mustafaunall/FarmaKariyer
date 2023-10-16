@@ -13,7 +13,7 @@ public class UserDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int
         //AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
     }
 
-    // TODO: Add DbSets
+    public DbSet<Advert> Adverts { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

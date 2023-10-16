@@ -1,5 +1,6 @@
 ﻿using DataAccess.Context;
 using Domain.Model;
+using Domain.Model.Enum;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using WebUI.Extensions;
@@ -40,16 +41,44 @@ namespace WebUI.Areas.Pharmacy.Controllers
                 var u = await _userManager.GetUserAsync(User);
                 var user = _context.Users.Where(x => x.Id == u.Id).FirstOrDefault();
 
-                Resume resume = new();
+                Advert advert = new();
 
-                // TODO: İlan ekleme komutları eklenecek
+                advert.Title = model.Title;
+                advert.Description = model.Description;
+                advert.Type = (AdvertType)model.Type;
+                if (model.Type == AdvertType.TECHNICIAN)
+                {
+                    advert.ExperienceYear = model.ExperienceYear;
+                    advert.BonusBenefit = model.BonusBenefit;
+                    advert.TravelBenefit = model.TravelBenefit;
+                    advert.FoodBenefit = model.FoodBenefit;
+                    advert.SalaryRange = model.SalaryRange;
+                    advert.PrescriptionInfo = model.PrescriptionInfo;
+                    advert.PrivateInsuranceEntryInfo = model.PrivateInsuranceEntryInfo;
+                    advert.OTCInfo = model.OTCInfo;
+                    advert.DermocosmeticInfo = model.DermocosmeticInfo;
+                    advert.OtherInfo = model.OtherInfo;
+                }
+                else if (model.Type == AdvertType.INTERN)
+                {
+                    advert.EducationStatus = model.EducationStatus;
+                }
+                else if (model.Type == AdvertType.ASSISTANT)
+                {
+                    advert.EducationStatus = model.EducationStatus;
+                }
+                else if (model.Type == AdvertType.INTERN)
+                {
+                    advert.SquareMeter = model.SquareMeter;
+                    advert.MonthlyTurnover
+                }
 
-                await _context.AddAsync(resume);
+                await _context.AddAsync(advert);
                 await _context.SaveChangesAsync();
 
                 if (user != null)
                 {
-                    user.ResumeId = resume.Id;
+                    //user.ResumeId = advert.Id;
                     await _context.SaveChangesAsync();
                     Notification("İlan başarıyla yayınlandı.", NotificationType.Success);
                     return Redirect("/User/Advert/List");
