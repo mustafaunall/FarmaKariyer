@@ -44,11 +44,11 @@ scratch. This page gets rid of all links and provides the needed markup only.
                 <li class="nav-item">
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
                 </li>
- @*                <li class="nav-item d-none d-sm-inline-block">
-                    <a href="@Url.Action("Index", "Home")" class="nav-link">Anasayfa</a>
+                @*                <li class="nav-item d-none d-sm-inline-block">
+                <a href="@Url.Action("Index", "Home")" class="nav-link">Anasayfa</a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="@Url.Action("Contact", "Home")" class="nav-link">İletişim</a>
+                <a href="@Url.Action("Contact", "Home")" class="nav-link">İletişim</a>
                 </li> *@
 
             </ul>
@@ -74,18 +74,18 @@ scratch. This page gets rid of all links and provides the needed markup only.
                     </div>
                 </div>
 
-            @*     <!-- SidebarSearch Form -->
+                @*     <!-- SidebarSearch Form -->
                 <div class="form-inline">
-                    <div class="input-group" data-widget="sidebar-search">
-                        <input class="form-control form-control-sidebar" type="search" placeholder="Arama yap" aria-label="Arama yap">
-                        <div class="input-group-append">
-                            <button class="btn btn-sidebar">
-                                <i class="fas fa-search fa-fw" style="color:White;"></i>
-                            </button>
-                        </div>
-                    </div>
+                <div class="input-group" data-widget="sidebar-search">
+                <input class="form-control form-control-sidebar" type="search" placeholder="Arama yap" aria-label="Arama yap">
+                <div class="input-group-append">
+                <button class="btn btn-sidebar">
+                <i class="fas fa-search fa-fw" style="color:White;"></i>
+                </button>
                 </div>
- *@
+                </div>
+                </div>
+                *@
                 <!-- Sidebar Menu -->
                 <nav class="mt-2">
                     <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
@@ -107,28 +107,13 @@ scratch. This page gets rid of all links and provides the needed markup only.
                                 </p>
                             </a>
                         </li>
-                        <li class="nav-item menu-is-opening menu-open">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fa-solid fa-address-card"></i>
+                        <li class="nav-item">
+                            <a href="/User/Resume/Update" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
                                 <p>
                                     Özgeçmiş
-                                    <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
-                            <ul class="nav nav-treeview" style="display: block;">
-                                <li class="nav-item">
-                                    <a href="@Url.Action("TechnicianCV","Account")" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Teknisyen Özgeçmişi</p>
-                                    </a>
-                                </li>
-                                <li class="nav-item">
-                                    <a href="@Url.Action("InternCV","Account")" class="nav-link">
-                                        <i class="far fa-circle nav-icon"></i>
-                                        <p>Stajyer Özgeçmişi</p>
-                                    </a>
-                                </li>
-                            </ul>
                         </li>
                         <li class="nav-item">
                             <a href="#" class="nav-link">

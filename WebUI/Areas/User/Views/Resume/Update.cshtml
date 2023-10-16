@@ -1,0 +1,492 @@
+﻿@using WebUI.Models.ViewModels;
+@model ResumeUpdateVM
+@{
+    ViewData["Title"] = "Özgeçmiş";
+}
+<section class="content">
+    <div class="container-fluid">
+        <form method="post" action="/User/Resume/Update" enctype="multipart/form-data">
+            <div style="margin:0; padding:0; display:flex; flex-wrap:wrap; width:100%;">
+                <div class="col-md-3">
+                </div>
+                <div class="row col-md-6" style="margin:0; padding:0;">
+                    <div class="col-md-12">
+                        <h1 style="text-align:center; margin-bottom:10px;">Özgeçmiş</h1>
+                    </div>
+                    <!--Kişisel Bilgiler-->
+                    <div class="col-md-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Kişisel Bilgiler</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Adınız</label>
+                                    <input type="text" class="form-control" asp-for="Name" value="@Model?.Name" placeholder="Adınız:">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Soyadınız</label>
+                                    <input type="text" class="form-control" asp-for="Surname" value="@Model?.Surname" placeholder="Soyadınız:">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Telefon</label>
+                                    <input type="text" class="form-control" asp-for="Phone" value="@Model?.Phone" placeholder="Telefon Numaranız:">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">E-Posta</label>
+                                    <input type="email" class="form-control" asp-for="Email" value="@Model?.Email" placeholder="E-Posta Adresiniz:">
+                                </div>
+                                <div class="form-group">
+                                    <label>İş Deneyimi</label>
+                                    <div id="experienceGroup" class="w-100">
+                                        <select class="form-control" asp-for="WorkExperience">
+                                            <option disabled selected>Deneyim Yılı</option>
+                                            @if (Model?.WorkExperience == "1")
+                                            {
+                                                <option value="1" selected>1</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="1">1</option>
+                                            }
+                                            @if (Model?.WorkExperience == "2")
+                                            {
+                                                <option value="2" selected>2</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="2">2</option>
+                                            }
+                                            @if (Model?.WorkExperience == "3")
+                                            {
+                                                <option value="3" selected>3</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="3">3</option>
+                                            }
+                                            @if (Model?.WorkExperience == "4")
+                                            {
+                                                <option value="4" selected>4</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="4">4</option>
+                                            }
+                                            @if (Model?.WorkExperience == "5-10")
+                                            {
+                                                <option value="5-10" selected>5-10</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="5-10">5-10</option>
+                                            }
+                                            @if (Model?.WorkExperience == "11-15")
+                                            {
+                                                <option value="11-15" selected>11-15</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="11-15">11-15</option>
+                                            }
+                                            @if (Model?.WorkExperience == "16-20")
+                                            {
+                                                <option value="16-20" selected>16-20</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="16-20">16-20</option>
+                                            }
+                                            @if (Model?.WorkExperience == "21+")
+                                            {
+                                                <option value="21+" selected>21+</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="21+">21+</option>
+                                            }
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Doğum Tarihiniz</label>
+                                    <input type="text" id="txtboxc" class="form-control" asp-for="BirthDate" value="@Model?.BirthDate" placeholder="Doğum Tarihiniz:">
+                                    <script>
+                                        var dtt = document.getElementById('txtboxc')
+                                        dtt.onfocus = function (event) {
+                                            this.type = 'date';
+                                            this.placeholder = '';
+                                        }
+                                        dtt.onblur = function (event) {
+                                            this.type = 'date';
+                                            this.placeholder = '';
+                                        }
+                                    </script>
+                                </div>
+                                <script>
+                                    function convertToDateInput() {
+                                        var inputField = document.getElementById("exampleInputEmail1");
+                                        inputField.setAttribute("type", "date");
+                                        inputField.removeAttribute("placeholder");
+                                        document.querySelector("button").style.display = "none"; // Düğmeyi gizle
+                                    }
+                                </script>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Adres</label>
+                                    <textarea class="form-control" rows="3" asp-for="Address" placeholder="Adres Bilginiz..."></textarea>
+                                </div>
+                            </div>
+                            @*   <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            </div> *@
+                        </div>
+                    </div>
+                    <!--Eğitim Bilgileri-->
+                    <div class="col-md-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Eğitim Bilgileri</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Okul İsmi</label>
+                                    <input type="text" class="form-control" asp-for="SchoolName" value="@Model?.SchoolName" placeholder="Okul İsmi">
+                                </div>
+                                <div class="form-group">
+                                    <label>Öğrenim Durumu</label>
+                                    <select asp-for="EducationStatus" class="form-control">
+                                        <option disabled selected>Öğrenim Durumunuz</option>
+                                        <option value="İlk-Orta-Lise">İlk-Orta-Lise</option>
+                                        <option value="3.Sınıf">3.Sınıf</option>
+                                        <option value="4.Sınıf">4.Sınıf</option>
+                                        <option value="Lisans">Lisans</option>
+                                        <option value="Yüksek Lisans">Yüksek Lisans</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Alınan Eğitimler / Sertifikalar</label>
+                                    <textarea class="form-control" rows="3" asp-for="EducationsAndCertificates" value="@Model?.EducationsAndCertificates" placeholder="Alınan Eğitimler / Sertifikalar"></textarea>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                    <!--Referans Eczaneler-->
+                    <div class="col-md-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Referans Eczaneler</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group d-flex justify-content-between" id="mainContainer">
+                                    <a href="#" id="addFields" class="btn btn-primary">Yeni Referans Eczane Ekle <span>+</span></a>
+                                </div>
+
+                                <div id="textBoxContainera">
+                                    <!-- Dinamik olarak eklenen alanlar buraya gelecek -->
+                                    @if (Model?.ReferencePharmacyNames != null)
+                                    {
+                                        for (int i = 0; i < Model?.ReferencePharmacyNames.Count; i++)
+                                        {
+                                            <div class="form-group d-flex justify-content-between align-items-center" style="margin-top: 20px; margin-bottom: 20px;">
+                                                <input type="text" class="form-control" placeholder="Referans Eczane" name="ReferencePharmacyNames" value="@(Model.ReferencePharmacyNames.ElementAt(i))" style="margin-right: 10px;">
+                                                <select class="form-control" name="ReferencePharmacyPositions" style="margin-right: 10px;">
+                                                    <option disabled>Pozisyon</option>
+                                                    @if (Model?.ReferencePharmacyPositions?.ElementAt(i) == "Teknisyen")
+                                                    {
+                                                        <option value="Teknisyen" selected>Teknisyen</option>
+                                                        <option value="Stajyer">Stajyer</option>
+                                                        <option value="Yardımcı Eczacı">Yardımcı Eczacı</option>
+                                                        <option value="İkinci Eczacı">İkinci Eczacı</option>
+                                                        <option value="Eczane Temsilcisi">Eczane Temsilcisi</option>
+                                                        <option value="Danışman">Danışman</option>
+                                                        <option value="Diğer">Diğer</option>
+                                                    }
+                                                    else if (Model?.ReferencePharmacyPositions?.ElementAt(i) == "Stajyer")
+                                                    {
+                                                        <option value="Teknisyen">Teknisyen</option>
+                                                        <option value="Stajyer" selected>Stajyer</option>
+                                                        <option value="Yardımcı Eczacı">Yardımcı Eczacı</option>
+                                                        <option value="İkinci Eczacı">İkinci Eczacı</option>
+                                                        <option value="Eczane Temsilcisi">Eczane Temsilcisi</option>
+                                                        <option value="Danışman">Danışman</option>
+                                                        <option value="Diğer">Diğer</option>
+                                                    }
+                                                    else if (Model?.ReferencePharmacyPositions?.ElementAt(i) == "Yardımcı Eczacı")
+                                                    {
+                                                        <option value="Teknisyen">Teknisyen</option>
+                                                        <option value="Stajyer">Stajyer</option>
+                                                        <option value="Yardımcı Eczacı" selected>Yardımcı Eczacı</option>
+                                                        <option value="İkinci Eczacı">İkinci Eczacı</option>
+                                                        <option value="Eczane Temsilcisi">Eczane Temsilcisi</option>
+                                                        <option value="Danışman">Danışman</option>
+                                                        <option value="Diğer">Diğer</option>
+                                                    }
+                                                    else if (Model?.ReferencePharmacyPositions?.ElementAt(i) == "İkinci Eczacı")
+                                                    {
+                                                        <option value="Teknisyen">Teknisyen</option>
+                                                        <option value="Stajyer">Stajyer</option>
+                                                        <option value="Yardımcı Eczacı">Yardımcı Eczacı</option>
+                                                        <option value="İkinci Eczacı" selected>İkinci Eczacı</option>
+                                                        <option value="Eczane Temsilcisi">Eczane Temsilcisi</option>
+                                                        <option value="Danışman">Danışman</option>
+                                                        <option value="Diğer">Diğer</option>
+                                                    }
+                                                    else if (Model?.ReferencePharmacyPositions?.ElementAt(i) == "Eczane Temsilcisi")
+                                                    {
+                                                        <option value="Teknisyen">Teknisyen</option>
+                                                        <option value="Stajyer">Stajyer</option>
+                                                        <option value="Yardımcı Eczacı">Yardımcı Eczacı</option>
+                                                        <option value="İkinci Eczacı">İkinci Eczacı</option>
+                                                        <option value="Eczane Temsilcisi" selected>Eczane Temsilcisi</option>
+                                                        <option value="Danışman">Danışman</option>
+                                                        <option value="Diğer">Diğer</option>
+                                                    }
+                                                    else if (Model?.ReferencePharmacyPositions?.ElementAt(i) == "Danışman")
+                                                    {
+                                                        <option value="Teknisyen">Teknisyen</option>
+                                                        <option value="Stajyer">Stajyer</option>
+                                                        <option value="Yardımcı Eczacı">Yardımcı Eczacı</option>
+                                                        <option value="İkinci Eczacı">İkinci Eczacı</option>
+                                                        <option value="Eczane Temsilcisi">Eczane Temsilcisi</option>
+                                                        <option value="Danışman" selected>Danışman</option>
+                                                        <option value="Diğer">Diğer</option>
+                                                    }
+                                                    else if (Model?.ReferencePharmacyPositions?.ElementAt(i) == "Diğer")
+                                                    {
+                                                        <option value="Teknisyen">Teknisyen</option>
+                                                        <option value="Stajyer">Stajyer</option>
+                                                        <option value="Yardımcı Eczacı">Yardımcı Eczacı</option>
+                                                        <option value="İkinci Eczacı">İkinci Eczacı</option>
+                                                        <option value="Eczane Temsilcisi">Eczane Temsilcisi</option>
+                                                        <option value="Danışman">Danışman</option>
+                                                        <option value="Diğer" selected>Diğer</option>
+                                                    }
+                                                </select>
+                                                <input type="text" class="form-control" name="ReferencePharmacyExperienceYears" value="@(Model.ReferencePharmacyExperienceYears.ElementAt(i))" placeholder="Deneyim Yılı">
+                                                <button class="btn" style="margin-left: 10px; background: red; color: white;">X</button>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function () {
+                                        const textBoxContainera = document.getElementById('textBoxContainera');
+                                        let count = 0;
+
+                                        document.getElementById("addFields").addEventListener('click', function (e) {
+                                            e.preventDefault();
+
+                                            // En fazla 10 alan kontrolü
+                                            if (count >= 10) return;
+
+                                            // Form grubunu oluştur
+                                            const formGroup = document.createElement('div');
+                                            formGroup.className = 'form-group d-flex justify-content-between align-items-center';
+                                            formGroup.style.marginTop = '20px';
+                                            formGroup.style.marginBottom = '20px';
+
+                                            // Silme butonu oluştur
+                                            const deleteButton = document.createElement('button');
+                                            deleteButton.innerText = 'X';
+                                            deleteButton.className = 'btn';
+                                            deleteButton.style.marginLeft = '10px';
+                                            deleteButton.style.background = 'red';
+                                            deleteButton.style.color = 'white';
+                                            deleteButton.addEventListener('click', function () {
+                                                formGroup.remove();
+                                                count--;  // Sayacı azalt
+                                            });
+
+                                            // Sadece metin için giriş alanı oluştur
+                                            const textInput = createTextInput();
+
+                                            // Pozisyon için giriş alanı oluştur
+                                            const positionInput = createPositionInput();
+
+                                            // Sadece sayı için giriş alanı oluştur
+                                            const numberInput = createNumberInput();
+
+                                            // Elementleri form grubuna ekle
+                                            formGroup.appendChild(textInput);
+                                            formGroup.appendChild(positionInput);
+                                            formGroup.appendChild(numberInput);
+                                            formGroup.appendChild(deleteButton);
+                                            textBoxContainera.appendChild(formGroup);
+
+                                            count++;  // Sayacı artır
+                                        });
+
+                                        function createTextInput() {
+                                            const textInput = document.createElement('input');
+                                            textInput.type = 'text';
+                                            textInput.className = 'form-control';
+                                            textInput.style.marginRight = '10px';
+                                            textInput.placeholder = "Referans Eczane";
+                                            textInput.name = 'ReferencePharmacyNames';
+                                            textInput.addEventListener('input', function () {
+                                                this.value = this.value.replace(/[0-9]/g, '');
+                                            });
+                                            return textInput;
+                                        }
+
+                                        function createPositionInput() {
+                                            const select = document.createElement('select');
+                                            select.className = 'form-control';
+                                            select.name = 'ReferencePharmacyPositions';
+                                            select.style.marginRight = '10px';
+
+                                            const firstOption = document.createElement('option');
+                                            firstOption.value = "";
+                                            firstOption.text = "Pozisyon";
+                                            firstOption.disabled = true;
+                                            firstOption.selected = true;
+                                            select.appendChild(firstOption);
+
+                                            [
+                                                "Teknisyen",
+                                                "Stajyer",
+                                                "Yardımcı Eczacı",
+                                                "İkinci Eczacı",
+                                                "Eczane Temsilcisi",
+                                                "Danışman",
+                                                "Diğer"
+                                            ].forEach(function (position) {
+                                                const option = document.createElement('option');
+                                                option.value = position;
+                                                option.text = position;
+                                                select.appendChild(option);
+                                            });
+
+                                            return select;
+                                        }
+                                        function createNumberInput() {
+                                            const numberInput = document.createElement('input');
+                                            numberInput.type = 'text';
+                                            numberInput.className = 'form-control';
+                                            numberInput.name = 'ReferencePharmacyExperienceYears';
+                                            numberInput.placeholder = "Deneyim Yılı";
+                                            numberInput.addEventListener('input', function () {
+                                                this.value = this.value.replace(/[^0-9]/g, '');
+                                            });
+                                            return numberInput;
+                                        }
+                                    });
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Yabancı Dil Bilgisi-->
+                    <div class="col-md-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Yabancı Dil Bilgisi</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group d-flex justify-content-between" id="mainContainer">
+                                    <button id="addLanguage" class="btn btn-primary">Yabancı Dil Ekle <span>+</span></button>
+                                </div>
+                                <div id="textBoxContainer">
+                                    <!--Diller-->
+                                </div>
+                                <script>
+                                    document.addEventListener("DOMContentLoaded", function () {
+                                        const textBoxContainer = document.getElementById('textBoxContainer');
+                                        let count = 0;
+
+                                        document.getElementById("addLanguage").addEventListener('click', function (e) {
+                                            e.preventDefault(); // Sayfanın yenilenmesini engelle
+
+                                            // En fazla 7 dil kontrolü
+                                            if (count >= 7) return;
+
+                                            // Form grubunu oluştur
+                                            const formGroup = document.createElement('div');
+                                            formGroup.className = 'form-group d-flex justify-content-between';
+                                            formGroup.style.marginTop = '10px';
+                                            formGroup.style.marginBottom = '10px';
+
+                                            // Dil için giriş alanı oluştur
+                                            const newInput = document.createElement('input');
+                                            newInput.type = 'text';
+                                            newInput.name = 'ForeignLanguageNames';
+                                            newInput.className = 'form-control';
+                                            newInput.placeholder = `Yabancı Dil`;
+                                            newInput.style.marginRight = '10px';
+
+                                            // Seviye için select oluştur
+                                            const select = document.createElement('select');
+                                            select.className = 'form-control';
+                                            select.name = 'ForeignLanguageGrades';
+
+                                            const firstOption = document.createElement('option');
+                                            firstOption.value = "";
+                                            firstOption.text = "Seviye";
+                                            firstOption.disabled = true;
+                                            firstOption.selected = true;
+                                            select.appendChild(firstOption);
+
+                                            ["Başlangıç", "Temel", "Orta", "İyi", "İleri"].forEach(function (level) {
+                                                const option = document.createElement('option');
+                                                option.value = level;
+                                                option.text = level;
+                                                select.appendChild(option);
+                                            });
+
+                                            // Silme butonu oluştur
+                                            const removeBtn = document.createElement('button');
+                                            removeBtn.innerHTML = 'X';
+                                            removeBtn.className = 'btn';
+                                            removeBtn.style.marginLeft = '10px';
+                                            removeBtn.style.background = 'red';
+                                            removeBtn.style.color = 'white';
+                                            removeBtn.addEventListener('click', function () {
+                                                formGroup.remove();
+                                                count--;
+                                            });
+
+                                            formGroup.appendChild(newInput);
+                                            formGroup.appendChild(select);
+                                            formGroup.appendChild(removeBtn);
+                                            textBoxContainer.appendChild(formGroup);
+
+                                            count++;
+                                        });
+                                    });
+
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Açıklama Alanı & CV-->
+                    <div class="col-md-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Açıklama Alanı</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Açıklama Alanı</label>
+                                    <textarea class="form-control" rows="3" asp-for="Description" value="@Model?.Description" placeholder="Eklemek İstedikleriniz..."></textarea>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">CV Ekle</label>
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input" asp-for="ResumeFile" accept=".docx, .pdf, .png, .jpg, .jpeg">
+                                        <label class="custom-file-label" for="customFile">CV Dosyasını Ekle</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!--Kaydet-->
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary" style="padding: 17px 40px;">Kaydet</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>

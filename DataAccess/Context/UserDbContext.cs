@@ -19,6 +19,14 @@ public class UserDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int
     {
         base.OnModelCreating(modelBuilder);
 
+        modelBuilder.Entity<Resume>()
+           .Property(d => d.ReferencePharmacies)
+           .HasColumnType("jsonb");
+
+        modelBuilder.Entity<Resume>()
+           .Property(d => d.ForeignLanguages)
+           .HasColumnType("jsonb");
+
         new UserDbSeed(modelBuilder).Seed();
     }
 }

@@ -20,6 +20,13 @@ public class ApplicationUser : IdentityUser<int>
 
     #endregion
     public ApplicationUserType Type { get; set; }
+
+    #region Relation
+
+    public int? ResumeId { get; set; }
+    public Resume? Resume { get; set; }
+
+    #endregion
 }
 
 public enum ApplicationUserType

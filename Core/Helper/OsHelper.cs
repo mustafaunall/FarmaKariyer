@@ -22,4 +22,12 @@ public static class OsHelper
 
         return resourcesPath;
     }
+
+    public static string GetResumeFilesPath(this string str)
+    {
+        if (string.IsNullOrEmpty(str) || string.IsNullOrWhiteSpace(str))
+            return string.Empty;
+
+        return Path.Combine(str, "ResumeFiles");
+    }
 }
