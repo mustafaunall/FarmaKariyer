@@ -83,8 +83,8 @@ display:flex;">
                                         </div>
                                     </div>
                                     <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <div class="input-group">
+
+                                            <div class="input-group form-group">
 
                                                 <input type="text" asp-for="GLNCode" class="form-control" id="glnNumber" placeholder="GLN Numaranız:">
 
@@ -117,7 +117,7 @@ display:flex;">
                                                     });
                                                 </script>
                                             </div>
-                                        </div>
+                               
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
@@ -126,6 +126,31 @@ display:flex;">
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                        <select id="Iller" class="input-group" name="Province">
+                                                <option disabled value="0">İl Seçiniz</option>
+                                            </select>
+                                            </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                        <select id="Ilceler" class="input-group"  name="District">
+                                            <option disabled value="0">Lütfen Önce bir İl seçiniz</option>
+                                        </select>
+                                        </div>
+                                    </div>
+                                    <style>
+                                        select{
+                                            border-width: 0 0 2px;
+                                            border-color: rgba(0,0,0,.2);
+                                            padding: 10px 0;
+                                        }
+                                    select:focus{
+                                        border-color:red;
+                                    }
+                                    </style>
+                                    <script src="~/scripts/ililce.js" province="34" district="1"></script> <!--il-ilçe-script-->
                                     <div class="col-lg-12">
                                         <div class="form-group">
                                             <div class="input-group">

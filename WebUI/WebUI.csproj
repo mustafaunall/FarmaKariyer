@@ -121,6 +121,7 @@
     <None Include="wwwroot\assets\revolution\php\vimeo\class-vimeo.php" />
     <None Include="wwwroot\assets\revolution\php\youtube\class-youtube.php" />
     <None Include="wwwroot\assets\timepicker\timePicker.js" />
+    <None Include="wwwroot\scripts\ililce.js" />
     <None Include="wwwroot\user\build\config\postcss.config.js" />
     <None Include="wwwroot\user\build\config\rollup.config.js" />
     <None Include="wwwroot\user\build\js\AdminLTE.js" />

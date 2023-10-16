@@ -11,10 +11,9 @@
             <div class="col-md-3">
             </div>
             <div class="row col-md-6" style="margin:0; padding:0;">
-                <div class="col-md-12"><h1 style="text-align:center; margin-bottom:10px;">Özgeçmiş</h1>
-              
+                <div class="col-md-12">
+                    <h1 style="text-align:center; margin-bottom:10px;">Özgeçmiş</h1>
                 </div>
-                
                 <!--Kişisel Bilgiler-->
                 <div class="col-md-12">
                     <div class="card card-primary">
@@ -56,6 +55,43 @@
                                     </div>
                                 </div>
                                 <div class="form-group">
+                                    <label for="exampleInputEmail1">Doğum Tarihiniz</label>
+                                    <input type="text" id="txtboxc" class="form-control" id="exampleInputEmail1" placeholder="Doğum Tarihiniz:">
+                                    <script>
+                                        var dtt = document.getElementById('txtboxc')
+                                        dtt.onfocus = function (event) {
+                                            this.type = 'date';
+                                            this.placeholder = '';
+                                        }
+                                        dtt.onblur = function (event) {
+                                            this.type = 'date';
+                                            this.placeholder = '';
+                                        }
+                                    </script>
+                                </div>
+                                <script>
+                                    function convertToDateInput() {
+                                        var inputField = document.getElementById("exampleInputEmail1");
+                                        inputField.setAttribute("type", "date");
+                                        inputField.removeAttribute("placeholder");
+                                        document.querySelector("button").style.display = "none"; // Düğmeyi gizle
+                                    }
+                                </script>
+                                <div class="form-group">
+                                    <label>İl</label>
+                                    <select id="Iller" class="form-control" name="Province">
+                                        <option disabled value="0">İl Seçiniz</option>
+                                    </select>
+                                </div>
+                                <div class="form-group">
+                                    <label>İlçe</label>
+
+                                    <select id="Ilceler" class="form-control" name="District">
+                                        <option disabled value="0">Lütfen Önce bir İl seçiniz</option>
+                                    </select>
+                                </div>
+                                <script src="~/scripts/ililce.js" province="34" district="1"></script> <!--il-ilçe-script-->
+                                <div class="form-group">
                                     <label for="exampleInputEmail1">Adres</label>
                                     <textarea class="form-control" rows="3" placeholder="Adres Bilginiz..."></textarea>
                                 </div>
@@ -93,14 +129,13 @@
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Okul İsmi</label>
                                     <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Okul İsmi">
-                 
                                 </div>
                                 <div class="form-group">
                                     <label>Öğrenim Durumu</label>
                                     <select name="Education" class="form-control">
                                         <option disabled selected>Öğrenim Durumunuz</option>
                                         <option>İlk-Orta-Lise</option>
-                                         <option>3.Sınıf</option>
+                                        <option>3.Sınıf</option>
                                         <option>4.Sınıf</option>
                                         <option>Lisans</option>
                                         <option>Yüksek Lisans</option>
@@ -108,7 +143,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">Alınan Eğitimler / Sertifikalar</label>
-                                    <textarea class="form-control" rows="3" placeholder="Alınan Eğitimler / Sertifikalar"></textarea>
+                                    <textarea class="form-control" rows="8" placeholder="Alınan Eğitimler / Sertifikalar"></textarea>
                                 </div>
                             </div>
 

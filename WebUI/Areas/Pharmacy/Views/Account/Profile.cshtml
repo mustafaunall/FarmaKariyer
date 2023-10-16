@@ -13,10 +13,13 @@
                 <!-- Profile Image -->
                 <div class="card card-primary card-outline">
                     <div class="card-body box-profile">
-                        <div class="text-center">
+                        <div class="text-center" style="position:relative;">
                             <img class="profile-user-img img-fluid img-circle"
                                  src="~/user/img/user1-128x128.jpg"
                                  alt="User profile picture">
+                            <div style="position:absolute; top:0; right:30%;">
+                                <i class="fa-solid fa-pen-to-square" style="color:#ff2b58; font-size:21px;"></i>
+                            </div>
                         </div>
 
                         <h3 class="profile-username text-center">@Model.Name @Model.Surname</h3>
@@ -25,17 +28,15 @@
 
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
-                                <b>Görüntülenme</b> <a class="float-right" style="color:#ff2b58;">13,287</a>
+                                <b>İlan Sayısı</b> <a class="float-right" style="color:#ff2b58;">10</a>
                             </li>
                             <li class="list-group-item">
-                                <b>Beğeni</b> <a class="float-right" style="color:#ff2b58;">1,322</a>
+                                <b>Toplam Gelen Başvurular</b> <a class="float-right" style="color:#ff2b58;">120</a>
                             </li>
                             <li class="list-group-item">
-                                <b>Yorum</b> <a class="float-right" style="color:#ff2b58;">543</a>
+                                <b>İlanlara Gelen Ortalama Başvurular</b> <a class="float-right" style="color:#ff2b58;">19</a>
                             </li>
                         </ul>
-
-                        <a href="#" class="btn btn-block" style="background-color:#ff2b58; color:White;"><b>Paket Değiştir</b></a>
                     </div>
                     <!-- /.card-body -->
                 </div>
@@ -43,11 +44,11 @@
                 <!-- About Me Box -->
                 <div class="card card-primary">
                     <div class="card-header" style="background-color:#ff2b58;">
-                        <h3 class="card-title">Kişisel Bilgilerim</h3>
+                        <h3 class="card-title">Eczane Bilgilerim</h3>
                     </div>
                     <!-- /.card-header -->
                     <div class="card-body">
-                        <strong><i class="fas fa-book mr-1"></i> Eğitim</strong>
+                        <strong><i class="fas fa-book mr-1"></i>Eğitim</strong>
 
                         <p class="text-muted">
                             Knoxville'deki Tennessee Üniversitesi'nden Bilgisayar Bilimleri alanında lisans derecesi
@@ -55,14 +56,13 @@
 
                         <hr>
 
-                        <strong><i class="fas fa-map-marker-alt mr-1"></i> Location</strong>
-
-                        <p class="text-muted">Malibu, California</p>
-
+                        <strong><i class="fas fa-map-marker-alt mr-1"></i>Adres</strong>
+                        <p class="text-muted">GLN Numarası: @Model.GLNCode</p>
+                        <p class="text-muted">İstanbul, Kadıköy</p>
+                        <p class="text-muted">Telefon: @Model.PhoneNumber</p>
+                        <p class="text-muted">E-Posta: @Model.Email</p>
                         <hr>
-
-                        <strong><i class="fas fa-pencil-alt mr-1"></i> Yeterlilikler</strong>
-
+                        <strong><i class="fas fa-pencil-alt mr-1"></i>Sertifikalar</strong>
                         <p class="text-muted">
                             <span class="tag text-danger">Eczacı Odası Üyelik Belgesi</span> <br />
                             <span class="tag text-success">İlaç Depolama ve Ecza Deposu İşletme Yetki Belgesi</span> <br />
@@ -70,11 +70,8 @@
                             <span class="tag text-warning">İlaç Satış Yetki Belgesi</span> <br />
                             <span class="tag text-primary">İlaç Taşıma Belgesi</span>
                         </p>
-
                         <hr>
-
                         <strong><i class="far fa-file-alt mr-1"></i> Notlar</strong>
-
                         <p class="text-muted">Buraya notlar gelecek...</p>
                     </div>
                     <!-- /.card-body -->
@@ -87,7 +84,7 @@
                     <div class="card-header p-2">
                         <ul class="nav nav-pills">
                             <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Genel</a></li>
-                            <li class="nav-item"><a class="nav-link" href="#pharmacyinfo" data-toggle="tab">Eczane Bilgilerim</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#pharmacyinfo" data-toggle="tab">Eczane Bilgileri</a></li>
                             <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Ayarlar</a></li>
                         </ul>
                     </div><!-- /.card-header -->
@@ -193,21 +190,21 @@
                                                     </ul>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="inputName" class="col-sm-2 col-form-label">İsim</label>
-                                                    <input required minlenght="3" type="text" class="form-control" id="inputName" name="Name" value="@Model.Name" placeholder="İsim">
+                                                    <label for="inputName">Eczacı Adı:</label>
+                                                    <input required minlenght="3" type="text" class="form-control" id="inputName" name="Name" value="@Model.Name" placeholder="Eczacı Adı">
 
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="inputSurname" class="col-sm-2 col-form-label">Soyisim</label>
-                                                    <input required type="text" class="form-control" id="inputSurname" name="Surname" value="@Model.Surname" placeholder="Soyisim">
+                                                    <label for="inputSurname">Eczacı Soyadı:</label>
+                                                    <input required type="text" class="form-control" id="inputSurname" name="Surname" value="@Model.Surname" placeholder="Eczacı Soyadı">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="inputPhone" class="col-sm-2 col-form-label">Telefon</label>
+                                                    <label for="inputPhone">Telefon</label>
                                                     <input required type="text" class="form-control" id="inputPhone" name="PhoneNumber" value="@Model.PhoneNumber" placeholder="Telefon">
 
                                                 </div>
                                                 <div class="form-group">
-                                                    <label for="inputEmail" class="col-sm-2 col-form-label">E-Posta</label>
+                                                    <label for="inputEmail">E-Posta</label>
                                                     <input required type="email" class="form-control" id="inputEmail" name="Email" value="@Model.Email" placeholder="E-Posta">
                                                 </div>
                                             </div>
@@ -220,18 +217,17 @@
                                             </div>
                                             <div class="card-body">
                                                 <div class="form-group">
-                                                    <label>Eczane Tipi</label>
-                                                    <div id="experienceGroup" class="w-100">
-                                                        <select class="form-control" id="yilSeciniz">
-                                                            <option value="" disabled selected>Eczane Tipini Seçiniz</option>
-                                                            <option value="1">Ünite</option>
-                                                            <option value="2">Cadde</option>
-                                                            <option value="3">AVM</option>
-                                                            <option value="4">Semt</option>
-                                                        </select>
-                                                    </div>
+                                                    <label for="inputPhone">Okul İsmi</label>
+                                                    <input type="text" class="form-control" name="Education" value="" placeholder="Okul İsmi">
                                                 </div>
-                                              
+                                                <div class="form-group">
+                                                    <label>Öğrenim Durumu</label>
+                                                    <select name="Education" class="form-control">
+                                                        <option disabled selected>Öğrenim Durumunuz</option>
+                                                        <option>Lisans</option>
+                                                        <option>Yüksek Lisans</option>
+                                                    </select>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
