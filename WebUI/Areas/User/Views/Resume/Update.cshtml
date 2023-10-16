@@ -44,65 +44,100 @@
                                             @if (Model?.WorkExperience == "1")
                                             {
                                                 <option value="1" selected>1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5-10">5-10</option>
+                                                <option value="11-15">11-15</option>
+                                                <option value="16-20">16-20</option>
+                                                <option value="21+">21+</option>
                                             }
-                                            else
+                                            else if (Model?.WorkExperience == "2")
                                             {
                                                 <option value="1">1</option>
-                                            }
-                                            @if (Model?.WorkExperience == "2")
-                                            {
                                                 <option value="2" selected>2</option>
-                                            }
-                                            else
-                                            {
-                                                <option value="2">2</option>
-                                            }
-                                            @if (Model?.WorkExperience == "3")
-                                            {
-                                                <option value="3" selected>3</option>
-                                            }
-                                            else
-                                            {
                                                 <option value="3">3</option>
-                                            }
-                                            @if (Model?.WorkExperience == "4")
-                                            {
-                                                <option value="4" selected>4</option>
-                                            }
-                                            else
-                                            {
                                                 <option value="4">4</option>
-                                            }
-                                            @if (Model?.WorkExperience == "5-10")
-                                            {
-                                                <option value="5-10" selected>5-10</option>
-                                            }
-                                            else
-                                            {
                                                 <option value="5-10">5-10</option>
-                                            }
-                                            @if (Model?.WorkExperience == "11-15")
-                                            {
-                                                <option value="11-15" selected>11-15</option>
-                                            }
-                                            else
-                                            {
                                                 <option value="11-15">11-15</option>
-                                            }
-                                            @if (Model?.WorkExperience == "16-20")
-                                            {
-                                                <option value="16-20" selected>16-20</option>
-                                            }
-                                            else
-                                            {
                                                 <option value="16-20">16-20</option>
+                                                <option value="21+">21+</option>
                                             }
-                                            @if (Model?.WorkExperience == "21+")
+                                            else if (Model?.WorkExperience == "3")
                                             {
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3" selected>3</option>
+                                                <option value="4">4</option>
+                                                <option value="5-10">5-10</option>
+                                                <option value="11-15">11-15</option>
+                                                <option value="16-20">16-20</option>
+                                                <option value="21+">21+</option>
+                                            }
+                                            else if (Model?.WorkExperience == "4")
+                                            {
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4" selected>4</option>
+                                                <option value="5-10">5-10</option>
+                                                <option value="11-15">11-15</option>
+                                                <option value="16-20">16-20</option>
+                                                <option value="21+">21+</option>
+                                            }
+                                            else if (Model?.WorkExperience == "5-10")
+                                            {
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5-10" selected>5-10</option>
+                                                <option value="11-15">11-15</option>
+                                                <option value="16-20">16-20</option>
+                                                <option value="21+">21+</option>
+                                            }
+                                            else if (Model?.WorkExperience == "11-15")
+                                            {
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5-10">5-10</option>
+                                                <option value="11-15" selected>11-15</option>
+                                                <option value="16-20">16-20</option>
+                                                <option value="21+">21+</option>
+                                            }
+                                            else if (Model?.WorkExperience == "16-20")
+                                            {
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5-10">5-10</option>
+                                                <option value="11-15">11-15</option>
+                                                <option value="16-20" selected>16-20</option>
+                                                <option value="21+">21+</option>
+                                            }
+                                            else if (Model?.WorkExperience == "21+")
+                                            {
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5-10">5-10</option>
+                                                <option value="11-15">11-15</option>
+                                                <option value="16-20">16-20</option>
                                                 <option value="21+" selected>21+</option>
                                             }
                                             else
                                             {
+                                                <option value="1">1</option>
+                                                <option value="2">2</option>
+                                                <option value="3">3</option>
+                                                <option value="4">4</option>
+                                                <option value="5-10">5-10</option>
+                                                <option value="11-15">11-15</option>
+                                                <option value="16-20">16-20</option>
                                                 <option value="21+">21+</option>
                                             }
                                         </select>
@@ -156,11 +191,57 @@
                                     <label>Öğrenim Durumu</label>
                                     <select asp-for="EducationStatus" class="form-control">
                                         <option disabled selected>Öğrenim Durumunuz</option>
-                                        <option value="İlk-Orta-Lise">İlk-Orta-Lise</option>
-                                        <option value="3.Sınıf">3.Sınıf</option>
-                                        <option value="4.Sınıf">4.Sınıf</option>
-                                        <option value="Lisans">Lisans</option>
-                                        <option value="Yüksek Lisans">Yüksek Lisans</option>
+                                        @if (Model?.EducationStatus != null)
+                                        {
+                                            if (Model.EducationStatus == "İlk-Orta-Lise")
+                                            {
+                                                <option value="İlk-Orta-Lise" selected>İlk-Orta-Lise</option>
+                                                <option value="3.Sınıf">3.Sınıf</option>
+                                                <option value="4.Sınıf">4.Sınıf</option>
+                                                <option value="Lisans">Lisans</option>
+                                                <option value="Yüksek Lisans">Yüksek Lisans</option>
+                                            }
+                                            else if (Model.EducationStatus == "3.Sınıf")
+                                            {
+                                                <option value="İlk-Orta-Lise">İlk-Orta-Lise</option>
+                                                <option value="3.Sınıf" selected>3.Sınıf</option>
+                                                <option value="4.Sınıf">4.Sınıf</option>
+                                                <option value="Lisans">Lisans</option>
+                                                <option value="Yüksek Lisans">Yüksek Lisans</option>
+                                            }
+                                            else if (Model.EducationStatus == "4.Sınıf")
+                                            {
+                                                <option value="İlk-Orta-Lise">İlk-Orta-Lise</option>
+                                                <option value="3.Sınıf">3.Sınıf</option>
+                                                <option value="4.Sınıf" selected>4.Sınıf</option>
+                                                <option value="Lisans">Lisans</option>
+                                                <option value="Yüksek Lisans">Yüksek Lisans</option>
+                                            }
+                                            else if (Model.EducationStatus == "Lisans")
+                                            {
+                                                <option value="İlk-Orta-Lise">İlk-Orta-Lise</option>
+                                                <option value="3.Sınıf">3.Sınıf</option>
+                                                <option value="4.Sınıf">4.Sınıf</option>
+                                                <option value="Lisans" selected>Lisans</option>
+                                                <option value="Yüksek Lisans">Yüksek Lisans</option>
+                                            }
+                                            else if (Model.EducationStatus == "Yüksek Lisans")
+                                            {
+                                                <option value="İlk-Orta-Lise">İlk-Orta-Lise</option>
+                                                <option value="3.Sınıf">3.Sınıf</option>
+                                                <option value="4.Sınıf">4.Sınıf</option>
+                                                <option value="Lisans">Lisans</option>
+                                                <option value="Yüksek Lisans" selected>Yüksek Lisans</option>
+                                            }
+                                            else
+                                            {
+                                                <option value="İlk-Orta-Lise">İlk-Orta-Lise</option>
+                                                <option value="3.Sınıf">3.Sınıf</option>
+                                                <option value="4.Sınıf">4.Sınıf</option>
+                                                <option value="Lisans">Lisans</option>
+                                                <option value="Yüksek Lisans">Yüksek Lisans</option>
+                                            }
+                                        }
                                     </select>
                                 </div>
                                 <div class="form-group">
@@ -388,6 +469,70 @@
                                 </div>
                                 <div id="textBoxContainer">
                                     <!--Diller-->
+                                    @if (Model?.ForeignLanguageNames != null)
+                                    {
+                                        for (int i = 0; i < Model?.ForeignLanguageNames.Count; i++)
+                                        {
+                                            <div class="form-group d-flex justify-content-between" style="margin-top: 10px; margin-bottom: 10px;">
+                                                <input type="text" name="ForeignLanguageNames" value="@(Model.ForeignLanguageNames.ElementAt(i))" class="form-control" placeholder="Yabancı Dil" style="margin-right: 10px;">
+                                                <select class="form-control" name="ForeignLanguageGrades">
+                                                    <option disabled="">Seviye</option>
+                                                    @if (Model?.ForeignLanguageGrades != null)
+                                                    {
+                                                        if (Model.ForeignLanguageGrades.ElementAt(i) == "Başlangıç")
+                                                        {
+                                                            <option value="Başlangıç" selected>Başlangıç</option>
+                                                            <option value="Temel">Temel</option>
+                                                            <option value="Orta">Orta</option>
+                                                            <option value="İyi">İyi</option>
+                                                            <option value="İleri">İleri</option>
+                                                        }
+                                                        else if (Model.ForeignLanguageGrades.ElementAt(i) == "Temel")
+                                                        {
+                                                            <option value="Başlangıç">Başlangıç</option>
+                                                            <option value="Temel" selected>Temel</option>
+                                                            <option value="Orta">Orta</option>
+                                                            <option value="İyi">İyi</option>
+                                                            <option value="İleri">İleri</option>
+                                                        }
+                                                        else if (Model.ForeignLanguageGrades.ElementAt(i) == "Orta")
+                                                        {
+                                                            <option value="Başlangıç">Başlangıç</option>
+                                                            <option value="Temel">Temel</option>
+                                                            <option value="Orta" selected>Orta</option>
+                                                            <option value="İyi">İyi</option>
+                                                            <option value="İleri">İleri</option>
+                                                        }
+                                                        else if (Model.ForeignLanguageGrades.ElementAt(i) == "İyi")
+                                                        {
+                                                            <option value="Başlangıç">Başlangıç</option>
+                                                            <option value="Temel">Temel</option>
+                                                            <option value="Orta">Orta</option>
+                                                            <option value="İyi" selected>İyi</option>
+                                                            <option value="İleri">İleri</option>
+                                                        }
+                                                        else if (Model.ForeignLanguageGrades.ElementAt(i) == "İleri")
+                                                        {
+                                                            <option value="Başlangıç">Başlangıç</option>
+                                                            <option value="Temel">Temel</option>
+                                                            <option value="Orta">Orta</option>
+                                                            <option value="İyi">İyi</option>
+                                                            <option value="İleri" selected>İleri</option>
+                                                        }
+                                                        else
+                                                        {
+                                                            <option value="Başlangıç">Başlangıç</option>
+                                                            <option value="Temel">Temel</option>
+                                                            <option value="Orta">Orta</option>
+                                                            <option value="İyi">İyi</option>
+                                                            <option value="İleri">İleri</option>
+                                                        }
+                                                    }
+                                                </select>
+                                                <button class="btn" style="margin-left: 10px; background: red; color: white;">X</button>
+                                            </div>
+                                        }
+                                    }
                                 </div>
                                 <script>
                                     document.addEventListener("DOMContentLoaded", function () {
