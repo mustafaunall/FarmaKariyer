@@ -656,7 +656,7 @@ select:focus {
 }
 
 .submenuder {
-    padding: 10px 30px !important;
+    padding: 8px 30px !important;
     font-size: 14px;
     font-weight:400 !important;
     text-transform:capitalize !important;
@@ -1396,11 +1396,12 @@ select:focus {
 .single-blog-post{
     margin-bottom: 50px;
 }
-.single-blog-post .img-holder{
-    display: block;
-    overflow: hidden;
-    position: relative;     
-}
+    .single-blog-post .img-holder {
+        display: block;
+        overflow: hidden;
+        position: relative;
+        border: 1px solid #f4f4f4;
+    }
 .single-blog-post .img-holder img {
     -webkit-transition: all 0.7s ease;
     transition: all 0.7s ease;
@@ -1408,10 +1409,10 @@ select:focus {
 }
 .single-blog-post .img-holder .published-date {
     position: absolute;
-    top: 20px;
-    left: 20px;
-    width: 55px;
-    height: 55px;
+    top: 5%;
+    left: 5%;
+    width:29%;
+    height: 40px;
     background: #ff2b58;
     text-align: center;
     padding: 7px 10px;
@@ -1425,10 +1426,10 @@ select:focus {
 }
 .single-blog-post .img-holder .published-date h3{
     color: #ffffff;
-    font-size: 14px;
+    font-size: 15px;
     font-weight: 400;
     text-transform: capitalize;
-    line-height: 20px;
+    line-height: 25px;
     font-family: 'Poppins', sans-serif;
 }
 .single-blog-post .img-holder .overlay-style-one .box .content {
@@ -1476,11 +1477,12 @@ select:focus {
 }
 .single-blog-post .text-holder .blog-title:hover{
     color: #ff2b58;        
-} 
-.single-blog-post .text-holder .text{
-    overflow: hidden;
-    padding-bottom: 11px;
 }
+    .single-blog-post .text-holder .text {
+        overflow: hidden;
+        padding-bottom: 11px;
+        height: 134px;
+    }
 .single-blog-post .text-holder .meta-info {
     overflow: hidden;
     margin-left: -20px;
@@ -3249,6 +3251,7 @@ select:focus {
 .blog-list-area .single-blog-post .text-holder .text {
     overflow: hidden;
     padding-bottom: 13px;
+
 }
 .blog-list-area .single-blog-post .text-holder .meta-info {
     overflow: hidden;
@@ -5723,3 +5726,8 @@ select:focus {
         padding: 50px 20px;
     }
 }
+
+/*input[type=checkbox], input[type=radio] {
+    width: 15px;
+    height: 15px;
+}*/

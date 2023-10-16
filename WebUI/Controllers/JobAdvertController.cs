@@ -35,6 +35,10 @@ public class JobAdvertController : Controller
     {
         return View();
     }
+    public IActionResult OtherAds()
+    {
+        return View();
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

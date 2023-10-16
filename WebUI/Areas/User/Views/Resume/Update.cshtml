@@ -191,56 +191,53 @@
                                     <label>Öğrenim Durumu</label>
                                     <select asp-for="EducationStatus" class="form-control">
                                         <option disabled selected>Öğrenim Durumunuz</option>
-                                        @if (Model?.EducationStatus != null)
+                                        @if (Model?.EducationStatus == "İlk-Orta-Lise")
                                         {
-                                            if (Model.EducationStatus == "İlk-Orta-Lise")
-                                            {
-                                                <option value="İlk-Orta-Lise" selected>İlk-Orta-Lise</option>
-                                                <option value="3.Sınıf">3.Sınıf</option>
-                                                <option value="4.Sınıf">4.Sınıf</option>
-                                                <option value="Lisans">Lisans</option>
-                                                <option value="Yüksek Lisans">Yüksek Lisans</option>
-                                            }
-                                            else if (Model.EducationStatus == "3.Sınıf")
-                                            {
-                                                <option value="İlk-Orta-Lise">İlk-Orta-Lise</option>
-                                                <option value="3.Sınıf" selected>3.Sınıf</option>
-                                                <option value="4.Sınıf">4.Sınıf</option>
-                                                <option value="Lisans">Lisans</option>
-                                                <option value="Yüksek Lisans">Yüksek Lisans</option>
-                                            }
-                                            else if (Model.EducationStatus == "4.Sınıf")
-                                            {
-                                                <option value="İlk-Orta-Lise">İlk-Orta-Lise</option>
-                                                <option value="3.Sınıf">3.Sınıf</option>
-                                                <option value="4.Sınıf" selected>4.Sınıf</option>
-                                                <option value="Lisans">Lisans</option>
-                                                <option value="Yüksek Lisans">Yüksek Lisans</option>
-                                            }
-                                            else if (Model.EducationStatus == "Lisans")
-                                            {
-                                                <option value="İlk-Orta-Lise">İlk-Orta-Lise</option>
-                                                <option value="3.Sınıf">3.Sınıf</option>
-                                                <option value="4.Sınıf">4.Sınıf</option>
-                                                <option value="Lisans" selected>Lisans</option>
-                                                <option value="Yüksek Lisans">Yüksek Lisans</option>
-                                            }
-                                            else if (Model.EducationStatus == "Yüksek Lisans")
-                                            {
-                                                <option value="İlk-Orta-Lise">İlk-Orta-Lise</option>
-                                                <option value="3.Sınıf">3.Sınıf</option>
-                                                <option value="4.Sınıf">4.Sınıf</option>
-                                                <option value="Lisans">Lisans</option>
-                                                <option value="Yüksek Lisans" selected>Yüksek Lisans</option>
-                                            }
-                                            else
-                                            {
-                                                <option value="İlk-Orta-Lise">İlk-Orta-Lise</option>
-                                                <option value="3.Sınıf">3.Sınıf</option>
-                                                <option value="4.Sınıf">4.Sınıf</option>
-                                                <option value="Lisans">Lisans</option>
-                                                <option value="Yüksek Lisans">Yüksek Lisans</option>
-                                            }
+                                            <option value="İlk-Orta-Lise" selected>İlk-Orta-Lise</option>
+                                            <option value="3.Sınıf">3.Sınıf</option>
+                                            <option value="4.Sınıf">4.</option>
+                                            <option value="Lisans">Lisans</option>
+                                            <option value="Yüksek Lisans">Yüksek Lisans</option>
+                                        }
+                                        else if (Model?.EducationStatus == "3.Sınıf")
+                                        {
+                                            <option value="İlk-Orta-Lise">İlk-Orta-Lise</option>
+                                            <option value="3.Sınıf" selected>3.Sınıf</option>
+                                            <option value="4.Sınıf">4.Sınıf</option>
+                                            <option value="Lisans">Lisans</option>
+                                            <option value="Yüksek Lisans">Yüksek Lisans</option>
+                                        }
+                                        else if (Model?.EducationStatus == "4.Sınıf")
+                                        {
+                                            <option value="İlk-Orta-Lise">İlk-Orta-Lise</option>
+                                            <option value="3.Sınıf">3.Sınıf</option>
+                                            <option value="4.Sınıf" selected>4.Sınıf</option>
+                                            <option value="Lisans">Lisans</option>
+                                            <option value="Yüksek Lisans">Yüksek Lisans</option>
+                                        }
+                                        else if (Model?.EducationStatus == "Lisans")
+                                        {
+                                            <option value="İlk-Orta-Lise">İlk-Orta-Lise</option>
+                                            <option value="3.Sınıf">3.Sınıf</option>
+                                            <option value="4.Sınıf">4.Sınıf</option>
+                                            <option value="Lisans" selected>Lisans</option>
+                                            <option value="Yüksek Lisans">Yüksek Lisans</option>
+                                        }
+                                        else if (Model?.EducationStatus == "Yüksek Lisans")
+                                        {
+                                            <option value="İlk-Orta-Lise">İlk-Orta-Lise</option>
+                                            <option value="3.Sınıf">3.Sınıf</option>
+                                            <option value="4.Sınıf">4.Sınıf</option>
+                                            <option value="Lisans">Lisans</option>
+                                            <option value="Yüksek Lisans" selected>Yüksek Lisans</option>
+                                        }
+                                        else
+                                        {
+                                            <option value="İlk-Orta-Lise">İlk-Orta-Lise</option>
+                                            <option value="3.Sınıf">3.Sınıf</option>
+                                            <option value="4.Sınıf">4.Sınıf</option>
+                                            <option value="Lisans">Lisans</option>
+                                            <option value="Yüksek Lisans">Yüksek Lisans</option>
                                         }
                                     </select>
                                 </div>
