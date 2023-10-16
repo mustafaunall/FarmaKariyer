@@ -1,5 +1,120 @@
-﻿@*
-    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
-*@
+﻿@using Domain.Model;
+@model ApplicationUser
 @{
+    ViewData["Title"] = "İlanlarım";
 }
+
+<section class="content">
+    <div class="container-fluid">
+
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="card" style="background-color:transparent; border:none; box-shadow:none;">
+                    <div class="card-body">
+                       @for (int i = 0; i < 5; i++)
+                        {
+                            @* firma foto - ilan ismi - eczane ismi - ilan başlığı - ilan silme *@
+                            <div class="d-flex align-items-center mb-3 advertbg">
+                                <img src="~/images/logoadvert.png" alt="Profil Resmi" style="width:70px; height:70px;" class="rounded-circle mr-3">
+                                <div class="d-flex justify-content-center w-100 ">
+                                    <div class="text-center">
+                                        <h3>İlan İsmi</h3>
+                                        <h5>Betül Eczanesi</h5>
+                                        <p>İlan Başlığı</p>
+                                    </div>
+                                </div>
+                                <div class="d-flex justify-content-end" style="width:70px;">
+                                    <div>
+                                        <a href="#" data-toggle="modal" data-target="#confirmationModal"><i class="fa-regular fa-circle-xmark" style="color:red; font-size:25px;"></i></a>
+
+                                    </div>
+                                </div>
+                                <!-- Modal -->
+                                <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-body text-center" style="margin:30px 0;">
+                                                <h5 style="color:black !important; margin-bottom:20px;">İlanınız Silinecek, Emin misiniz?</h5>
+                                                <button type="button" class="btn btn-success" style="margin-right:20px;">Evet</button>
+                                                <button type="button" class="btn btn-danger" data-dismiss="modal">Hayır</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</section>
+<style>
+    .advertbg{
+        background-color:White;
+        padding:10px 20px;
+        height: 170px;
+    }
+
+        .advertbg .d-flex.justify-content-center > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+    .advertbg:hover {
+            background-color: #ff708e;
+    }
+
+        .advertbg:hover > * {
+            color:white !important;
+        }
+
+            .advertbg:hover i::before {
+                color: white !important;
+            }
+
+    .tooltip {
+        position: relative;
+        display: inline-block;
+    }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+    .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%; /* Tooltip'i ikonun üzerinde göstermek için */
+        left: 50%;
+        margin-left: -60px; /* Tooltip'in genişliğinin yarısı kadar sola kaydır */
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .tooltip .tooltiptext::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+
+</style>
+
+
