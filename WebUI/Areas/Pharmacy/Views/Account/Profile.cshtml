@@ -80,14 +80,69 @@
                 <div class="card">
                     <div class="card-header p-2">
                         <ul class="nav nav-pills">
-         @*                    <li class="nav-item"><a class="nav-link " href="#activity" data-toggle="tab">Genel</a></li> *@
-                            <li class="nav-item"><a class="nav-link active" href="#pharmacyinfo" data-toggle="tab">Eczane Bilgileri</a></li>
+                            <li class="nav-item"><a class="nav-link active" href="#activity" data-toggle="tab">Genel</a></li>
+                            <li class="nav-item"><a class="nav-link" href="#pharmacyinfo" data-toggle="tab">Eczane Bilgileri</a></li>
                             <li class="nav-item"><a class="nav-link" href="#settings" data-toggle="tab">Ayarlar</a></li>
                         </ul>
                     </div><!-- /.card-header -->
                     <div class="card-body">
                         <div class="tab-content">
-                            
+                            <div class="active tab-pane" id="activity">
+                                <!-- Post -->
+                                <div class="post">
+                                    <div class="user-block">
+                                        <img class="img-circle img-bordered-sm" src="~/user/img/user1-128x128.jpg" alt="user image">
+                                        <span class="username">
+                                            <a href="#" style="color:#ff2b58; text-transform:capitalize;">@Model.Name @Model.Surname</a>
+                                            @*<a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>*@
+                                        </span>
+                                      
+                                    </div>
+                                    <!-- /.user-block -->
+                                    <p style="white-space: pre-wrap; word-wrap: break-word; word-break: break-all; overflow-wrap: break-word;">
+                                        @(@"
+
+                                        Maslak Eczanesi olarak, deneyimli ve özverili bir kalfa arıyoruz. Siz de büyüyen ve saygın eczane ekibimizin bir parçası olmak isterseniz, başvurunuz bizim için değerlidir.
+
+                                        Adaylardan Beklenenler:
+
+                                        * En az 2 yıl eczane kalfa deneyimi.
+                                        * İlaç hazırlama, stok kontrolü, ve reçetelerin doğru bir şekilde işlenmesi konularında yetenek.
+                                        * Hasta memnuniyetine odaklanma ve etkili iletişim becerileri.
+                                        * Eczane ekip üyeleri ve müşterilerle profesyonel bir şekilde etkileşimde bulunabilme yeteneği.
+                                        * Eczane yönetimi ve ilaçların güvenli bir şekilde saklanması konularında gerekli bilgi ve becerilere sahip olma.
+                                        * Dikkatli, düzenli ve titiz çalışma alışkanlığı.
+                                        * Hızlı tempoda çalışabilme yeteneği.
+                                        * Bizimle Çalışmanın Avantajları:
+
+                                        * Rekabetçi maaş ve yan haklar.
+                                        * Profesyonel gelişim fırsatları ve eğitimler.
+                                        * Güvenli ve dostça bir çalışma ortamı.
+                                        * Sağlık ve hastalık izni gibi çalışanların refahını destekleyen avantajlar.
+                                        * Başvuru Prosedürü:
+                                        * Başvurunuzu aşağıdaki iletişim bilgileri üzerinden bize ulaştırabilirsiniz:
+
+                                        E-posta: iletisim@maslakeczanesi.com
+                                        Telefon: (212) 123-4567
+                                        Lütfen başvurunuzda güncel bir özgeçmiş ve referanslarınızı da eklemeyi unutmayın. Maslak Eczanesi olarak, ekibimize katılacak deneyimli bir kalfa arayışımızı sabırsızlıkla bekliyoruz. Siz de bu fırsatı kaçırmamak için başvurun!
+
+                                        ")
+                                    </p>
+
+                                    @*    <p>
+                                    <a href="#" class="link-black text-sm mr-2"><i class="fas fa-share mr-1"></i> 15 Paylaşım</a>
+                                    <a href="#" class="link-black text-sm"><i class="far fa-thumbs-up mr-1"></i> 23 Beğeni</a>
+                                    <span class="float-right">
+                                    <a href="#" class="link-black text-sm">
+                                    <i class="far fa-comments mr-1"></i> Yorumlar (5 adet)
+                                    </a>
+                                    </span>
+                                    </p> *@
+
+                                    @*<input class="form-control form-control-sm" type="text" placeholder="Yorum bırak">*@
+                                </div>
+                                <!-- /.post -->
+                            </div>
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="pharmacyinfo">
                                 <form class="form-horizontal" method="post" action="/Pharmacy/Account/UpdateProfile">
