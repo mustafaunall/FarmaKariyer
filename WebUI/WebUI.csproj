@@ -13,19 +13,15 @@
     <Compile Remove="Resources\Fonts\Pdfs\**" />
     <Compile Remove="Resources\Pdfs\**" />
     <Compile Remove="Views\AboutUs\**" />
-    <Compile Remove="wwwroot\Resources\**" />
     <Content Remove="Resources\Fonts\Pdfs\**" />
     <Content Remove="Resources\Pdfs\**" />
     <Content Remove="Views\AboutUs\**" />
-    <Content Remove="wwwroot\Resources\**" />
     <EmbeddedResource Remove="Resources\Fonts\Pdfs\**" />
     <EmbeddedResource Remove="Resources\Pdfs\**" />
     <EmbeddedResource Remove="Views\AboutUs\**" />
-    <EmbeddedResource Remove="wwwroot\Resources\**" />
     <None Remove="Resources\Fonts\Pdfs\**" />
     <None Remove="Resources\Pdfs\**" />
     <None Remove="Views\AboutUs\**" />
-    <None Remove="wwwroot\Resources\**" />
   </ItemGroup>
 
   <ItemGroup>
@@ -54,6 +50,7 @@
   <ItemGroup>
     <Folder Include="Resources\Assets\" />
     <Folder Include="Resources\Fonts\" />
+    <Folder Include="wwwroot\Resources\ResumeFiles\" />
   </ItemGroup>
 
   <ItemGroup>
