@@ -1,0 +1,50 @@
+﻿@using WebUI.Models.ViewModels;
+@model ResumeUpdateVM
+@{
+    ViewData["Title"] = "Ayarlar";
+}
+<section class="content">
+    <div class="container-fluid">
+        <form method="post" action="/User/Resume/Update" enctype="multipart/form-data">
+            <div style="margin:0; padding:0; display:flex; flex-wrap:wrap; width:100%;">
+                <div class="col-md-3">
+                </div>
+                <div class="row col-md-6" style="margin:0; padding:0;">
+                    <div class="col-md-12">
+                        <h1 style="text-align:center; margin-bottom:10px;">Özgeçmiş</h1>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Kişisel Bilgiler</h3>
+                            </div>
+                            <div class="card-body">
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Adınız</label>
+                                    <input type="text" class="form-control" asp-for="Name" value="" placeholder="Adınız:">
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Soyadınız</label>
+                                    <input type="text" class="form-control" asp-for="Surname" value="" placeholder="Soyadınız:">
+                                </div>
+                                <div class="form-group row">
+                                    <label for="inputPhone" class="col-sm-2 col-form-label">Telefon</label>
+                                    <input required type="text" class="form-control" id="inputPhone" name="PhoneNumber" value="" placeholder="Telefon">
+                                </div>
+                            </div>
+                            @*   <div class="card-footer">
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                            </div> *@
+                        </div>
+                    </div>
+                    <!--Kaydet-->
+                    <div class="col-md-12">
+                        <div class="d-flex justify-content-center">
+                            <button type="submit" class="btn btn-primary" style="padding: 17px 40px;">Kaydet</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
+</section>
