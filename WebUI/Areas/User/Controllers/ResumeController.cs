@@ -3,7 +3,6 @@ using Domain.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Runtime.Intrinsics.X86;
 using WebUI.Extensions;
 using WebUI.Models.ViewModels;
 
