@@ -7,7 +7,7 @@ using WebUI.Models.ViewModels;
 
 namespace WebUI.Areas.Pharmacy.Controllers
 {
-    [Area("User")]
+    [Area("Pharmacy")]
     public class AdvertController : BaseController
     {
         private readonly UserDbContext _context;

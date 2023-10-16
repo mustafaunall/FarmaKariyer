@@ -100,7 +100,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href="@Url.Action("Profile", "Account")" class="nav-link">
+                            <a href="/Pharmacy/Account/Profile" class="nav-link">
                                 <i class="nav-icon fa-solid fa-user"></i>
                                 <p>
                                     Profil
@@ -111,53 +111,35 @@ scratch. This page gets rid of all links and provides the needed markup only.
                             <a href="#" class="nav-link">
                                 <i class="nav-icon fa-solid fa-address-card"></i>
                                 <p>
-                                    Özgeçmiş
+                                    İlan Yönetimi
                                     <i class="fas fa-angle-left right"></i>
                                 </p>
                             </a>
                             <ul class="nav nav-treeview" style="display: block;">  
                                 <li class="nav-item">
-                                    <a href="@Url.Action("TechnicianCV","Account")" class="nav-link">
+                                    <a href="/Pharmacy/Advert/Create" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Teknisyen Özgeçmişi</p>
+                                        <p>Yeni İlan</p>
                                     </a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="@Url.Action("InternCV","Account")" class="nav-link">
+                                    <a href="/Pharmacy/Advert/List" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
-                                        <p>Stajyer Özgeçmişi</p>
+                                        <p>İlanlarım</p>
                                     </a>
                                 </li>
-                             
-                            
                             </ul>
                         </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
-                                <p>
-                                    Başvurular
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="@Url.Action("PharmacyJobAdvert","Account")" class="nav-link">
-                                <i class="nav-icon fas fa-book"></i>
-                                <p>
-                                    İlan Sayfası
-                                </p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="@Url.Action("Profile", "Account")" class="nav-link">
+                        @*<li class="nav-item">
+                            <a href="/Pharmacy/Setting/Update" class="nav-link">
                                 <i class="nav-icon fa-solid fa-gear"></i>
                                 <p>
                                     Ayarlar
                                 </p>
                             </a>
-                        </li>
+                        </li>*@
                         <li class="nav-item">
-                            <a href="@Url.Action("Profile", "Account")" class="nav-link">
+                            <a href="/Pharmacy/Help" class="nav-link">
                                 <i class="nav-icon fa-solid fa-question"></i>
                                 <p>
                                     Yardım
