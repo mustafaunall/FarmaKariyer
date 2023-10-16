@@ -25,6 +25,7 @@ public class ApplicationUser : IdentityUser<int>
 
     public int? ResumeId { get; set; }
     public Resume? Resume { get; set; }
+    public List<Advert> Adverts { get; set; }
 
     #endregion
 }
