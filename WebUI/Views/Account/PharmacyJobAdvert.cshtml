@@ -6,57 +6,39 @@
 }
 <section class="content">
     <div class="container-fluid">
-        <div style="margin: 0;
-    padding: 0;
-    display: flex;
-    flex-wrap: wrap;
-    width: 100%;">
+        <div style="margin: 0; padding: 0; display: flex; flex-wrap: wrap; width: 100%;">
            <div class="col-md-3"></div>
            <div class="col-md-6">
                 <div class="row col-md-12" style="margin: 0; padding: 0;">
                     <div class="col-md-12">
                         <div class="card card-primary">
                             <div class="card-header">
-                                <h3 class="card-title">Diğer Bilgiler</h3>
+                                <h3 class="card-title">İlanınız</h3>
                             </div>
                             <form>
                                 <div class="card-body">
                                     <div class="form-group">
-                                        <label>Eczane Tipi</label>
-                                        <div id="experienceGroup" class="w-100">
-                                            <select class="form-control" id="yilSeciniz">
-                                                <option value="" disabled selected>Eczane Tipini Seçiniz</option>
-                                                <option value="1">Ünite</option>
-                                                <option value="2">Cadde</option>
-                                                <option value="3">AVM</option>
-                                                <option value="4">Semt</option>
-                                            </select>
-                                        </div>
+                                        <label for="exampleInputEmail1">Başlık</label>
+                                        <!--buraya firmanın girişteki eczane adını basabiliriz.-->
+                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Örnek: Faruk Eczanesi Stajyer Arıyor...">
                                     </div>
                                     <div class="form-group">
-                                        <label>
-                                            Çalışan Sayısı
-                                        </label>
-                                        <ul class="categories clearfix uljobs">
-                                            <li>
-                                                <select class="form-control" id="employeecount">
-                                                    <option value="" disabled="" selected="">Kişi Sayısı</option>
-                                                    <option value="1">1</option>
-                                                    <option value="1">2</option>
-                                                    <option value="1">4</option>
-                                                    <option value="1">5</option>
-                                                    <option value="1">5-10</option>
-                                                    <option value="1">10-15</option>
-                                                    <option value="1">15-20</option>
-                                                    <option value="1">20-30</option>
-                                                    <option value="1">30+</option>
-
-                                                </select>
-                                            </li>
-                                        </ul>
+                                        <label for="exampleInputEmail1">Açıklama</label>
+                                        <textarea class="form-control" rows="15" placeholder="İlanınız İçin Açıklama Alanı..."></textarea>
                                     </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-md-12">
+                        <div class="card card-primary">
+                            <div class="card-header">
+                                <h3 class="card-title">Kategori Bilgileri</h3>
+                            </div>
+                            <form>
+                                <div class="card-body">
                                     <div class="form-group">
-                                        <label>Özel Arama</label>
+                                        <label>Kategori Arama</label>
                                         <div id="experienceGroup" class="w-100">
                                             <select class="form-control" id="jobType">
                                                 <option disabled selected>Kategori Seçiniz</option>
@@ -187,7 +169,7 @@
 
                                                     //Diğer
                                                     inputHtml += '        <div class="form-group">';
-                                                    inputHtml += '            <label for="extra">Ekstra</label>';
+                                                    inputHtml += '            <label for="extra">Diğer</label>';
                                                     inputHtml += '            <input type="text" class="form-control" name="infoType" id="extra" value="">';
                                                     inputHtml += '        </div>';
 
@@ -302,29 +284,7 @@
                                                 dynamicFormGroup.innerHTML = inputHtml;
                                             });
                                         });
-
                                     </script>
-                                </div>
-
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="card card-primary">
-                            <div class="card-header">
-                                <h3 class="card-title">İlanınız</h3>
-                            </div>
-                            <form>
-                                <div class="card-body">
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Başlık</label>
-                                        <!--buraya firmanın girişteki eczane adını basabiliriz.-->
-                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Örnek: Faruk Eczanesi Stajyer Arıyor...">
-                                    </div>
-                                    <div class="form-group">
-                                        <label for="exampleInputEmail1">Açıklama</label>
-                                        <textarea class="form-control" rows="15" placeholder="İlanınız İçin Açıklama Alanı..."></textarea>
-                                    </div>
                                 </div>
                             </form>
                         </div>
@@ -341,6 +301,11 @@
     </div>
 </section>
 <style>
+    .uljobs {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+    }
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
         -webkit-appearance: none;
