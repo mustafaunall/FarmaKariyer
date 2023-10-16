@@ -70,7 +70,13 @@ namespace WebUI.Areas.Pharmacy.Controllers
                 else if (model.Type == AdvertType.INTERN)
                 {
                     advert.SquareMeter = model.SquareMeter;
-                    advert.MonthlyTurnover
+                    advert.MonthlyTurnover = model.MonthlyTurnover;
+                    advert.LicenseRightLeft = model.LicenseRightLeft;
+                    advert.HasRightToCarry = model.HasRightToCarry;
+                }
+                else if (model.Type == AdvertType.OTHER)
+                {
+                    advert.DriverLicenses = model.DriverLicenses;
                 }
 
                 await _context.AddAsync(advert);
