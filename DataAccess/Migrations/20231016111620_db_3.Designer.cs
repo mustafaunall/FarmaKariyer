@@ -5,6 +5,7 @@ using DataAccess.Context;
 using Domain.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -13,9 +14,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    partial class UserDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231016111620_db_3")]
+    partial class db_3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -23,78 +25,6 @@ namespace DataAccess.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
             NpgsqlModelBuilderExtensions.UseIdentityByDefaultColumns(modelBuilder);
-
-            modelBuilder.Entity("Domain.Model.Advert", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("integer");
-
-                    NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
-
-                    b.Property<bool>("BonusBenefit")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("DermocosmeticInfo")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<List<string>>("DriverLicenses")
-                        .HasColumnType("jsonb");
-
-                    b.Property<string>("EducationStatus")
-                        .HasColumnType("text");
-
-                    b.Property<string>("ExperienceYear")
-                        .HasColumnType("text");
-
-                    b.Property<bool>("FoodBenefit")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("HasRightToCarry")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("LicenseRightLeft")
-                        .HasColumnType("boolean");
-
-                    b.Property<int>("MonthlyTurnover")
-                        .HasColumnType("integer");
-
-                    b.Property<bool>("OTCInfo")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("OtherInfo")
-                        .HasColumnType("text");
-
-                    b.Property<bool>("PrescriptionInfo")
-                        .HasColumnType("boolean");
-
-                    b.Property<bool>("PrivateInsuranceEntryInfo")
-                        .HasColumnType("boolean");
-
-                    b.Property<string>("SalaryRange")
-                        .HasColumnType("text");
-
-                    b.Property<string>("SquareMeter")
-                        .HasColumnType("text");
-
-                    b.Property<string>("Title")
-                        .IsRequired()
-                        .HasColumnType("text");
-
-                    b.Property<bool>("TravelBenefit")
-                        .HasColumnType("boolean");
-
-                    b.Property<int>("Type")
-                        .HasColumnType("integer");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Adverts");
-                });
 
             modelBuilder.Entity("Domain.Model.ApplicationUser", b =>
                 {

@@ -1,302 +1,325 @@
-﻿@using Domain.Model;
-@model ApplicationUser
+﻿@using WebUI.Models.ViewModels;
+@model AdvertCreateVM
 @{
     ViewData["Title"] = "Eczane İlan Oluşturma";
 }
 <section class="content">
     <div class="container-fluid">
-        <div style="margin: 0; padding: 0; display: flex; flex-wrap: wrap; width: 100%;">
-           <div class="col-md-3"></div>
-           <div class="col-md-6">
-                <div class="row col-md-12" style="margin: 0; padding: 0;">
-                    <div class="col-md-12">
-                        <div class="card card-primary">
-                            <div class="card-header">
-                                <h3 class="card-title">İlanınız</h3>
-                            </div>
-                            <form>
+        <form method="post" action="/Pharmacy/Advert/Create">
+            <div style="margin: 0; padding: 0; display: flex; flex-wrap: wrap; width: 100%;">
+                <div class="col-md-3"></div>
+                <div class="col-md-6">
+                    <div class="row col-md-12" style="margin: 0; padding: 0;">
+                        <div class="col-md-12">
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">İlanınız</h3>
+                                </div>
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Başlık</label>
                                         <!--buraya firmanın girişteki eczane adını basabiliriz.-->
-                                        <input type="text" class="form-control" id="exampleInputEmail1" placeholder="Örnek: Faruk Eczanesi Stajyer Arıyor...">
+                                        <input type="text" asp-for="Title" class="form-control" id="exampleInputEmail1" placeholder="Örnek: Faruk Eczanesi Stajyer Arıyor...">
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Açıklama</label>
-                                        <textarea class="form-control" rows="15" placeholder="İlanınız İçin Açıklama Alanı..."></textarea>
+                                        <textarea class="form-control" asp-for="Description" rows="15" placeholder="İlanınız İçin Açıklama Alanı..."></textarea>
                                     </div>
                                 </div>
-                            </form>
-                        </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="card card-primary">
-                            <div class="card-header">
-                                <h3 class="card-title">Kategori Bilgileri</h3>
                             </div>
-                            <form>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="card card-primary">
+                                <div class="card-header">
+                                    <h3 class="card-title">Kategori Bilgileri</h3>
+                                </div>
                                 <div class="card-body">
                                     <div class="form-group">
                                         <label>Kategori Arama</label>
                                         <div id="experienceGroup" class="w-100">
-                                            <select class="form-control" id="jobType">
+                                            <select class="form-control" asp-for="Type" id="jobType">
                                                 <option disabled selected>Kategori Seçiniz</option>
-                                                <option>Teknisyen</option>
-                                                <option>Stajyer</option>
-                                                <option>Yardımcı Eczacı</option>
-                                                <option>İkinci Eczacı</option>
-                                                <option>Ruhsat</option>
-                                                <option>Diğer</option>
+                                                <option value="0">Teknisyen</option>
+                                                <option value="1">Stajyer</option>
+                                                <option value="2">Yardımcı Eczacı</option>
+                                                <option value="3">İkinci Eczacı</option>
+                                                <option value="4">Ruhsat</option>
+                                                <option value="5">Diğer</option>
                                             </select>
                                         </div>
                                     </div>
-                                    <div id="dynamicFormGroup" class="mt-3"></div>
+                                    <div id="dynamicFormGroup" class="mt-3">
+
+                                        @*Teknisyen Start*@
+
+                                        <div class="form-group collapsable" id="form-teknisyen" style="display: none;">
+                                            <div class="form-group">
+                                                <h2>Teknisyen İçin Özel Arama</h2>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Aradığınız İş Deneyimi(Yıl)</label>
+                                                <div id="experienceGroup" class="w-100">
+                                                    <select class="form-control" asp-for="ExperienceYear" id="experienceDropdown">
+                                                        <option disabled selected>Deneyim Yılı</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5-10">5-10</option>
+                                                        <option value="11-15">11-15</option>
+                                                        <option value="16-20">16-20</option>
+                                                        <option value="21+">21+</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="sec-title">
+                                                    <label>Yan Haklar</label>
+                                                    <ul class="categories clearfix uljobs">
+                                                        <li>
+                                                            <div class="form-group form-check">
+                                                                <input type="checkbox" asp-for="BonusBenefit" class="form-check-input" id="primCheckbox">
+                                                                <label class="form-check-label" for="primCheckbox">Prim</label>
+                                                            </div>
+                                                            <div class="form-group form-check">
+                                                                <input type="checkbox" asp-for="TravelBenefit" class="form-check-input" id="yolCheckbox">
+                                                                <label class="form-check-label" for="yolCheckbox">Yol</label>
+                                                            </div>
+                                                            <div class="form-group form-check" style="margin-bottom:0;">
+                                                                <input type="checkbox" asp-for="FoodBenefit" class="form-check-input" id="yemekCheckbox">
+                                                                <label class="form-check-label" for="yemekCheckbox">Yemek</label>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="sec-title">
+                                                    <label>Maaş Aralığı</label>
+                                                </div>
+                                                <ul class="categories clearfix uljobs">
+                                                    <li>
+                                                        <div style="display: flex; align-items: center;">
+                                                            <input asp-for="SalaryRange" class="form-control" id="maasaraligi" placeholder="Ortalama Maaş Giriniz" min="0" pattern="\d+" style="flex: 1;">
+                                                            <span style="margin-left: 5px;">TL</span>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="sec-title">
+                                                    <label>Bilgiler</label>
+                                                </div>
+                                                <div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" asp-for="PrescriptionInfo" id="receteBilgisi">
+                                                        <label class="form-check-label" for="receteBilgisi">Reçete Bilgisi</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" asp-for="PrivateInsuranceEntryInfo" id="ozelSigorta">
+                                                        <label class="form-check-label" for="ozelSigorta">Özel Sigorta Girişi</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" asp-for="OTCInfo" id="otcBilgisi">
+                                                        <label class="form-check-label" for="otcBilgisi">OTC Bilgisi</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="checkbox" asp-for="DermocosmeticInfo" id="dermoBilgisi">
+                                                        <label class="form-check-label" for="dermoBilgisi">Dermokozmetik Bilgisi</label>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label for="extra">Diğer</label>
+                                                        <input type="text" class="form-control" asp-for="OtherInfo" id="extra">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @*Teknisyen End*@
+                                        @*-----*@
+                                        @*Stajyer Start*@
+
+                                        <div class="form-group collapsable" id="form-stajyer" style="display: none;">
+                                            <div class="form-group">
+                                                <h2>Stajyer İçin Özel Arama</h2>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Eğitim Durumu</label>
+                                                <select class="form-control" asp-for="EducationStatus">
+                                                    <option disabled selected>Eğitim Durumunu Seçiniz</option>
+                                                    <option value="3.Sınıf">3.Sınıf</option>
+                                                    <option value="4.Sınıf">4.Sınıf</option>
+                                                    <option value="Mezun(Yardımcı Eczacı)">Mezun(Yardımcı Eczacı)</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        @*Stajyer End*@
+                                        @*-----*@
+                                        @*Yardımcı Eczacı Start*@
+
+                                        <div class="form-group collapsable" id="form-yardimci" style="display: none;">
+                                            <div class="form-group">
+                                                <h2>Yardımcı Eczacı İçin Özel Arama</h2>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Aradığınız İş Deneyimi(Yıl)</label>
+                                                <div id="experienceGroup" class="w-100">
+                                                    <select class="form-control" asp-for="AssistantExperienceYear" id="experienceDropdown">
+                                                        <option disabled selected>Deneyim Yılı</option>
+                                                        <option value="1">1</option>
+                                                        <option value="2">2</option>
+                                                        <option value="3">3</option>
+                                                        <option value="4">4</option>
+                                                        <option value="5-10">5-10</option>
+                                                        <option value="11-15">11-15</option>
+                                                        <option value="16-20">16-20</option>
+                                                        <option value="21+">21+</option>
+                                                    </select>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @*Yardımcı Eczacı End*@
+                                        @*-----*@
+                                        @*İkinci Eczacı Start*@
+
+                                        <div class="form-group collapsable" id="form-ikinci" style="display: none;">
+                                        </div>
+
+                                        @*İkinci Eczacı End*@
+                                        @*-----*@
+                                        @*Ruhsat Start*@
+
+                                        <div class="form-group collapsable" id="form-ruhsat" style="display: none;">
+                                            <div class="form-group">
+                                                <h2>Ruhsat İçin Özel Arama</h2>
+                                                <div class="sec-title">
+                                                    <label>Metre Kare</label>
+                                                </div>
+                                                <ul class="categories clearfix uljobs">
+                                                    <li>
+                                                        <select class="form-control" asp-for="SquareMeter" id="pharmacySquareMeters">
+                                                            <option disabled selected>Eczane m²</option>
+                                                            <option value="30-50 m²">30-50 m²</option>
+                                                            <option value="50-100 m²">50-100 m²</option>
+                                                            <option value="100-150 m²">100-150 m²</option>
+                                                            <option value="150-200 m²">150-200 m²</option>
+                                                            <option value="200-300 m²">200-300 m²</option>
+                                                            <option value="300-500 m²">300-500 m²</option>
+                                                        </select>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="sec-title">
+                                                    <label>Aylık Ciro</label>
+                                                </div>
+                                                <ul class="categories clearfix uljobs">
+                                                    <li>
+                                                        <div style="display: flex; align-items: center;">
+                                                            <input type="number" class="form-control" asp-for="MonthlyTurnover" id="maasaraligi" placeholder="Aylık Ciro" min="0" pattern="\d+" style="flex: 1;">
+                                                            <span style="margin-left: 5px;">TL</span>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="sec-title">
+                                                    <label>Ruhsat</label>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <div class="form-check mr-3">
+                                                        <input class="form-check-input" type="radio" asp-for="LicenseRightLeft" id="ruhsatRightYes" value="true">
+                                                        <label class="form-check-label" for="ruhsatRightYes">Ruhsat Var</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" asp-for="LicenseRightLeft" id="ruhsatRightNo" value="false">
+                                                        <label class="form-check-label" for="ruhsatRightNo">Ruhsat Yok</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <div class="sec-title">
+                                                    <label>Taşıma</label>
+                                                </div>
+                                                <div class="d-flex">
+                                                    <div class="form-check mr-3">
+                                                        <input class="form-check-input" type="radio" asp-for="HasRightToCarry" id="transportRightYes" value="true">
+                                                        <label class="form-check-label" for="transportRightYes">Taşıma Hakkı Var</label>
+                                                    </div>
+                                                    <div class="form-check">
+                                                        <input class="form-check-input" type="radio" asp-for="HasRightToCarry" id="transportRightNo" value="false">
+                                                        <label class="form-check-label" for="transportRightNo">Taşıma Hakkı Yok</label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        @*Ruhsat End*@
+                                        @*-----*@
+                                        @*Diğer Start*@
+
+                                        <div class="form-group collapsable" id="form-diger" style="display: none;">
+                                            <div class="form-group">
+                                                <h2>Diğer</h2>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="driverLicense">
+                                                    Sürücü Belgesi Sınıfı <span style="font-size:10px; color:red; margin-left:10px;">En Fazla 2 Belge Seçiniz*</span>
+                                                </label>
+                                                <select class="form-control" asp-for="DriverLicenses" id="driverLicense" multiple="">
+                                                    <option value="M">M</option>
+                                                    <option value="A1">A1</option>
+                                                    <option value="A2">A2</option>
+                                                </select>
+                                            </div>
+                                        </div>
+
+                                        @*Diğer End*@
+
+                                    </div>
                                     <script>
                                         document.addEventListener("DOMContentLoaded", function () {
-                                            const jobTypeDropdown = document.getElementById('jobType');
-                                            const dynamicFormGroup = document.getElementById('dynamicFormGroup');
-
-                                            jobTypeDropdown.addEventListener('change', function () {
+                                            $('#jobType').on("change", function () {
                                                 const selectedValue = this.value;
 
-                                                let inputHtml = '<div class="form-group">';
+                                                $('.collapsable').css('display', 'none');
 
-                                                if (selectedValue === 'Stajyer') {
-                                                    inputHtml += '<div class="form-group">';
-                                                    inputHtml += '<h2>Stajyer İçin Özel Arama</h2>';
-                                                    inputHtml += '</div>';
-                                                    inputHtml += '<div class="form-group">';
-                                                    inputHtml += '<label>Eğitim Durumu</label>';
-                                                    inputHtml += '<select class="form-control">';
-                                                    inputHtml += '<option disabled selected>Eğitim Durumunu Seçiniz</option>';
-                                                    inputHtml += '<option>3.Sınıf</option>';
-                                                    inputHtml += '<option>4.Sınıf</option>';
-                                                    inputHtml += '<option>Mezun(Yardımcı Eczacı)</option>';
-                                                    inputHtml += '</select>';
-                                                    inputHtml += '</div>';
+                                                if (selectedValue === '0') {
+                                                    $('#form-teknisyen').css('display', 'block');
                                                 }
-                                                else if (selectedValue === 'Teknisyen') {
-                                                    //İş Deneyimi
-                                                    inputHtml += '<div class="form-group">';
-                                                    inputHtml += '<h2>Teknisyen İçin Özel Arama</h2>';
-                                                    inputHtml += '</div>';
-                                                    inputHtml += '<div class="form-group">';
-                                                    inputHtml += '<label>Aradığınız İş Deneyimi(Yıl)</label>';
-                                                    inputHtml += '<div id="experienceGroup" class="w-100">';
-                                                    inputHtml += '<select class="form-control" id="experienceDropdown">';
-                                                    inputHtml += '<option disabled selected>Deneyim Yılı</option>';
-                                                    inputHtml += '<option>1</option>';
-                                                    inputHtml += '<option>2</option>';
-                                                    inputHtml += '<option>3</option>';
-                                                    inputHtml += '<option>4</option>';
-                                                    inputHtml += '<option>5-10</option>';
-                                                    inputHtml += '<option>11-15</option>';
-                                                    inputHtml += '<option>16-20</option>';
-                                                    inputHtml += '<option>21+</option>';
-                                                    inputHtml += '</select>';
-                                                    inputHtml += '</div>';
-                                                    inputHtml += '</div>';
-
-                                                    // Yan Haklar
-                                                    inputHtml += '<div class="form-group">';
-                                                    inputHtml += '<div class="sec-title">';
-                                                    inputHtml += '<label>Yan Haklar</label>';
-                                                    inputHtml += '<ul class="categories clearfix uljobs">';
-                                                    inputHtml += '<li>';
-                                                    inputHtml += '<div class="form-group form-check">';
-                                                    inputHtml += '<input type="checkbox" class="form-check-input" id="primCheckbox">';
-                                                    inputHtml += '<label class="form-check-label" for="primCheckbox">Prim</label>';
-                                                    inputHtml += '</div>';
-                                                    inputHtml += '<div class="form-group form-check">';
-                                                    inputHtml += '<input type="checkbox" class="form-check-input" id="yolCheckbox">';
-                                                    inputHtml += '<label class="form-check-label" for="yolCheckbox">Yol</label>';
-                                                    inputHtml += '</div>';
-                                                    inputHtml += '<div class="form-group form-check" style="margin-bottom:0;">';
-                                                    inputHtml += '<input type="checkbox" class="form-check-input" id="yemekCheckbox">';
-                                                    inputHtml += '<label class="form-check-label" for="yemekCheckbox">Yemek</label>';
-                                                    inputHtml += '</div>';
-                                                    inputHtml += '</li>';
-                                                    inputHtml += '</ul>';
-                                                    inputHtml += '</div>';
-                                                    inputHtml += '</div>';
-
-                                                    // Maaş Aralığı
-                                                    inputHtml += '<div class="form-group">';
-                                                    inputHtml += '<div class="sec-title">';
-                                                    inputHtml += '<label>Maaş Aralığı</label>';
-                                                    inputHtml += '</div>';
-                                                    inputHtml += '<ul class="categories clearfix uljobs">';
-                                                    inputHtml += '<li>';
-                                                    inputHtml += '<div style="display: flex; align-items: center;">';
-                                                    inputHtml += '<input type="number" class="form-control" id="maasaraligi" placeholder="Ortalama Maaş Giriniz" min="0" pattern="\\d+" style="flex: 1;">';
-                                                    inputHtml += '<span style="margin-left: 5px;">TL</span>';
-                                                    inputHtml += '</div>';
-                                                    inputHtml += '</li>';
-                                                    inputHtml += '</ul>';
-                                                    inputHtml += '</div>';
-
-                                                    // Bilgiler Başlığı
-                                                    inputHtml += '<div class="form-group">';
-                                                    inputHtml += '    <div class="sec-title">';
-                                                    inputHtml += '        <label>Bilgiler</label>';
-                                                    inputHtml += '    </div>';
-                                                    inputHtml += '    <div>';  // flex sınıflarını kaldırdım
-
-                                                    // Reçete Bilgisi
-                                                    inputHtml += '        <div class="form-check">';
-                                                    inputHtml += '            <input class="form-check-input" type="checkbox" name="infoType" id="receteBilgisi" value="1">';
-                                                    inputHtml += '            <label class="form-check-label" for="receteBilgisi">Reçete Bilgisi</label>';
-                                                    inputHtml += '        </div>';
-
-                                                    // Özel Sigorta Girişi
-                                                    inputHtml += '        <div class="form-check">';
-                                                    inputHtml += '            <input class="form-check-input" type="checkbox" name="infoType" id="ozelSigorta" value="2">';
-                                                    inputHtml += '            <label class="form-check-label" for="ozelSigorta">Özel Sigorta Girişi</label>';
-                                                    inputHtml += '        </div>';
-
-                                                    // OTC Bilgisi
-                                                    inputHtml += '        <div class="form-check">';
-                                                    inputHtml += '            <input class="form-check-input" type="checkbox" name="infoType" id="otcBilgisi" value="3">';
-                                                    inputHtml += '            <label class="form-check-label" for="otcBilgisi">OTC Bilgisi</label>';
-                                                    inputHtml += '        </div>';
-
-                                                    // Dermokozmetik Bilgisi
-                                                    inputHtml += '        <div class="form-check">';
-                                                    inputHtml += '            <input class="form-check-input" type="checkbox" name="infoType" id="dermoBilgisi" value="4">';
-                                                    inputHtml += '            <label class="form-check-label" for="dermoBilgisi">Dermokozmetik Bilgisi</label>';
-                                                    inputHtml += '        </div>';
-
-                                                    //Diğer
-                                                    inputHtml += '        <div class="form-group">';
-                                                    inputHtml += '            <label for="extra">Diğer</label>';
-                                                    inputHtml += '            <input type="text" class="form-control" name="infoType" id="extra" value="">';
-                                                    inputHtml += '        </div>';
-
-                                                    inputHtml += '    </div>';  // div kapanışı
-                                                    inputHtml += '</div>';  // form-group kapanışı
+                                                else if (selectedValue === '1') {
+                                                    $('#form-stajyer').css('display', 'block');
                                                 }
-                                                else if (selectedValue === 'Yardımcı Eczacı') {
-                                                    inputHtml += '<div class="form-group">';
-                                                    inputHtml += '<h2>Yardımcı Eczacı İçin Özel Arama</h2>';
-                                                    inputHtml += '</div>';
-                                                    inputHtml += '<div class="form-group">';
-                                                    inputHtml += '<label>Aradığınız İş Deneyimi(Yıl)</label>';
-                                                    inputHtml += '<div id="experienceGroup" class="w-100">';
-                                                    inputHtml += '<select class="form-control" id="experienceDropdown">';
-                                                    inputHtml += '<option disabled selected>Deneyim Yılı</option>';
-                                                    inputHtml += '<option>1</option>';
-                                                    inputHtml += '<option>2</option>';
-                                                    inputHtml += '<option>3</option>';
-                                                    inputHtml += '<option>4</option>';
-                                                    inputHtml += '<option>5-10</option>';
-                                                    inputHtml += '<option>11-15</option>';
-                                                    inputHtml += '<option>16-20</option>';
-                                                    inputHtml += '<option>21+</option>';
-                                                    inputHtml += '</select>';
-                                                    inputHtml += '</div>';
-                                                    inputHtml += '</div>';
+                                                else if (selectedValue === '2') {
+                                                    $('#form-yardimci').css('display', 'block');
                                                 }
-                                                else if (selectedValue === 'Ruhsat') {
-                                                    // Metre Kare Alanı
-                                                    inputHtml += '<div class="form-group">';
-                                                    inputHtml += '<h2>Ruhsat İçin Özel Arama</h2>';
-                                                    inputHtml += '    <div class="sec-title">';
-                                                    inputHtml += '        <label>Metre Kare</label>';
-                                                    inputHtml += '    </div>';
-                                                    inputHtml += '    <ul class="categories clearfix uljobs">';
-                                                    inputHtml += '        <li>';
-                                                    inputHtml += '            <select class="form-control" id="pharmacySquareMeters">';
-                                                    inputHtml += '                <option value="" disabled="" selected="">Eczane m²</option>';
-                                                    inputHtml += '                <option value="1">30-50 m²</option>';
-                                                    inputHtml += '                <option value="1">50-100 m²</option>';
-                                                    inputHtml += '                <option value="1">100-150 m²</option>';
-                                                    inputHtml += '                <option value="1">150-200 m²</option>';
-                                                    inputHtml += '                <option value="1">200-300 m²</option>';
-                                                    inputHtml += '                <option value="1">300-500 m²</option>';
-                                                    inputHtml += '            </select>';
-                                                    inputHtml += '        </li>';
-                                                    inputHtml += '    </ul>';
-                                                    inputHtml += '</div>';
-                                                    // Ciro Alanı
-                                                    inputHtml += '<div class="form-group">';
-                                                    inputHtml += '<div class="sec-title">';
-                                                    inputHtml += '<label>Maaş Aralığı</label>';
-                                                    inputHtml += '</div>';
-                                                    inputHtml += '<ul class="categories clearfix uljobs">';
-                                                    inputHtml += '<li>';
-                                                    inputHtml += '<div style="display: flex; align-items: center;">';
-                                                    inputHtml += '<input type="number" class="form-control" id="maasaraligi" placeholder="Aylık Ciro" min="0" pattern="\\d+" style="flex: 1;">';
-                                                    inputHtml += '<span style="margin-left: 5px;">TL</span>';
-                                                    inputHtml += '</div>';
-                                                    inputHtml += '</li>';
-                                                    inputHtml += '</ul>';
-                                                    inputHtml += '</div>';
-                                                    // Ruhsat
-                                                    inputHtml += '<div class="form-group">';
-                                                    inputHtml += '    <div class="sec-title">';
-                                                    inputHtml += '        <label>Ruhsat</label>';
-                                                    inputHtml += '    </div>';
-                                                    inputHtml += '    <div class="d-flex">';
-                                                    inputHtml += '        <div class="form-check mr-3">';
-                                                    inputHtml += '            <input class="form-check-input" type="radio" name="ruhsatRight" id="ruhsatRightYes" value="1">';
-                                                    inputHtml += '            <label class="form-check-label" for="ruhsatRightYes">Ruhsat Var</label>';
-                                                    inputHtml += '        </div>';
-                                                    inputHtml += '        <div class="form-check">';
-                                                    inputHtml += '            <input class="form-check-input" type="radio" name="ruhsatRight" id="ruhsatRightNo" value="0">';
-                                                    inputHtml += '            <label class="form-check-label" for="ruhsatRightNo">Ruhsat Yok</label>';
-                                                    inputHtml += '        </div>';
-                                                    inputHtml += '    </div>';
-                                                    inputHtml += '</div>';
-
-                                                    // Taşıma
-                                                    inputHtml += '<div class="form-group">';
-                                                    inputHtml += '    <div class="sec-title">';
-                                                    inputHtml += '        <label>Taşıma</label>';
-                                                    inputHtml += '    </div>';
-                                                    inputHtml += '    <div class="d-flex">';
-                                                    inputHtml += '        <div class="form-check mr-3">';
-                                                    inputHtml += '            <input class="form-check-input" type="radio" name="transportRight" id="transportRightYes" value="1">';
-                                                    inputHtml += '            <label class="form-check-label" for="transportRightYes">Taşıma Hakkı Var</label>';
-                                                    inputHtml += '        </div>';
-                                                    inputHtml += '        <div class="form-check">';
-                                                    inputHtml += '            <input class="form-check-input" type="radio" name="transportRight" id="transportRightNo" value="0">';
-                                                    inputHtml += '            <label class="form-check-label" for="transportRightNo">Taşıma Hakkı Yok</label>';
-                                                    inputHtml += '        </div>';
-                                                    inputHtml += '    </div>';
-                                                    inputHtml += '</div>';
-
+                                                else if (selectedValue === '3') {
+                                                    $('#form-ikinci').css('display', 'block');
                                                 }
-                                                else if (selectedValue === 'Diğer') {
-                                                    inputHtml += '<div class="form-group">';
-                                                    inputHtml += '<h2>Diğer</h2>';
-                                                    inputHtml += '</div>';
-                                                    inputHtml += '<div class="form-group">';
-                                                    inputHtml += '<label for="driverLicense">Sürücü Belgesi Sınıfı<span style="font-size:10px; color:red; margin-left:10px;">En Fazla 2 Belge Seçiniz*</span></label>';
-                                                    inputHtml += '<select class="form-control" id="driverLicense" multiple>';
-                                                    inputHtml += '<option>M</option>';
-                                                    inputHtml += '<option>A1</option>';
-                                                    inputHtml += '<option>A2</option>';
-                                                    inputHtml += '</select>';
-                                                    inputHtml += '</div>';
+                                                else if (selectedValue === '4') {
+                                                    $('#form-ruhsat').css('display', 'block');
                                                 }
-
-                                                dynamicFormGroup.innerHTML = inputHtml;
+                                                else if (selectedValue === '5') {
+                                                    $('#form-diger').css('display', 'block');
+                                                }
                                             });
                                         });
                                     </script>
                                 </div>
-                            </form>
+                            </div>
                         </div>
-                    </div>
-                    <div class="col-md-12">
-                        <div class="d-flex justify-content-center">
-                            <button type="submit" class="btn btn-primary" style="padding: 17px 40px; text-transform:uppercase;">İlan oluştur</button>
+                        <div class="col-md-12">
+                            <div class="d-flex justify-content-center">
+                                <button type="submit" class="btn btn-primary" style="padding: 17px 40px; text-transform:uppercase;">İlan oluştur</button>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="col-md-3"></div>
             </div>
-            <div class="col-md-3"></div>
-       </div> 
+        </form>
     </div>
 </section>
 <style>
@@ -305,6 +328,7 @@
         margin: 0;
         padding: 0;
     }
+
     input::-webkit-outer-spin-button,
     input::-webkit-inner-spin-button {
         -webkit-appearance: none;

@@ -1,8 +1,10 @@
-﻿using Domain.Model.Enum;
+﻿using Domain.Model.Base;
+using Domain.Model.Enum;
+using System.ComponentModel.DataAnnotations.Schema;
 
-namespace WebUI.Models.ViewModels;
+namespace Domain.Model;
 
-public class AdvertCreateVM
+public class Advert : BaseEntity
 {
     public string Title { get; set; }
     public string Description { get; set; }
@@ -10,11 +12,11 @@ public class AdvertCreateVM
 
     #region Technician
 
-    public string ExperienceYear { get; set; }
+    public string? ExperienceYear { get; set; }
     public bool BonusBenefit { get; set; }
     public bool TravelBenefit { get; set; }
     public bool FoodBenefit { get; set; }
-    public string SalaryRange { get; set; }
+    public string? SalaryRange { get; set; }
     public bool PrescriptionInfo { get; set; }
     public bool PrivateInsuranceEntryInfo { get; set; }
     public bool OTCInfo { get; set; }
@@ -25,19 +27,19 @@ public class AdvertCreateVM
 
     #region Intern
 
-    public string EducationStatus { get; set; }
+    public string? EducationStatus { get; set; }
 
     #endregion
 
     #region Assistant
 
-    public string AssistantExperienceYear { get; set; }
+    // İş Deneyimi (yıl)
 
     #endregion
 
     #region License
 
-    public string SquareMeter { get; set; }
+    public string? SquareMeter { get; set; }
     public int MonthlyTurnover { get; set; }
     public bool LicenseRightLeft { get; set; }
     public bool HasRightToCarry { get; set; }
@@ -46,7 +48,8 @@ public class AdvertCreateVM
 
     #region Other
 
-    public List<string> DriverLicenses { get; set; }
+    [Column(TypeName = "jsonb")]
+    public List<string>? DriverLicenses { get; set; }
 
     #endregion
 }

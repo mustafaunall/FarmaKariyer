@@ -5,6 +5,7 @@ using DataAccess.Context;
 using Domain.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -13,9 +14,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    partial class UserDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231016111707_db_4")]
+    partial class db_4
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -43,12 +45,15 @@ namespace DataAccess.Migrations
                         .HasColumnType("text");
 
                     b.Property<List<string>>("DriverLicenses")
+                        .IsRequired()
                         .HasColumnType("jsonb");
 
                     b.Property<string>("EducationStatus")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("ExperienceYear")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<bool>("FoodBenefit")
@@ -76,9 +81,11 @@ namespace DataAccess.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<string>("SalaryRange")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("SquareMeter")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Title")
