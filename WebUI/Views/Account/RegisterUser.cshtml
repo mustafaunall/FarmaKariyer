@@ -80,6 +80,56 @@
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group">
+                                            <select id="Iller" class="input-group" name="Province">
+                                                <option disabled value="0">İl Seçiniz</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
+                                            <select id="Ilceler" class="input-group" name="District">
+                                                <option disabled value="0">Lütfen Önce bir İl seçiniz</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12">
+                                        <div class="form-group textareaform">
+
+                                            <textarea class="form-control" rows="5" name="AddressDetail" value="" placeholder="Açık Adresiniz..."></textarea>
+                                        </div>
+                                    </div>
+
+                                    <style>
+                                        select {
+                                            border-width: 0 0 2px;
+                                            border-color: rgba(0,0,0,.2);
+                                            padding: 10px 0;
+                                        }
+
+                                        .textareaform textarea {
+                                            border-left: none;
+                                            border-right: none;
+                                            border-top: none;
+                                            border-width: 0 0 2px;
+                                            border-color: rgba(0,0,0,.2) !important;
+                                            min-height: 100px;
+                                            padding-left: 0 !important;
+                                            min-width: 100%;
+                                            max-width: 100%;
+                                            color: #848484;
+                                        }
+
+                                            .textareaform textarea:focus {
+                                                border-color: red !important;
+                                            }
+
+                                        select:focus {
+                                            border-color: red;
+                                        }
+                                    </style>
+                                    <script src="~/scripts/ililce.js" province="34" district="1"></script> <!--il-ilçe-script-->
+                                    <div class="col-lg-12">
+                                        <div class="form-group">
                                             <div class="input-group">
                                                 <input asp-for="Email" type="email" placeholder="E-Posta Adresiniz" class="form-control">
                                             </div>
