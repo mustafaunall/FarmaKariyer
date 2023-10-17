@@ -44,6 +44,12 @@ namespace WebUI.Areas.Pharmacy.Controllers
             return View(model);
         }
 
+        public IActionResult ApplyDetail()
+        {
+            var model = _context.Resumes.FirstOrDefault();
+            return View(model);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Create(AdvertCreateVM model)
         {
