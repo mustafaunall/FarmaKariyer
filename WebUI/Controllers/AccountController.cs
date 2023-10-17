@@ -135,6 +135,9 @@ public class AccountController : BaseController
             Name = model.Name,
             Surname = model.Surname,
             Type = ApplicationUserType.USER,
+
+            Province = model.Province,
+            District = model.District,
         };
         var result = await _userManager.CreateAsync(user, model.Password);
         if (result.Succeeded)
@@ -168,6 +171,9 @@ public class AccountController : BaseController
 
             PharmacyName = model.PharmacyName,
             GLNCode = model.GLNCode,
+
+            Province = model.Province,
+            District = model.District,
         };
         var result = await _userManager.CreateAsync(user, model.Password);
         if (result.Succeeded)

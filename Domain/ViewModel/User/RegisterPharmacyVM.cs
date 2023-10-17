@@ -33,4 +33,6 @@ public class RegisterPharmacyVM
     [DataType(DataType.Password)]
     [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
     public string ConfirmPassword { get; set; }
+    public string Province { get; set; }
+    public string District { get; set; }
 }
