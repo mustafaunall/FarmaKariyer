@@ -14,8 +14,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20231016125835_db_5")]
-    partial class db_5
+    [Migration("20231017181335_db_1")]
+    partial class db_1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -34,8 +34,14 @@ namespace DataAccess.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("ApplicationUserId")
+                        .HasColumnType("integer");
+
                     b.Property<bool>("BonusBenefit")
                         .HasColumnType("boolean");
+
+                    b.Property<DateTime>("CreateDate")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<bool>("DermocosmeticInfo")
                         .HasColumnType("boolean");
@@ -57,6 +63,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("boolean");
 
                     b.Property<bool>("HasRightToCarry")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("IsActive")
                         .HasColumnType("boolean");
 
                     b.Property<bool>("LicenseRightLeft")
@@ -95,6 +104,8 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ApplicationUserId");
+
                     b.ToTable("Adverts");
                 });
 
@@ -107,6 +118,9 @@ namespace DataAccess.Migrations
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
                     b.Property<int>("AccessFailedCount")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("ActiveResumeId")
                         .HasColumnType("integer");
 
                     b.Property<string>("Address")
@@ -165,9 +179,6 @@ namespace DataAccess.Migrations
                     b.Property<string>("Province")
                         .HasColumnType("text");
 
-                    b.Property<int?>("ResumeId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("text");
 
@@ -194,8 +205,6 @@ namespace DataAccess.Migrations
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
 
-                    b.HasIndex("ResumeId");
-
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
@@ -210,6 +219,9 @@ namespace DataAccess.Migrations
                     b.Property<string>("Address")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("ApplicationUserId")
+                        .HasColumnType("integer");
 
                     b.Property<DateTime>("BirthDate")
                         .HasColumnType("timestamp without time zone");
@@ -259,7 +271,9 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Resume");
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("Resumes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
@@ -394,13 +408,26 @@ namespace DataAccess.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("Domain.Model.ApplicationUser", b =>
+            modelBuilder.Entity("Domain.Model.Advert", b =>
                 {
-                    b.HasOne("Domain.Model.Resume", "Resume")
-                        .WithMany()
-                        .HasForeignKey("ResumeId");
+                    b.HasOne("Domain.Model.ApplicationUser", "ApplicationUser")
+                        .WithMany("Adverts")
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Resume");
+                    b.Navigation("ApplicationUser");
+                });
+
+            modelBuilder.Entity("Domain.Model.Resume", b =>
+                {
+                    b.HasOne("Domain.Model.ApplicationUser", "ApplicationUser")
+                        .WithMany()
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
@@ -452,6 +479,11 @@ namespace DataAccess.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+                });
+
+            modelBuilder.Entity("Domain.Model.ApplicationUser", b =>
+                {
+                    b.Navigation("Adverts");
                 });
 #pragma warning restore 612, 618
         }

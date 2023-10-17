@@ -26,30 +26,33 @@ namespace WebUI.Areas.User.Controllers
         public async Task<IActionResult> Update()
         {
             var u = await _userManager.GetUserAsync(User);
-            var user = _context.Users.Where(x => x.Id == u.Id).Include(x => x.Resume).FirstOrDefault();
-            if (user!.Resume == null)
+            var user = _context.Users.Where(x => x.Id == u.Id).FirstOrDefault();
+            if (user!.ActiveResumeId == null)
                 return View();
 
+            var resume = _context.Resumes.Where(x => x.Id == user.ActiveResumeId).FirstOrDefault();
+            if (resume == null)
+                return View();
             ResumeUpdateVM vm = new()
             {
-                Name = user.Resume.Name,
-                Surname = user.Resume.Surname,
-                Phone = user.Resume.Phone,
-                Email = user.Resume.Email,
-                WorkExperience = user.Resume.WorkExperience,
-                BirthDate = user.Resume.BirthDate,
-                Address = user.Resume.Address,
-                SchoolName = user.Resume.SchoolName,
-                EducationStatus = user.Resume.EducationStatus,
-                EducationsAndCertificates = user.Resume.EducationsAndCertificates,
-                Description = user.Resume.Description,
+                Name = resume.Name,
+                Surname = resume.Surname,
+                Phone = resume.Phone,
+                Email = resume.Email,
+                WorkExperience = resume.WorkExperience,
+                BirthDate = resume.BirthDate,
+                Address = resume.Address,
+                SchoolName = resume.SchoolName,
+                EducationStatus = resume.EducationStatus,
+                EducationsAndCertificates = resume.EducationsAndCertificates,
+                Description = resume.Description,
 
-                ReferencePharmacyNames = user.Resume.ReferencePharmacies?.Select(x => x.PharmacyName).ToList(),
-                ReferencePharmacyPositions = user.Resume.ReferencePharmacies?.Select(x => x.Position).ToList(),
-                ReferencePharmacyExperienceYears = user.Resume.ReferencePharmacies?.Select(x => x.ExperienceYear).ToList(),
+                ReferencePharmacyNames = resume.ReferencePharmacies?.Select(x => x.PharmacyName).ToList(),
+                ReferencePharmacyPositions = resume.ReferencePharmacies?.Select(x => x.Position).ToList(),
+                ReferencePharmacyExperienceYears = resume.ReferencePharmacies?.Select(x => x.ExperienceYear).ToList(),
 
-                ForeignLanguageNames = user.Resume.ForeignLanguages?.Select(x => x.LanguageName).ToList(),
-                ForeignLanguageGrades = user.Resume.ForeignLanguages?.Select(x => x.Grade).ToList(),
+                ForeignLanguageNames = resume.ForeignLanguages?.Select(x => x.LanguageName).ToList(),
+                ForeignLanguageGrades = resume.ForeignLanguages?.Select(x => x.Grade).ToList(),
             };
             return View(vm);
 
@@ -113,7 +116,7 @@ namespace WebUI.Areas.User.Controllers
 
                 if (user != null)
                 {
-                    user.ResumeId = resume.Id;
+                    user.ActiveResumeId = resume.Id;
                     await _context.SaveChangesAsync();
                     Notification("Özgeçmiş başarıyla kaydedildi", NotificationType.Success);
                     return Redirect("/User/Resume/Update");

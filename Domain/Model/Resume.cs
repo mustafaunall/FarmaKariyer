@@ -28,6 +28,7 @@ public class Resume : BaseEntity
     #region MyRegion
 
     public int ApplicationUserId { get; set; }
+    public ApplicationUser ApplicationUser { get; set; }
 
     #endregion
 }
