@@ -3,6 +3,7 @@ using Domain.Model;
 using Domain.Model.Enum;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using WebUI.Extensions;
 using WebUI.Models.ViewModels;
 
@@ -25,7 +26,12 @@ namespace WebUI.Areas.Pharmacy.Controllers
 
         public async Task<IActionResult> List()
         {
-            return View();
+            var u = await _userManager.GetUserAsync(User);
+            var user = _context.Users.Where(x => x.Id == u.Id).FirstOrDefault();
+
+            var model = await _context.Adverts.Include(x => x.ApplicationUser).Where(x => x.ApplicationUserId == user!.Id).ToListAsync();
+
+            return View(model);
         }
 
         public IActionResult Create()
@@ -43,6 +49,7 @@ namespace WebUI.Areas.Pharmacy.Controllers
 
                 Advert advert = new();
 
+                advert.ApplicationUserId = user!.Id;
                 advert.Title = model.Title;
                 advert.Description = model.Description;
                 advert.Type = (AdvertType)model.Type;
@@ -87,7 +94,7 @@ namespace WebUI.Areas.Pharmacy.Controllers
                     //user.ResumeId = advert.Id;
                     await _context.SaveChangesAsync();
                     Notification("İlan başarıyla yayınlandı.", NotificationType.Success);
-                    return Redirect("/User/Advert/List");
+                    return Redirect("/Pharmacy/Advert/List");
                 }
             }
             catch (Exception ex)

@@ -9,6 +9,7 @@ public class Advert : BaseEntity
     public string Title { get; set; }
     public string Description { get; set; }
     public AdvertType Type { get; set; }
+    public DateTime CreateDate { get; set; } = DateTime.Now;
 
     #region Technician
 
@@ -50,6 +51,13 @@ public class Advert : BaseEntity
 
     [Column(TypeName = "jsonb")]
     public List<string>? DriverLicenses { get; set; }
+
+    #endregion
+
+    #region Relation
+
+    public int ApplicationUserId { get; set; }
+    public ApplicationUser ApplicationUser { get; set; }
 
     #endregion
 }
