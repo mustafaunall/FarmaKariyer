@@ -118,6 +118,9 @@ namespace DataAccess.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("integer");
 
+                    b.Property<int?>("ActiveResumeId")
+                        .HasColumnType("integer");
+
                     b.Property<string>("Address")
                         .HasColumnType("text");
 
@@ -174,9 +177,6 @@ namespace DataAccess.Migrations
                     b.Property<string>("Province")
                         .HasColumnType("text");
 
-                    b.Property<int?>("ResumeId")
-                        .HasColumnType("integer");
-
                     b.Property<string>("SecurityStamp")
                         .HasColumnType("text");
 
@@ -202,8 +202,6 @@ namespace DataAccess.Migrations
                     b.HasIndex("NormalizedUserName")
                         .IsUnique()
                         .HasDatabaseName("UserNameIndex");
-
-                    b.HasIndex("ResumeId");
 
                     b.ToTable("AspNetUsers", (string)null);
                 });
@@ -271,7 +269,9 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("Resume");
+                    b.HasIndex("ApplicationUserId");
+
+                    b.ToTable("Resumes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>
@@ -417,13 +417,15 @@ namespace DataAccess.Migrations
                     b.Navigation("ApplicationUser");
                 });
 
-            modelBuilder.Entity("Domain.Model.ApplicationUser", b =>
+            modelBuilder.Entity("Domain.Model.Resume", b =>
                 {
-                    b.HasOne("Domain.Model.Resume", "Resume")
+                    b.HasOne("Domain.Model.ApplicationUser", "ApplicationUser")
                         .WithMany()
-                        .HasForeignKey("ResumeId");
+                        .HasForeignKey("ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
-                    b.Navigation("Resume");
+                    b.Navigation("ApplicationUser");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>

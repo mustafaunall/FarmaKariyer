@@ -23,8 +23,7 @@ public class ApplicationUser : IdentityUser<int>
 
     #region Relation
 
-    public int? ResumeId { get; set; }
-    public Resume? Resume { get; set; }
+    public int? ActiveResumeId { get; set; }
     public List<Advert> Adverts { get; set; }
 
     #endregion
