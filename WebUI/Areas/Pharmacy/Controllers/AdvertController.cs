@@ -40,7 +40,8 @@ namespace WebUI.Areas.Pharmacy.Controllers
         }
         public IActionResult Apply()
         {
-            return View();
+            var model = _context.Resumes.FirstOrDefault();
+            return View(model);
         }
 
         [HttpPost]
