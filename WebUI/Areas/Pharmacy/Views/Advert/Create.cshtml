@@ -269,7 +269,7 @@
                                                     Sürücü Belgesi Sınıfı <span style="font-size:10px; color:red; margin-left:10px;">En Fazla 2 Belge Seçiniz*</span>
                                                 </label>
                                                 <br />
-                                                <select class="js-example-basic-multiple" asp-for="DriverLicenses" id="driverLicense" multiple="multiple">
+                                                <select class="js-example-basic-multiple form-group" asp-for="DriverLicenses" id="driverLicense" multiple="multiple">
                                                     <option value="M">M</option>
                                                     <option value="A1">A1</option>
                                                     <option value="A2">A2</option>
@@ -279,6 +279,7 @@
                                         <style>
                                             .select2-container {
                                                 width: 100% !important;
+
                                             }
                                             .select2-selection__choice__display{
                                                 color:black;
@@ -290,6 +291,12 @@
                                                 outline: none !important;
                                                 border: none !important;
                                             }
+
+                                            .select2-container--default .select2-selection--multiple .select2-selection__choice__display {
+                                                padding-left: 10px !important;
+                                                padding-right: 10px !important;
+                                            }
+
                                         </style>
                                         @*Diğer End*@
 
