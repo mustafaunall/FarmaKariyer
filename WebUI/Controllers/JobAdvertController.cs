@@ -16,10 +16,15 @@ public class JobAdvertController : Controller
         _context = context;
     }
 
-    public IActionResult Pharmacy()
+    public IActionResult Detail(int id)
     {
-        return View();
+        var model = _context.Adverts
+            .Include(x => x.ApplicationUser)
+            .Where(x => x.Type == AdvertType.TECHNICIAN && x.Id == id)
+            .FirstOrDefault();
+        return View(model);
     }
+
     public IActionResult Technician()
     {
         var model = _context.Adverts
@@ -29,25 +34,34 @@ public class JobAdvertController : Controller
 
         return View(model);
     }
+
     public IActionResult Intern()
-    {
-        return View();
-    }
-    public IActionResult License()
-    {
-        return View();
-    }
-    public IActionResult Detail(int id)
     {
         var model = _context.Adverts
             .Include(x => x.ApplicationUser)
-            .Where(x => x.Type == AdvertType.TECHNICIAN && x.Id == id)
-            .FirstOrDefault();
+            .Where(x => x.Type == AdvertType.INTERN)
+            .ToList();
+
         return View(model);
     }
+    public IActionResult License()
+    {
+        var model = _context.Adverts
+            .Include(x => x.ApplicationUser)
+            .Where(x => x.Type == AdvertType.LICENSE)
+            .ToList();
+
+        return View(model);
+    }
+
     public IActionResult OtherAds()
     {
-        return View();
+        var model = _context.Adverts
+            .Include(x => x.ApplicationUser)
+            .Where(x => x.Type == AdvertType.OTHER)
+            .ToList();
+
+        return View(model);
     }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
