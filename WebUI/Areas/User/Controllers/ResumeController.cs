@@ -106,6 +106,8 @@ namespace WebUI.Areas.User.Controllers
                 }
                 resume.ForeignLanguages = foreignLanguages;
 
+                resume.ApplicationUserId = user!.Id;
+
                 await _context.AddAsync(resume);
                 await _context.SaveChangesAsync();
 
