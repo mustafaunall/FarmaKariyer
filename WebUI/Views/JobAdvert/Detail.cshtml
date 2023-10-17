@@ -1,5 +1,5 @@
-﻿@using Domain.ViewModel.User;
-@model LoginUserVM
+﻿@using Domain.Model;
+@model Advert
 
 @{
     ViewData["Title"] = "Üye Girişi / Kaydı";
@@ -8,7 +8,7 @@
 <!--Start breadcrumb area-->
 <section class="breadcrumb-area" style="background-image: url(/images/sss.png);">
     <div class="container text-center">
-        <h1>Eczane Adı</h1>
+        <h1>@Model.ApplicationUser.PharmacyName</h1>
     </div>
 </section>
 <!--End breadcrumb area-->
@@ -19,7 +19,7 @@
             <ul>
                 <li><a href="@Url.Action("Index","Home")">Anasayfa</a></li>
                 <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                <li>Eczane Adı</li>
+                <li>@Model.ApplicationUser.PharmacyName</li>
             </ul>
         </div>
     </div>
@@ -39,41 +39,27 @@
             <div class="col-md-4">
                 <div class="project-info">
                     <ul>
-                        <li><b>Eczane Adı</b>:<span>Faruk Eczanesi</span></li>
-                        <li><b>Adres</b>:<span>Kadıköy, İstanbul</span></li>
-                        <li><b>Telefon</b>:<span>0 (543) 648 44 77</span></li>
-                        <li><b>E-Mail</b>:<span>faruk@farmakariyer.com</span></li>
+                        <li><b>Eczane Adı</b>:<span>@Model.ApplicationUser.PharmacyName</span></li>
+                        <li><b>Adres</b>:<span>@(Model.ApplicationUser.Address ?? "N/A")</span></li>
+                        <li><b>Telefon</b>:<span>@Model.ApplicationUser.PhoneNumber</span></li>
+                        <li><b>E-Mail</b>:<span>@Model.ApplicationUser.Email</span></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="legal-work-content">
-                    <h3>Faruk Eczanesi</h3>
-                    <span>Eczane Açma ve İşletme Ruhsatı</span>
-                    <p>Eczane açma ve işletme ruhsatı, bir eczane sahibi veya işletmecisi olarak faaliyete başlamak için alınması gereken kritik bir izindir. Bu ruhsat, tıbbi ürünlerin, ilaçların ve sağlık ürünlerinin yasal olarak satılmasına ve dağıtılmasına izin verir. İşletme ruhsatı, yerel sağlık otoriteleri veya ilgili devlet kurumları tarafından verilir ve genellikle belirli yasal gereksinimleri ve standartları karşıladığınızı doğrulamak için bir inceleme sürecini içerir. </p>
+                    <h3>@Model.ApplicationUser.PharmacyName</h3>
+                    <span>@Model.Type.GetDescription() İlanı</span>
+                    <p>@Model.Description</p>
                   
                 </div>
-            </div>
-        </div>
-        <div class="row project-analysis">
-            <div class="col-md-4">
-                <div class="sec-title">
-                    <h2>Başvuru Süreci ve Belgeler</h2>
-                    <span class="border"></span>
-                </div>
-            </div>
-            <div class="col-md-8">
-                <div class="text-holder">
-                    <p>Eczane açma ve işletme ruhsatı başvurusu, genellikle işletme sahiplerinin eğitim, deneyim ve diğer gereksinimleri yerine getirdiklerini gösteren belgeleri sunmalarını gerektirir. Bu izin, ilaçların güvenli bir şekilde saklanması ve hastalara doğru bilgi verilmesini sağlama amacı taşır. Aynı zamanda, eczane sahibinin ve çalışanlarının yasal ve etik kurallara uymalarını ve sağlık hizmetlerinin yüksek standartlarda sunulmasını garanti altına alır. Eczane işletme ruhsatı, toplum sağlığı ve güvenliği için kritik bir öneme sahiptir ve ilaçların doğru ve güvenli bir şekilde dağıtılmasını sağlamak için titiz bir inceleme sürecini içerir.</p>
-                </div>
-             
             </div>
         </div>
         <div class="row project-result">
             <div class="col-md-4">
                 <div class="sec-title">
-                    <h2>Başvuru Süreci ve Belgelerin Sonuçları</h2>
-                    <span class="border"></span>
+                    @*<h2>Başvuru Süreci ve Belgelerin Sonuçları</h2>*@
+                    @*<span class="border"></span>*@
                 </div>
             </div>
             <div class="col-md-8">

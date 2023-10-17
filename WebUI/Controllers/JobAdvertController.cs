@@ -1,4 +1,5 @@
 ﻿using DataAccess.Context;
+using Domain.Model.Enum;
 using Domain.ViewModel;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -9,10 +10,10 @@ namespace WebUI.Controllers;
 //[Authorize]
 public class JobAdvertController : Controller
 {
-    private readonly UserDbContext _userContext;
-    public JobAdvertController(UserDbContext userContext)
+    private readonly UserDbContext _context;
+    public JobAdvertController(UserDbContext context)
     {
-        _userContext = userContext;
+        _context = context;
     }
 
     public IActionResult Pharmacy()
@@ -21,7 +22,12 @@ public class JobAdvertController : Controller
     }
     public IActionResult Technician()
     {
-        return View();
+        var model = _context.Adverts
+            .Include(x => x.ApplicationUser)
+            .Where(x => x.Type == AdvertType.TECHNICIAN)
+            .ToList();
+
+        return View(model);
     }
     public IActionResult Intern()
     {
@@ -31,9 +37,13 @@ public class JobAdvertController : Controller
     {
         return View();
     }
-    public IActionResult Detail()
+    public IActionResult Detail(int id)
     {
-        return View();
+        var model = _context.Adverts
+            .Include(x => x.ApplicationUser)
+            .Where(x => x.Type == AdvertType.TECHNICIAN && x.Id == id)
+            .FirstOrDefault();
+        return View(model);
     }
     public IActionResult OtherAds()
     {
