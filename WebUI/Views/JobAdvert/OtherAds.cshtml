@@ -98,48 +98,51 @@
             <div class="col-lg-9 col-md-8 col-sm-12 col-xs-12">
                 <div class="shop-content">
                     <div class="row advertpadding">
-                        @for (int i = 0; i < 5; i++)
+                        @if (Model != null)
                         {
-                            <div class="single-blog-post">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class="img-holder">
-                                            <img src="~/images/logoadvertt.png" alt="Awesome Image">
-                                            <div class="published-date">
-                                                <h3>21 Ağustos</h3>
+                            foreach (var item in Model)
+                            {
+                                <div class="single-blog-post">
+                                    <div class="row">
+                                        <div class="col-md-5">
+                                            <div class="img-holder">
+                                                <img src="~/images/logoadvertt.png" alt="Awesome Image">
+                                                <div class="published-date">
+                                                    <h3>@item.CreateDate.ToString("dd MMMM")</h3>
+                                                </div>
+                                                <div class="overlay-style-one">
+                                                    <div class="box">
+                                                        <div class="content">
+                                                            <div style="background-color:#ff2b58; padding:5px; height:40px;"><span style="color:white; font-size:19px; font-weight:bold; text-transform:capitalize;     line-height: 34px;">@item.ApplicationUser.PharmacyName</span></div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                             </div>
-                                            <div class="overlay-style-one">
-                                                <div class="box">
-                                                    <div class="content">
-                                                        <div style="background-color:#ff2b58; padding:5px; height:40px;"><span style="color:white; font-size:19px; font-weight:bold; text-transform:capitalize;     line-height: 34px;">Betül Eczanesi</span></div>
+                                        </div>
+                                        <div class="col-md-7">
+                                            <div class="text-holder">
+                                                <a href="blog-single.html">
+                                                    <h3 class="blog-title">@item.Title</h3>
+                                                </a>
+                                                <div class="text">
+                                                    <p>@item.Description</p>
+                                                </div>
+                                                <div class="meta-info clearfix">
+                                                    <div class="left pull-left">
+                                                        <ul class="post-info">
+                                                            <li>Sahibi <a href="#">@item.ApplicationUser.Name @item.ApplicationUser.Surname</a></li>
+                                                            @*<li><a href="#">Eczane, Teknisyen</a></li>*@
+                                                        </ul>
+                                                    </div>
+                                                    <div class="right pull-right">
+                                                        <a class="thm-btn bg-clr1" style="padding:0px 8px;" type="submit" href="@Url.Action("Detail","JobAdvert", new {id=item.Id})" data-loading-text="Please wait...">İncele</a>
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-7">
-                                        <div class="text-holder">
-                                            <a href="blog-single.html">
-                                                <h3 class="blog-title">Faruk Eczanesi Teknisyen Aranıyor...</h3>
-                                            </a>
-                                            <div class="text">
-                                                <p>These men promptly escaped frotm maximum security stockade to the underground. The Brady Bunch the Brady seds Buncn what do you think, which is that greatest .</p>
-                                            </div>
-                                            <div class="meta-info clearfix">
-                                                <div class="left pull-left">
-                                                    <ul class="post-info">
-                                                        <li>Sahibi <a href="#">Batuhan Özdemir</a></li>
-                                                        <li><a href="#">Eczane, Teknisyen</a></li>
-                                                    </ul>
-                                                </div>
-                                                <div class="right pull-right">
-                                                    <a class="thm-btn bg-clr1" style="padding:0px 8px;" type="submit" href="@Url.Action("Detail","JobAdvert")" data-loading-text="Please wait...">İncele</a>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
                                 </div>
-                            </div>
+                            }
                         }
 
                     </div>
