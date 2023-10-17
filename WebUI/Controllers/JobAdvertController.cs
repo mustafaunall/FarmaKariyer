@@ -20,7 +20,7 @@ public class JobAdvertController : Controller
     {
         var model = _context.Adverts
             .Include(x => x.ApplicationUser)
-            .Where(x => x.Type == AdvertType.TECHNICIAN && x.Id == id)
+            .Where(x => x.Id == id)
             .FirstOrDefault();
         return View(model);
     }
