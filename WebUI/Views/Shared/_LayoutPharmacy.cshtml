@@ -214,15 +214,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
     <script src="~/user/js/adminlte.js"></script>
     @*<script src="~/user/dist/js/adminlte.min.js"></script>*@
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-    <script>
-        $(document).ready(function () {
-            $('.js-example-basic-multiple').select2();
-        });
-        $('.js-example-basic-single').select2({
-            placeholder: 'Select an option'
-        });
-    </script>
+
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js" integrity="sha256-t0FDfwj/WoMHIBbmFfuOtZv1wtA977QCfsFR3p1K4No=" crossorigin="anonymous"></script>
     @await Html.PartialAsync("_NotificationPartial")
+    @await RenderSectionAsync("Scripts", false)
 </body>
 </html>
