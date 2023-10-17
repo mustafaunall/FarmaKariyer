@@ -38,6 +38,10 @@ namespace WebUI.Areas.Pharmacy.Controllers
         {
             return View();
         }
+        public IActionResult Apply()
+        {
+            return View();
+        }
 
         [HttpPost]
         public async Task<IActionResult> Create(AdvertCreateVM model)
