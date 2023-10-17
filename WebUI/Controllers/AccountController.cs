@@ -138,6 +138,7 @@ public class AccountController : BaseController
 
             Province = model.Province,
             District = model.District,
+            Address = model.Address,
         };
         var result = await _userManager.CreateAsync(user, model.Password);
         if (result.Succeeded)
@@ -174,6 +175,7 @@ public class AccountController : BaseController
 
             Province = model.Province,
             District = model.District,
+            Address = model.Address,
         };
         var result = await _userManager.CreateAsync(user, model.Password);
         if (result.Succeeded)
