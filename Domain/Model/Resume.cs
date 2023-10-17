@@ -24,6 +24,12 @@ public class Resume : BaseEntity
 
     public string? Description { get; set; }
     public string? ResumeFilePath { get; set; }
+
+    #region MyRegion
+
+    public int ApplicationUserId { get; set; }
+
+    #endregion
 }
 
 public class ReferencePharmacy
