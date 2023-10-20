@@ -1,5 +1,6 @@
 ﻿using DataAccess.Context;
 using Domain.ViewModel;
+using Domain.ViewModel.Home;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
@@ -9,15 +10,21 @@ namespace WebUI.Controllers;
 //[Authorize]
 public class HomeController : Controller
 {
-    private readonly UserDbContext _userContext;
-    public HomeController(UserDbContext userContext)
+    private readonly UserDbContext _context;
+    public HomeController(UserDbContext context)
     {
-        _userContext = userContext;
+        _context = context;
     }
 
     public IActionResult Index()
     {
-        return View();
+        HomeVM vm = new()
+        {
+            Last3Advert = _context.Adverts
+            .Include(x => x.ApplicationUser).OrderByDescending(x => x.CreateDate).Take(3).ToList(),
+        };
+
+        return View(vm);
     }
     public IActionResult Faq()
     {

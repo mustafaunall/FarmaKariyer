@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Domain.ViewModel.Home;
+@model HomeVM
+@{
     ViewData["Title"] = "Anasayfa";
 }
 
@@ -51,7 +53,7 @@
                      data-start="2600">
                     <div class="slide-content-box">
                         <div class="button">
-                          @*   <a class="thm-btn bg-clr2" href="@Url.Action("Contact","Home")">Bize Ulaş</a> *@
+                            @*   <a class="thm-btn bg-clr2" href="@Url.Action("Contact","Home")">Bize Ulaş</a> *@
                         </div>
                     </div>
                 </div>
@@ -85,8 +87,8 @@
                      data-start="2300">
                     <div class="slide-content-box middle-slide">
                         <div class="button">
-@*                             <a href="@Url.Action("OurPartners","Home")">Partnerlerimiz</a> *@
-                              <a class="thm-btn bg-clr2" href="@Url.Action("Contact","Home")">Bize Ulaş</a>
+                            @*                             <a href="@Url.Action("OurPartners","Home")">Partnerlerimiz</a> *@
+                            <a class="thm-btn bg-clr2" href="@Url.Action("Contact","Home")">Bize Ulaş</a>
                         </div>
                     </div>
                 </div>
@@ -135,10 +137,10 @@
                      data-splitout="none"
                      data-responsive_offset="on"
                      data-start="2600">
-                   @*  <div class="slide-content-box">
-                        <div class="button">
-                            <a class="thm-btn bg-clr2" href="#">Contact Us</a>
-                        </div>
+                    @*  <div class="slide-content-box">
+                    <div class="button">
+                    <a class="thm-btn bg-clr2" href="#">Contact Us</a>
+                    </div>
                     </div> *@
                 </div>
             </li>
@@ -379,114 +381,46 @@
             <span class="border"></span>
         </div>
         <div class="row">
-            <!--Start single latest blog-->
-            <div class="col-md-4">
-                <div class="single-blog-post">
-                    <div class="img-holder">
-                        <img src="~/images/boxex1.jpg" alt="Awesome Image">
-                        <div class="published-date">
-                            <h3>21 Mart</h3>
-                        </div>
-                        <div class="overlay-style-one">
-                            <div class="box">
-                                <div class="content">
-                                    <a href="blog-single.html"><i class="fa fa-link" aria-hidden="true"></i></a>
+            @if (Model?.Last3Advert != null)
+            {
+                foreach (var item in Model?.Last3Advert)
+                {
+                    <div class="col-md-4">
+                        <div class="single-blog-post">
+                            <div class="img-holder">
+                                <img src="~/images/boxex1.jpg" alt="Awesome Image">
+                                <div class="published-date">
+                                    <h3>@(item.CreateDate.ToString("dd MMMM"))</h3>
+                                </div>
+                                <div class="overlay-style-one">
+                                    <div class="box">
+                                        <div class="content">
+                                            <a href="blog-single.html"><i class="fa fa-link" aria-hidden="true"></i></a>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="text-holder">
-                        <a href="blog-single.html">
-                            <h3 class="blog-title"></h3>
-                        </a>
-                        <div class="text">
-                            <p>Eczaneler sağlık sektörünün önemli bir parçasını oluşturan ve sağlık hizmetlerinin sunulmasında kritik bir rol oynayan kuruluşlardır. Genel olarak eczaneler, ilaçların, tıbbi ürünlerin ve sağlıkla ilgili diğer ürünlerin dağıtımını ve satışını yaparlar.</p>
-                        </div>
-                        <div class="meta-info clearfix">
-                            <div class="left pull-left">
-                                <ul class="post-info">
-                                    <li>Sahibi<a href="#"> Batuhan Özdemir</a></li>
-                                    <li><a href="#">Eczane, Teknisyen</a></li>
-                                </ul>
-                            </div>
-                      
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End single latest blog-->
-            <!--Start single latest blog-->
-            <div class="col-md-4">
-                <div class="single-blog-post">
-                    <div class="img-holder">
-                        <img src="~/images/boxex2.jpg" alt="Awesome Image">
-                        <div class="published-date">
-                            <h3>21 Mart</h3>
-                        </div>
-                        <div class="overlay-style-one">
-                            <div class="box">
-                                <div class="content">
-                                    <a href="blog-single.html"><i class="fa fa-link" aria-hidden="true"></i></a>
+                            <div class="text-holder">
+                                <a href="blog-single.html">
+                                    <h3 class="blog-title"></h3>
+                                </a>
+                                <div class="text">
+                                    <p>@item.Description</p>
                                 </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="text-holder">
-                        <a href="blog-single.html">
-                            <h3 class="blog-title"></h3>
-                        </a>
-                        <div class="text">
-                            <p>Eczaneler sağlık sektörünün önemli bir parçasını oluşturan ve sağlık hizmetlerinin sunulmasında kritik bir rol oynayan kuruluşlardır. Genel olarak eczaneler, ilaçların, tıbbi ürünlerin ve sağlıkla ilgili diğer ürünlerin dağıtımını ve satışını yaparlar.</p>
-                        </div>
-                        <div class="meta-info clearfix">
-                            <div class="left pull-left">
-                                <ul class="post-info">
-                                    <li>Sahibi<a href="#"> Batuhan Özdemir</a></li>
-                                    <li><a href="#">Eczane, Teknisyen</a></li>
-                                </ul>
-                            </div>
+                                <div class="meta-info clearfix">
+                                    <div class="left pull-left">
+                                        <ul class="post-info">
+                                            <li>Sahibi<a href="#"> @item.ApplicationUser?.Name @item.ApplicationUser?.Surname</a></li>
+                                            <li><a href="#">@item.Type.GetDescription() İlanı</a></li>
+                                        </ul>
+                                    </div>
 
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End single latest blog-->
-            <!--Start single latest blog-->
-            <div class="col-md-4">
-                <div class="single-blog-post">
-                    <div class="img-holder">
-                        <img src="~/images/boxex3.jpg" alt="Awesome Image">
-                        <div class="published-date">
-                            <h3>21 Mart</h3>
-                        </div>
-                        <div class="overlay-style-one">
-                            <div class="box">
-                                <div class="content">
-                                    <a href="blog-single.html"><i class="fa fa-link" aria-hidden="true"></i></a>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="text-holder">
-                        <a href="blog-single.html">
-                            <h3 class="blog-title"></h3>
-                        </a>
-                        <div class="text">
-                            <p>Eczaneler sağlık sektörünün önemli bir parçasını oluşturan ve sağlık hizmetlerinin sunulmasında kritik bir rol oynayan kuruluşlardır. Genel olarak eczaneler, ilaçların, tıbbi ürünlerin ve sağlıkla ilgili diğer ürünlerin dağıtımını ve satışını yaparlar.</p>
-                        </div>
-                        <div class="meta-info clearfix">
-                            <div class="left pull-left">
-                                <ul class="post-info">
-                                    <li>Sahibi<a href="#"> Batuhan Özdemir</a></li>
-                                    <li><a href="#">Eczane, Teknisyen</a></li>
-                                </ul>
-                            </div>
-
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <!--End single latest blog-->
+                }
+            }
         </div>
     </div>
 </section>
