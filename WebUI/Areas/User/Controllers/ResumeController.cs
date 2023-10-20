@@ -1,4 +1,5 @@
-﻿using DataAccess.Context;
+﻿using Core.Helper;
+using DataAccess.Context;
 using Domain.Model;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
@@ -67,6 +68,22 @@ namespace WebUI.Areas.User.Controllers
                 var user = _context.Users.Where(x => x.Id == u.Id).FirstOrDefault();
 
                 Resume resume = new();
+
+                if (model.ResumeFile != null)
+                {
+                    if (!Directory.Exists(OsHelper.GetResumeFilesPath()))
+                    {
+                        Directory.CreateDirectory(OsHelper.GetResumeFilesPath());
+                    }
+
+                    var fileName = model.ResumeFile?.FileName;
+                    var extension = Path.GetExtension(Path.Combine(OsHelper.GetResumeFilesPath(), fileName));
+                    string guidFileName = $"{DateTime.Now.Ticks.ToString()}{extension}";
+                    var uploadPath = Path.Combine(OsHelper.GetResumeFilesPath(), guidFileName);
+                    var stream = new FileStream(uploadPath, FileMode.Create);
+                    await model.ResumeFile!.CopyToAsync(stream);
+                    resume.ResumeFilePath = guidFileName;
+                }
 
                 resume.Name = model.Name;
                 resume.Surname = model.Surname;
