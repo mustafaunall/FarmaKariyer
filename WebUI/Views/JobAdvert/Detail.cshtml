@@ -3,12 +3,13 @@
 
 @{
     ViewData["Title"] = "Üye Girişi / Kaydı";
+    int AdvertId = Convert.ToInt32(ViewBag.AdvertId);
 }
 
 <!--Start breadcrumb area-->
 <section class="breadcrumb-area" style="background-image: url(/images/sss.png);">
     <div class="container text-center">
-        <h1>@Model.ApplicationUser.PharmacyName</h1>
+        <h1>@Model?.ApplicationUser?.PharmacyName</h1>
     </div>
 </section>
 <!--End breadcrumb area-->
@@ -19,7 +20,7 @@
             <ul>
                 <li><a href="@Url.Action("Index","Home")">Anasayfa</a></li>
                 <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                <li>@Model.ApplicationUser.PharmacyName</li>
+                <li>@Model?.ApplicationUser?.PharmacyName</li>
             </ul>
         </div>
     </div>
@@ -39,19 +40,19 @@
             <div class="col-md-4">
                 <div class="project-info">
                     <ul>
-                        <li><b>Eczane Adı</b>:<span>@Model.ApplicationUser.PharmacyName</span></li>
-                        <li><b>Adres</b>:<span>@(Model.ApplicationUser.Address ?? "N/A")</span></li>
-                        <li><b>Telefon</b>:<span>@Model.ApplicationUser.PhoneNumber</span></li>
-                        <li><b>E-Mail</b>:<span>@Model.ApplicationUser.Email</span></li>
+                        <li><b>Eczane Adı</b>:<span>@Model?.ApplicationUser?.PharmacyName</span></li>
+                        <li><b>Adres</b>:<span>@(Model?.ApplicationUser?.Address ?? "N/A")</span></li>
+                        <li><b>Telefon</b>:<span>@Model?.ApplicationUser?.PhoneNumber</span></li>
+                        <li><b>E-Mail</b>:<span>@Model?.ApplicationUser?.Email</span></li>
                     </ul>
                 </div>
             </div>
             <div class="col-md-8">
                 <div class="legal-work-content">
-                    <h3>@Model.ApplicationUser.PharmacyName</h3>
-                    <span>@Model.Type.GetDescription() İlanı</span>
-                    <p>@Model.Description</p>
-                  
+                    <h3>@Model?.ApplicationUser?.PharmacyName</h3>
+                    <span>@Model?.Type.GetDescription() İlanı</span>
+                    <p>@Model?.Description</p>
+
                 </div>
             </div>
         </div>
@@ -74,7 +75,10 @@
                         <li>Ruhsat Verilmesi veya Reddi</li>
                     </ul>
                 </div>
-               
+                <form method="post" action="/JobAdvert/Apply">
+                    <input type="hidden" name="AdvertId" value="@AdvertId" />
+                    <button class="thm-btn bg-clr1" style="padding:0px 8px;" type="submit" data-loading-text="Lütfen bekleyiniz...">Başvur</button>
+                </form>
             </div>
         </div>
     </div>

@@ -78,61 +78,6 @@
     </div>
 </section>
 
-
-<section class="content">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <div class="card" style="background-color:transparent; border:none; box-shadow:none;">
-                    <div class="card-body">
-                        @foreach (var item in Model)
-                        {
-                            @* firma foto - ilan ismi - eczane ismi - ilan başlığı - ilan silme *@
-                            <div class="d-flex align-items-center mb-3 advertbg">
-                                <img src="~/images/logoadvert.png" alt="Profil Resmi" style="width:70px; height:70px;" class="rounded-circle mr-3">
-                                <div class="d-flex justify-content-center w-100 ">
-                                    <div class="text-center">
-                                        <h3>@item.Title</h3>
-                                        <h5>@item.ApplicationUser.PharmacyName</h5>
-                                        <p>@item.Type.GetDescription()</p>
-                                        <p>@item.CreateDate.ToString("dd MMMM")</p>
-                                    </div>
-                                </div>
-                                <div class="d-flex justify-content-end" style="width:70px;">
-                                    <div>
-                                        <a href="#" data-toggle="modal" data-target="#confirmationModal">
-                                            <i class="fa-regular fa-circle-xmark" style="color:red; font-size:25px;"></i>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
-                        }
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-3"></div>
-        </div>
-
-
-        <!-- Modal -->
-        <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog modal-dialog-centered" role="document">
-                <div class="modal-content">
-                    <form method="post" action="/Pharmacy/Advert/Delete">
-                        <input type="hidden" name="id" value="" />
-                        <div class="modal-body text-center" style="margin:30px 0;">
-                            <h5 style="color:black !important; margin-bottom:20px;">İlanınız Silinecek, Emin misiniz?</h5>
-                            <button type="submit" class="btn btn-success" style="margin-right:20px;">Evet</button>
-                            <button type="button" class="btn btn-danger" data-dismiss="modal">Hayır</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-
-    </div>
-</section>
 <style>
     .advertbg {
         background-color: White;

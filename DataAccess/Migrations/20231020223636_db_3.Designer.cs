@@ -5,6 +5,7 @@ using DataAccess.Context;
 using Domain.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -13,9 +14,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    partial class UserDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231020223636_db_3")]
+    partial class db_3
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -223,16 +225,11 @@ namespace DataAccess.Migrations
                     b.Property<DateTime>("ApplyDate")
                         .HasColumnType("timestamp without time zone");
 
-                    b.Property<int>("CurrentResumeId")
-                        .HasColumnType("integer");
-
                     b.HasKey("Id");
 
                     b.HasIndex("AdvertId");
 
                     b.HasIndex("ApplicantUserId");
-
-                    b.HasIndex("CurrentResumeId");
 
                     b.ToTable("Applies");
                 });
@@ -462,17 +459,9 @@ namespace DataAccess.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Model.Resume", "CurrentResume")
-                        .WithMany()
-                        .HasForeignKey("CurrentResumeId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.Navigation("Advert");
 
                     b.Navigation("ApplicantUser");
-
-                    b.Navigation("CurrentResume");
                 });
 
             modelBuilder.Entity("Domain.Model.Resume", b =>

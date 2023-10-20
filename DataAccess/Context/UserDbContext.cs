@@ -15,6 +15,7 @@ public class UserDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int
 
     public DbSet<Advert> Adverts { get; set; }
     public DbSet<Resume> Resumes { get; set; }
+    public DbSet<Apply> Applies { get; set; }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

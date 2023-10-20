@@ -1,5 +1,5 @@
-﻿@using WebUI.Models.ViewModels;
-@model ResumeUpdateVM
+﻿@using Domain.Model;
+@model List<Apply>
 @{
     ViewData["Title"] = "Başvurularım";
 }
@@ -11,52 +11,55 @@
             <div class="col-md-6">
                 <div class="card" style="background-color:transparent; border:none; box-shadow:none;">
                     <div class="card-body">
-                        @for (int i = 0; i < 5; i++)
+                        @if (Model != null && Model.Count > 0)
                         {
-                            @* firma foto - ilan ismi - eczane ismi - ilan başlığı - ilan silme *@
-                            <div class="row mb-3" style="background-color:white; padding: 20px 30px;">
-                                <div class="col-md-4">
-                                    <div style="display:flex; justify-content:center;">
-                                        <img src="~/images/logoadvert.png" alt="Profile Picture">
-                                    </div>
-                                    <div style="display:flex; justify-content:center;">
-                                        <h3 style="font-size:22px; padding:5px 0;">21 Ağustos</h3>
-                                    </div>
-                                    <div class="overlay-style-one" style="display:flex; justify-content:center;">
-                                        <div class="box">
-                                            <div class="content">
-                                                <div style="background-color:#ff2b58; padding:5px; height:40px;"><span style="color:white; font-size:19px; font-weight:bold; text-transform:capitalize; line-height: 34px;">Betül Eczanesi</span></div>
+                            foreach (var item in Model)
+                            {
+                                @* firma foto - ilan ismi - eczane ismi - ilan başlığı - ilan silme *@
+                                <div class="row mb-3" style="background-color:white; padding: 20px 30px;">
+                                    <div class="col-md-4">
+                                        <div style="display:flex; justify-content:center;">
+                                            <img src="~/images/logoadvert.png" alt="Profile Picture">
+                                        </div>
+                                        <div style="display:flex; justify-content:center;">
+                                            <h3 style="font-size:22px; padding:5px 0;">@(item.ApplyDate.ToString("dd MMMM"))</h3>
+                                        </div>
+                                        <div class="overlay-style-one" style="display:flex; justify-content:center;">
+                                            <div class="box">
+                                                <div class="content">
+                                                    <div style="background-color:#ff2b58; padding:5px; height:40px;"><span style="color:white; font-size:19px; font-weight:bold; text-transform:capitalize; line-height: 34px;">@item.Advert?.ApplicationUser?.PharmacyName</span></div>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                                <div class="col-md-7 padding:0; border:1px solid #f4f4f4; border-top:none;">
-                                    <div class="d-flex align-items-center">
-                                        <div class="d-flex justify-content-center w-100 ">
-                                            <div>
-                                                <h3>Faruk Eczanesi Teknisyen Arıyor...</h3>
-                                                <p style="    height: 104px;">These men promptly escaped frotm maximum security stockade to the underground. The Brady Bunch the Brady seds Buncn what do you think, which is that greatest .</p>
+                                    <div class="col-md-7 padding:0; border:1px solid #f4f4f4; border-top:none;">
+                                        <div class="d-flex align-items-center">
+                                            <div class="d-flex justify-content-center w-100 ">
+                                                <div>
+                                                    <h3>@item.Advert?.Title</h3>
+                                                    <p style="    height: 104px;">@item.Advert?.Description</p>
+
+                                                </div>
 
                                             </div>
-
                                         </div>
-                                    </div>
-                                    <div>
-                                        <span><b>Sahibi: </b>Enes Arslan</span>
-                                        <div style="float:right;">
-                                            <div>
-                                                <a href="#">
-                                                    <span style=" padding:5px 10px; background: #ff2b58; color: #fff;">
-                                                        İlanı Gör
-                                                    </span>
-                                                </a>
+                                        <div>
+                                            <span><b>Sahibi: </b>@item.Advert?.ApplicationUser?.Name @item.Advert?.ApplicationUser?.Surname</span>
+                                            <div style="float:right;">
+                                                <div>
+                                                    <a href="/JobAdvert/Detail/@item.Advert?.Id">
+                                                        <span style=" padding:5px 10px; background: #ff2b58; color: #fff;">
+                                                            İlanı Gör
+                                                        </span>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
+                                    <div class="col-md-1">
+                                    </div>
                                 </div>
-                                <div class="col-md-1">
-                                </div>
-                            </div>
+                            }
                         }
                     </div>
                 </div>

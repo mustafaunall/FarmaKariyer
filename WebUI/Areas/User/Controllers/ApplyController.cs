@@ -23,9 +23,20 @@ namespace WebUI.Areas.User.Controllers
             _userManager = userManager;
         }
 
-        public IActionResult List()
+        public async Task<IActionResult> List()
         {
-            return View();  
+            var u = await _userManager.GetUserAsync(User);
+            var user = _context.Users.Where(x => x.Id == u.Id).FirstOrDefault();
+
+            var applies = await _context.Applies
+                .Include(x => x.ApplicantUser)
+                .Include(x => x.CurrentResume)
+                .Include(x => x.Advert)
+                .Include(x => x.Advert.ApplicationUser)
+                .Where(x => x.ApplicantUserId == user.Id)
+                .ToListAsync();
+
+            return View(applies);  
         }
     }
 }

@@ -5,6 +5,7 @@ using DataAccess.Context;
 using Domain.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -13,9 +14,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    partial class UserDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231020223418_db_2")]
+    partial class db_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -214,25 +216,17 @@ namespace DataAccess.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AdvertId")
-                        .HasColumnType("integer");
-
                     b.Property<int>("ApplicantUserId")
                         .HasColumnType("integer");
 
-                    b.Property<DateTime>("ApplyDate")
-                        .HasColumnType("timestamp without time zone");
-
-                    b.Property<int>("CurrentResumeId")
+                    b.Property<int>("RespondentUserId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("AdvertId");
-
                     b.HasIndex("ApplicantUserId");
 
-                    b.HasIndex("CurrentResumeId");
+                    b.HasIndex("RespondentUserId");
 
                     b.ToTable("Applies");
                 });
@@ -450,29 +444,21 @@ namespace DataAccess.Migrations
 
             modelBuilder.Entity("Domain.Model.Apply", b =>
                 {
-                    b.HasOne("Domain.Model.Advert", "Advert")
-                        .WithMany()
-                        .HasForeignKey("AdvertId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
                     b.HasOne("Domain.Model.ApplicationUser", "ApplicantUser")
                         .WithMany()
                         .HasForeignKey("ApplicantUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("Domain.Model.Resume", "CurrentResume")
+                    b.HasOne("Domain.Model.ApplicationUser", "RespondentUser")
                         .WithMany()
-                        .HasForeignKey("CurrentResumeId")
+                        .HasForeignKey("RespondentUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("Advert");
-
                     b.Navigation("ApplicantUser");
 
-                    b.Navigation("CurrentResume");
+                    b.Navigation("RespondentUser");
                 });
 
             modelBuilder.Entity("Domain.Model.Resume", b =>
