@@ -53019,3 +53019,15 @@ a.text-muted:hover {
     color:white !important;
     text-transform:capitalize;
 }
+.pharmacylistp {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+@media (max-width:767px)
+{
+    .titledescriptionmobilemargintop{
+        margin-top:20px;
+    }
+}
