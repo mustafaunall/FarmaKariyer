@@ -374,7 +374,79 @@
     </div>
 </section>
 <!--Start latest blog area-->
-<section class="latest-blog-area">
+<div class="container" style="margin-top:30px;">
+    <div class="sec-title text-center">
+        <h1>Öne Çıkan İlanlar</h1>
+        <span class="border"></span>
+    </div>
+    <div class="owl-carousel owlitem" id="farmaref">
+       @for (int i = 0; i < 5; i++)
+        {
+            <div class="item" style="margin:0 10px;">
+                <div style="cursor:pointer;">
+                    <div class="itemborder">
+                        <div style="display:flex; justify-content:center; padding:5px;"><img src="~/images/logoadvert.png"></div>
+                        <div style="background-color:#ff2b58; padding:5px;"><h4 class="text-center">Eyüp İlaç Fabrikası</h4></div>
+                        <p>
+                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled 
+                        </p>
+                        <div style="display:flex; justify-content:space-between; border-top:1px solid #f4f4f4; padding:10px 5px;">
+                            <h5><b>Sahibi: </b>Enes</h5>
+                            <h5><b>Tarih: </b>22 Ağustos</h5>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+<style>
+    .item p {
+        text-align: center;
+        padding:15px 10px;
+        word-break:break-word;
+    }
+
+    .item img {
+        width: 170px !important;
+        height: 120px;
+    }
+
+    .item h4 {
+        color: white;
+        margin-top: 5px;
+    }
+
+    .itemborder {
+        border: 0.5px solid #ff2b58;
+    }
+</style>
+@section Scripts{
+    <script>
+        var owl = $('#farmaref');
+        owl.owlCarousel({
+            loop: true,
+            dots: false,
+            autoplay: true,
+            autoplayTimeout: 3000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        });
+    </script>
+}
+
+@* <section class="latest-blog-area">
     <div class="container">
         <div class="sec-title text-center">
             <h1>Öne Çıkan İlanlar</h1>
@@ -423,7 +495,7 @@
             }
         </div>
     </div>
-</section>
+</section> *@
 <section class="video-gallery-area">
     <div class="container">
         <div class="row">
