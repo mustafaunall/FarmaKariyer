@@ -38,15 +38,29 @@ namespace WebUI.Areas.Pharmacy.Controllers
         {
             return View();
         }
-        public IActionResult Apply()
+        public async Task<IActionResult> ApplyList()
         {
-            var model = _context.Resumes.FirstOrDefault();
+            var u = await _userManager.GetUserAsync(User);
+            var user = _context.Users.Where(x => x.Id == u.Id).FirstOrDefault();
+            if (user == null)
+            {
+                Notification("Kullanıcı bulunamadı!", NotificationType.Error);
+            }
+            var model = await _context.Applies
+                    .Include(x => x.ApplicantUser)
+                    .Include(x => x.CurrentResume)
+                    .Include(x => x.Advert)
+                    .Where(x => x.Advert.ApplicationUser.Id == user!.Id)
+                    .ToListAsync();
+
             return View(model);
         }
 
-        public IActionResult ApplyDetail()
+        public IActionResult ApplyDetail(int id)
         {
-            var model = _context.Resumes.FirstOrDefault();
+            var model = _context.Users
+                .Where(x => x.Id == id)
+                .FirstOrDefault();
             return View(model);
         }
 
@@ -64,6 +78,7 @@ namespace WebUI.Areas.Pharmacy.Controllers
                 advert.Title = model.Title;
                 advert.Description = model.Description;
                 advert.Type = (AdvertType)model.Type;
+                advert.IsBoosted = model.IsBoosted;
                 if (model.Type == AdvertType.TECHNICIAN)
                 {
                     advert.ExperienceYear = model.ExperienceYear;

@@ -7,6 +7,7 @@ public class AdvertCreateVM
     public string Title { get; set; }
     public string Description { get; set; }
     public AdvertType Type { get; set; }
+    public bool IsBoosted { get; set; }
 
     #region Technician
 

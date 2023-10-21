@@ -1,0 +1,147 @@
+﻿@using Domain.Model;
+@model List<Apply>
+@{
+    ViewData["Title"] = "Gelen Başvurular";
+}
+
+<section class="content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <div class="card" style="background-color:transparent; border:none; box-shadow:none;">
+                    <div class="card-body">
+                        @foreach (var item in Model)
+                        {
+                            @* firma foto - ilan ismi - eczane ismi - ilan başlığı - ilan silme *@
+                            <div class="row mb-3" style="background-color:white; padding: 10px 20px; position:relative;">
+                                <div class="col-md-4" style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
+
+                                    <!-- Tarih kısmını ortalamak için değişiklik -->
+                                    <h3 style="font-size:18px;">@item.ApplyDate.ToString("dd MMMM")</h3>
+                                    <!-- Resim ve Overlay kısmını dikey olarak ortalamak için height kullanılır -->
+                                    <div class="pharmacylistp">
+
+                                        <div style="display:flex; justify-content:center; align-items: center; padding:5px 0;">
+                                            <img src="~/images/logoadvert.png" alt="Profile Picture">
+                                        </div>
+
+                                        <div class="overlay-style-one" style="display:flex; justify-content:center; align-items: center;">
+                                            <div class="box">
+                                                <div class="content">
+                                                    <div style="background-color:#ff2b58; padding:5px; height:40px;">
+                                                        <span style="color:white; font-size:19px; font-weight:bold; text-transform:capitalize; line-height: 34px;">@item.Advert.ApplicationUser.PharmacyName</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-8 padding:0; border:2px solid black;">
+                                    <div class="d-flex align-items-center titledescriptionmobilemargintop">
+                                        <div class="w-100 ">
+                                            <div>
+                                                <h3>@item.ApplicantUser.Name @item.ApplicantUser.Surname</h3>
+                                                <p style="height: 134px;">@item.Advert.Description</p>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div>
+                                        <span><span style="font-weight:bold;">Sahibi: </span> @item.Advert.ApplicationUser.Name <br /> <span style="font-weight:bold;">Aranan Kategori: </span>@item.Advert.Type.GetDescription()</span>
+                                        <div style="float:right;">
+                                            <div>
+                                                <a href="/Pharmacy/Advert/ApplyDetail/@item.ApplicantUser.Id">
+                                                    <span style=" padding:5px 10px; background: #ff2b58; color: #fff;">
+                                                        Başvuran Profili
+                                                    </span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div style="position:absolute; top:10px; right:20px;">
+                                    <a href="#" data-toggle="modal" data-target="#confirmationModal">
+                                        <i class="fa-regular fa-circle-xmark" style="color:red; font-size:25px;"></i>
+                                    </a>
+                                </div>
+
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</section>
+
+<style>
+    .advertbg {
+        background-color: White;
+        padding: 10px 20px;
+        min-height: 170px;
+    }
+
+        .advertbg .d-flex.justify-content-center > div {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100%;
+        }
+
+        .advertbg:hover {
+            background-color: #ff708e;
+        }
+
+            .advertbg:hover > * {
+                color: white !important;
+            }
+
+            .advertbg:hover i::before {
+                color: white !important;
+            }
+
+    .tooltip {
+        position: relative;
+        display: inline-block;
+    }
+
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+
+    .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%; /* Tooltip'i ikonun üzerinde göstermek için */
+        left: 50%;
+        margin-left: -60px; /* Tooltip'in genişliğinin yarısı kadar sola kaydır */
+        opacity: 0;
+        transition: opacity 0.3s;
+    }
+
+    .tooltip .tooltiptext::after {
+        content: '';
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+
+</style>
+
+

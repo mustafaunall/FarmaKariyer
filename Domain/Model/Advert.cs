@@ -9,6 +9,7 @@ public class Advert : BaseEntity
     public string Title { get; set; }
     public string Description { get; set; }
     public AdvertType Type { get; set; }
+    public bool IsBoosted { get; set; } = false;
     public DateTime CreateDate { get; set; } = DateTime.Now;
     public bool IsActive { get; set; } = true;
 

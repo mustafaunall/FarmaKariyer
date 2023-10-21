@@ -1,6 +1,7 @@
 ﻿using DataAccess.Context;
 using Domain.Model;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
 using System.Security.Claims;
 
 namespace Core.Services;
@@ -24,5 +25,12 @@ public class DbService
         var user = _context.Users.Where(x => x.Id == u.Id).FirstOrDefault();
 
         return user;
+    }
+
+    public async Task<List<Advert>?> GetBoostedAdverts()
+    {
+        var adverts = await _context.Adverts.Where(x => x.IsBoosted == true).ToListAsync();
+
+        return adverts;
     }
 }
