@@ -21,7 +21,13 @@ public class HomeController : Controller
         HomeVM vm = new()
         {
             Last3Advert = _context.Adverts
-            .Include(x => x.ApplicationUser).OrderByDescending(x => x.CreateDate).Take(3).ToList(),
+            .Include(x => x.ApplicationUser)
+            .OrderByDescending(x => x.CreateDate)
+            .Take(3)
+            .ToList(),
+            BoostedAdverts = _context.Adverts
+            .Where(x => x.IsBoosted == true)
+            .ToList()
         };
 
         return View(vm);

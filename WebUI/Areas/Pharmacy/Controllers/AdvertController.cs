@@ -78,6 +78,7 @@ namespace WebUI.Areas.Pharmacy.Controllers
                 advert.Title = model.Title;
                 advert.Description = model.Description;
                 advert.Type = (AdvertType)model.Type;
+                advert.IsBoosted = model.IsBoosted;
                 if (model.Type == AdvertType.TECHNICIAN)
                 {
                     advert.ExperienceYear = model.ExperienceYear;
