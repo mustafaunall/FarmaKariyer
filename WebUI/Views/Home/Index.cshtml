@@ -155,8 +155,8 @@
                 <ul class="project-filter post-filter pull-left">
                     <li class="active" data-filter=".filter-item"><span>Genel İlanlar</span></li>
                 </ul>
-        @*         <div class="more-project pull-right">
-                    <a href="project.html">Daha Fazlası<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
+                @*         <div class="more-project pull-right">
+                <a href="project.html">Daha Fazlası<i class="fa fa-chevron-right" aria-hidden="true"></i></a>
                 </div> *@
             </div>
         </div>
@@ -179,7 +179,7 @@
                         </div>
                     </div>
                     <div class="title-holder">
-                        <a href="project-single.html">
+                        <a href="@Url.Action("Technician", "JobAdvert")">
                             <h5>Teknisyen İlanları</h5>
                         </a>
                     </div>
@@ -204,7 +204,7 @@
                         </div>
                     </div>
                     <div class="title-holder">
-                        <a href="project-single.html">
+                        <a href="@Url.Action("Technician", "JobAdvert")">
                             <h5>Dermokozmetik Elemanı</h5>
                         </a>
                     </div>
@@ -229,7 +229,7 @@
                         </div>
                     </div>
                     <div class="title-holder">
-                        <a href="project-single.html">
+                        <a href="@Url.Action("Intern", "JobAdvert")">
                             <h5>Stajyer İlanları</h5>
                         </a>
                     </div>
@@ -254,7 +254,7 @@
                         </div>
                     </div>
                     <div class="title-holder">
-                        <a href="project-single.html">
+                        <a href="@Url.Action("License", "JobAdvert")">
                             <h5>Ruhsat İlanları</h5>
                         </a>
                     </div>
@@ -279,34 +279,34 @@
                         </div>
                     </div>
                     <div class="title-holder">
-                        <a href="project-single.html">
+                        <a href="@Url.Action("OtherAds", "JobAdvert")">
                             <h5>Diğer İlanlar</h5>
                         </a>
                     </div>
                 </div>
             </div>
-          @*   <div class="col-md-4 col-sm-4 col-xs-12 filter-item consulting finance">
-                <div class="single-project text-center">
-                    <div class="outer-img-box">
-                        <div class="img-holder">
-                            <img src="~/images/boxex1.jpg" alt="Awesome Image">
-                            <div class="overlay-style-one">
-                                <div class="box">
-                                    <div class="content">
-                                        <div class="icon-holder">
-                                            <a href="~/images/boxex1.jpg" data-rel="prettyPhoto" title="Alt Başlık"><i class="fa fa-camera"></i></a>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="title-holder">
-                        <a href="project-single.html">
-                            <h5>Başlık6</h5>
-                        </a>
-                    </div>
-                </div>
+            @*   <div class="col-md-4 col-sm-4 col-xs-12 filter-item consulting finance">
+            <div class="single-project text-center">
+            <div class="outer-img-box">
+            <div class="img-holder">
+            <img src="~/images/boxex1.jpg" alt="Awesome Image">
+            <div class="overlay-style-one">
+            <div class="box">
+            <div class="content">
+            <div class="icon-holder">
+            <a href="~/images/boxex1.jpg" data-rel="prettyPhoto" title="Alt Başlık"><i class="fa fa-camera"></i></a>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            </div>
+            <div class="title-holder">
+            <a href="project-single.html">
+            <h5>Başlık6</h5>
+            </a>
+            </div>
+            </div>
             </div> *@
         </div>
     </div>
@@ -395,7 +395,7 @@
                                 <div class="overlay-style-one">
                                     <div class="box">
                                         <div class="content">
-                                            <a href="blog-single.html"><i class="fa fa-link" aria-hidden="true"></i></a>
+                                            <a href="@Url.Action("Detail", "JobAdvert", new { id = item.Id })"><i class="fa fa-link" aria-hidden="true"></i></a>
                                         </div>
                                     </div>
                                 </div>

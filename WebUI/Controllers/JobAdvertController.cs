@@ -15,6 +15,7 @@ public class JobAdvertController : BaseController
 {
     private readonly UserDbContext _context;
     private readonly UserManager<ApplicationUser> _userManager;
+    private const int _pageLimit = 6;
     public JobAdvertController(
         UserDbContext context,
         UserManager<ApplicationUser> userManager
@@ -97,42 +98,87 @@ public class JobAdvertController : BaseController
         return View(model);
     }
 
-    public IActionResult Technician()
+    public IActionResult Technician([FromQuery] int page = 1)
     {
         var model = _context.Adverts
             .Include(x => x.ApplicationUser)
+            .OrderByDescending(x => x.CreateDate)
+            .Skip((page - 1) * _pageLimit)
+            .Take(_pageLimit)
             .Where(x => x.Type == AdvertType.TECHNICIAN)
             .ToList();
-
+        var modelCount = _context.Adverts
+            .Where(x => x.Type == AdvertType.INTERN)
+            .Count();
+        ViewBag.Page = page;
+        ViewBag.PageCount = modelCount % _pageLimit == 0 ? (modelCount / _pageLimit) : (modelCount / _pageLimit + 1);
         return View(model);
     }
 
-    public IActionResult Intern()
+    public IActionResult Dermocosmetic([FromQuery] int page = 1)
     {
         var model = _context.Adverts
             .Include(x => x.ApplicationUser)
+            .OrderByDescending(x => x.CreateDate)
+            .Skip((page - 1) * _pageLimit)
+            .Take(_pageLimit)
+            .Where(x => x.Type == AdvertType.TECHNICIAN)
+            .ToList();
+        var modelCount = _context.Adverts
+            .Where(x => x.Type == AdvertType.INTERN)
+            .Count();
+        ViewBag.Page = page;
+        ViewBag.PageCount = modelCount % _pageLimit == 0 ? (modelCount / _pageLimit) : (modelCount / _pageLimit + 1);
+        return View(model);
+    }
+
+    public IActionResult Intern([FromQuery] int page = 1)
+    {
+        var model = _context.Adverts
+            .Include(x => x.ApplicationUser)
+            .OrderByDescending(x => x.CreateDate)
+            .Skip((page - 1) * _pageLimit)
+            .Take(_pageLimit)
             .Where(x => x.Type == AdvertType.INTERN)
             .ToList();
-
+        var modelCount = _context.Adverts
+            .Where(x => x.Type == AdvertType.INTERN)
+            .Count();
+        ViewBag.Page = page;
+        ViewBag.PageCount = modelCount % _pageLimit == 0 ? (modelCount / _pageLimit) : (modelCount / _pageLimit + 1);
         return View(model);
     }
-    public IActionResult License()
+    public IActionResult License([FromQuery] int page = 1)
     {
         var model = _context.Adverts
             .Include(x => x.ApplicationUser)
+            .OrderByDescending(x => x.CreateDate)
+            .Skip((page - 1) * _pageLimit)
+            .Take(_pageLimit)
             .Where(x => x.Type == AdvertType.LICENSE)
             .ToList();
-
+        var modelCount = _context.Adverts
+            .Where(x => x.Type == AdvertType.INTERN)
+            .Count();
+        ViewBag.Page = page;
+        ViewBag.PageCount = modelCount % _pageLimit == 0 ? (modelCount / _pageLimit) : (modelCount / _pageLimit + 1);
         return View(model);
     }
 
-    public IActionResult OtherAds()
+    public IActionResult OtherAds([FromQuery] int page = 1)
     {
         var model = _context.Adverts
             .Include(x => x.ApplicationUser)
+            .OrderByDescending(x => x.CreateDate)
+            .Skip((page - 1) * _pageLimit)
+            .Take(_pageLimit)
             .Where(x => x.Type == AdvertType.OTHER)
             .ToList();
-
+        var modelCount = _context.Adverts
+            .Where(x => x.Type == AdvertType.INTERN)
+            .Count();
+        ViewBag.Page = page;
+        ViewBag.PageCount = modelCount % _pageLimit == 0 ? (modelCount / _pageLimit) : (modelCount / _pageLimit + 1);
         return View(model);
     }
 

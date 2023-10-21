@@ -96,7 +96,7 @@
                                             <a href="#" style="color:#ff2b58; text-transform:capitalize;">@Model.Name @Model.Surname</a>
                                             @*<a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>*@
                                         </span>
-                                      
+
                                     </div>
                                     <!-- /.user-block -->
                                     <p style="white-space: pre-wrap; word-wrap: break-word; word-break: break-all; overflow-wrap: break-word;">
@@ -184,7 +184,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Adres</label>
-                                                    <textarea class="form-control" rows="3" placeholder="Adres Bilginiz..." data-val="true" data-val-required="The Address field is required." id="Address" name="Address"></textarea>
+                                                    <textarea class="form-control" rows="3" placeholder="Adres Bilginiz..." data-val="true" data-val-required="The Address field is required." id="Address" name="Address">@Model.Address</textarea>
                                                 </div>
                                                 <style>
                                                     select {
@@ -193,14 +193,16 @@
                                                 </style>
                                                 <script src="~/scripts/ililce.js" province="34" district="1"></script> <!--il-ilçe-script-->
                                                 <div class="form-group">
+                                                    @{
+                                                        var pharmacyTypes = new List<string>()
+                                                    {
+                                                    "Başlangıç","Temel","Orta","İyi","İleri"
+                                                    };
+                                                    }
                                                     <label>Eczane Tipi</label>
                                                     <div id="experienceGroup" class="w-100">
-                                                        <select class="form-control" id="yilSeciniz">
+                                                        <select class="form-control" id="yilSeciniz" name="PharmacyType" asp-items="@(new SelectList(pharmacyTypes, Model?.PharmacyType))">
                                                             <option value="" disabled selected>Eczane Tipini Seçiniz</option>
-                                                            <option value="1">Ünite</option>
-                                                            <option value="2">Cadde</option>
-                                                            <option value="3">AVM</option>
-                                                            <option value="4">Semt</option>
                                                         </select>
                                                     </div>
                                                 </div>
@@ -210,17 +212,14 @@
                                                     </label>
                                                     <ul class="categories clearfix uljobs">
                                                         <li>
-                                                            <select class="form-control" id="employeecount">
-                                                                <option value="" disabled="" selected="">Kişi Sayısı</option>
-                                                                <option value="1">1</option>
-                                                                <option value="1">2</option>
-                                                                <option value="1">3</option>
-                                                                <option value="1">4</option>
-                                                                <option value="1">5-10</option>
-                                                                <option value="1">11-15</option>
-                                                                <option value="1">16-20</option>
-                                                                <option value="1">21+</option>
-
+                                                            @{
+                                                                var employeeCount = new List<string>()
+                                                            {
+                                                            "1","2","3","4","5-10","11-15","16-20","21+"
+                                                            };
+                                                            }
+                                                            <select class="form-control" id="employeecount" name="EmployeeCount" asp-items="@(new SelectList(employeeCount, Model?.EmployeeCount))">
+                                                                <option value="" disabled selected>Kişi Sayısı</option>
                                                             </select>
                                                         </li>
                                                     </ul>
@@ -236,14 +235,18 @@
                                             <div class="card-body">
                                                 <div class="form-group">
                                                     <label for="inputPhone">Okul İsmi</label>
-                                                    <input type="text" class="form-control" name="Education" value="" placeholder="Okul İsmi">
+                                                    <input type="text" class="form-control" name="SchoolName" value="@Model?.SchoolName" placeholder="Okul İsmi">
                                                 </div>
                                                 <div class="form-group">
+                                                    @{
+                                                        var educationStatuses = new List<string>()
+                                                    {
+                                                    "Lisans","Yüksek Lisans"
+                                                    };
+                                                    }
                                                     <label>Öğrenim Durumu</label>
-                                                    <select name="Education" class="form-control">
+                                                    <select name="Education" class="form-control" name="EducationStatus" asp-items="@(new SelectList(educationStatuses, Model?.EducationStatus))">
                                                         <option disabled selected>Öğrenim Durumunuz</option>
-                                                        <option>Lisans</option>
-                                                        <option>Yüksek Lisans</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -258,9 +261,9 @@
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Sertifikalar</label>
                                                     <p style="color:red; font-size:14px;">*Birden fazla sertifika girişi için lütfen sertifikalarınızı alt alta yazınız.</p>
-                                                    <textarea class="form-control" rows="5" placeholder="Sertifikalarınız..." data-val="true" data-val-required="The Address field is required." id="Sertifikalar" name="Sertifikalar"></textarea>
+                                                    <textarea class="form-control" rows="5" placeholder="Sertifikalarınız..." data-val="true" data-val-required="The Address field is required." id="Sertifikalar" name="Certificates">@Model?.Certificates</textarea>
                                                 </div>
-                                             
+
                                             </div>
                                         </div>
                                     </div>
@@ -272,7 +275,7 @@
                                             <div class="card-body">
                                                 <div class="form-group">
                                                     <label for="exampleInputEmail1">Açıklama</label>
-                                                    <textarea class="form-control" rows="8" placeholder="Açıklama..." data-val="true" data-val-required="The Address field is required." id="Sertifikalar" name="Description"></textarea>
+                                                    <textarea class="form-control" rows="8" placeholder="Açıklama..." data-val="true" data-val-required="The Address field is required." id="Sertifikalar" name="Description">@Model?.Description</textarea>
                                                 </div>
 
                                             </div>

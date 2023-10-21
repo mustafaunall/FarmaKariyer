@@ -17,6 +17,12 @@ public class ApplicationUser : IdentityUser<int>
 
     public string? PharmacyName { get; set; }
     public string? GLNCode { get; set; }
+    public string? PharmacyType { get; set; }
+    public string? EmployeeCount { get; set; }
+    public string? SchoolName { get; set; }
+    public string? EducationStatus { get; set; }
+    public string? Certificates { get; set; }
+    public string? Description { get; set; }
 
     #endregion
 
