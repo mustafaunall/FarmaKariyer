@@ -63,6 +63,24 @@ public class AccountController : BaseController
                 user.PhoneNumber = vm.PhoneNumber.Trim();
             if (!string.IsNullOrEmpty(vm.Email))
                 user.Email = vm.Email.Trim();
+            if (!string.IsNullOrEmpty(vm.Province))
+                user.Province = vm.Province.Trim();
+            if (!string.IsNullOrEmpty(vm.District))
+                user.District = vm.District.Trim();
+            if (!string.IsNullOrEmpty(vm.Address))
+                user.Address = vm.Address.Trim();
+            if (!string.IsNullOrEmpty(vm.PharmacyType))
+                user.PharmacyType = vm.PharmacyType.Trim();
+            if (!string.IsNullOrEmpty(vm.EmployeeCount))
+                user.EmployeeCount = vm.EmployeeCount.Trim();
+            if (!string.IsNullOrEmpty(vm.SchoolName))
+                user.SchoolName = vm.SchoolName.Trim();
+            if (!string.IsNullOrEmpty(vm.EducationStatus))
+                user.EducationStatus = vm.EducationStatus.Trim();
+            if (!string.IsNullOrEmpty(vm.Certificates))
+                user.Certificates = vm.Certificates.Trim();
+            if (!string.IsNullOrEmpty(vm.Description))
+                user.Description = vm.Description.Trim();
             await _userManager.UpdateAsync(user);
             Notification("Kullanıcı bilgileri başarıyla güncellendi.", NotificationType.Success);
             return RedirectToAction(nameof(Profile));

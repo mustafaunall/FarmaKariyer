@@ -13,4 +13,13 @@ public class UpdateProfileVM
     public string? Surname { get; set; }
     public string? PhoneNumber { get; set; }
     public string? Email { get; set; }
+    public string? Province { get; set; }
+    public string? District { get; set; }
+    public string? Address { get; set; }
+    public string? PharmacyType { get; set; }
+    public string? EmployeeCount { get; set; }
+    public string? SchoolName { get; set; }
+    public string? EducationStatus { get; set; }
+    public string? Certificates { get; set; }
+    public string? Description { get; set; }
 }

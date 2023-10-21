@@ -2,22 +2,21 @@
 @model List<Advert>
 
 @{
-    ViewData["Title"] = "Teknisyen İlanları";
+    ViewData["Title"] = "Dermokozmetik İlanları";
     int page = ViewBag.Page ?? 1;
     int pageCount = ViewBag.PageCount ?? 1;
     Domain.ViewModel.Core.PaginationVM pagingVm = new()
             {
                 Controller = "JobAdvert",
-                Action = "OtherAds",
+                Action = "Dermocosmetic",
                 Page = page,
                 PageCount = pageCount
             };
 }
-
 <!--Start breadcrumb area-->
 <section class="breadcrumb-area" style="background-image: url(/images/sss.png);">
     <div class="container text-center">
-        <h1>Diğer İlanlar</h1>
+        <h1>Dermokozmetik İlanları</h1>
     </div>
 </section>
 <!--End breadcrumb area-->
@@ -30,7 +29,7 @@
                 <li><i class="fa fa-angle-right" style="color:black;" aria-hidden="true"></i></li>
                 <li><a href="index.html">İlanlar</a></li>
                 <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                <li>Diğer İlanlar</li>
+                <li>Dermokozmetik İlanları</li>
             </ul>
         </div>
     </div>
@@ -43,6 +42,9 @@
             <!--Start sidebar Wrapper-->
             <div class="col-lg-3 col-md-4 col-sm-7 col-xs-12">
                 <div class="sidebar-wrapper">
+                    <!--Start single sidebar-->
+                    <!--End single sidebar-->
+                    <!--Start single sidebar-->
                     <div class="single-sidebar">
                         <div class="sec-title">
                             <h3>Lokasyon</h3>
@@ -55,9 +57,9 @@
                                     <option value="1">İstanbul</option>
                                     <option value="1">Antalya</option>
                                     <option value="1">İzmir</option>
+
                                 </select>
                             </li>
-
                             <li>
                                 <select class="form-control" id="ilceSeciniz">
                                     <option value="" disabled selected>İlçe Seçiniz</option>
@@ -71,33 +73,83 @@
                     </div>
                     <div class="single-sidebar">
                         <div class="sec-title">
-                            <h3>Eczane Kategorisi</h3>
+                            <h3>Deneyim Süresi</h3>
                             <span class="border"></span>
                         </div>
                         <ul class="categories clearfix">
                             <li>
                                 <select class="form-control" id="yilSeciniz">
-                                    <option value="" disabled selected>Eczane Tipi Seçiniz</option>
-                                    <option value="1">Ünite</option>
-                                    <option value="2">Cadde</option>
-                                    <option value="3">AVM</option>
-                                    <option value="4">Semt</option>
+                                    <option value="" disabled selected>Yıl Seçiniz</option>
+                                    <option value="1">1</option>
+                                    <option value="2">2</option>
+                                    <option value="3">3</option>
+                                    <option value="4">4</option>
+                                    <option value="5">5</option>
+                                    <option value="5-10">5-10</option>
+                                    <option value="10-20">10-20</option>
+                                    <option value="20+">20+</option>
                                 </select>
                             </li>
                         </ul>
                     </div>
                     <div class="single-sidebar">
                         <div class="sec-title">
-                            <h3>Sürücü Belgesi</h3>
+                            <h3>Maaş Aralığı</h3>
                             <span class="border"></span>
                         </div>
                         <ul class="categories clearfix">
                             <li>
-                                <select class="form-control" id="stajyertype">
-                                    <option value="" disabled selected>Stajyer Tipini Seçiniz</option>
-                                    <option value="1">Stajyer Eczacı</option>
-                                    <option value="2">Yardımcı Eczacı</option>
-                                    <option value="3">İkinci Eczacı</option>
+                                <select class="form-control" id="maasaraligi">
+                                    <option value="" disabled selected>Maaş Seçiniz</option>
+                                    <option value="1">Asgari Ücret</option>
+                                    <option value="1">20.000</option>
+                                    <option value="1">30.000</option>
+
+                                </select>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="single-sidebar">
+                        <div class="sec-title">
+                            <h3>Yan Haklar</h3>
+                            <span class="border"></span>
+                        </div>
+                        <ul class="categories clearfix">
+                            <li>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Prim</label>
+                                </div>
+                                <div class="form-group form-check">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Yol</label>
+                                </div>
+                                <div class="form-group form-check" style="margin-bottom:0;">
+                                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                    <label class="form-check-label" for="exampleCheck1">Yemek</label>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="single-sidebar">
+                        <div class="sec-title">
+                            <h3>Çalışan Sayısı</h3>
+                            <span class="border"></span>
+                        </div>
+                        <ul class="categories clearfix">
+                            <li>
+                                <select class="form-control" id="employeecount">
+                                    <option value="" disabled selected>Kişi Sayısı</option>
+                                    <option value="1">1</option>
+                                    <option value="1">2</option>
+                                    <option value="1">4</option>
+                                    <option value="1">5</option>
+                                    <option value="1">5-10</option>
+                                    <option value="1">10-15</option>
+                                    <option value="1">15-20</option>
+                                    <option value="1">20-30</option>
+                                    <option value="1">30+</option>
+
                                 </select>
                             </li>
                         </ul>

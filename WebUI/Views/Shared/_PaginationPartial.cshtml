@@ -1,0 +1,56 @@
+﻿@using Domain.ViewModel.Core;
+@model PaginationVM
+
+<div class="row">
+    <div class="col-md-12">
+        <ul class="post-pagination text-center">
+            @if (Model.Page > 1)
+            {
+                <li>
+                    <a href="@Url.Action(Model.Action, Model.Controller, new { page = Model.Page - 1 })">
+                        <i class="fa fa-caret-left" aria-hidden="true"></i>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a>
+                        <i class="fa fa-caret-left" aria-hidden="true"></i>
+                    </a>
+                </li>
+            }
+            @if (Model.Page > 1)
+            {
+                <li>
+                    <a href="@Url.Action(Model.Action, Model.Controller, new { page = Model.Page - 1 })">@(Model.Page - 1)</a>
+                </li>
+            }
+            <li class="active">
+                <a>@Model.Page</a>
+            </li>
+            @if (Model.Page != Model.PageCount)
+            {
+                <li>
+                    <a href="@Url.Action(Model.Action, Model.Controller, new { page = Model.Page + 1 })">@(Model.Page + 1)</a>
+                </li>
+            }
+            @if (Model.Page != Model.PageCount)
+            {
+                <li>
+                    <a href="@Url.Action(Model.Action, Model.Controller, new { page = Model.Page + 1 })">
+                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    </a>
+                </li>
+            }
+            else
+            {
+                <li>
+                    <a>
+                        <i class="fa fa-caret-right" aria-hidden="true"></i>
+                    </a>
+                </li>
+            }
+        </ul>
+    </div>
+</div>
