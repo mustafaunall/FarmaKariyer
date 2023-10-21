@@ -19,6 +19,7 @@ public class ApplicationUser : IdentityUser<int>
     public string? GLNCode { get; set; }
 
     #endregion
+
     public ApplicationUserType Type { get; set; }
 
     #region Relation
