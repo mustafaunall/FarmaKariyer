@@ -5726,8 +5726,19 @@ select:focus {
         padding: 50px 20px;
     }
 }
-
+    
 /*input[type=checkbox], input[type=radio] {
     width: 15px;
     height: 15px;
 }*/
+.pharmaregisterimg {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 15px 0;
+}
+@media (max-width:767px){ /*tablet modunda da kapatabiliriz*/
+    .pharmaregisterimg {
+        display: none !important;
+    }
+}

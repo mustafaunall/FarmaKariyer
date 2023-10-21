@@ -23,7 +23,7 @@
                                     </div>
                                     <div class="form-group">
                                         <label for="exampleInputEmail1">Açıklama</label>
-                                        <textarea class="form-control" asp-for="Description" rows="15" placeholder="İlanınız İçin Açıklama Alanı..."></textarea>
+                                        <textarea class="form-control" asp-for="Description" rows="8" placeholder="İlanınız İçin Açıklama Alanı..."></textarea>
                                     </div>
                                 </div>
                             </div>
@@ -129,7 +129,7 @@
                                                     </div>
                                                     <div class="form-group">
                                                         <label for="extra">Diğer</label>
-                                                        <input type="text" class="form-control" asp-for="OtherInfo" id="extra">
+                                                        <input type="text" class="form-control" asp-for="OtherInfo" id="extra" placeholder="Diğer...">
                                                     </div>
                                                 </div>
                                             </div>
@@ -149,7 +149,7 @@
                                                     <option disabled selected>Eğitim Durumunu Seçiniz</option>
                                                     <option value="3.Sınıf">3.Sınıf</option>
                                                     <option value="4.Sınıf">4.Sınıf</option>
-                                                    <options value="Mezun">Mezun</options>
+                                                    <option value="Mezun">Mezun</option>
                                                 </select>
                                             </div>
                                         </div>
@@ -185,6 +185,21 @@
                                         @*İkinci Eczacı Start*@
 
                                         <div class="form-group collapsable" id="form-ikinci" style="display: none;">
+                                            <div class="form-group">
+                                                <h2>Stajyer İçin Özel Arama</h2>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Eğitim Durumu</label>
+                                                @* 
+                                                    byscript burası boştu ekledim 
+                                                *@
+                                                <select class="form-control" asp-for="EducationStatus">
+                                                    <option disabled selected>Eğitim Durumunu Seçiniz</option>
+                                                    <option value="3.Sınıf">3.Sınıf</option>
+                                                    <option value="4.Sınıf">4.Sınıf</option>
+                                                    <option value="Mezun">Mezun</option>
+                                                </select>
+                                            </div>
                                         </div>
 
                                         @*İkinci Eczacı End*@
@@ -229,12 +244,15 @@
                                                     <label>Ruhsat</label>
                                                 </div>
                                                 <div class="d-flex">
+
+                                               @*    byscript burayı düzelt artık radiobutton değil checkbox oldu. burası *@
+
                                                     <div class="form-check mr-3">
-                                                        <input class="form-check-input" type="radio" asp-for="LicenseRightLeft" id="ruhsatRightYes" value="true">
+                                                        <input class="form-check-input" type="checkbox" asp-for="LicenseRightLeft" id="ruhsatRightYes">
                                                         <label class="form-check-label" for="ruhsatRightYes">Ruhsat Var</label>
                                                     </div>
                                                     <div class="form-check">
-                                                        <input class="form-check-input" type="radio" asp-for="LicenseRightLeft" id="ruhsatRightNo" value="false">
+                                                        <input class="form-check-input" type="checkbox" asp-for="LicenseRightLeft" id="ruhsatRightYes">
                                                         <label class="form-check-label" for="ruhsatRightNo">Ruhsat Yok</label>
                                                     </div>
                                                 </div>
@@ -355,10 +373,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="col-md-12 text-center mt-2 mb-2">
+                            <label for="IsBoosted">İlanımı öne çıkarmak istiyorum. (+ 250₺)</label>
+                            <input type="checkbox" asp-for="IsBoosted" id="IsBoosted" style="width:40px;" />
+                        </div>
                         <div class="col-md-12">
                             <div class="d-flex justify-content-center">
-                                <label for="IsBoosted">İlanımı öne çıkarmak istiyorum. (+ 250₺)</label>
-                                <input type="checkbox" asp-for="IsBoosted" id="IsBoosted" />
                                 <button type="submit" class="btn btn-primary" style="padding: 17px 40px; text-transform:uppercase;">İlan oluştur</button>
                             </div>
                         </div>
