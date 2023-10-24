@@ -55,6 +55,13 @@ namespace WebUI.Controllers
             _dbService = dbService;
         }
 
+        [NonAction]
+        private string GetURL()
+        {
+            var url = $"{Request.Scheme}://{Request.Host}";
+            return url;
+        }
+
         public IActionResult SatinAl(
             [FromQuery] string? tutar
             )
