@@ -1,0 +1,57 @@
+﻿@{
+    ViewData["Title"] = "Paketler";
+}
+
+<section style="margin:60px 0;">
+    <div class="container-fluid">
+        <div class="container premcon">
+            <div class="row">
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <div class="premcard card_three text-center">
+                        <div class="title">
+                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                            <h2>Başlangıç Paketi</h2>
+                        </div>
+                        <div class="option">
+                            <ul>
+                                <li><i class="fa-sharp fa-solid fa-check"></i>1 İlan Hakkı</li>
+
+                                @*            <li><div style="margin:78px;">&nbsp;</div></li> *@
+                            </ul>
+                        </div>
+                        <a href="@Url.Action("PackageInfo", "Account")">Satın Al</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 mpremcon">
+                    <div class="premcard card_three text-center">
+                        <div class="title">
+                            <i class="fa fa-plane" aria-hidden="true"></i>
+                            <h2>Gelişmiş Paket</h2>
+                        </div>
+                        <div class="option">
+                            <ul>
+                                <li><i class="fa-sharp fa-solid fa-check"></i>3 İlan Hakkı</li>
+                                @*                    <li><div style="margin:21px;">&nbsp;</div></li> *@
+                            </ul>
+                        </div>
+                        <a href="@Url.Action("PackageInfo", "Home")">Satın Al</a>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                    <div class="premcard card_three text-center">
+                        <div class="title">
+                            <i class="fa fa-rocket" aria-hidden="true"></i>
+                            <h2>Sınırsız Paket</h2>
+                        </div>
+                        <div class="option">
+                            <ul>
+                                <li><i class="fa-sharp fa-solid fa-check"></i>Sınırsız İlan Hakkı</li>
+                            </ul>
+                        </div>
+                        <a href="@Url.Action("PackageInfo", "Home")">Satın Al</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

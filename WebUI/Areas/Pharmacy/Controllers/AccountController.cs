@@ -128,6 +128,11 @@ public class AccountController : BaseController
     {
         return View();
     }
+    public IActionResult Packages()
+    {
+        return View();
+    }
+
     public IActionResult LoginPharmacy()
     {
         return View();
@@ -140,6 +145,7 @@ public class AccountController : BaseController
     {
         return View();
     }
+
     public IActionResult TechnicianCV()
     {
         return View();

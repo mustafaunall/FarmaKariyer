@@ -269,7 +269,7 @@
 .free-consulation-button {
     height: 45px;
     float: left !important;
-    margin-top: 5px;
+    margin-top: 11px;
     margin-bottom: 5px;
 }
 .free-consulation-button:before {
@@ -791,7 +791,7 @@
   display:block;
   text-align:right;
   width:100%;
-  padding:15px 0px;
+  padding:0px;
   right:0px;
   z-index:12;
 }        

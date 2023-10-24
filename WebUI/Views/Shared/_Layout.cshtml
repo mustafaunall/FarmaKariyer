@@ -70,16 +70,14 @@
         <header class="header-area">
             <div class="container">
                 <div class="row">
-                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12">
-                        <div class="logo" style="height:100px;">
+                    <div class="col-lg-3 col-md-4 col-sm-12 col-xs-12" style="padding:0;">
+                        <div class="logo" style="height:100px; display: flex;
+    justify-content: center;">
                             <a href="@Url.Action("Index","Home")"><img src="~/images/logo1.png" alt="kodeforest" style="height:100px;"></a>
                         </div>
                     </div>
-                    <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12">
-                        <div class="text-center" style="
-            height: 100px;
-            align-items: center;
-            display: flex;">
+                    <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12" style="padding:0;">
+                        <div class="text-center scrollstyle">
                             <div id="scroll-container">
                                 <div id="scroll-text">
                                     İlk ve tek eczaneler arası kariyer platformu <span style="font-weight: bold; color:red;">
@@ -108,7 +106,7 @@
             <div class="container">
                 <div class="mainmenu-bg">
                     <div class="row">
-                        <div class="col-md-10 col-sm-12 col-xs-12">
+                        <div class="col-md-10 col-sm-8 col-xs-12">
                             <!--Start mainmenu-->
                             <nav class="main-menu">
                                 <div class="navbar-header">
@@ -152,7 +150,7 @@
                             <!--Start search box-->
                             <!--End search box-->
                         </div>
-                        <div class="col-md-2 col-sm-12 col-xs-12">
+                        <div class="col-md-2 col-sm-4 col-xs-12">
                             <div class="free-consulation-button pull-right">
                                 @if (User.Identity.IsAuthenticated)
                                 {
