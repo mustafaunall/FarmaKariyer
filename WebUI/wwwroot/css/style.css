@@ -2421,7 +2421,8 @@ select:focus {
     opacity: 0;
     transition: all 700ms ease;
 }
-.company-history .single-history:hover .year:before{
+
+.company-history .single-history:hover .year:before {
     opacity: 1;
 }
 .company-history .single-history .year h3 {
@@ -5740,5 +5741,143 @@ select:focus {
 @media (max-width:767px){ /*tablet modunda da kapatabiliriz*/
     .pharmaregisterimg {
         display: none !important;
+    }
+}
+
+.premcard {
+    position: relative;
+    min-width: 300px;
+    max-width: 303px;
+    height: 410px;
+    overflow: hidden;
+    border-radius: 15px;
+    margin: 0 auto;
+    padding: 40px 20px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.3);
+    transition: 0.5s;
+}
+
+    .premcard:hover {
+        transform: scale(1.05);
+        transition: all 0.5s ease-in-out;
+    }
+
+.card_red,
+.card_red .title .fa {
+    background: linear-gradient(-45deg, #ffec61, #f321d7);
+}
+
+.card_violet,
+.card_violet .title .fa {
+    background: linear-gradient(-45deg, #f403d1, #64b5f6);
+}
+
+.card_three,
+.card_three .title .fa {
+    background: linear-gradient(-45deg, #ff2b58, #ff1648);
+    /*background: linear-gradient(-45deg, #24ff72, #9a4eff);  ---#21b75f  #31386e*/
+}
+
+.premcard:before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 45%;
+    background: rgba(255, 255, 255, 0.1);
+    z-index: 1;
+    transform: skewY(345deg) scale(1.5);
+    transition: all 1.5s ease-in-out;
+}
+
+.premcard:hover::before {
+    height: 100%;
+    transition: all 1.5s ease-in-out;
+}
+
+.title .fa {
+    color: #fff;
+    font-size: 60px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 100px;
+    box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+.title h2 {
+    position: relative;
+    margin: 30px 0 0;
+    padding: 0;
+    color: #fff;
+    font-size: 30px;
+    z-index: 2;
+}
+
+.price {
+    position: relative;
+    z-index: 2;
+}
+
+    .price h4 {
+        margin: 0;
+        padding: 20px 0;
+        color: #fff;
+        font-size: 60px;
+    }
+
+.option {
+    position: relative;
+    z-index: 2;
+    margin: 50px 0;
+}
+
+    .option ul {
+        margin: 0;
+        padding: 0;
+    }
+
+        .option ul li {
+            padding: 0;
+            list-style: none;
+            color: #fff;
+            font-size: 18px;
+            margin: 20px 0;
+        }
+
+    .option i {
+        margin-right: 5px;
+    }
+
+.premcard a {
+    display: block;
+    position: relative;
+    z-index: 2;
+    background-color: #fff;
+    width: 174px;
+    /* height: 52px; */
+    text-align: center;
+    margin: 20px auto 0;
+    /* line-height: 40px; */
+    border-radius: 10px;
+    font-size: 16px;
+    cursor: pointer;
+    text-decoration: none;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+    color: #ff2b58;
+    font-weight: 700;
+    text-transform: capitalize;
+    padding: 6px 10px;
+}
+
+.desktopmargind{
+    display:none;
+}
+@media(min-width:1595px) {
+    .desktopmargind{
+        display:block !important;
+        margin-top:95px;
     }
 }
