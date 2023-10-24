@@ -15,6 +15,7 @@ public class ApplicationUser : IdentityUser<int>
 
     #region Pharmacy
 
+    public int AdvertPostingQuota { get; set; } = 0;
     public string? PharmacyName { get; set; }
     public string? GLNCode { get; set; }
     public string? PharmacyType { get; set; }

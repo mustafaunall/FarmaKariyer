@@ -13,6 +13,8 @@ public class UserDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int
         //AppContext.SetSwitch("Npgsql.DisableDateTimeInfinityConversions", true);
     }
 
+    public DbSet<AdvertCategory> AdvertCategories { get; set; }
+    public DbSet<Order> Orders { get; set; }
     public DbSet<Advert> Adverts { get; set; }
     public DbSet<Resume> Resumes { get; set; }
     public DbSet<Apply> Applies { get; set; }
