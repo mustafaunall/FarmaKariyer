@@ -4,7 +4,7 @@
     ViewData["Title"] = "Anasayfa";
 }
 
-<section class="rev_slider_wrapper">
+@* <section class="rev_slider_wrapper">
     <div id="slider1" class="rev_slider" data-version="5.0">
         <ul>
             <li data-transition="slidingoverlayleft">
@@ -53,7 +53,6 @@
                      data-start="2600">
                     <div class="slide-content-box">
                         <div class="button">
-                            @*   <a class="thm-btn bg-clr2" href="@Url.Action("Contact","Home")">Bize Ulaş</a> *@
                         </div>
                     </div>
                 </div>
@@ -87,7 +86,6 @@
                      data-start="2300">
                     <div class="slide-content-box middle-slide">
                         <div class="button">
-                            @*                             <a href="@Url.Action("OurPartners","Home")">Partnerlerimiz</a> *@
                             <a class="thm-btn bg-clr2" href="@Url.Action("Contact","Home")">Bize Ulaş</a>
                         </div>
                     </div>
@@ -137,51 +135,75 @@
                      data-splitout="none"
                      data-responsive_offset="on"
                      data-start="2600">
-                    @*  <div class="slide-content-box">
-                    <div class="button">
-                    <a class="thm-btn bg-clr2" href="#">Contact Us</a>
-                    </div>
-                    </div> *@
                 </div>
             </li>
         </ul>
     </div>
-</section>
-
-<section class="fact-counter-area" style="background-image:url(/images/indexdna.png);">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="single-item text-center">
-                    <h1><span class="timer" data-from="1" data-to="2456" data-speed="5000" data-refresh-interval="50">2456</span></h1>
-                    <span class="border"></span>
-                    <h3>Eczane Sayısı</h3>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="single-item text-center">
-                    <h1><span class="timer" data-from="1" data-to="146" data-speed="5000" data-refresh-interval="50">146</span><i class="fa fa-plus" aria-hidden="true"></i></h1>
-                    <span class="border"></span>
-                    <h3>Kullanıcı Sayısı</h3>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="single-item text-center">
-                    <h1><span class="timer" data-from="1" data-to="853" data-speed="5000" data-refresh-interval="50">853</span><i class="fa fa-plus" aria-hidden="true"></i></h1>
-                    <span class="border"></span>
-                    <h3>İlan Sayısı</h3>
-                </div>
-            </div>
-            <div class="col-md-3 col-sm-6 col-xs-12">
-                <div class="single-item text-center">
-                    <h1><span class="timer" data-from="1" data-to="2381" data-speed="5000" data-refresh-interval="50">2381</span></h1>
-                    <span class="border"></span>
-                    <h3>Tamamlanan Başvurular</h3>
-                </div>
+</section> *@
+<div style="margin-top:50px;">
+    <div class="col-lg-2 col-md-2 col-sm-12 col-xs-12 desktopmargind">
+        <div class="left-sidebar">
+            <!--Start single sidebar-->
+            <div class="single-sidebar" style=" min-width:250px;">
+                <ul class="page-link">
+                    <li>
+                        <a href="@Url.Action("Technician","JobAdvert")">
+                            Teknisyen İlanları
+                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("Intern","JobAdvert")">
+                            Stajyer İlanları
+                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("License","JobAdvert")">
+                            Ruhsat İlanları
+                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="@Url.Action("OtherAds","JobAdvert")">
+                            Diğer İlanlar
+                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
-</section>
+
+    <div class="container" style="margin-top:30px;">
+        <div class="sec-title text-center">
+            <h1>Öne Çıkan İlanlar</h1>
+            <span class="border"></span>
+        </div>
+        <div class="owl-carousel owlitem" id="farmaref">
+            @for (int i = 0; i < 5; i++)
+            {
+                <div class="item" style="margin:0 10px;">
+                    <div style="cursor:pointer;">
+                        <div class="itemborder">
+                            <div style="display:flex; justify-content:center; padding:5px;"><img src="~/images/logoadvert.png"></div>
+                            <div style="background-color:#ff2b58; padding:5px;"><h4 class="text-center">Eyüp İlaç Fabrikası</h4></div>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled
+                            </p>
+                            <div style="display:flex; justify-content:space-between; border-top:1px solid #f4f4f4; padding:10px 5px;">
+                                <h5><b>Sahibi: </b>Enes</h5>
+                                <h5><b>Tarih: </b>22 Ağustos</h5>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
 <section class="video-gallery-area">
     <div class="container">
         <div class="row">
@@ -210,39 +232,11 @@
         </div>
     </div>
 </section>
-<!--Start latest blog area-->
-<div class="container" style="margin-top:30px;">
-    <div class="sec-title text-center">
-        <h1>Öne Çıkan İlanlar</h1>
-        <span class="border"></span>
-    </div>
-    <div class="owl-carousel owlitem" id="farmaref">
-       @for (int i = 0; i < 5; i++)
-        {
-            <div class="item" style="margin:0 10px;">
-                <div style="cursor:pointer;">
-                    <div class="itemborder">
-                        <div style="display:flex; justify-content:center; padding:5px;"><img src="~/images/logoadvert.png"></div>
-                        <div style="background-color:#ff2b58; padding:5px;"><h4 class="text-center">Eyüp İlaç Fabrikası</h4></div>
-                        <p>
-                            Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled 
-                        </p>
-                        <div style="display:flex; justify-content:space-between; border-top:1px solid #f4f4f4; padding:10px 5px;">
-                            <h5><b>Sahibi: </b>Enes</h5>
-                            <h5><b>Tarih: </b>22 Ağustos</h5>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        }
-    </div>
-</div>
 <style>
     .item p {
         text-align: center;
-        padding:15px 10px;
-        word-break:break-word;
+        padding: 15px 10px;
+        word-break: break-word;
     }
 
     .item img {
@@ -333,6 +327,40 @@
         </div>
     </div>
 </section> *@
+<section class="fact-counter-area" style="background-image:url(/images/indexdna.png);">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="single-item text-center">
+                    <h1><span class="timer" data-from="1" data-to="2456" data-speed="5000" data-refresh-interval="50">2456</span></h1>
+                    <span class="border"></span>
+                    <h3>Eczane Sayısı</h3>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="single-item text-center">
+                    <h1><span class="timer" data-from="1" data-to="146" data-speed="5000" data-refresh-interval="50">146</span><i class="fa fa-plus" aria-hidden="true"></i></h1>
+                    <span class="border"></span>
+                    <h3>Kullanıcı Sayısı</h3>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="single-item text-center">
+                    <h1><span class="timer" data-from="1" data-to="853" data-speed="5000" data-refresh-interval="50">853</span><i class="fa fa-plus" aria-hidden="true"></i></h1>
+                    <span class="border"></span>
+                    <h3>İlan Sayısı</h3>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 col-xs-12">
+                <div class="single-item text-center">
+                    <h1><span class="timer" data-from="1" data-to="2381" data-speed="5000" data-refresh-interval="50">2381</span></h1>
+                    <span class="border"></span>
+                    <h3>Tamamlanan Başvurular</h3>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 <section class="video-gallery-area">
     <div class="container">
         <div class="row">
@@ -418,7 +446,7 @@
         </div>
     </div>
 </section> *@
-<section class="brand-area">
+@* <section class="brand-area" style="padding-bottom:0;">
     <div class="container">
         <div class="sec-title">
             <h1>Partnerlerimiz</h1>
@@ -522,6 +550,63 @@
                             <img src="~/slider-images/lilly.jpg">
                         </div>
                     </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section> *@
+<section style="margin:60px 0;">
+    <div class="container-fluid">
+        <div class="container premcon">
+            <div class="row">
+             <div class="sec-title text-center">
+            <h1>İlan Paketlerimiz</h1>
+            <span class="border"></span>
+        </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="premcard card_three text-center">
+                        <div class="title">
+                            <i class="fa fa-paper-plane" aria-hidden="true"></i>
+                            <h2>Başlangıç Paketi</h2>
+                        </div>
+                        <div class="option">
+                            <ul>
+                                <li><i class="fa-sharp fa-solid fa-check"></i>1 İlan Hakkı</li>
+
+                                @*            <li><div style="margin:78px;">&nbsp;</div></li> *@
+                            </ul>
+                        </div>
+                        <a href="@Url.Action("PackageInfo", "Home")">Satın Al</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4 mpremcon">
+                    <div class="premcard card_three text-center">
+                        <div class="title">
+                            <i class="fa fa-plane" aria-hidden="true"></i>
+                            <h2>Gelişmiş Paket</h2>
+                        </div>
+                        <div class="option">
+                            <ul>
+                                <li><i class="fa-sharp fa-solid fa-check"></i>3 İlan Hakkı</li>
+                                @*                    <li><div style="margin:21px;">&nbsp;</div></li> *@
+                            </ul>
+                        </div>
+                        <a href="@Url.Action("PackageInfo", "Home")">Satın Al</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="premcard card_three text-center">
+                        <div class="title">
+                            <i class="fa fa-rocket" aria-hidden="true"></i>
+                            <h2>Sınırsız Paket</h2>
+                        </div>
+                        <div class="option">
+                            <ul>
+                                <li><i class="fa-sharp fa-solid fa-check"></i>Sınırsız İlan Hakkı</li>
+                            </ul>
+                        </div>
+                        <a href="@Url.Action("PackageInfo", "Home")">Satın Al</a>
+                    </div>
                 </div>
             </div>
         </div>
