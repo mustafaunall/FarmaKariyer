@@ -5,6 +5,7 @@ using DataAccess.Context;
 using Domain.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -13,9 +14,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    partial class UserDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231024182659_db_8")]
+    partial class db_8
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -308,10 +310,7 @@ namespace DataAccess.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int?>("AdvertCategoryId")
-                        .HasColumnType("integer");
-
-                    b.Property<int?>("AdvertId")
+                    b.Property<int>("AdvertCategoryId")
                         .HasColumnType("integer");
 
                     b.Property<int>("ApplicationUserId")
@@ -321,9 +320,6 @@ namespace DataAccess.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("OrderStatus")
-                        .HasColumnType("integer");
-
-                    b.Property<int>("OrderType")
                         .HasColumnType("integer");
 
                     b.Property<string>("PayTrOrderId")
@@ -336,8 +332,6 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AdvertCategoryId");
-
-                    b.HasIndex("AdvertId");
 
                     b.HasIndex("ApplicationUserId");
 
@@ -586,19 +580,15 @@ namespace DataAccess.Migrations
                 {
                     b.HasOne("Domain.Model.AdvertCategory", "AdvertCategory")
                         .WithMany()
-                        .HasForeignKey("AdvertCategoryId");
-
-                    b.HasOne("Domain.Model.Advert", "Advert")
-                        .WithMany()
-                        .HasForeignKey("AdvertId");
+                        .HasForeignKey("AdvertCategoryId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("Domain.Model.ApplicationUser", "ApplicationUser")
                         .WithMany()
                         .HasForeignKey("ApplicationUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
-
-                    b.Navigation("Advert");
 
                     b.Navigation("AdvertCategory");
 

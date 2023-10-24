@@ -1,11 +1,9 @@
 ﻿@inject IHttpContextAccessor _httpContextAccessor
 @{
-    ViewBag.Title = "Paytr";
-    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = "Güvenli Ödeme Sistemi";
+    Layout = "~/Views/Shared/_LayoutPharmacy.cshtml";
 }
 
 <script src="https://www.paytr.com/js/iframeResizer.min.js"></script>
 <iframe visible="true" src='@(_httpContextAccessor.HttpContext.Session.GetString("tokenn"))' runat="server" id="paytriframe" frameborder="0" scrolling="no" style="width: 100%; "></iframe>
 <script>iFrameResize({}, '#paytriframe');</script>
-
-

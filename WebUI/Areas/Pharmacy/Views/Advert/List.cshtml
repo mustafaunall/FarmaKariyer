@@ -18,7 +18,7 @@
                                 <div class="col-md-4" style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
 
                                     <!-- Tarih kısmını ortalamak için değişiklik -->
-                                       <h3 style="font-size:18px;">@item.CreateDate.ToString("dd MMMM")</h3>
+                                    <h3 style="font-size:18px;">@item.CreateDate.ToString("dd MMMM")</h3>
                                     <!-- Resim ve Overlay kısmını dikey olarak ortalamak için height kullanılır -->
                                     <div class="pharmacylistp">
 
@@ -37,7 +37,7 @@
                                         </div>
                                     </div>
                                 </div>
-                               
+
 
                                 <div class="col-md-8 padding:0; border:2px solid black;">
                                     <div class="d-flex align-items-center titledescriptionmobilemargintop">
@@ -49,10 +49,10 @@
                                         </div>
                                     </div>
                                     <div>
-                                        <span><span style="font-weight:bold;">Sahibi: </span> @item.ApplicationUser.Name <br/> <span style="font-weight:bold;">Aranan Kategori: </span>@item.Type.GetDescription()</span>
+                                        <span><span style="font-weight:bold;">Sahibi: </span> @item.ApplicationUser.Name <br /> <span style="font-weight:bold;">Aranan Kategori: </span>@item.Type.GetDescription()</span>
                                         <div style="float:right;">
                                             <div>
-                                                <a href="#">
+                                                <a href="/JobAdvert/Detail/@item.Id">
                                                     <span style=" padding:5px 10px; background: #ff2b58; color: #fff;">
                                                         İlanı Gör
                                                     </span>
@@ -61,12 +61,12 @@
                                         </div>
                                     </div>
                                 </div>
-      
-                                    <div style="position:absolute; top:10px; right:20px;">
-                                        <a href="#" data-toggle="modal" data-target="#confirmationModal">
-                                            <i class="fa-regular fa-circle-xmark" style="color:red; font-size:25px;"></i>
-                                        </a>
-                                    </div>
+
+                                <div style="position:absolute; top:10px; right:20px;">
+                                    <a href="#" data-toggle="modal" data-target="#confirmationModal">
+                                        <i class="fa-regular fa-circle-xmark" style="color:red; font-size:25px;"></i>
+                                    </a>
+                                </div>
 
                             </div>
                         }
