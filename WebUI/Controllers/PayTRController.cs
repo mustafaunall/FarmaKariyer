@@ -18,7 +18,7 @@ namespace WebUI.Controllers
 {
     public class PayTRController : BaseController
     {
-        private readonly bool IsLocal = true;
+        private readonly bool IsLocal = false;
         private const float BoostPrice = 250.0f;
 
         private readonly string MerchantId = string.Empty;
