@@ -83,43 +83,10 @@
                             <div class="active tab-pane" id="activity">
                                 <!-- Post -->
                                 <div class="post">
-                                    <div class="user-block">
-                                        <img class="img-circle img-bordered-sm" src="~/user/img/user1-128x128.jpg" alt="user image">
-                                        <span class="username">
-                                            <a href="#" style="color:#ff2b58;">@Model.User.Name @Model.User.Surname</a>
-                                            @*<a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>*@
-                                        </span>
-                                        @*<span class="description">20/04/2023 14:50</span> *@
-                                    </div>
-                                    <!-- /.user-block -->
+                                    <h3><b>Hakkımda</b></h3>
+
                                     <p style="white-space: pre-wrap; word-wrap: break-word; word-break: break-all; overflow-wrap: break-word;">
-                                        @(@"
-
-                                        Maslak Eczanesi olarak, deneyimli ve özverili bir kalfa arıyoruz. Siz de büyüyen ve saygın eczane ekibimizin bir parçası olmak isterseniz, başvurunuz bizim için değerlidir.
-
-                                        Adaylardan Beklenenler:
-
-                                        * En az 2 yıl eczane kalfa deneyimi.
-                                        * İlaç hazırlama, stok kontrolü, ve reçetelerin doğru bir şekilde işlenmesi konularında yetenek.
-                                        * Hasta memnuniyetine odaklanma ve etkili iletişim becerileri.
-                                        * Eczane ekip üyeleri ve müşterilerle profesyonel bir şekilde etkileşimde bulunabilme yeteneği.
-                                        * Eczane yönetimi ve ilaçların güvenli bir şekilde saklanması konularında gerekli bilgi ve becerilere sahip olma.
-                                        * Dikkatli, düzenli ve titiz çalışma alışkanlığı.
-                                        * Hızlı tempoda çalışabilme yeteneği.
-                                        * Bizimle Çalışmanın Avantajları:
-
-                                        * Rekabetçi maaş ve yan haklar.
-                                        * Profesyonel gelişim fırsatları ve eğitimler.
-                                        * Güvenli ve dostça bir çalışma ortamı.
-                                        * Sağlık ve hastalık izni gibi çalışanların refahını destekleyen avantajlar.
-                                        * Başvuru Prosedürü:
-                                        * Başvurunuzu aşağıdaki iletişim bilgileri üzerinden bize ulaştırabilirsiniz:
-
-                                        E-posta: iletisim@maslakeczanesi.com
-                                        Telefon: (212) 123-4567
-                                        Lütfen başvurunuzda güncel bir özgeçmiş ve referanslarınızı da eklemeyi unutmayın. Maslak Eczanesi olarak, ekibimize katılacak deneyimli bir kalfa arayışımızı sabırsızlıkla bekliyoruz. Siz de bu fırsatı kaçırmamak için başvurun!
-
-                                        ")
+                                        @(Model.Resume?.Description ?? string.Empty)
                                     </p>
 
                                     @*    <p>

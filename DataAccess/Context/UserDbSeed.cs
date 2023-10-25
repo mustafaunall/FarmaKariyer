@@ -17,19 +17,19 @@ namespace DataAccess.Context
             {
                 Id = 1,
                 QuotaCount = 1,
-                Price = 150,
+                Price = 500,
             });
             modelBuilder.Entity<AdvertCategory>().HasData(new AdvertCategory()
             {
                 Id = 2,
                 QuotaCount = 3,
-                Price = 380,
+                Price = 1000,
             });
             modelBuilder.Entity<AdvertCategory>().HasData(new AdvertCategory()
             {
                 Id = 3,
                 QuotaCount = -1,
-                Price = 2500,
+                Price = 3000,
             });
         }
     }
