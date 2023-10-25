@@ -50,25 +50,18 @@
                         </div>
                         <ul class="categories clearfix">
                             <li>
-                                <select class="form-control" id="ilseciniz">
-                                    <option value="" disabled selected>İl Seçiniz</option>
-                                    <option value="1">İstanbul</option>
-                                    <option value="1">Antalya</option>
-                                    <option value="1">İzmir</option>
-
+                                <select id="Iller" class="form-control" name="Province">
+                                    <option disabled value="0">İl Seçiniz</option>
                                 </select>
                             </li>
                             <li>
-                                <select class="form-control" id="ilceSeciniz">
-                                    <option value="" disabled selected>İlçe Seçiniz</option>
-                                    <option value="1">Kadıköy</option>
-                                    <option value="1">Eyüp</option>
-                                    <option value="1">Sefaköy</option>
-                                    
+                                <select id="Ilceler" class="form-control" name="District">
+                                    <option disabled value="0">Lütfen Önce bir İl seçiniz</option>
                                 </select>
                             </li>
                         </ul>
                     </div>
+                    <script src="~/scripts/ililce.js" province="0" district="0"></script> <!--il-ilçe-script-->
                     <div class="single-sidebar">
                         <div class="sec-title">
                             <h3>Eczane Kategorisi</h3>
