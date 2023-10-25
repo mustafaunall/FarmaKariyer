@@ -1,0 +1,41 @@
+﻿@using Core.Helper;
+@using Domain.Model;
+@model Advert
+
+
+@if (Model != null)
+{
+    <div class="item" style="margin:0 10px;">
+        <div class="single-blog-post">
+            <div class="img-holder" style="display:flex; justify-content:center;">
+                <img src="images/logoadvert.png" alt="Awesome Image">
+                <div class="published-date" style="top:0; left:0;">
+                    <h3>@Model.CreateDate.ToString("dd MMMM")</h3>
+                </div>
+                <div class="overlay-style-one">
+                </div>
+            </div>
+            <div class="text-holder">
+                <a href="@Url.Action("Detail", "JobAdvert", new { id = Model.Id })">
+                    <h3 class="blog-title text-center">@Model.Title</h3>
+                </a>
+                <div class="text">
+                    <p>@Model.Description</p>
+                </div>
+                <div class="meta-info clearfix" style="margin-left:0;">
+                    <div class="left pull-left">
+                        <ul class="post-info">
+                            <li><a href="#">@Model.ApplicationUser?.Name @Model.ApplicationUser?.Surname</a></li>
+                            <li><a href="#">@(ProvinceHelper.GetProvinceName(Convert.ToInt32(Model.ApplicationUser?.Province ?? "1"))), @Model.ApplicationUser?.District</a></li>
+                        </ul>
+                    </div>
+                    @*   <div class="right pull-right">
+                <a class="post-share" href="#">
+                <i class="fa fa-share-alt" aria-hidden="true"></i>
+                </a>
+                </div> *@
+                </div>
+            </div>
+        </div>
+    </div>
+}

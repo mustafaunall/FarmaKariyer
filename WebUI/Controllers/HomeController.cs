@@ -18,6 +18,10 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
+        var boostedSql = _context.Adverts
+            .Include(x => x.ApplicationUser)
+            .Where(x => x.IsBoosted == true)
+            .AsQueryable();
         HomeVM vm = new()
         {
             Last3Advert = _context.Adverts
@@ -25,9 +29,16 @@ public class HomeController : Controller
             .OrderByDescending(x => x.CreateDate)
             .Take(3)
             .ToList(),
-            BoostedAdverts = _context.Adverts
-            .Where(x => x.IsBoosted == true)
-            .ToList()
+            BoostedAdvertsTechnician = boostedSql
+            .Where(x => x.Type == Domain.Model.Enum.AdvertType.TECHNICIAN).ToList(),
+            BoostedAdvertsDermocosmetic = boostedSql
+            .Where(x => x.Type == Domain.Model.Enum.AdvertType.TECHNICIAN).ToList(),
+            BoostedAdvertsIntern = boostedSql
+            .Where(x => x.Type == Domain.Model.Enum.AdvertType.INTERN).ToList(),
+            BoostedAdvertsLicense = boostedSql
+            .Where(x => x.Type == Domain.Model.Enum.AdvertType.LICENSE).ToList(),
+            BoostedAdvertsOther = boostedSql
+            .Where(x => x.Type == Domain.Model.Enum.AdvertType.OTHER).ToList(),
         };
 
         return View(vm);

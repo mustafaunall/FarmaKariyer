@@ -81,10 +81,7 @@
 <section id="project-area" class="latest-project-area grid-with-text" style="padding:40px 0;">
     <div class="container">
 
-        <div class="sec-title text-center" style="padding-bottom: 10px;">
-            <h1>Öne Çıkan İlanlar</h1>
-            <span class="border"></span>
-        </div>
+
         <style>
             .custom-tab {
                 display: flex;
@@ -150,215 +147,60 @@
             <div class="tab-pane fade in active" id="technician" role="tabpanel" aria-labelledby="technician-tab">
                 @*teknisyen ilanları*@
                 <div class="owl-carousel owlitem farmaref" style="margin-top:30px;">
-                    @for (int i = 0; i < 6; i++)
+                    @if (Model?.BoostedAdvertsTechnician != null)
                     {
-                        <div class="item" style="margin:0 10px;">
-
-                            <div class="single-blog-post">
-                                <div class="img-holder" style="display:flex; justify-content:center;">
-                                    <img src="images/logoadvert.png" alt="Awesome Image">
-                                    <div class="published-date" style="top:0; left:0;">
-                                        <h3>21 Ağustos</h3>
-                                    </div>
-                                    <div class="overlay-style-one">
-                                    </div>
-                                </div>
-                                <div class="text-holder">
-                                    <a href="blog-single.html">
-                                        <h3 class="blog-title text-center">Eyüp İlaç Fabrikası</h3>
-                                    </a>
-                                    <div class="text">
-                                        <p>These men promptly escaped from maximum security stockade to the underground. The Brady Bunch the Brady Bunch.</p>
-                                    </div>
-                                    <div class="meta-info clearfix" style="margin-left:0;">
-                                        <div class="left pull-left">
-                                            <ul class="post-info">
-                                                <li>By <a href="#">Fletcher</a></li>
-                                                <li><a href="#">Finance, Service</a></li>
-                                            </ul>
-                                        </div>
-                                        @*   <div class="right pull-right">
-                                    <a class="post-share" href="#">
-                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
-                                    </a>
-                                    </div> *@
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                        foreach (var item in Model.BoostedAdvertsTechnician)
+                        {
+                            @await Html.PartialAsync("_BoostedAdvertCardPartial", item)
+                        }
                     }
                 </div>
             </div>
             <div class="tab-pane fade" id="dermo" role="tabpanel" aria-labelledby="dermo-tab">
                 @*dermokozmetik elemanı*@
                 <div class="owl-carousel owlitem farmaref" style="margin-top:30px;">
-                    @for (int i = 0; i < 6; i++)
+                    @if (Model?.BoostedAdvertsDermocosmetic != null)
                     {
-                        <div class="item" style="margin:0 10px;">
-
-                            <div class="single-blog-post">
-                                <div class="img-holder" style="display:flex; justify-content:center;">
-                                    <img src="images/logoadvert.png" alt="Awesome Image">
-                                    <div class="published-date" style="top:0; left:0;">
-                                        <h3>21 Ağustos</h3>
-                                    </div>
-                                    <div class="overlay-style-one">
-                                    </div>
-                                </div>
-                                <div class="text-holder">
-                                    <a href="blog-single.html">
-                                        <h3 class="blog-title text-center">Eyüp İlaç Fabrikası</h3>
-                                    </a>
-                                    <div class="text">
-                                        <p>These men promptly escaped from maximum security stockade to the underground. The Brady Bunch the Brady Bunch.</p>
-                                    </div>
-                                    <div class="meta-info clearfix" style="margin-left:0;">
-                                        <div class="left pull-left">
-                                            <ul class="post-info">
-                                                <li>By <a href="#">Fletcher</a></li>
-                                                <li><a href="#">Finance, Service</a></li>
-                                            </ul>
-                                        </div>
-                                        @*   <div class="right pull-right">
-                                    <a class="post-share" href="#">
-                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
-                                    </a>
-                                    </div> *@
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                        foreach (var item in Model.BoostedAdvertsDermocosmetic)
+                        {
+                            @await Html.PartialAsync("_BoostedAdvertCardPartial", item)
+                        }
                     }
                 </div>
             </div>
             <div class="tab-pane fade" id="intern" role="tabpanel" aria-labelledby="intern-tab">
                 @*stajyer ilanları*@
                 <div class="owl-carousel owlitem farmaref" style="margin-top:30px;">
-                    @for (int i = 0; i < 6; i++)
+                    @if (Model?.BoostedAdvertsIntern != null)
                     {
-                        <div class="item" style="margin:0 10px;">
-
-                            <div class="single-blog-post">
-                                <div class="img-holder" style="display:flex; justify-content:center;">
-                                    <img src="images/logoadvert.png" alt="Awesome Image">
-                                    <div class="published-date" style="top:0; left:0;">
-                                        <h3>21 Ağustos</h3>
-                                    </div>
-                                    <div class="overlay-style-one">
-                                    </div>
-                                </div>
-                                <div class="text-holder">
-                                    <a href="blog-single.html">
-                                        <h3 class="blog-title text-center">Eyüp İlaç Fabrikası</h3>
-                                    </a>
-                                    <div class="text">
-                                        <p>These men promptly escaped from maximum security stockade to the underground. The Brady Bunch the Brady Bunch.</p>
-                                    </div>
-                                    <div class="meta-info clearfix" style="margin-left:0;">
-                                        <div class="left pull-left">
-                                            <ul class="post-info">
-                                                <li>By <a href="#">Fletcher</a></li>
-                                                <li><a href="#">Finance, Service</a></li>
-                                            </ul>
-                                        </div>
-                                        @*   <div class="right pull-right">
-                                    <a class="post-share" href="#">
-                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
-                                    </a>
-                                    </div> *@
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                        foreach (var item in Model.BoostedAdvertsIntern)
+                        {
+                            @await Html.PartialAsync("_BoostedAdvertCardPartial", item)
+                        }
                     }
                 </div>
             </div>
             <div class="tab-pane fade" id="license" role="tabpanel" aria-labelledby="license-tab">
                 @*ruhsat ilanları*@
                 <div class="owl-carousel owlitem farmaref" style="margin-top:30px;">
-                    @for (int i = 0; i < 6; i++)
+                    @if (Model?.BoostedAdvertsLicense != null)
                     {
-                        <div class="item" style="margin:0 10px;">
-
-                            <div class="single-blog-post">
-                                <div class="img-holder" style="display:flex; justify-content:center;">
-                                    <img src="images/logoadvert.png" alt="Awesome Image">
-                                    <div class="published-date" style="top:0; left:0;">
-                                        <h3>21 Ağustos</h3>
-                                    </div>
-                                    <div class="overlay-style-one">
-                                    </div>
-                                </div>
-                                <div class="text-holder">
-                                    <a href="blog-single.html">
-                                        <h3 class="blog-title text-center">Eyüp İlaç Fabrikası</h3>
-                                    </a>
-                                    <div class="text">
-                                        <p>These men promptly escaped from maximum security stockade to the underground. The Brady Bunch the Brady Bunch.</p>
-                                    </div>
-                                    <div class="meta-info clearfix" style="margin-left:0;">
-                                        <div class="left pull-left">
-                                            <ul class="post-info">
-                                                <li>By <a href="#">Fletcher</a></li>
-                                                <li><a href="#">Finance, Service</a></li>
-                                            </ul>
-                                        </div>
-                                        @*   <div class="right pull-right">
-                                    <a class="post-share" href="#">
-                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
-                                    </a>
-                                    </div> *@
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                        foreach (var item in Model.BoostedAdvertsLicense)
+                        {
+                            @await Html.PartialAsync("_BoostedAdvertCardPartial", item)
+                        }
                     }
                 </div>
             </div>
             <div class="tab-pane fade" id="otherads" role="tabpanel" aria-labelledby="otherads-tab">
                 @*diğer ilanlar*@
                 <div class="owl-carousel owlitem farmaref" style="margin-top:30px;">
-                    @for (int i = 0; i < 6; i++)
+                    @if (Model?.BoostedAdvertsOther != null)
                     {
-                        <div class="item" style="margin:0 10px;">
-
-                            <div class="single-blog-post">
-                                <div class="img-holder" style="display:flex; justify-content:center;">
-                                    <img src="images/logoadvert.png" alt="Awesome Image">
-                                    <div class="published-date" style="top:0; left:0;">
-                                        <h3>21 Ağustos</h3>
-                                    </div>
-                                    <div class="overlay-style-one">
-                                    </div>
-                                </div>
-                                <div class="text-holder">
-                                    <a href="blog-single.html">
-                                        <h3 class="blog-title text-center">Eyüp İlaç Fabrikası</h3>
-                                    </a>
-                                    <div class="text">
-                                        <p>These men promptly escaped from maximum security stockade to the underground. The Brady Bunch the Brady Bunch.</p>
-                                    </div>
-                                    <div class="meta-info clearfix" style="margin-left:0;">
-                                        <div class="left pull-left">
-                                            <ul class="post-info">
-                                                <li>By <a href="#">Fletcher</a></li>
-                                                <li><a href="#">Finance, Service</a></li>
-                                            </ul>
-                                        </div>
-                                        @*   <div class="right pull-right">
-                                    <a class="post-share" href="#">
-                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
-                                    </a>
-                                    </div> *@
-                                    </div>
-                                </div>
-                            </div>
-
-                        </div>
+                        foreach (var item in Model.BoostedAdvertsOther)
+                        {
+                            @await Html.PartialAsync("_BoostedAdvertCardPartial", item)
+                        }
                     }
                 </div>
             </div>
@@ -394,26 +236,28 @@
     </div>
 </section>
 <style>
-    .single-blog-post .img-holder .published-date{
-        width:33% !important;
-    }
-    .item{
-        width:300px !important;
-    }
-    .item p {
-        text-align: center;
-        word-break: break-word;
+    .single-blog-post .img-holder .published-date {
+        width: 33% !important;
     }
 
-    .item img {
-        width: 125px !important;
-        height: 120px;
+    .item {
+        width: 300px !important;
     }
 
-    .item h4 {
-        color: white;
-        margin-top: 5px;
-    }
+        .item p {
+            text-align: center;
+            word-break: break-word;
+        }
+
+        .item img {
+            width: 125px !important;
+            height: 120px;
+        }
+
+        .item h4 {
+            color: white;
+            margin-top: 5px;
+        }
 </style>
 @section Scripts{
     <script>
@@ -738,7 +582,7 @@
                                 @*            <li><div style="margin:78px;">&nbsp;</div></li> *@
                             </ul>
                         </div>
-                        <a href="@Url.Action("PackageInfo", "Account")">Satın Al</a>
+                        <a href="/Pharmacy/Account/Packages">Satın Al</a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 mpremcon">
@@ -753,7 +597,7 @@
                                 @*                    <li><div style="margin:21px;">&nbsp;</div></li> *@
                             </ul>
                         </div>
-                        <a href="@Url.Action("PackageInfo", "Home")">Satın Al</a>
+                        <a href="/Pharmacy/Account/Packages">Satın Al</a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4">
@@ -767,7 +611,7 @@
                                 <li><i class="fa-sharp fa-solid fa-check"></i>Sınırsız İlan Hakkı</li>
                             </ul>
                         </div>
-                        <a href="@Url.Action("PackageInfo", "Home")">Satın Al</a>
+                        <a href="/Pharmacy/Account/Packages">Satın Al</a>
                     </div>
                 </div>
             </div>

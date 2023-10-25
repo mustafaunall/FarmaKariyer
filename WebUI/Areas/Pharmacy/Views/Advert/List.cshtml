@@ -59,6 +59,18 @@
                                                 </a>
                                             </div>
                                         </div>
+                                        @if (item.IsBoosted == false)
+                                        {
+                                            <div style="float:right;" class="mx-3">
+                                                <div>
+                                                    <a href="/PayTR/Buy?proc=boost&advertId=@item.Id">
+                                                        <span style=" padding:5px 10px; background: #ff2b58; color: #fff;">
+                                                            İlanı Öne Çıkar
+                                                        </span>
+                                                    </a>
+                                                </div>
+                                            </div>
+                                        }
                                     </div>
                                 </div>
 
