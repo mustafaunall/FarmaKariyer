@@ -70,30 +70,17 @@
 *@
 
 <!--Start breadcrumb area-->
-<section class="breadcrumb-area" style="background-image: url(images/resources/breadcrumb-bg.jpg);">
+<section class="breadcrumb-area" style="background-image: url(images/banner2.png);">
     <div class="container text-center">
-        <h1>Grid With Text</h1>
+        <h1><b style="color:#ff2b58;">FarmaKariyer</b>'de Öne Çıkan İlanlar</h1>
     </div>
 </section>
 <!--End breadcrumb area-->
 <!--Start breadcrumb bottom area-->
-<section class="breadcrumb-botton-area">
-    <div class="container">
-        <div class="left pull-left">
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                <li>Grid With Text</li>
-            </ul>
-        </div>
-        <div class="right pull-right">
-            <a href="#"><i class="fa fa-share-alt" aria-hidden="true"></i>Share</a>
-        </div>
-    </div>
-</section>
 
 <section id="project-area" class="latest-project-area grid-with-text" style="padding:40px 0;">
     <div class="container">
+
         <div class="sec-title text-center" style="padding-bottom: 10px;">
             <h1>Öne Çıkan İlanlar</h1>
             <span class="border"></span>
@@ -129,95 +116,255 @@
                 border-color: #ff2b58 !important;
             }
 
-     
-        </style>
+            .nav-item.active a {
+                color: white;
+            }
 
+            .nav-tabs > li.active > a, .nav-tabs > li.active > a:focus, .nav-tabs > li.active > a:hover {
+                background-color: #ff2b58;
+                color: white;
+            }
+        </style>
         <div class="custom-tab">
             <!-- Tab Menüsü -->
             <ul class="nav nav-tabs" id="myTabs" role="tablist">
-                <li class="nav-item active">
-                    <a class="nav-link active" id="allProjects-tab" data-toggle="tab" href="#allProjects" role="tab" aria-controls="allProjects" aria-selected="true" aria-expanded="true">All Projects</a>
+                <li class="nav-item active" style="margin-left:0 !important;">
+                    <a class="nav-link active" id="technician-tab" data-toggle="tab" href="#technician" role="tab" aria-controls="technician" aria-selected="true" aria-expanded="true">Teknisyen İlanları</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="financialService-tab" data-toggle="tab" href="#financialService" role="tab" aria-controls="financialService" aria-selected="false">Financial Service</a>
+                    <a class="nav-link" id="dermo-tab" data-toggle="tab" href="#dermo" role="tab" aria-controls="dermo" aria-selected="false">Dermokozmetik Elemanı</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="industrialGoods-tab" data-toggle="tab" href="#industrialGoods" role="tab" aria-controls="industrialGoods" aria-selected="false">Industrial Goods</a>
+                    <a class="nav-link" id="intern-tab" data-toggle="tab" href="#intern" role="tab" aria-controls="intern" aria-selected="false">Stajyer İlanı</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" id="consultation-tab" data-toggle="tab" href="#consultation" role="tab" aria-controls="consultation" aria-selected="false">Consultation</a>
+                    <a class="nav-link" id="license-tab" data-toggle="tab" href="#license" role="tab" aria-controls="license" aria-selected="false">Ruhsat İlanları</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" id="transportation-tab" data-toggle="tab" href="#transportation" role="tab" aria-controls="transportation" aria-selected="false">Transportation</a>
+                <li class="nav-item" style="margin-right:0 !important;">
+                    <a class="nav-link" id="otherads-tab" data-toggle="tab" href="#otherads" role="tab" aria-controls="otherads" aria-selected="false">Diğer İlanlar</a>
                 </li>
             </ul>
         </div>
-
         <!-- Tab İçerikleri -->
-        <div class="tab-content" id="myTabContent">
-            <div class="tab-pane fade in active" id="allProjects" role="tabpanel" aria-labelledby="allProjects-tab">
-                <div class="container" style="margin-top:30px;">
-                  
-                    <div class="owl-carousel owlitem" id="farmaref">
-                        @for (int i = 0; i < 2; i++)
-                        {
-                            <div class="item" style="margin:0 10px;">
+        <div class="tab-content" id="myTabContent" style="    height: 375px;">
+            <div class="tab-pane fade in active" id="technician" role="tabpanel" aria-labelledby="technician-tab">
+                @*teknisyen ilanları*@
+                <div class="owl-carousel owlitem farmaref" style="margin-top:30px;">
+                    @for (int i = 0; i < 6; i++)
+                    {
+                        <div class="item" style="margin:0 10px;">
 
-                                <div class="single-blog-post">
-                                    <div class="img-holder" style="display:flex; justify-content:center;">
-                                        <img src="images/logoadvert.png" alt="Awesome Image">
-                                        <div class="published-date" style="top:0; left:0;">
-                                            <h3>21 Aug</h3>
-                                        </div>
-                                        <div class="overlay-style-one">
-                                 
-                                        </div>
+                            <div class="single-blog-post">
+                                <div class="img-holder" style="display:flex; justify-content:center;">
+                                    <img src="images/logoadvert.png" alt="Awesome Image">
+                                    <div class="published-date" style="top:0; left:0;">
+                                        <h3>21 Ağustos</h3>
                                     </div>
-                                    <div class="text-holder">
-                                        <a href="blog-single.html">
-                                            <h3 class="blog-title text-center">Eyüp İlaç Fabrikası</h3>
-                                        </a>
-                                        <div class="text">
-                                            <p>These men promptly escaped from maximum security stockade to the underground. The Brady Bunch the Brady Bunch.</p>
-                                        </div>
-                                        <div class="meta-info clearfix" style="margin-left:0;">
-                                            <div class="left pull-left">
-                                                <ul class="post-info">
-                                                    <li>By <a href="#">Fletcher</a></li>
-                                                    <li><a href="#">Finance, Service</a></li>
-                                                </ul>
-                                            </div>
-                                          @*   <div class="right pull-right">
-                                                <a class="post-share" href="#">
-                                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
-                                                </a>
-                                            </div> *@
-                                        </div>
+                                    <div class="overlay-style-one">
                                     </div>
                                 </div>
-
+                                <div class="text-holder">
+                                    <a href="blog-single.html">
+                                        <h3 class="blog-title text-center">Eyüp İlaç Fabrikası</h3>
+                                    </a>
+                                    <div class="text">
+                                        <p>These men promptly escaped from maximum security stockade to the underground. The Brady Bunch the Brady Bunch.</p>
+                                    </div>
+                                    <div class="meta-info clearfix" style="margin-left:0;">
+                                        <div class="left pull-left">
+                                            <ul class="post-info">
+                                                <li>By <a href="#">Fletcher</a></li>
+                                                <li><a href="#">Finance, Service</a></li>
+                                            </ul>
+                                        </div>
+                                        @*   <div class="right pull-right">
+                                    <a class="post-share" href="#">
+                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                    </a>
+                                    </div> *@
+                                    </div>
+                                </div>
                             </div>
-                        }
-                    </div>
+
+                        </div>
+                    }
                 </div>
             </div>
-            <div class="tab-pane fade" id="financialService" role="tabpanel" aria-labelledby="financialService-tab">
-                Financial Service İçeriği Burada
+            <div class="tab-pane fade" id="dermo" role="tabpanel" aria-labelledby="dermo-tab">
+                @*dermokozmetik elemanı*@
+                <div class="owl-carousel owlitem farmaref" style="margin-top:30px;">
+                    @for (int i = 0; i < 6; i++)
+                    {
+                        <div class="item" style="margin:0 10px;">
+
+                            <div class="single-blog-post">
+                                <div class="img-holder" style="display:flex; justify-content:center;">
+                                    <img src="images/logoadvert.png" alt="Awesome Image">
+                                    <div class="published-date" style="top:0; left:0;">
+                                        <h3>21 Ağustos</h3>
+                                    </div>
+                                    <div class="overlay-style-one">
+                                    </div>
+                                </div>
+                                <div class="text-holder">
+                                    <a href="blog-single.html">
+                                        <h3 class="blog-title text-center">Eyüp İlaç Fabrikası</h3>
+                                    </a>
+                                    <div class="text">
+                                        <p>These men promptly escaped from maximum security stockade to the underground. The Brady Bunch the Brady Bunch.</p>
+                                    </div>
+                                    <div class="meta-info clearfix" style="margin-left:0;">
+                                        <div class="left pull-left">
+                                            <ul class="post-info">
+                                                <li>By <a href="#">Fletcher</a></li>
+                                                <li><a href="#">Finance, Service</a></li>
+                                            </ul>
+                                        </div>
+                                        @*   <div class="right pull-right">
+                                    <a class="post-share" href="#">
+                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                    </a>
+                                    </div> *@
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+                </div>
             </div>
-            <div class="tab-pane fade" id="industrialGoods" role="tabpanel" aria-labelledby="industrialGoods-tab">
-                Industrial Goods İçeriği Burada
+            <div class="tab-pane fade" id="intern" role="tabpanel" aria-labelledby="intern-tab">
+                @*stajyer ilanları*@
+                <div class="owl-carousel owlitem farmaref" style="margin-top:30px;">
+                    @for (int i = 0; i < 6; i++)
+                    {
+                        <div class="item" style="margin:0 10px;">
+
+                            <div class="single-blog-post">
+                                <div class="img-holder" style="display:flex; justify-content:center;">
+                                    <img src="images/logoadvert.png" alt="Awesome Image">
+                                    <div class="published-date" style="top:0; left:0;">
+                                        <h3>21 Ağustos</h3>
+                                    </div>
+                                    <div class="overlay-style-one">
+                                    </div>
+                                </div>
+                                <div class="text-holder">
+                                    <a href="blog-single.html">
+                                        <h3 class="blog-title text-center">Eyüp İlaç Fabrikası</h3>
+                                    </a>
+                                    <div class="text">
+                                        <p>These men promptly escaped from maximum security stockade to the underground. The Brady Bunch the Brady Bunch.</p>
+                                    </div>
+                                    <div class="meta-info clearfix" style="margin-left:0;">
+                                        <div class="left pull-left">
+                                            <ul class="post-info">
+                                                <li>By <a href="#">Fletcher</a></li>
+                                                <li><a href="#">Finance, Service</a></li>
+                                            </ul>
+                                        </div>
+                                        @*   <div class="right pull-right">
+                                    <a class="post-share" href="#">
+                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                    </a>
+                                    </div> *@
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+                </div>
             </div>
-            <div class="tab-pane fade" id="consultation" role="tabpanel" aria-labelledby="consultation-tab">
-                Consultation İçeriği Burada
+            <div class="tab-pane fade" id="license" role="tabpanel" aria-labelledby="license-tab">
+                @*ruhsat ilanları*@
+                <div class="owl-carousel owlitem farmaref" style="margin-top:30px;">
+                    @for (int i = 0; i < 6; i++)
+                    {
+                        <div class="item" style="margin:0 10px;">
+
+                            <div class="single-blog-post">
+                                <div class="img-holder" style="display:flex; justify-content:center;">
+                                    <img src="images/logoadvert.png" alt="Awesome Image">
+                                    <div class="published-date" style="top:0; left:0;">
+                                        <h3>21 Ağustos</h3>
+                                    </div>
+                                    <div class="overlay-style-one">
+                                    </div>
+                                </div>
+                                <div class="text-holder">
+                                    <a href="blog-single.html">
+                                        <h3 class="blog-title text-center">Eyüp İlaç Fabrikası</h3>
+                                    </a>
+                                    <div class="text">
+                                        <p>These men promptly escaped from maximum security stockade to the underground. The Brady Bunch the Brady Bunch.</p>
+                                    </div>
+                                    <div class="meta-info clearfix" style="margin-left:0;">
+                                        <div class="left pull-left">
+                                            <ul class="post-info">
+                                                <li>By <a href="#">Fletcher</a></li>
+                                                <li><a href="#">Finance, Service</a></li>
+                                            </ul>
+                                        </div>
+                                        @*   <div class="right pull-right">
+                                    <a class="post-share" href="#">
+                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                    </a>
+                                    </div> *@
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+                </div>
             </div>
-            <div class="tab-pane fade" id="transportation" role="tabpanel" aria-labelledby="transportation-tab">
-                Transportation İçeriği Burada
+            <div class="tab-pane fade" id="otherads" role="tabpanel" aria-labelledby="otherads-tab">
+                @*diğer ilanlar*@
+                <div class="owl-carousel owlitem farmaref" style="margin-top:30px;">
+                    @for (int i = 0; i < 6; i++)
+                    {
+                        <div class="item" style="margin:0 10px;">
+
+                            <div class="single-blog-post">
+                                <div class="img-holder" style="display:flex; justify-content:center;">
+                                    <img src="images/logoadvert.png" alt="Awesome Image">
+                                    <div class="published-date" style="top:0; left:0;">
+                                        <h3>21 Ağustos</h3>
+                                    </div>
+                                    <div class="overlay-style-one">
+                                    </div>
+                                </div>
+                                <div class="text-holder">
+                                    <a href="blog-single.html">
+                                        <h3 class="blog-title text-center">Eyüp İlaç Fabrikası</h3>
+                                    </a>
+                                    <div class="text">
+                                        <p>These men promptly escaped from maximum security stockade to the underground. The Brady Bunch the Brady Bunch.</p>
+                                    </div>
+                                    <div class="meta-info clearfix" style="margin-left:0;">
+                                        <div class="left pull-left">
+                                            <ul class="post-info">
+                                                <li>By <a href="#">Fletcher</a></li>
+                                                <li><a href="#">Finance, Service</a></li>
+                                            </ul>
+                                        </div>
+                                        @*   <div class="right pull-right">
+                                    <a class="post-share" href="#">
+                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                    </a>
+                                    </div> *@
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    }
+                </div>
             </div>
         </div>
-
     </div>
 </section>
-
 <section class="video-gallery-area">
     <div class="container">
         <div class="row">
@@ -247,13 +394,19 @@
     </div>
 </section>
 <style>
+    .single-blog-post .img-holder .published-date{
+        width:33% !important;
+    }
+    .item{
+        width:300px !important;
+    }
     .item p {
         text-align: center;
         word-break: break-word;
     }
 
     .item img {
-        width: 130px !important;
+        width: 125px !important;
         height: 120px;
     }
 
@@ -264,7 +417,7 @@
 </style>
 @section Scripts{
     <script>
-        var owl = $('#farmaref');
+        var owl = $('.farmaref');
         owl.owlCarousel({
             loop: true,
             dots: false,
@@ -279,7 +432,7 @@
                     items: 2
                 },
                 1000: {
-                    items: 4
+                    items: 3
                 }
             }
         });
