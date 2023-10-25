@@ -66,8 +66,8 @@
             }
         </div>
     </div>
-</div> *@
-
+</div>
+*@
 
 <!--Start breadcrumb area-->
 <section class="breadcrumb-area" style="background-image: url(images/resources/breadcrumb-bg.jpg);">
@@ -91,310 +91,133 @@
         </div>
     </div>
 </section>
-<!--End breadcrumb bottom area-->
-<!--Start Project grid with text area-->
-<section id="project-area" class="latest-project-area grid-with-text">
+
+<section id="project-area" class="latest-project-area grid-with-text" style="padding:40px 0;">
     <div class="container">
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="project-filter post-filter text-center">
-                    <li class="active" data-filter=".filter-item"><span>All Projects</span></li>
-                    <li data-filter=".financial"><span>Financial Service</span></li>
-                    <li data-filter=".industrial"><span>Industrial Goods</span></li>
-                    <li data-filter=".consultation"><span>Consultation</span></li>
-                    <li data-filter=".transportation"><span>Transportation</span></li>
-                </ul>
+        <div class="sec-title text-center" style="padding-bottom: 10px;">
+            <h1>Öne Çıkan İlanlar</h1>
+            <span class="border"></span>
+        </div>
+        <style>
+            .custom-tab {
+                display: flex;
+                justify-content: center;
+                margin-top: 20px;
+            }
+
+                .custom-tab .nav-item {
+                    margin: 0 10px;
+                }
+
+            .tab-pane {
+                margin-top: 50px;
+            }
+
+            .custom-tab .nav-link {
+                border: 1px solid #dcdcdc;
+                border-radius: 0;
+                color: #333;
+                transition: 0.3s;
+            }
+
+                .custom-tab .nav-link:hover {
+                    background-color: #ff2b58;
+                    color: white;
+                }
+
+            .nav-tabs {
+                border-color: #ff2b58 !important;
+            }
+
+     
+        </style>
+
+        <div class="custom-tab">
+            <!-- Tab Menüsü -->
+            <ul class="nav nav-tabs" id="myTabs" role="tablist">
+                <li class="nav-item active">
+                    <a class="nav-link active" id="allProjects-tab" data-toggle="tab" href="#allProjects" role="tab" aria-controls="allProjects" aria-selected="true" aria-expanded="true">All Projects</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="financialService-tab" data-toggle="tab" href="#financialService" role="tab" aria-controls="financialService" aria-selected="false">Financial Service</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="industrialGoods-tab" data-toggle="tab" href="#industrialGoods" role="tab" aria-controls="industrialGoods" aria-selected="false">Industrial Goods</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="consultation-tab" data-toggle="tab" href="#consultation" role="tab" aria-controls="consultation" aria-selected="false">Consultation</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="transportation-tab" data-toggle="tab" href="#transportation" role="tab" aria-controls="transportation" aria-selected="false">Transportation</a>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Tab İçerikleri -->
+        <div class="tab-content" id="myTabContent">
+            <div class="tab-pane fade in active" id="allProjects" role="tabpanel" aria-labelledby="allProjects-tab">
+                <div class="container" style="margin-top:30px;">
+                  
+                    <div class="owl-carousel owlitem" id="farmaref">
+                        @for (int i = 0; i < 2; i++)
+                        {
+                            <div class="item" style="margin:0 10px;">
+
+                                <div class="single-blog-post">
+                                    <div class="img-holder" style="display:flex; justify-content:center;">
+                                        <img src="images/logoadvert.png" alt="Awesome Image">
+                                        <div class="published-date" style="top:0; left:0;">
+                                            <h3>21 Aug</h3>
+                                        </div>
+                                        <div class="overlay-style-one">
+                                 
+                                        </div>
+                                    </div>
+                                    <div class="text-holder">
+                                        <a href="blog-single.html">
+                                            <h3 class="blog-title text-center">Eyüp İlaç Fabrikası</h3>
+                                        </a>
+                                        <div class="text">
+                                            <p>These men promptly escaped from maximum security stockade to the underground. The Brady Bunch the Brady Bunch.</p>
+                                        </div>
+                                        <div class="meta-info clearfix" style="margin-left:0;">
+                                            <div class="left pull-left">
+                                                <ul class="post-info">
+                                                    <li>By <a href="#">Fletcher</a></li>
+                                                    <li><a href="#">Finance, Service</a></li>
+                                                </ul>
+                                            </div>
+                                          @*   <div class="right pull-right">
+                                                <a class="post-share" href="#">
+                                                    <i class="fa fa-share-alt" aria-hidden="true"></i>
+                                                </a>
+                                            </div> *@
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
+            <div class="tab-pane fade" id="financialService" role="tabpanel" aria-labelledby="financialService-tab">
+                Financial Service İçeriği Burada
+            </div>
+            <div class="tab-pane fade" id="industrialGoods" role="tabpanel" aria-labelledby="industrialGoods-tab">
+                Industrial Goods İçeriği Burada
+            </div>
+            <div class="tab-pane fade" id="consultation" role="tabpanel" aria-labelledby="consultation-tab">
+                Consultation İçeriği Burada
+            </div>
+            <div class="tab-pane fade" id="transportation" role="tabpanel" aria-labelledby="transportation-tab">
+                Transportation İçeriği Burada
             </div>
         </div>
-        <div class="row project-content masonary-layout filter-layout">
-            <!--Start single project-->
-            <div class="col-md-4 col-sm-12 col-xs-12 filter-item industrial financial transportation">
-                <div class="single-project text-center">
-                    <div class="outer-img-box">
-                        <div class="img-holder">
-                            <img src="images/project/v3-1.jpg" alt="Awesome Image">
-                            <div class="overlay-style-one">
-                                <div class="box">
-                                    <div class="content">
-                                        <ul>
-                                            <li>
-                                                <a href="project-single.html"><i class="fa fa-link"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="images/project/v3-1.jpg" data-rel="prettyPhoto" title="Assurance Project"><i class="fa fa-search-plus"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="title-holder">
-                        <a href="project-single.html">
-                            <h5>Consumer Products</h5>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!--End single project-->
-            <!--Start single project-->
-            <div class="col-md-4 col-sm-12 col-xs-12 filter-item consultation consultation">
-                <div class="single-project text-center">
-                    <div class="outer-img-box">
-                        <div class="img-holder">
-                            <img src="images/project/v3-2.jpg" alt="Awesome Image">
-                            <div class="overlay-style-one">
-                                <div class="box">
-                                    <div class="content">
-                                        <ul>
-                                            <li>
-                                                <a href="project-single.html"><i class="fa fa-link"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="images/project/v3-2.jpg" data-rel="prettyPhoto" title="Assurance Project"><i class="fa fa-search-plus"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="title-holder">
-                        <a href="project-single.html">
-                            <h5>Financial Income</h5>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!--End single project-->
-            <!--Start single project-->
-            <div class="col-md-4 col-sm-12 col-xs-12 filter-item industrial consultation transportation">
-                <div class="single-project text-center">
-                    <div class="outer-img-box">
-                        <div class="img-holder">
-                            <img src="images/project/v3-3.jpg" alt="Awesome Image">
-                            <div class="overlay-style-one">
-                                <div class="box">
-                                    <div class="content">
-                                        <ul>
-                                            <li>
-                                                <a href="project-single.html"><i class="fa fa-link"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="images/project/v3-3.jpg" data-rel="prettyPhoto" title="Assurance Project"><i class="fa fa-search-plus"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="title-holder">
-                        <a href="project-single.html">
-                            <h5>Business Growth</h5>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!--End single project-->
-            <!--Start single project-->
-            <div class="col-md-4 col-sm-12 col-xs-12 filter-item industrial financial">
-                <div class="single-project text-center">
-                    <div class="outer-img-box">
-                        <div class="img-holder">
-                            <img src="images/project/v3-4.jpg" alt="Awesome Image">
-                            <div class="overlay-style-one">
-                                <div class="box">
-                                    <div class="content">
-                                        <ul>
-                                            <li>
-                                                <a href="project-single.html"><i class="fa fa-link"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="images/project/v3-4.jpg" data-rel="prettyPhoto" title="Assurance Project"><i class="fa fa-search-plus"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="title-holder">
-                        <a href="project-single.html">
-                            <h5>Strategy & Development</h5>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!--End single project-->
-            <!--Start single project-->
-            <div class="col-md-4 col-sm-12 col-xs-12 filter-item financial transportation consultation">
-                <div class="single-project text-center">
-                    <div class="outer-img-box">
-                        <div class="img-holder">
-                            <img src="images/project/v3-5.jpg" alt="Awesome Image">
-                            <div class="overlay-style-one">
-                                <div class="box">
-                                    <div class="content">
-                                        <ul>
-                                            <li>
-                                                <a href="project-single.html"><i class="fa fa-link"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="images/project/v3-5.jpg" data-rel="prettyPhoto" title="Assurance Project"><i class="fa fa-search-plus"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="title-holder">
-                        <a href="project-single.html">
-                            <h5>International Meet</h5>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!--End single project-->
-            <!--Start single project-->
-            <div class="col-md-4 col-sm-12 col-xs-12 filter-item consulting consultation">
-                <div class="single-project text-center">
-                    <div class="outer-img-box">
-                        <div class="img-holder">
-                            <img src="images/project/v3-6.jpg" alt="Awesome Image">
-                            <div class="overlay-style-one">
-                                <div class="box">
-                                    <div class="content">
-                                        <ul>
-                                            <li>
-                                                <a href="project-single.html"><i class="fa fa-link"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="images/project/v3-6.jpg" data-rel="prettyPhoto" title="Assurance Project"><i class="fa fa-search-plus"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="title-holder">
-                        <a href="project-single.html">
-                            <h5>Employees Skills</h5>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!--End single project-->
-            <!--Start single project-->
-            <div class="col-md-4 col-sm-12 col-xs-12 filter-item consulting transportation">
-                <div class="single-project text-center">
-                    <div class="outer-img-box">
-                        <div class="img-holder">
-                            <img src="images/project/v3-7.jpg" alt="Awesome Image">
-                            <div class="overlay-style-one">
-                                <div class="box">
-                                    <div class="content">
-                                        <ul>
-                                            <li>
-                                                <a href="project-single.html"><i class="fa fa-link"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="images/project/v3-7.jpg" data-rel="prettyPhoto" title="Assurance Project"><i class="fa fa-search-plus"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="title-holder">
-                        <a href="project-single.html">
-                            <h5>Strategy & Development</h5>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!--End single project-->
-            <!--Start single project-->
-            <div class="col-md-4 col-sm-12 col-xs-12 filter-item consulting industrial">
-                <div class="single-project text-center">
-                    <div class="outer-img-box">
-                        <div class="img-holder">
-                            <img src="images/project/v3-8.jpg" alt="Awesome Image">
-                            <div class="overlay-style-one">
-                                <div class="box">
-                                    <div class="content">
-                                        <ul>
-                                            <li>
-                                                <a href="project-single.html"><i class="fa fa-link"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="images/project/v3-8.jpg" data-rel="prettyPhoto" title="Assurance Project"><i class="fa fa-search-plus"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="title-holder">
-                        <a href="project-single.html">
-                            <h5>International Meet</h5>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!--End single project-->
-            <!--Start single project-->
-            <div class="col-md-4 col-sm-12 col-xs-12 filter-item consulting industrial transportation">
-                <div class="single-project text-center">
-                    <div class="outer-img-box">
-                        <div class="img-holder">
-                            <img src="images/project/v3-9.jpg" alt="Awesome Image">
-                            <div class="overlay-style-one">
-                                <div class="box">
-                                    <div class="content">
-                                        <ul>
-                                            <li>
-                                                <a href="project-single.html"><i class="fa fa-link"></i></a>
-                                            </li>
-                                            <li>
-                                                <a href="images/project/v3-9.jpg" data-rel="prettyPhoto" title="Assurance Project"><i class="fa fa-search-plus"></i></a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="title-holder">
-                        <a href="project-single.html">
-                            <h5>Employees Skills</h5>
-                        </a>
-                    </div>
-                </div>
-            </div>
-            <!--End single project-->
-        </div>
-        <div class="row">
-            <div class="col-md-12">
-                <ul class="post-pagination text-center">
-                    <li><a href="#"><i class="fa fa-caret-left" aria-hidden="true"></i></a></li>
-                    <li class="active"><a href="#">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">3</a></li>
-                    <li><a href="#"><i class="fa fa-caret-right" aria-hidden="true"></i></a></li>
-                </ul>
-            </div>
-        </div>
+
     </div>
 </section>
-<!--End Project grid with text area-->
-@*
 
-*@
 <section class="video-gallery-area">
     <div class="container">
         <div class="row">
@@ -426,22 +249,17 @@
 <style>
     .item p {
         text-align: center;
-        padding: 15px 10px;
         word-break: break-word;
     }
 
     .item img {
-        width: 170px !important;
+        width: 130px !important;
         height: 120px;
     }
 
     .item h4 {
         color: white;
         margin-top: 5px;
-    }
-
-    .itemborder {
-        border: 0.5px solid #ff2b58;
     }
 </style>
 @section Scripts{
@@ -750,10 +568,10 @@
     <div class="container-fluid">
         <div class="container premcon">
             <div class="row">
-             <div class="sec-title text-center">
-            <h1>İlan Paketlerimiz</h1>
-            <span class="border"></span>
-        </div>
+                <div class="sec-title text-center">
+                    <h1>İlan Paketlerimiz</h1>
+                    <span class="border"></span>
+                </div>
                 <div class="col-md-4 col-sm-4">
                     <div class="premcard card_three text-center">
                         <div class="title">

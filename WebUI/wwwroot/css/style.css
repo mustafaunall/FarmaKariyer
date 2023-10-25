@@ -1466,8 +1466,8 @@ select:focus {
     border-left: 1px solid #f4f4f4;
     border-right: 1px solid #f4f4f4;
     border-bottom: 1px solid #f4f4f4;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
     padding-top: 26px;
     transition: all 500ms ease;
     position: relative;
@@ -5280,7 +5280,7 @@ select:focus {
     display: inline-block;
     margin: 0 5.5px;
 }
-#project-area .project-filter li span {
+#project-area .project-filter li span{
     background: #ffffff;
     border: 2px solid #f4f4f4;
     color: #222222;
@@ -5298,16 +5298,22 @@ select:focus {
     -ms-transition: all 500ms ease;
     -o-transition: all 500ms ease;
 }
-#project-area .project-filter li.active span, 
-#project-area .project-filter li:hover span {
-    background: #ff2b58;
-    color: #ffffff;
-    border-color: #ff2b58;
-}
-.single-project-item.span-3 {
-    float: left;
-    width: 25%;
-}
+    #project-area .project-filter li span a {
+        color: #ff2b58;
+    }
+    #project-area .project-filter li.active span,
+    #project-area .project-filter li:hover span{
+        background: #ff2b58;
+        color: #ffffff;
+        border-color: #ff2b58;
+    }
+    #project-area .project-filter li:hover a {
+        color: #ffffff;
+    }
+        .single-project-item.span-3 {
+            float: left;
+            width: 25%;
+        }
 .single-project-item {
 
 }
@@ -5893,3 +5899,4 @@ select:focus {
         height:10px !important;
     }
 }
+
