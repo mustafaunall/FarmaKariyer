@@ -26,13 +26,13 @@
 
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
-                                <b>İlan Sayısı</b> <a class="float-right" style="color:#ff2b58;">10</a>
+                                <b>İlan Sayısı</b> <a class="float-right" style="color:#ff2b58;">@Model.AdvertCount</a>
                             </li>
                             <li class="list-group-item">
-                                <b>Toplam Gelen Başvurular</b> <a class="float-right" style="color:#ff2b58;">120</a>
+                                <b>Toplam Gelen Başvurular</b> <a class="float-right" style="color:#ff2b58;">@Model.TotalApplyCount</a>
                             </li>
                             <li class="list-group-item">
-                                <b>İlanlara Gelen Ortalama Başvurular</b> <a class="float-right" style="color:#ff2b58;">19</a>
+                                <b>İlanlara Gelen Ortalama Başvurular</b> <a class="float-right" style="color:#ff2b58;">@Model.AverageApplyCount</a>
                             </li>
                         </ul>
                     </div>
@@ -49,16 +49,16 @@
                         <strong><i class="fas fa-book mr-1"></i>Eğitim</strong>
 
                         <p class="text-muted">
-                            Knoxville'deki Tennessee Üniversitesi'nden Bilgisayar Bilimleri alanında lisans derecesi
+                            @(Model.User.SchoolName ?? "Belirtilmedi") @(string.IsNullOrEmpty(Model.User.EducationStatus) ? "" : $"- {Model.User.EducationStatus}")
                         </p>
 
                         <hr>
 
                         <strong><i class="fas fa-map-marker-alt mr-1"></i>Adres</strong>
-                        <p class="text-muted">GLN Numarası: @Model.User.GLNCode</p>
-                        <p class="text-muted">Konum: @ProvinceHelper.GetProvinceName(Convert.ToInt32(Model.User.Province)), @Model.User.District</p>
-                        <p class="text-muted">Telefon: @Model.User.PhoneNumber</p>
-                        <p class="text-muted">E-Posta: @Model.User.Email</p>
+                        <p class="text-muted"><b>GLN Numarası:</b> @Model.User.GLNCode</p>
+                        <p class="text-muted"><b>Konum:</b> @ProvinceHelper.GetProvinceName(Convert.ToInt32(Model.User.Province)), @Model.User.District</p>
+                        <p class="text-muted"><b>Telefon:</b> @Model.User.PhoneNumber</p>
+                        <p class="text-muted"><b>E-Posta:</b> @Model.User.Email</p>
                         <hr>
                         @if (!string.IsNullOrEmpty(Model.User.Certificates))
                         {
