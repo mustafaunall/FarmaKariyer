@@ -12,12 +12,14 @@ using System.Globalization;
 using WebUI.Extensions;
 using DataAccess.Context;
 using Domain.Model;
+using IdentityServer4.Extensions;
 
 namespace WebUI.Controllers
 {
     public class PayTRController : BaseController
     {
-        private readonly bool IsLocal = true;
+        private readonly bool IsLocal = false;
+        private const float BoostPrice = 250.0f;
 
         private readonly string MerchantId = string.Empty;
         private readonly string MerchantKey = string.Empty;
@@ -62,41 +64,57 @@ namespace WebUI.Controllers
             return url;
         }
 
-        public IActionResult SatinAl(
-            [FromQuery] string? tutar
+        //public IActionResult SatinAl(
+        //    [FromQuery] string? islem,
+        //    [FromQuery] string? kategori,
+        //    [FromQuery] string? ilan
+        //    )
+        //{
+
+        //    if (
+        //        string.IsNullOrEmpty(islem)
+        //        || string.IsNullOrEmpty(kategori)
+        //        || string.IsNullOrEmpty(ilan)
+        //        )
+        //        return BadRequest();
+
+        //    TempData["islem"] = islem;
+        //    TempData["kategori"] = kategori;
+        //    TempData["ilan"] = ilan;
+        //    TempData.Keep();
+        //    return RedirectToAction(nameof(Paytr));
+        //}
+
+        public async Task<IActionResult> Buy(
+            [FromQuery] string? proc,
+            [FromQuery] int? categoryId,
+            [FromQuery] int? advertId
             )
-        {
-
-            if (
-                string.IsNullOrEmpty(tutar)
-                )
-                return BadRequest();
-
-            TempData["tutar"] = tutar;
-            TempData.Keep();
-            return RedirectToAction(nameof(Paytr));
-        }
-
-        public async Task<IActionResult> Paytr()
         {
             var url = GetURL();
             ViewBag.Session = HttpContext.Session.GetString("tokenn");
-            string tutarStr = TempData["tutar"]?.ToString() ?? "0";
+
+            float ucret = 0;
+            if (proc == "advert")
+            {
+                var advertCategory = _userContext.AdvertCategories.FirstOrDefault(x => x.Id == categoryId);
+                ucret = advertCategory!.Price;
+            }
+            else if (proc == "boost")
+            {
+                ucret = BoostPrice;
+            }
+
+
+            if (ucret == 0)
+                return BadRequest("Fiyat 0 (sıfır) olamaz! PayTR sisteminde geçici bir hata olduğu gözlemleniyor, lütfen yöneticiye başvurun.");
+
             TempData.Keep();
-            string aciklama = "FarmaKariyer Dijital Ürün Karşılığı Hizmet";
 
             var u = await _userManager.GetUserAsync(User);
             var user = await _userManager.Users
                 .SingleAsync(x => x.Email == u.Email);
 
-            if (
-                string.IsNullOrEmpty(tutarStr)
-                || string.IsNullOrEmpty(aciklama)
-                )
-                //return Redirect("/Home");
-                return BadRequest();
-
-            float? price = float.Parse(tutarStr, CultureInfo.InvariantCulture);
             // ####################### DÜZENLEMESİ ZORUNLU ALANLAR #######################
             //
             // API Entegrasyon Bilgileri - Mağaza paneline giriş yaparak BİLGİ sayfasından alabilirsiniz.
@@ -110,21 +128,32 @@ namespace WebUI.Controllers
             string tel = user.PhoneNumber;
             //
             // Tahsil edilecek tutar. 9.99 için 9.99 * 100 = 999 gönderilmelidir.
-            float? payment_amountstrFloat = price * 100;
+            float? payment_amountstrFloat = ucret * 100;
             int payment_amountstr = Convert.ToInt32(payment_amountstrFloat);
             //
             // Sipariş numarası: Her işlemde benzersiz olmalıdır!! Bu bilgi bildirim sayfanıza yapılacak bildirimde geri gönderilir.
             Random rand = new Random();
             var rand1 = rand.Next(50000000, 100000000);
             string merchant_oid = (rand1).ToString();
-            await _userContext.Orders.AddAsync(new Order
+            var order = new Order
             {
                 ApplicationUserId = user.Id,
                 Date = DateTime.Now,
-                Price = (float)price,
+                Price = ucret,
                 PayTrOrderId = merchant_oid,
                 OrderStatus = OrderStatusType.CREATED,
-            });
+            };
+            if (proc == "advert")
+            {
+                order.AdvertCategoryId = categoryId;
+                order.OrderType = OrderTypeEnum.ADDQUOTA;
+            }
+            else if (proc == "boost")
+            {
+                order.AdvertId = advertId;
+                order.OrderType = OrderTypeEnum.BOOST;
+            }
+            await _userContext.Orders.AddAsync(order);
             await _userContext.SaveChangesAsync();
             //
             // Müşterinizin sitenizde kayıtlı veya form aracılığıyla aldığınız ad ve soyad bilgisi
@@ -195,7 +224,7 @@ namespace WebUI.Controllers
             string lang = "tr";
 
             object[][] user_basket = {
-                new object[] {"FarmaKariyer Dijital Ürün", price.ToString(), 1}, // Ürün (Ürün Ad - Birim Fiyat - Adet)
+                new object[] {"FarmaKariyer Dijital Ürün", ucret.ToString(), 1}, // Ürün (Ürün Ad - Birim Fiyat - Adet)
             };
 
             NameValueCollection data = new NameValueCollection();
@@ -304,22 +333,35 @@ namespace WebUI.Controllers
                     return Ok("OK");
                 }
 
-                order.OrderStatus = OrderStatusType.APPROVED;
 
-                var userId = order.ApplicationUserId;
-                var advertCategoryId = order.AdvertCategoryId;
-                var user = await _userContext.Users.FirstOrDefaultAsync(x => x.Id == userId);
-                var advertCategory = await _userContext.AdvertCategories.FirstOrDefaultAsync(x => x.Id == advertCategoryId);
-                var quotaCount = advertCategory!.QuotaCount;
-                if (user != null)
+                if (order.OrderType == OrderTypeEnum.ADDQUOTA)
                 {
-                    if (quotaCount == -1)
-                        user.AdvertPostingQuota = quotaCount;
-                    else
-                        user.AdvertPostingQuota = user.AdvertPostingQuota + quotaCount;
+                    var userId = order.ApplicationUserId;
+                    var advertCategoryId = order.AdvertCategoryId;
+                    var user = await _userContext.Users.FirstOrDefaultAsync(x => x.Id == userId);
+                    var advertCategory = await _userContext.AdvertCategories.FirstOrDefaultAsync(x => x.Id == advertCategoryId);
+                    var quotaCount = advertCategory!.QuotaCount;
+                    if (user != null)
+                    {
+                        if (quotaCount == -1)
+                            user.AdvertPostingQuota = quotaCount;
+                        else
+                            user.AdvertPostingQuota = user.AdvertPostingQuota + quotaCount;
+                    }
+                }
+                else if (order.OrderType == OrderTypeEnum.BOOST)
+                {
+                    var userId = order.ApplicationUserId;
+                    var user = await _userContext.Users.FirstOrDefaultAsync(x => x.Id == userId);
+                    var advert = await _userContext.Adverts.FirstOrDefaultAsync(x => x.Id == order.AdvertId);
+                    if (user != null && advert != null)
+                    {
+                        advert.IsBoosted = true;
+                    }
                 }
 
                 await _userContext.SaveChangesAsync();
+                order.OrderStatus = OrderStatusType.APPROVED;
 
                 HttpContext.Session.SetString("tokenn", token);
 
