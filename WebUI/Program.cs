@@ -43,6 +43,7 @@ builder.Services.AddSession(options =>
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
+app.UseStatusCodePagesWithReExecute("/Error/ErrorHandler", "?statusCode={0}");
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Home/Error");

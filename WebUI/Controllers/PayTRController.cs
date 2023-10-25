@@ -360,8 +360,8 @@ namespace WebUI.Controllers
                     }
                 }
 
-                await _userContext.SaveChangesAsync();
                 order.OrderStatus = OrderStatusType.APPROVED;
+                await _userContext.SaveChangesAsync();
 
                 HttpContext.Session.SetString("tokenn", token);
 

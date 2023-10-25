@@ -34,8 +34,21 @@ namespace WebUI.Areas.Pharmacy.Controllers
             return View(model);
         }
 
-        public IActionResult Create()
+        public async Task<IActionResult> Create()
         {
+            var u = await _userManager.GetUserAsync(User);
+            var user = _context.Users.Where(x => x.Id == u.Id).FirstOrDefault();
+            if (user == null)
+            {
+                Notification("Kullanıcı bulunamadı!", NotificationType.Error);
+            }
+
+            var userAdvertQuota = user!.AdvertPostingQuota;
+            if (userAdvertQuota < 1)
+            {
+                Notification("İlan verme hakkınız yok, lütfen paket alımı gerçekleştiriniz.", NotificationType.Info);
+                return Redirect("/Pharmacy/Account/Packages");
+            }
             return View();
         }
         public async Task<IActionResult> ApplyList()
@@ -46,6 +59,7 @@ namespace WebUI.Areas.Pharmacy.Controllers
             {
                 Notification("Kullanıcı bulunamadı!", NotificationType.Error);
             }
+
             var model = await _context.Applies
                     .Include(x => x.ApplicantUser)
                     .Include(x => x.CurrentResume)
@@ -71,6 +85,13 @@ namespace WebUI.Areas.Pharmacy.Controllers
             {
                 var u = await _userManager.GetUserAsync(User);
                 var user = _context.Users.Where(x => x.Id == u.Id).FirstOrDefault();
+
+                var userAdvertQuota = user!.AdvertPostingQuota;
+                if (userAdvertQuota < 1)
+                {
+                    Notification("İlan verme hakkınız yok, lütfen paket alımı gerçekleştiriniz.", NotificationType.Info);
+                    return Redirect("/Pharmacy/Account/Packages");
+                }
 
                 Advert advert = new();
 
@@ -118,6 +139,7 @@ namespace WebUI.Areas.Pharmacy.Controllers
                 if (user != null)
                 {
                     //user.ResumeId = advert.Id;
+                    user.AdvertPostingQuota = user.AdvertPostingQuota - 1;
                     await _context.SaveChangesAsync();
                     Notification("İlan başarıyla yayınlandı.", NotificationType.Success);
                     return Redirect("/Pharmacy/Advert/List");
