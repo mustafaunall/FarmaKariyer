@@ -10,6 +10,9 @@ using Core.Helper;
 using Domain.Model;
 using WebUI.Attributes;
 using WebUI.Extensions;
+using static SkiaSharp.HarfBuzz.SKShaper;
+using WebUI.Areas.User.Models.ViewModels;
+using WebUI.Areas.Pharmacy.Models.ViewModels;
 
 namespace WebUI.Areas.Pharmacy.Controllers;
 
@@ -37,7 +40,21 @@ public class AccountController : BaseController
             var u = await _userManager.GetUserAsync(User);
             var user = await _userManager.Users
                 .SingleAsync(x => x.Email == u.Email);
-            return View(user);
+            var advertCount = await _context.Adverts
+                .Where(x => x.ApplicationUserId == user.Id)
+                .CountAsync();
+            var totalApplyCount = await _context.Applies
+                .Include(x => x.Advert)
+                .Where(x => x.Advert.ApplicationUserId == user.Id)
+                .CountAsync();
+            var averageApplyCount = totalApplyCount / advertCount;
+            return View(new PharmacyProfileVM()
+            {
+                User = user,
+                AdvertCount = advertCount,
+                AverageApplyCount = averageApplyCount,
+                TotalApplyCount = totalApplyCount,
+            });
         }
         return View();
     }

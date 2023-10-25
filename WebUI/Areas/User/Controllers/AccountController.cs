@@ -10,6 +10,7 @@ using Core.Helper;
 using Domain.Model;
 using WebUI.Attributes;
 using WebUI.Extensions;
+using WebUI.Areas.User.Models.ViewModels;
 
 namespace WebUI.Areas.User.Controllers;
 
@@ -37,7 +38,22 @@ public class AccountController : BaseController
             var u = await _userManager.GetUserAsync(User);
             var user = await _userManager.Users
                 .SingleAsync(x => x.Email == u.Email);
-            return View(user);
+            var resume = await _context.Resumes
+                .Where(x => x.Id == user.ActiveResumeId)
+                .FirstOrDefaultAsync();
+            var applyCount = await _context.Applies
+                .Where(x => x.ApplicantUserId == user.Id)
+                .CountAsync();
+            var resumeCount = await _context.Resumes
+                .Where(x => x.ApplicationUserId == user.Id)
+                .CountAsync();
+            return View(new UserProfileVM()
+            {
+                User = user,
+                Resume = resume,
+                ApplyCount = applyCount,
+                ResumeCount = resumeCount,
+            });
         }
         return View();
     }
