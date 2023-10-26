@@ -1990,6 +1990,15 @@ select:focus {
     text-transform: capitalize;
 }
 
+@media(max-width:500px)
+{
+    .breadcrumb-area h1{
+        font-size:35px !important;
+    }
+    .mobilegrid{
+        display:grid !important;
+    }
+}
 
 
 /*** 
