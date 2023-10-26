@@ -1,5 +1,6 @@
 ﻿@using Core.Helper;
 @using Domain.Model;
+@using System.Globalization;
 @model Advert
 
 
@@ -10,7 +11,7 @@
             <div class="img-holder" style="display:flex; justify-content:center;">
                 <img src="images/logoadvert.png" alt="Awesome Image">
                 <div class="published-date" style="top:0; left:0;">
-                    <h3>@Model.CreateDate.ToString("dd MMMM")</h3>
+                    <h3>@Model.CreateDate.ToString("dd MMMM", CultureInfo.CreateSpecificCulture("tr-TR"))</h3>
                 </div>
                 <div class="overlay-style-one">
                 </div>
