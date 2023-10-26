@@ -22,4 +22,7 @@ public class UpdateProfileVM
     public string? EducationStatus { get; set; }
     public string? Certificates { get; set; }
     public string? Description { get; set; }
+    public string? CurrentPassword { get; set; }
+    public string? NewPassword { get; set; }
+    public string? NewPasswordRepeat { get; set; }
 }

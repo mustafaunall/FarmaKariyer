@@ -67,10 +67,20 @@ public class AccountController : BaseController
             Notification("Lütfen tüm alanları doldurunuz!", NotificationType.Info);
             return RedirectToAction(nameof(Profile));
         }
+        if (string.IsNullOrEmpty(vm.CurrentPassword))
+        {
+            Notification("Bilgileriniz güncellenemedi, lütfen şu anki şifrenizi giriniz!", NotificationType.Info);
+            return RedirectToAction(nameof(Profile));
+        }
 
         try
         {
             var user = await _userManager.GetUserAsync(User);
+            if (!(await _userManager.CheckPasswordAsync(user, vm.CurrentPassword)))
+            {
+                Notification("Bilgilerinizi güncellemek için lütfen şifrenizi doğru giriniz!", NotificationType.Info);
+                return RedirectToAction(nameof(Profile));
+            }
             if (!string.IsNullOrEmpty(vm.Name))
                 user.Name = vm.Name.Trim();
             if (!string.IsNullOrEmpty(vm.Surname))
@@ -80,7 +90,19 @@ public class AccountController : BaseController
             if (!string.IsNullOrEmpty(vm.Email))
                 user.Email = vm.Email.Trim();
             await _userManager.UpdateAsync(user);
-            Notification("Kullanıcı bilgileri başarıyla güncellendi.", NotificationType.Success);
+            string notificationValue = "Kullanıcı bilgileri başarıyla güncellendi.";
+            if (!string.IsNullOrEmpty(vm.NewPassword) && !string.IsNullOrEmpty(vm.NewPasswordRepeat))
+            {
+                if (vm.NewPassword != vm.NewPasswordRepeat)
+                {
+                    Notification("Şifreler eşleşmiyor, lütfen tekrar kontrol ediniz!", NotificationType.Error);
+                    return RedirectToAction(nameof(Profile));
+                }
+                await _userManager.ChangePasswordAsync(user, vm.CurrentPassword, vm.NewPassword);
+                notificationValue += " Şifreniz güncellendiği için tekrar giriş yapmanız gerekmektedir.";
+                await _signInManager.SignOutAsync();
+            }
+            Notification(notificationValue, NotificationType.Success);
             return RedirectToAction(nameof(Profile));
         }
         catch (Exception)
