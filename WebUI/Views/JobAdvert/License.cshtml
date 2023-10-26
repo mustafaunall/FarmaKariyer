@@ -1,4 +1,5 @@
 ﻿@using Domain.Model;
+@using System.Globalization;
 @model List<Advert>
 
 @{
@@ -188,7 +189,7 @@
                                             <div class="img-holder">
                                                 <img src="~/images/logoadvertt.png" alt="Awesome Image">
                                                 <div class="published-date">
-                                                    <h3>@item.CreateDate.ToString("dd MMMM")</h3>
+                                                    <h3>@item.CreateDate.ToString("dd MMMM", CultureInfo.CreateSpecificCulture("tr-TR"))</h3>
                                                 </div>
                                                 <div class="overlay-style-one">
                                                     <div class="box">
