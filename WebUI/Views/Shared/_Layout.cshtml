@@ -40,12 +40,9 @@
 </head>
 
 <body>
-    <!--header start-->
     <div class="boxed_wrapper">
         <!--Start Preloader -->
         @* <div class="preloader"></div> -----------------------------pre-loader---------------------------*@
-        <!--End Preloader -->
-        <!--Start Top bar area -->
         <section class="top-bar-area">
             <div class="container">
                 <div class="row">
@@ -65,8 +62,6 @@
                 </div>
             </div>
         </section>
-        <!--End Top bar area -->
-        <!--Start header area-->
         <header class="header-area">
             <div class="container">
                 <div class="row">
@@ -100,8 +95,6 @@
                 </div>
             </div>
         </header>
-        <!--End header area-->
-        <!--Start mainmenu area-->
         <section class="mainmenu-area stricky">
             <div class="container">
                 <div class="mainmenu-bg">
@@ -120,7 +113,7 @@
                                     <ul class="navigation clearfix">
                                         <li class="home current"><a href="@Url.Action("Index","Home")"><span class="fa fa-home"></span></a></li>
                                         <li class="dropdown">
-                                            <a href="#">İlanlar</a>
+                                            <a>İlanlar</a>
                                             <ul>
                                                 <li id="mainMenuItem">
                                                     <a style="display: flex; justify-content: space-between;" href="@Url.Action("Technician", "JobAdvert")">
@@ -131,7 +124,8 @@
                                                         <a href="@Url.Action("Dermocosmetic", "JobAdvert")" class="submenuder">Dermokozmetik Elemanı</a>
                                                     </div>
                                                 </li>
-
+                                                @* mobil ile alakalı yer. *@
+                                                <li id="dermonav"><a href="@Url.Action("Dermocosmetic","JobAdvert")">Dermokozmetik Elemanı</a></li>
                                                 <li><a href="@Url.Action("Intern","JobAdvert")">Stajyer İlanları</a></li>
                                                 <li><a href="@Url.Action("License","JobAdvert")">Ruhsat İlanları</a></li>
                                                 <li><a href="@Url.Action("OtherAds","JobAdvert")">Diğer İlanlar</a></li>
@@ -139,9 +133,9 @@
                                             </ul>
                                         </li>
                                         @*   <li class="dropdown"><a href="@Url.Action("OurPartners","Home")">Partner</a></li> *@
-                                        <li class="dropdown"><a href="@Url.Action("Faq","Home")">SSS</a></li>
-                                        <li class="dropdown"><a href="@Url.Action("AboutUs","Home")">Hakkımızda</a></li>
-                                        <li class="dropdown"><a href="@Url.Action("Contact","Home")">İLETİŞİM</a></li>
+                                        <li><a href="@Url.Action("Faq","Home")">SSS</a></li>
+                                        <li><a href="@Url.Action("AboutUs","Home")">Hakkımızda</a></li>
+                                        <li><a href="@Url.Action("Contact","Home")">İLETİŞİM</a></li>
                                     </ul>
                                 </div>
                             </nav>

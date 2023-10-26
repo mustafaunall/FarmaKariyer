@@ -5862,4 +5862,12 @@ select:focus {
         height:10px !important;
     }
 }
-
+@media(max-width:992px)
+{
+    .mpremcon{
+        margin:20px 0;
+    }
+}
+#dermonav{
+    display:none;
+}
