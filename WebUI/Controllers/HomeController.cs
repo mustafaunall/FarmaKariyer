@@ -39,6 +39,9 @@ public class HomeController : Controller
             .Where(x => x.Type == Domain.Model.Enum.AdvertType.LICENSE).ToList(),
             BoostedAdvertsOther = boostedSql
             .Where(x => x.Type == Domain.Model.Enum.AdvertType.OTHER).ToList(),
+            PackagePrice1 = _context.AdvertCategories.Where(x => x.Id == 1).Select(x => x.Price).FirstOrDefault(),
+            PackagePrice2 = _context.AdvertCategories.Where(x => x.Id == 2).Select(x => x.Price).FirstOrDefault(),
+            PackagePrice3 = _context.AdvertCategories.Where(x => x.Id == 3).Select(x => x.Price).FirstOrDefault(),
         };
 
         return View(vm);
