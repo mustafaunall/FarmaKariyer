@@ -5723,7 +5723,7 @@ select:focus {
     position: relative;
     min-width: 300px;
     max-width: 303px;
-    height: 410px;
+    height: 510px;
     overflow: hidden;
     border-radius: 15px;
     margin: 0 auto;
@@ -5818,7 +5818,7 @@ select:focus {
             padding: 0;
             list-style: none;
             color: #fff;
-            font-size: 18px;
+            font-size: 21px;
             margin: 20px 0;
         }
 
@@ -5837,14 +5837,14 @@ select:focus {
     margin: 20px auto 0;
     /* line-height: 40px; */
     border-radius: 10px;
-    font-size: 16px;
+    font-size: 24px;
     cursor: pointer;
     text-decoration: none;
     box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
     color: #ff2b58;
     font-weight: 700;
     text-transform: capitalize;
-    padding: 6px 10px;
+    padding: 8px 10px;
 }
 
 .desktopmargind{

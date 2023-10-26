@@ -585,10 +585,13 @@
                             <i class="fa fa-paper-plane" aria-hidden="true"></i>
                             <h2>Başlangıç Paketi</h2>
                         </div>
+                        <div class="price">
+                            <h4>@(Model?.PackagePrice1 ?? 0.00f)<sup>₺</sup></h4>
+                        </div>
                         <div class="option">
                             <ul>
                                 <li><i class="fa-sharp fa-solid fa-check"></i>1 İlan Hakkı</li>
-                                <li><div style="font-size: 24px; font-style: italic;">@(Model?.PackagePrice1 ?? 0.00f) ₺</div></li>
+                                <li>Her ilan 30 gün yayında kalır</li>
 
                                 @*            <li><div style="margin:78px;">&nbsp;</div></li> *@
                             </ul>
@@ -602,10 +605,13 @@
                             <i class="fa fa-plane" aria-hidden="true"></i>
                             <h2>Gelişmiş Paket</h2>
                         </div>
+                        <div class="price">
+                            <h4>@(Model?.PackagePrice2 ?? 0.00f)<sup>₺</sup></h4>
+                        </div>
                         <div class="option">
                             <ul>
                                 <li><i class="fa-sharp fa-solid fa-check"></i>3 İlan Hakkı</li>
-                                <li><div style="font-size: 24px; font-style: italic;">@(Model?.PackagePrice2 ?? 0.00f) ₺</div></li>
+                                <li>Her ilan 30 gün yayında kalır</li>
                             </ul>
                         </div>
                         <a style="margin-bottom: 12px;" href="/Pharmacy/Account/Packages">Satın Al</a>
@@ -617,10 +623,13 @@
                             <i class="fa fa-rocket" aria-hidden="true"></i>
                             <h2>Sınırsız Paket</h2>
                         </div>
+                        <div class="price">
+                            <h4>@(Model?.PackagePrice3 ?? 0.00f)<sup>₺</sup></h4>
+                        </div>
                         <div class="option">
                             <ul>
                                 <li><i class="fa-sharp fa-solid fa-check"></i>Sınırsız İlan Hakkı</li>
-                                <li><div style="font-size: 24px; font-style: italic;">@(Model?.PackagePrice3 ?? 0.00f) ₺</div></li>
+                                <li>Her ilan 30 gün yayında kalır</li>
                             </ul>
                         </div>
                         <a href="/Pharmacy/Account/Packages">Satın Al</a>
