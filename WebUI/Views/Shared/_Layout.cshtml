@@ -218,11 +218,11 @@
                                 <h3>Hızlı Linkler</h3>
                             </div>
                             <ul class="we-do-list">
-                                <li><a href="#">İlanlarımız</a></li>
+                                @* <li><a href="#">İlanlarımız</a></li> *@
                                 @*   <li><a href="#">Partnerlerimiz</a></li> *@
-                                <li><a href="#">Hakkımızda</a></li>
-                                <li><a href="#">İletişim</a></li>
-                                <li><a href="#">SSS</a></li>
+                                <li><a href="@Url.Action("AboutUs","Home")">Hakkımızda</a></li>
+                                <li><a href="@Url.Action("Contact","Home")">İletişim</a></li>
+                                <li><a href="@Url.Action("Faq","Home")">SSS</a></li>
                             </ul>
                         </div>
                     </div>
