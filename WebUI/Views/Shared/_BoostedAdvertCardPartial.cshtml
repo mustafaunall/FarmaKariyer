@@ -9,7 +9,7 @@
     <div class="item" style="margin:0 10px;">
         <div class="single-blog-post">
             <div class="img-holder" style="display:flex; justify-content:center;">
-                <img src="images/logoadvert.png" alt="Awesome Image">
+                <img src="images/logoadvert.png" alt="İlan Fotoğrafı" style="margin-top:50px;">
                 <div class="published-date" style="top:0; left:0;">
                     <h3>@Model.CreateDate.ToString("dd MMMM", CultureInfo.CreateSpecificCulture("tr-TR"))</h3>
                 </div>
@@ -26,8 +26,8 @@
                 <div class="meta-info clearfix" style="margin-left:0;">
                     <div class="left pull-left">
                         <ul class="post-info">
-                            <li><a href="#">@Model.ApplicationUser?.Name @Model.ApplicationUser?.Surname</a></li>
-                            <li><a href="#">@(ProvinceHelper.GetProvinceName(Convert.ToInt32(Model.ApplicationUser?.Province ?? "1"))), @Model.ApplicationUser?.District</a></li>
+                            <li style="border:none; padding-bottom:3px;"><b>İlan Sahibi: </b>@Model.ApplicationUser?.Name @Model.ApplicationUser?.Surname</li>
+                            <li><b>Konum: </b>@(ProvinceHelper.GetProvinceName(Convert.ToInt32(Model.ApplicationUser?.Province ?? "1"))), @Model.ApplicationUser?.District</li>
                         </ul>
                     </div>
                     @*   <div class="right pull-right">
