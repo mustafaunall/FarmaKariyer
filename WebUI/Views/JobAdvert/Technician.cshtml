@@ -165,7 +165,7 @@
                             {
                                 <div class="single-blog-post">
                                     <div class="row">
-                                        <div class="col-md-5" style="padding-right:0;">
+                                        <div class="col-lg-5 col-md-8 pright">
                                             <div class="img-holder">
                                                 <img src="~/images/logoadvertt.png" alt="Awesome Image">
                                                 <div class="published-date">
@@ -180,7 +180,7 @@
                                                 </div>
                                             </div>
                                         </div>
-                                        <div class="col-md-7" style="padding-left:0;">
+                                        <div class="col-lg-7 col-md-8 pleft">
                                             <div class="text-holder">
                                                 <a href="@Url.Action("Detail","JobAdvert", new {id=item.Id})">
                                                     <h3 class="blog-title">@item.Title</h3>
@@ -191,7 +191,9 @@
                                                 <div class="meta-info clearfix">
                                                     <div class="left pull-left">
                                                         <ul class="post-info">
-                                                            <li><b>Sahibi:</b> <a href="#">@item.ApplicationUser.Name @item.ApplicationUser.Surname</a></li>
+                                                            <li><b>İlan Sahibi:</b> <a href="#">@item.ApplicationUser.Name @item.ApplicationUser.Surname</a></li>
+                                                            <br/>
+                                                            <li><b>Konum: </b>İstanbul</li>
                                                             @*<li><a href="#">Eczane, Teknisyen</a></li>*@
                                                         </ul>
                                                     </div>

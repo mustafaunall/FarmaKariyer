@@ -1443,15 +1443,14 @@ select:focus {
 }
     .single-blog-post .text-holder .text {
         overflow: hidden;
-        padding-bottom: 11px;
-        height: 155px;
+        height: 150px;
     }
 .single-blog-post .text-holder .meta-info {
     overflow: hidden;
     margin-left: -16px;
     margin-right: -20px;
     display: block;
-    padding: 14px 20px 0px;
+    padding: 0px 20px 0px;
 }
 .single-blog-post .text-holder .meta-info .left {
     display: block;
@@ -5874,4 +5873,15 @@ select:focus {
 }
 b {
     color: #222222 !important;
+}
+@media(min-width:992px)
+{
+    .pleft {
+        padding-left: 0 !important;
+    }
+
+    .pright {
+        padding-right: 0 !important;
+    }
+
 }
