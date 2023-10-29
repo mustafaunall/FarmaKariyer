@@ -19,7 +19,9 @@
                                 <div class="col-md-4" style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
 
                                     <!-- Tarih kısmını ortalamak için değişiklik -->
-                                    <h3 style="font-size:18px;">@item.ApplyDate.ToString("dd MMMM", CultureInfo.CreateSpecificCulture("tr-TR"))</h3>
+                                    <div style="background-color:#ff2b58; width:fit-content; padding:3px 5px;">
+                                        <h3 style="font-size:18px; margin:0; color:white;">@item.ApplyDate.ToString("dd MMMM", CultureInfo.CreateSpecificCulture("tr-TR"))</h3>
+                                    </div>
                                     <!-- Resim ve Overlay kısmını dikey olarak ortalamak için height kullanılır -->
                                     <div class="pharmacylistp">
 
