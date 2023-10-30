@@ -1360,7 +1360,9 @@ select:focus {
         display: block;
         overflow: hidden;
         position: relative;
-        border: 1px solid #f4f4f4;
+        border: 1px solid #dcdcdc;
+        border-bottom:none;
+        padding-bottom:5px;
     }
 .single-blog-post .img-holder img {
     -webkit-transition: all 0.7s ease;
@@ -1417,37 +1419,36 @@ select:focus {
 
 
 .single-blog-post .text-holder {
-    border-left: 1px solid #f4f4f4;
-    border-right: 1px solid #f4f4f4;
-    border-bottom: 1px solid #f4f4f4;
+    border: 1px solid #dcdcdc;
+    border-left:0;
     padding-left: 10px;
     padding-right: 10px;
-    padding-top: 26px;
+    padding-top: 5px;
     transition: all 500ms ease;
     position: relative;
     z-index: 1;
-} 
-.single-blog-post .text-holder .blog-title{
-    color: #222222;
-    font-size: 20px;
-    font-weight: 400;
-    margin: 0 0 15px;
-    line-height: 28px;
-    transition: all 500ms ease;
 }
+    .single-blog-post .text-holder .blog-title {
+        color: #222222;
+        font-size: 19px;
+        font-weight: 600;
+        height: 40px;
+        align-items: center;
+        display: grid;
+        margin: 0 0 5px;
+        transition: all 500ms ease;
+    }
 .single-blog-post .text-holder .blog-title:hover{
     color: #ff2b58;        
 }
     .single-blog-post .text-holder .text {
         overflow: hidden;
-        padding-bottom: 11px;
-        height: 134px;
+        height: 150px;
     }
 .single-blog-post .text-holder .meta-info {
     overflow: hidden;
-    margin-left: -20px;
+    margin-left: -16px;
     margin-right: -20px;
-    border-top: 1px solid #f4f4f4;
     display: block;
     padding: 0px 20px 0px;
 }
@@ -1474,19 +1475,18 @@ select:focus {
 .single-blog-post .text-holder .meta-info .post-info li a{
     color: #ababab;
     font-size: 16px;
-    font-weight: 300;
+    font-weight: 500;
     transition: all 500ms ease;
 }
 .single-blog-post .text-holder .meta-info .post-info li a:hover{
     color: #ff2b58;
 }
 .single-blog-post .text-holder .meta-info .right {
-    border-left: 1px solid #f4f4f4;
     width: 100px;
     text-align: center;
     display: block;
     height: 52px;
-    margin-right: -20px;
+    margin-right: -10px;
     padding: 14px 0;
 }
 
@@ -3212,7 +3212,7 @@ select:focus {
     border-bottom: 1px solid #f4f4f4;
     padding-left: 30px;
     padding-right: 20px;
-    padding-top: 25px;
+    padding-top: 15px;
     transition: all 500ms ease;
     position: relative;
     z-index: 1;
@@ -3229,7 +3229,7 @@ select:focus {
     margin-right: -20px;
     border-top: 1px solid #f4f4f4;
     display: block;
-    padding: 0px 20px 0px 30px;
+    padding: 22px 20px 0px 20px;
 }
 
 
@@ -5594,7 +5594,7 @@ select:focus {
 /*******/
 
 .account-container .btn.button-md {
-    padding: 12px 40px;
+    width:100%;
     background-color: #ff2b58;
     color: White;
     transition: all 0.3s ease-in-out;
@@ -5688,7 +5688,7 @@ select:focus {
     }
 
 .account-container {
-    max-width: 400px;
+    max-width: 470px;
     margin: auto;
     padding: 30px 0;
 }
@@ -5870,4 +5870,18 @@ select:focus {
 }
 #dermonav{
     display:none;
+}
+b {
+    color: #222222 !important;
+}
+@media(min-width:992px)
+{
+    .pleft {
+        padding-left: 0 !important;
+    }
+
+    .pright {
+        padding-right: 0 !important;
+    }
+
 }

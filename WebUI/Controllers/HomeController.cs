@@ -54,6 +54,10 @@ public class HomeController : Controller
     {
         return View();
     }
+    public IActionResult Policies()
+    {
+        return View();
+    }
     public IActionResult OurPartners()
     {
         return View();

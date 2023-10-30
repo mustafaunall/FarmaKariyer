@@ -4,18 +4,31 @@
 @{
     ViewData["Title"] = "Kullanıcı Kayıt Ol";
 }
-
-<div class="container" style="margin-top:35px;">
+<div class="text-center" style="margin-top:65px; margin-bottom:0;">
+    <div class="heading-bx left" style="margin-bottom:0;">
+        <h2 class="title-head" style="font-size:34px;">
+            <span style="color:black;">Hemen</span>
+            <span>Kayıt Olun</span>
+        </h2>
+        <p>
+            Zaten Hesabınız Var mı ?
+            <a href="@Url.Action("LoginUser","Account")" class="cr">
+                Hemen Giriş Yap
+            </a>
+        </p>
+    </div>
+</div>
+<div class="container">
     <div style="margin-top:40px;">
         <div class="row" style="justify-content:center; display:flex;">
             <div class="col-lg-3" style="transform: skewX(-20deg); margin-right: 20px;">
                 <a href="@Url.Action("Register","Account")" class="thm-btn bg-clr1" style="padding:10px;">
-                    <h1 class="text-center" style="color:white; transform: skewX(20deg); font-size:26px;">Kullanıcı Kayıt Ol</h1>
+                    <h1 class="text-center" style="color:white; transform: skewX(20deg); font-size:26px;">İş Arayan Kaydı</h1>
                 </a>
             </div>
             <div class="col-lg-3" style="transform: skewX(-20deg); margin-left: 20px;">
                 <a href="@Url.Action("RegisterPharmacy","Account")" class="thm-btn bg-clr1 logbtn" style="padding:10px;">
-                    <h1 class="text-center" style="color:white; transform: skewX(20deg); font-size:26px;">Eczane Kayıt Ol</h1>
+                    <h1 class="text-center" style="color:white; transform: skewX(20deg); font-size:26px;">İşveren Kaydı</h1>
                 </a>
             </div>
         </div>
@@ -33,142 +46,172 @@
     <div class="clearfix"></div>
     <section style=" margin-top: 35px;">
         <div class="row">
-            <div class="col-lg-6">
-                <div style="display:flex; justify-content:center;align-items:center; padding:15px 0;">
-                    <img src="~/images/farmakullanici.png" />
-                </div>
-            </div>
-            <div>
+            <form class="contact-bx" method="post" asp-controller="Account" asp-action="RegisterUser">
+
                 <div class="col-lg-6">
                     <div style="align-items:center; display:flex;">
                         <div class="account-container">
-                            <div class="heading-bx left">
-                                <h2 class="title-head" style="font-size:34px;">
-                                    <span style="color:black;">Hemen</span>
-                                    <span>Kayıt Olun</span>
-                                </h2>
-                                <p>
-                                    Zaten Hesabınız Var mı ?
-                                    <a href="@Url.Action("LoginUser","Account")" class="cr">
-                                        Hemen Giriş Yap
-                                    </a>
-                                </p>
-                            </div>
-
-                            <form class="contact-bx" method="post" asp-controller="Account" asp-action="RegisterUser">
-                                <div class="row placeani">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input asp-for="Name" type="text" placeholder="Adınız" class="form-control">
-                                            </div>
+                            <div class="row placeani">
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input asp-for="Name" type="text" placeholder="Adınız" class="form-control">
                                         </div>
                                     </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input asp-for="Surname" type="text" placeholder="Soyadınız" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input asp-for="PhoneNumber" type="text" placeholder="Telefon Numaranız" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <select asp-for="Province" id="Iller" class="input-group" name="Province">
-                                                <option disabled value="0">İl Seçiniz</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <select asp-for="District" id="Ilceler" class="input-group" name="District">
-                                                <option disabled value="0">Lütfen Önce bir İl seçiniz</option>
-                                            </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group textareaform">
-
-                                            <textarea asp-for="Address" class="form-control" rows="5" value="" placeholder="Açık Adresiniz..."></textarea>
-                                        </div>
-                                    </div>
-
-                                    <style>
-                                        select {
-                                            border-width: 0 0 2px;
-                                            border-color: rgba(0,0,0,.2);
-                                            padding: 10px 0;
-                                        }
-
-                                        .textareaform textarea {
-                                            border-left: none;
-                                            border-right: none;
-                                            border-top: none;
-                                            border-width: 0 0 2px;
-                                            border-color: rgba(0,0,0,.2) !important;
-                                            min-height: 100px;
-                                            padding-left: 0 !important;
-                                            min-width: 100%;
-                                            max-width: 100%;
-                                            color: #848484;
-                                        }
-
-                                            .textareaform textarea:focus {
-                                                border-color: red !important;
-                                            }
-
-                                        select:focus {
-                                            border-color: red;
-                                        }
-                                    </style>
-                                    <script src="~/scripts/ililce.js" province="34" district="1"></script> <!--il-ilçe-script-->
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input asp-for="Email" type="email" placeholder="E-Posta Adresiniz" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input asp-for="Password" type="password" class="form-control" placeholder="Şifreniz">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Şifreniz Tekrar">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group form-forget">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" required class="custom-control-input" id="customControlAutosizing">
-                                                <label class="custom-control-label" for="customControlAutosizing"><a href="#" style="color:black;">Koşulları Kabul Ediyorum</a></label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 m-b30">
-                                            <button name="submit" type="submit" value="Submit" class="btn button-md">Kayıt Ol</button>
-                                        </div>
-                                    </div>
-
-
                                 </div>
-                            </form>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input asp-for="Surname" type="text" placeholder="Soyadınız" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input asp-for="PhoneNumber" type="text" placeholder="Telefon Numaranız" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <select asp-for="Province" id="Iller" class="input-group" name="Province">
+                                            <option disabled value="0">İl Seçiniz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <select asp-for="District" id="Ilceler" class="input-group" name="District">
+                                            <option disabled value="0">Lütfen Önce bir İl seçiniz</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div class="col-lg-6">
+                    <div style="align-items:center; display:flex;">
+                        <div class="account-container">
+                            <div class="row placeani">
+                                <div class="col-lg-12">
+                                    <div class="form-group textareaform">
+
+                                        <textarea asp-for="Address" class="form-control" rows="5" value="" placeholder="Açık Adresiniz..."></textarea>
+                                    </div>
+                                </div>
+
+                                <style>
+                                    select {
+                                        border-width: 0 0 2px;
+                                        border-color: rgba(0,0,0,.2);
+                                        padding: 10px 0;
+                                    }
+
+                                    .textareaform textarea {
+                                        border-left: none;
+                                        border-right: none;
+                                        border-top: none;
+                                        border-width: 0 0 2px;
+                                        border-color: rgba(0,0,0,.2) !important;
+                                        min-height: 100px;
+                                        padding-left: 0 !important;
+                                        min-width: 100%;
+                                        max-width: 100%;
+                                        color: #848484;
+                                    }
+
+                                        .textareaform textarea:focus {
+                                            border-color: red !important;
+                                        }
+
+                                    select:focus {
+                                        border-color: red;
+                                    }
+                                </style>
+                                <script src="~/scripts/ililce.js" province="34" district="1"></script> <!--il-ilçe-script-->
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input asp-for="Email" type="email" placeholder="E-Posta Adresiniz" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input asp-for="Password" type="password" class="form-control" placeholder="Şifreniz">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Şifreniz Tekrar">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group form-forget">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" required class="custom-control-input" id="customControlAutosizing">
+                                            <label class="custom-control-label" for="customControlAutosizing" style="    display: contents;"><span href="#" style="color:black;">Kişisel verilerimin işlenmesine yönelik <span style="text-decoration:underline; cursor:pointer;" data-toggle="modal" data-target="#myModal">aydınlatma metnini</span> okudum ve anladım.</span></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 m-b30">
+                                        <button name="submit" type="submit" value="Submit" class="btn button-md">Kayıt Ol</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </section>
 
 </div>
+
+<!-- Modal İçeriği -->
+<div id="myModal" class="modal fade modal-center" role="dialog">
+    <div class="modal-dialog">
+
+        <!-- Modal içerik-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Aydınlatma Metni</h4>
+            </div>
+            <div class="modal-body">
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Donec in efficitur leo. In hac habitasse platea dictumst. Sed ullamcorper, nunc a cursus sollicitudin, lorem mauris tempus est, et hendrerit dolor elit a velit. Vestibulum ac elementum massa. In sagittis, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi.
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Donec in efficitur leo. In hac habitasse platea dictumst. Sed ullamcorper, nunc a cursus sollicitudin, lorem mauris tempus est, et hendrerit dolor elit a velit. Vestibulum ac elementum massa. In sagittis, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Okudum Onaylıyorum</button>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<style>
+    .modal-dialog {
+        position: absolute;
+        top: 50% !important;
+        transform: translate(0, -50%) !important;
+        -ms-transform: translate(0, -50%) !important;
+        -webkit-transform: translate(0, -50%) !important;
+        margin: auto 5%;
+        width: 90%;
+        height: 60%;
+    }
+</style>
+
+
+
+

@@ -149,7 +149,7 @@
                         </ul>
                     </div>
                     <div style="display:flex; justify-content:center;">
-                        <a class="thm-btn bg-clr1" style="padding:10px 50px;" type="submit" href="/JobAdvert/Detail/2">ARA</a>E
+                        <a class="thm-btn bg-clr1" style="padding:8px; width:100%;" type="submit" href="/JobAdvert/Detail/2">ARA</a>
                     </div>
                 </div>
             </div>
@@ -160,46 +160,7 @@
                         {
                             foreach (var item in Model)
                             {
-                                <div class="single-blog-post">
-                                    <div class="row">
-                                        <div class="col-md-5">
-                                            <div class="img-holder">
-                                                <img src="~/images/logoadvertt.png" alt="Awesome Image">
-                                                <div class="published-date">
-                                                    <h3>@item.CreateDate.ToString("dd MMMM", CultureInfo.CreateSpecificCulture("tr-TR"))</h3>
-                                                </div>
-                                                <div class="overlay-style-one">
-                                                    <div class="box">
-                                                        <div class="content">
-                                                            <div style="background-color:#ff2b58; padding:5px; height:40px;"><span style="color:white; font-size:19px; font-weight:bold; text-transform:capitalize;     line-height: 34px;">@item.ApplicationUser.PharmacyName</span></div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="col-md-7">
-                                            <div class="text-holder">
-                                                <a href="@Url.Action("Detail","JobAdvert", new {id=item.Id})">
-                                                    <h3 class="blog-title">@item.Title</h3>
-                                                </a>
-                                                <div class="text">
-                                                    <p>@item.Description</p>
-                                                </div>
-                                                <div class="meta-info clearfix">
-                                                    <div class="left pull-left">
-                                                        <ul class="post-info">
-                                                            <li><b>Sahibi:</b> <a href="#">@item.ApplicationUser.Name @item.ApplicationUser.Surname</a></li>
-                                                            @*<li><a href="#">Eczane, Teknisyen</a></li>*@
-                                                        </ul>
-                                                    </div>
-                                                    <div class="right pull-right">
-                                                        <a class="thm-btn bg-clr1" style="padding:0px 8px;" type="submit" href="@Url.Action("Detail","JobAdvert", new {id=item.Id})" data-loading-text="Please wait...">İncele</a>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
+                                @await Html.PartialAsync("_AdvertComponentPartial", item)
                             }
                         }
 

@@ -19,7 +19,9 @@
                                 <div class="col-md-4" style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
 
                                     <!-- Tarih kısmını ortalamak için değişiklik -->
-                                    <h3 style="font-size:18px;">@item.CreateDate.ToString("dd MMMM", CultureInfo.CreateSpecificCulture("tr-TR"))</h3>
+                                    <div style="background-color:#ff2b58; width:fit-content; padding:3px 5px;">
+                                        <h3 style="font-size:18px; margin:0; color:white;">@item.CreateDate.ToString("dd MMMM", CultureInfo.CreateSpecificCulture("tr-TR"))</h3>
+                                        </div>
                                     <!-- Resim ve Overlay kısmını dikey olarak ortalamak için height kullanılır -->
                                     <div class="pharmacylistp">
 
@@ -40,7 +42,7 @@
                                 </div>
 
 
-                                <div class="col-md-8 padding:0; border:2px solid black;">
+                                <div class="col-md-8 padding:0; border:2px solid black; ">
                                     <div class="d-flex align-items-center titledescriptionmobilemargintop">
                                         <div class="w-100 ">
                                             <div>
@@ -52,24 +54,20 @@
                                     <div>
                                         <span><span style="font-weight:bold;">Sahibi: </span> @item.ApplicationUser.Name <br /> <span style="font-weight:bold;">Aranan Kategori: </span>@item.Type.GetDescription()</span>
                                         <div style="float:right;">
-                                            <div>
                                                 <a href="/JobAdvert/Detail/@item.Id">
-                                                    <span style=" padding:5px 10px; background: #ff2b58; color: #fff;">
+                                                    <span style=" padding:1px 10px; background: #ff2b58; color: #fff;">
                                                         İlanı Gör
                                                     </span>
                                                 </a>
-                                            </div>
                                         </div>
                                         @if (item.IsBoosted == false)
                                         {
                                             <div style="float:right;" class="mx-3">
-                                                <div>
                                                     <a href="/PayTR/Buy?proc=boost&advertId=@item.Id">
                                                         <span style=" padding:5px 10px; background: #ff2b58; color: #fff;">
                                                             İlanı Öne Çıkar
                                                         </span>
                                                     </a>
-                                                </div>
                                             </div>
                                         }
                                     </div>

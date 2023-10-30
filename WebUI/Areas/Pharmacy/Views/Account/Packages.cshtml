@@ -6,52 +6,66 @@
     <div class="container-fluid">
         <div class="container premcon">
             <div class="row">
-                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-4 col-sm-4">
                     <div class="premcard card_three text-center">
                         <div class="title">
                             <i class="fa fa-paper-plane" aria-hidden="true"></i>
                             <h2>Başlangıç Paketi</h2>
                         </div>
+                        <div class="price">
+                            <h4>@(Model?.PackagePrice1 ?? 0.00f)<sup>₺</sup></h4>
+                        </div>
                         <div class="option">
                             <ul>
                                 <li><i class="fa-sharp fa-solid fa-check"></i>1 İlan Hakkı</li>
+                                <li>Her ilan 30 gün yayında kalır</li>
 
                                 @*            <li><div style="margin:78px;">&nbsp;</div></li> *@
                             </ul>
                         </div>
-                        <a href="/PayTR/Buy?proc=advert&categoryId=1">Satın Al</a>
+                        <a href="/Pharmacy/Account/Packages">Satın Al</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 mpremcon">
+                <div class="col-md-4 col-sm-4 mpremcon">
                     <div class="premcard card_three text-center">
                         <div class="title">
                             <i class="fa fa-plane" aria-hidden="true"></i>
                             <h2>Gelişmiş Paket</h2>
                         </div>
+                        <div class="price">
+                            <h4>@(Model?.PackagePrice2 ?? 0.00f)<sup>₺</sup></h4>
+                        </div>
                         <div class="option">
                             <ul>
                                 <li><i class="fa-sharp fa-solid fa-check"></i>3 İlan Hakkı</li>
-                                @*                    <li><div style="margin:21px;">&nbsp;</div></li> *@
+                                <li>Her ilan 30 gün yayında kalır</li>
                             </ul>
                         </div>
-                        <a href="/PayTR/Buy?proc=advert&categoryId=2">Satın Al</a>
+                        <a style="margin-bottom: 12px;" href="/Pharmacy/Account/Packages">Satın Al</a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12">
+                <div class="col-md-4 col-sm-4">
                     <div class="premcard card_three text-center">
                         <div class="title">
                             <i class="fa fa-rocket" aria-hidden="true"></i>
                             <h2>Sınırsız Paket</h2>
                         </div>
+                        <div class="price">
+                            <h4>@(Model?.PackagePrice3 ?? 0.00f)<sup>₺</sup></h4>
+                        </div>
                         <div class="option">
                             <ul>
                                 <li><i class="fa-sharp fa-solid fa-check"></i>Sınırsız İlan Hakkı</li>
+                                <li>Her ilan 30 gün yayında kalır</li>
                             </ul>
                         </div>
-                        <a href="/PayTR/Buy?proc=advert&categoryId=3">Satın Al</a>
+                        <a href="/Pharmacy/Account/Packages">Satın Al</a>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 </section>
+<div class="text-center" style="font-size:18px; color:red; font-style:italic; font-weight:bold;">
+    *Sitemizde üç farklı ilan paketi bulunmaktadır; tüm paketler ilanınızı 1 ay boyunca gösterir. <br />Bir paket satın aldığınızda hesabınıza bir hak tanınır; bu hakla ilanınızı 1 hafta boyunca <span style="text-decoration:underline;">Öne Çıkan İlanlar</span> bölümünde sergileyebilirsiniz.
+</div>
