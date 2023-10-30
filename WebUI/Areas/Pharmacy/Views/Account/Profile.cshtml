@@ -94,6 +94,7 @@
                         <div class="tab-content">
                             <div class="active tab-pane" id="pharmacyinfo">
                                 <form class="form-horizontal" method="post" action="/Pharmacy/Account/UpdateProfile">
+                                    <input type="hidden" name="RequirePassword" value="0" />
                                     <div class="col-md-12">
                                         <div class="card card-primary">
                                             <div class="card-header">
@@ -140,7 +141,7 @@
                                                     }
                                                 </style>
                                                 @section Scripts{
-                                                    <script src="~/scripts/ililce.js" province="@Model.User.Province??34" district="@Model.User.District??1"></script> <!--il-ilçe-script-->
+                                                    <script src="~/scripts/ililce.js" province="@(Model.User.Province ?? "34")" district="@(Model.User.District ?? "")"></script> <!--il-ilçe-script-->
                                                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8-fa4-gwVuTtkyYeeH1DGATIJBj3dZYk"></script>
                                                     <script>
                                                         var marker;  // Mevcut pin'i depolamak için global değişken.
@@ -276,6 +277,7 @@
                             <!-- /.tab-pane -->
                             <div class="tab-pane" id="settings">
                                 <form class="form-horizontal" method="post" action="/Pharmacy/Account/UpdateProfile">
+                                    <input type="hidden" name="RequirePassword" value="1" />
                                     <div class="form-group row">
                                         <label for="inputName" class="col-sm-2 col-form-label">İsim</label>
                                         <div class="col-sm-10">

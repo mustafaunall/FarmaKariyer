@@ -25,4 +25,5 @@ public class UpdateProfileVM
     public string? CurrentPassword { get; set; }
     public string? NewPassword { get; set; }
     public string? NewPasswordRepeat { get; set; }
+    public int RequirePassword { get; set; } = 0;
 }

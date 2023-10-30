@@ -31,27 +31,27 @@
 <section class="project-single-area" style="margin-top:40px;
 ">
     <div class="container">
-     @*    <div class="row">
-            <div class="col-md-12">
-                <div class="single-project-img-box">
-                    <img src="~/images/eczane.png" alt="Awesome Image">
-                </div>
-            </div>
+        @*    <div class="row">
+        <div class="col-md-12">
+        <div class="single-project-img-box">
+        <img src="~/images/eczane.png" alt="Awesome Image">
+        </div>
+        </div>
         </div> *@
 
-            <div class="row" style="margin-bottom:40px;">
-                <div class="col-md-12">
-                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48143.43157062158!2d28.892559857172643!3d41.047905995345964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab1d021adf417%3A0xba3a3fdfdbb5f5d!2sEy%C3%BCp%20Sultan%20Camii!5e0!3m2!1str!2str!4v1697842674156!5m2!1str!2str"
-                            width="100%"
-                            height="500"
-                            frameborder="0"
-                            style="border:0;"
-                            allowfullscreen=""
-                            aria-hidden="false"
-                            tabindex="0">
-                    </iframe>
-                </div>
+        <div class="row" style="margin-bottom:40px;">
+            <div class="col-md-12">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48143.43157062158!2d28.892559857172643!3d41.047905995345964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab1d021adf417%3A0xba3a3fdfdbb5f5d!2sEy%C3%BCp%20Sultan%20Camii!5e0!3m2!1str!2str!4v1697842674156!5m2!1str!2str"
+                        width="100%"
+                        height="500"
+                        frameborder="0"
+                        style="border:0;"
+                        allowfullscreen=""
+                        aria-hidden="false"
+                        tabindex="0">
+                </iframe>
             </div>
+        </div>
         <div class="row">
             <div class="col-md-4">
                 <div class="project-info">
@@ -83,12 +83,106 @@
                 <div class="text-holder">
                     <p>"Eczane Açma ve İşletme Ruhsatı" başvuru süreci, titiz ve özenle yürütülmesi gereken bir süreçtir. İlk olarak, başvuru sahibi, yerel sağlık otoritelerine veya ilgili devlet kurumlarına başvurmalıdır. Bu başvurunun bir parçası olarak, işletme sahibinin ve yöneticilerinin eğitim ve deneyim belgeleri, işletme yerinin uygunluğu ve güvenliği, ilaçların saklanması ve dağıtılması için gerekli tesislerin varlığı gibi bir dizi belge sunması gerekebilir.</p>
                     <ul>
-                        <li>Başvuru Formu Doldurma</li>
-                        <li>Gerekli Belgelerin Toplanması</li>
-                        <li>Başvuru Ücretleri</li>
-                        <li>İnceleme Süreci</li>
-                        <li>Onay veya Düzeltme Talepleri</li>
-                        <li>Ruhsat Verilmesi veya Reddi</li>
+                        @if (Model?.Type == Domain.Model.Enum.AdvertType.TECHNICIAN)
+                        {
+                            if (Model?.ExperienceYear != null)
+                            {
+                                <li>@Model.ExperienceYear yıl tecrübe</li>
+                            }
+                            if (Model?.BonusBenefit == true || Model?.TravelBenefit == true || Model?.FoodBenefit == true)
+                            {
+                                <li>
+                                    @if (Model.BonusBenefit == true)
+                                    {
+                                        <span>Prim </span>
+                                    }
+                                    @if (Model.TravelBenefit == true)
+                                    {
+                                        <span>Yol </span>
+                                    }
+                                    @if (Model.FoodBenefit == true)
+                                    {
+                                        <span>Yemek </span>
+                                    }
+                                </li>
+                            }
+                            if (Model?.SalaryRange != null)
+                            {
+                                <li>Maaş aralığı: @Model.SalaryRange</li>
+                            }
+                            if (Model?.PrescriptionInfo == true || Model?.PrivateInsuranceEntryInfo == true || Model?.OTCInfo == true || Model?.DermocosmeticInfo == true)
+                            {
+                                <li>
+                                    @if (Model.PrescriptionInfo == true)
+                                    {
+                                        <span>Reçete Bilgisi </span>
+                                    }
+                                    @if (Model.PrivateInsuranceEntryInfo == true)
+                                    {
+                                        <span>Özel Sigorta Girişi </span>
+                                    }
+                                    @if (Model.OTCInfo == true)
+                                    {
+                                        <span>OTC Bilgisi </span>
+                                    }
+                                    @if (Model.DermocosmeticInfo == true)
+                                    {
+                                        <span>Dermokozmetik Bilgisi </span>
+                                    }
+                                </li>
+                            }
+                            if (Model?.OtherInfo != null)
+                            {
+                                <li>Diğer bilgiler: @Model.OtherInfo</li>
+                            }
+                        }
+                        @if (Model?.Type == Domain.Model.Enum.AdvertType.INTERN)
+                        {
+                            if (Model?.EducationStatus != null)
+                            {
+                                <li>Eğitim: @Model.EducationStatus</li>
+                            }
+                        }
+                        @if (Model?.Type == Domain.Model.Enum.AdvertType.ASSISTANT)
+                        {
+                            if (Model?.ExperienceYear != null)
+                            {
+                                <li>@Model.ExperienceYear yıl tecrübe</li>
+                            }
+                        }
+                        @if (Model?.Type == Domain.Model.Enum.AdvertType.SECONDARY)
+                        {
+                            if (Model?.EducationStatus != null)
+                            {
+                                <li>Eğitim: @Model.EducationStatus</li>
+                            }
+                        }
+                        @if (Model?.Type == Domain.Model.Enum.AdvertType.LICENSE)
+                        {
+                            if (Model?.SquareMeter != null)
+                            {
+                                <li>Metre Kare: @Model.SquareMeter</li>
+                            }
+                            if (Model?.MonthlyTurnover != null)
+                            {
+                                <li>Aylık Ciro: @Model.MonthlyTurnover</li>
+                            }
+                            if (Model?.LicenseRightLeft != null)
+                            {
+                                <li>@(Model.LicenseRightLeft == true ? "Ruhsatlı Devir" : "Ruhsatsız Devir")</li>
+                            }
+                            if (Model?.HasRightToCarry != null)
+                            {
+                                <li>@(Model.HasRightToCarry == true ? "Taşıma Hakkı Var" : "Taşıma Hakkı Yok")</li>
+                            }
+                        }
+                        @if (Model?.Type == Domain.Model.Enum.AdvertType.OTHER)
+                        {
+                            if (Model?.DriverLicenses != null)
+                            {
+                                <li>@(string.Join(", ", Model.DriverLicenses))</li>
+                            }
+                        }
                     </ul>
                 </div>
                 <form method="post" action="/JobAdvert/Apply">

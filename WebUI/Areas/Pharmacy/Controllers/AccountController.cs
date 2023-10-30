@@ -68,7 +68,7 @@ public class AccountController : BaseController
             Notification("Lütfen tüm alanları doldurunuz!", NotificationType.Info);
             return RedirectToAction(nameof(Profile));
         }
-        if (string.IsNullOrEmpty(vm.CurrentPassword))
+        if (vm.RequirePassword == 1 && string.IsNullOrEmpty(vm.CurrentPassword))
         {
             Notification("Bilgileriniz güncellenemedi, lütfen şu anki şifrenizi giriniz!", NotificationType.Info);
             return RedirectToAction(nameof(Profile));
@@ -167,8 +167,15 @@ public class AccountController : BaseController
     {
         return View();
     }
-    public IActionResult Packages()
+    public async Task<IActionResult> Packages()
     {
+        var u = await _userManager.GetUserAsync(User);
+        var user = await _userManager.Users
+            .SingleAsync(x => x.Email == u.Email);
+        if (user.AdvertPostingQuota == -1) {
+            Notification("Şu an zaten yıllık paket kullanıyorsunuz!", NotificationType.Info);
+            return Redirect("/Pharmacy/Account/Profile");
+        }
         return View();
     }
 
