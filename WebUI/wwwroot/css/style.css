@@ -5885,3 +5885,8 @@ b {
     }
 
 }
+.background-pattern {
+    background-image: url('..//images/formbg.png');
+    background-repeat: repeat;
+    width: 100%; 
+}
