@@ -29,191 +29,201 @@
             .loginbtn:hover {
                 opacity: 1;
             }
-            .pharmaregisterimg{
-            display:flex; justify-content:center;align-items:center; padding:15px 0;
-            }
+
+        .pharmaregisterimg {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 15px 0;
+        }
     </style>
     <div class="clearfix"></div>
     <section style=" margin-top: 35px;">
         <div class="row">
-            <div class="col-lg-6">
-                <div class="pharmaregisterimg">
-                    <img src="~/images/pharmaregister.png" />
+            <form class="contact-bx" method="post" asp-controller="Account" asp-action="RegisterPharmacy">
+                <div class="text-center">
+                    <div class="heading-bx left" style="margin-bottom:0;">
+                        <h2 class="title-head" style="font-size:34px;">
+                            <span style="color:black;">Hemen</span>
+                            <span>Kayıt Olun</span>
+                        </h2>
+                        <p>
+                            Zaten Hesabınız Var mı ?
+                            <a href="@Url.Action("LoginPharmacy","Account")" class="cr">
+                                Hemen Giriş Yap
+                            </a>
+                        </p>
+                    </div>
                 </div>
-            </div>
-            <div>
                 <div class="col-lg-6">
-                    <div style="
+                    <div class="account-container">
+                        <div class="row placeani">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input asp-for="Name" type="text" placeholder="Eczacı Adı" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input asp-for="Surname" type="text" placeholder="Eczacı Soyadı" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input asp-for="PharmacyName" type="text" placeholder="Eczane Adı" class="form-control">
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
 
-align-items:center;
-display:flex;">
-                        <div class="account-container">
-                            <div class="heading-bx left">
-                                <h2 class="title-head" style="font-size:34px;">
-                                    <span style="color:black;">Hemen</span>
-                                    <span>Kayıt Olun</span>
-                                </h2>
-                                <p>
-                                    Zaten Hesabınız Var mı ?
-                                    <a href="@Url.Action("LoginPharmacy","Account")" class="cr">
-                                        Hemen Giriş Yap
-                                    </a>
-                                </p>
+                                <div class="input-group form-group">
+
+                                    <input type="text" asp-for="GLNCode" class="form-control" id="glnNumber" placeholder="GLN Numaranız:">
+
+                                    <script>
+                                        const initialValue = "8680001";
+
+                                        $("#glnNumber").mouseover(function () {
+                                            if ($(this).val() === "") {
+                                                $(this).val(initialValue);
+                                            }
+                                        });
+
+                                        $("#glnNumber").mouseout(function () {
+                                            if ($(this).val() === initialValue) {
+                                                $(this).val("");
+                                                $(this).attr("placeholder", "GLN Numaranız:");
+                                            }
+                                        });
+
+                                        $("#glnNumber").on('input', function () {
+                                            if ($(this).val().substr(0, initialValue.length) !== initialValue) {
+                                                $(this).val(initialValue);
+                                            }
+                                        });
+
+                                        $("#glnNumber").keypress(function () {
+                                            if ($(this).val().length >= 13) {
+                                                return false;
+                                            }
+                                        });
+                                    </script>
+                                </div>
+
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <div class="input-group">
+                                        <input asp-for="PhoneNumber" type="text" placeholder="Telefon Numaranız" class="form-control">
+                                    </div>
+                                </div>
                             </div>
 
-                            <form class="contact-bx" method="post" asp-controller="Account" asp-action="RegisterPharmacy">
-                                <div class="row placeani">
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input asp-for="Name" type="text" placeholder="Eczacı Adı" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input asp-for="Surname" type="text" placeholder="Eczacı Soyadı" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input asp-for="PharmacyName" type="text" placeholder="Eczane Adı" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <select id="Iller" class="input-group" asp-for="Province">
+                                        <option disabled value="0">İl Seçiniz</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="col-lg-12">
+                                <div class="form-group">
+                                    <select id="Ilceler" class="input-group" asp-for="District">
+                                        <option disabled value="0">Lütfen Önce bir İl seçiniz</option>
+                                    </select>
+                                </div>
+                            </div>
+                      
+                        
+                          
 
-                                            <div class="input-group form-group">
-
-                                                <input type="text" asp-for="GLNCode" class="form-control" id="glnNumber" placeholder="GLN Numaranız:">
-
-                                                <script>
-                                                    const initialValue = "8680001";
-
-                                                    $("#glnNumber").mouseover(function () {
-                                                        if ($(this).val() === "") {
-                                                            $(this).val(initialValue);
-                                                        }
-                                                    });
-
-                                                    $("#glnNumber").mouseout(function () {
-                                                        if ($(this).val() === initialValue) {
-                                                            $(this).val("");
-                                                            $(this).attr("placeholder", "GLN Numaranız:");
-                                                        }
-                                                    });
-
-                                                    $("#glnNumber").on('input', function () {
-                                                        if ($(this).val().substr(0, initialValue.length) !== initialValue) {
-                                                            $(this).val(initialValue);
-                                                        }
-                                                    });
-
-                                                    $("#glnNumber").keypress(function () {
-                                                        if ($(this).val().length >= 13) {
-                                                            return false;
-                                                        }
-                                                    });
-                                                </script>
-                                            </div>
-                               
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input asp-for="PhoneNumber" type="text" placeholder="Telefon Numaranız" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                        <select id="Iller" class="input-group" asp-for="Province">
-                                                <option disabled value="0">İl Seçiniz</option>
-                                            </select>
-                                            </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <select id="Ilceler" class="input-group" asp-for="District">
-                                            <option disabled value="0">Lütfen Önce bir İl seçiniz</option>
-                                        </select>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group textareaform">
-
-                                            <textarea asp-for="Address" class="form-control" rows="5" value="" placeholder="Açık Adresiniz..."></textarea>
-                                        </div>
-                                    </div>
-                                   
-                                    <style>
-                                        select{
-                                            border-width: 0 0 2px;
-                                            border-color: rgba(0,0,0,.2);
-                                            padding: 10px 0;
-                                        }
-
-                                        .textareaform textarea{
-                                        border-left:none;
-                                        border-right:none;
-                                        border-top:none;
-                                            border-width: 0 0 2px;
-                                            border-color: rgba(0,0,0,.2) !important;
-                                        min-height:100px;
-                                        padding-left:0 !important;
-                                            min-width: 100%;
-                                            max-width:100%;
-                                            color:#848484;
-                                        }
-
-                                        .textareaform textarea:focus{
-                                                border-color: red !important;
-                                            }
-                                    select:focus{
-                                        border-color:red;
-                                    }
-                                    </style>
-                                    <script src="~/scripts/ililce.js" province="34" district="1"></script> <!--il-ilçe-script-->
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input asp-for="Email" type="email" placeholder="E-Posta Adresiniz" class="form-control">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input asp-for="Password" type="password" class="form-control" placeholder="Şifreniz">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group">
-                                            <div class="input-group">
-                                                <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Şifreniz Tekrar">
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-lg-12">
-                                        <div class="form-group form-forget">
-                                            <div class="custom-control custom-checkbox">
-                                                <input type="checkbox" required class="custom-control-input" id="customControlAutosizing">
-                                                <label class="custom-control-label" for="customControlAutosizing" style="    display: contents;"><span href="#" style="color:black;">Kişisel verilerimin işlenmesine yönelik <span style="text-decoration:underline; cursor:pointer;" data-toggle="modal" data-target="#myModal">aydınlatma metnini</span> okudum ve anladım.</span></label>
-                                            </div>
-                                        </div>
-                                        <div class="col-lg-12 m-b30">
-                                            <button type="submit" value="Submit" class="btn button-md">Kayıt Ol</button>
-                                        </div>
-                                    </div>
-                            </form>
                         </div>
                     </div>
                 </div>
-            </div>
+                <div class="col-lg-6">
+                    <div style="align-items:center;display:flex;">
+                        <div class="account-container">
+                            <div class="row placeani">
+                        
+                                <div class="col-lg-12">
+                                    <div class="form-group textareaform">
+
+                                        <textarea asp-for="Address" class="form-control" rows="5" value="" placeholder="Açık Adresiniz..." style="height: 120px;"></textarea>
+                                    </div>
+                                </div>
+
+                                <style>
+                                    select {
+                                        border-width: 0 0 2px;
+                                        border-color: rgba(0,0,0,.2);
+                                        padding: 10px 0;
+                                    }
+
+                                    .textareaform textarea {
+                                        border-left: none;
+                                        border-right: none;
+                                        border-top: none;
+                                        border-width: 0 0 2px;
+                                        border-color: rgba(0,0,0,.2) !important;
+                                        min-height: 100px;
+                                        padding-left: 0 !important;
+                                        min-width: 100%;
+                                        max-width: 100%;
+                                        color: #848484;
+                                    }
+
+                                        .textareaform textarea:focus {
+                                            border-color: red !important;
+                                        }
+
+                                    select:focus {
+                                        border-color: red;
+                                    }
+                                </style>
+                                <script src="~/scripts/ililce.js" province="34" district="1"></script> <!--il-ilçe-script-->
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input asp-for="Email" type="email" placeholder="E-Posta Adresiniz" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input asp-for="Password" type="password" class="form-control" placeholder="Şifreniz">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="input-group">
+                                            <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Şifreniz Tekrar">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <div class="form-group form-forget">
+                                        <div class="custom-control custom-checkbox">
+                                            <input type="checkbox" required class="custom-control-input" id="customControlAutosizing">
+                                            <label class="custom-control-label" for="customControlAutosizing" style="    display: contents;"><span href="#" style="color:black;">Kişisel verilerimin işlenmesine yönelik <span style="text-decoration:underline; cursor:pointer;" data-toggle="modal" data-target="#myModal">aydınlatma metnini</span> okudum ve anladım.</span></label>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 m-b30" style="display: flex;justify-content: center; padding:0;">
+                                        <button type="submit" value="Submit" class="btn button-md">Kayıt Ol</button>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </form>
         </div>
     </section>
 
@@ -229,7 +239,8 @@ display:flex;">
                 <h4 class="modal-title">Aydınlatma Metni</h4>
             </div>
             <div class="modal-body">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Donec in efficitur leo. In hac habitasse platea dictumst. Sed ullamcorper, nunc a cursus sollicitudin, lorem mauris tempus est, et hendrerit dolor elit a velit. Vestibulum ac elementum massa. In sagittis, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi.
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Donec in efficitur leo. In hac habitasse platea dictumst. Sed ullamcorper, nunc a cursus sollicitudin, lorem mauris tempus est, et hendrerit dolor elit a velit. Vestibulum ac elementum massa. In sagittis, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi.
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus lacinia odio vitae vestibulum. Donec in efficitur leo. In hac habitasse platea dictumst. Sed ullamcorper, nunc a cursus sollicitudin, lorem mauris tempus est, et hendrerit dolor elit a velit. Vestibulum ac elementum massa. In sagittis, lorem quis bibendum auctor, nisi elit consequat ipsum, nec sagittis sem nibh id elit. Duis sed odio sit amet nibh vulputate cursus a sit amet mauris. Morbi accumsan ipsum velit. Nam nec tellus a odio tincidunt auctor a ornare odio. Sed non mauris vitae erat consequat auctor eu in elit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Mauris in erat justo. Nullam ac urna eu felis dapibus condimentum sit amet a augue. Sed non neque elit. Sed ut imperdiet nisi.
                 </p>
             </div>
