@@ -17,13 +17,14 @@
                             foreach (var item in Model)
                             {
                                 @* firma foto - ilan ismi - eczane ismi - ilan başlığı - ilan silme *@
-                                <div class="row mb-3" style="background-color:white; padding: 20px 30px;">
-                                    <div class="col-md-4">
-                                        <div style="display:flex; justify-content:center;">
-                                            <img src="~/images/logoadvert.png" alt="Profile Picture">
+                                <div class="row mb-3" style="background-color:white; padding: 10px 20px; position:relative;">
+                                    <div class="col-md-4" style="display: flex; flex-direction: column; justify-content: center; height: 100%;">
+                                        <!-- Tarih kısmını ortalamak için değişiklik -->
+                                        <div style="background-color:#ff2b58; width:fit-content; padding:3px 5px;">
+                                            <h3 style="font-size:18px; margin:0; color:white;">@(item.ApplyDate.ToString("dd MMMM", CultureInfo.CreateSpecificCulture("tr-TR")))</h3>
                                         </div>
                                         <div style="display:flex; justify-content:center;">
-                                            <h3 style="font-size:22px; padding:5px 0;">@(item.ApplyDate.ToString("dd MMMM", CultureInfo.CreateSpecificCulture("tr-TR")))</h3>
+                                            <img src="~/images/logoadvert.png" alt="Profile Picture">
                                         </div>
                                         <div class="overlay-style-one" style="display:flex; justify-content:center;">
                                             <div class="box">
@@ -33,31 +34,23 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="col-md-7 padding:0; border:1px solid #f4f4f4; border-top:none;">
-                                        <div class="d-flex align-items-center">
-                                            <div class="d-flex justify-content-center w-100 ">
-                                                <div>
-                                                    <h3>@item.Advert?.Title</h3>
-                                                    <p style="    height: 104px;">@item.Advert?.Description</p>
-
-                                                </div>
-
-                                            </div>
-                                        </div>
+                                    <div class="col-md-8 padding:0; border:1px solid #f4f4f4; border-top:none;">
                                         <div>
-                                            <span><b>Sahibi: </b>@item.Advert?.ApplicationUser?.Name @item.Advert?.ApplicationUser?.Surname</span>
-                                            <div style="float:right;">
-                                                <div>
-                                                    <a href="/JobAdvert/Detail/@item.Advert?.Id">
-                                                        <span style=" padding:5px 10px; background: #ff2b58; color: #fff;">
-                                                            İlanı Gör
-                                                        </span>
-                                                    </a>
-                                                </div>
+                                            <h3>@item.Advert?.Title</h3>
+                                            <p style="    height: 140px;">@item.Advert?.Description<p>
+                                        </div>
+                                        <span>
+                                            <b>Sahibi: </b>@item.Advert?.ApplicationUser?.Name @item.Advert?.ApplicationUser?.Surname
+                                        </span>
+                                        <div style="float:right;">
+                                            <div>
+                                                <a href="/JobAdvert/Detail/@item.Advert?.Id">
+                                                    <span style=" padding:1px 10px; background: #ff2b58; color: #fff;">
+                                                        İlanı Gör
+                                                    </span>
+                                                </a>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-md-1">
                                     </div>
                                 </div>
                             }
