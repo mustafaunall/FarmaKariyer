@@ -176,7 +176,12 @@ public class AccountController : BaseController
             Notification("Şu an zaten yıllık paket kullanıyorsunuz!", NotificationType.Info);
             return Redirect("/Pharmacy/Account/Profile");
         }
-        return View();
+        return View(new PackagesVM()
+        {
+            PackagePrice1 = _context.AdvertCategories.Where(x => x.Id == 1).Select(x => x.Price).FirstOrDefault(),
+            PackagePrice2 = _context.AdvertCategories.Where(x => x.Id == 2).Select(x => x.Price).FirstOrDefault(),
+            PackagePrice3 = _context.AdvertCategories.Where(x => x.Id == 3).Select(x => x.Price).FirstOrDefault(),
+        });
     }
 
     public IActionResult LoginPharmacy()
