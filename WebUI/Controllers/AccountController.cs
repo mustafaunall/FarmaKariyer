@@ -104,6 +104,19 @@ public class AccountController : BaseController
         var user = await _userManager.FindByEmailAsync(model.Email);
         if (user != null)
         {
+            if ((int)user.Type != model.UserType)
+            {
+                if (model.UserType == (int)ApplicationUserType.PHARMACY)
+                {
+                    Notification("İşveren girişine yetkiniz bulunamadı, iş arayan girişine yönlendiriliyorsunuz...", NotificationType.Info);
+                    return RedirectToAction("LoginUser", "Account");
+                }
+                else if (model.UserType == (int)ApplicationUserType.USER)
+                {
+                    Notification("İş arayan girişine yetkiniz bulunamadı, işveren girişine yönlendiriliyorsunuz...", NotificationType.Info);
+                    return RedirectToAction("LoginPharmacy", "Account");
+                }
+            }
             var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, false, false);
 
             if (result.Succeeded)
@@ -115,9 +128,14 @@ public class AccountController : BaseController
             }
             else
             {
-                return RedirectToAction("LoginUser", "Account");
+                Notification("E-postanız veya şifreniz yanlış, lütfen tekrar deneyin!", NotificationType.Error);
+                if (model.UserType == (int)ApplicationUserType.PHARMACY)
+                    return RedirectToAction("LoginPharmacy", "Account");
+                else if (model.UserType == (int)ApplicationUserType.USER)
+                    return RedirectToAction("LoginUser", "Account");
             }
         }
+        Notification("Kullanıcı bulunamadı", NotificationType.Error);
         return RedirectToAction("LoginUser", "Account");
     }
 
@@ -126,33 +144,41 @@ public class AccountController : BaseController
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> RegisterUser(RegisterUserVM model)
     {
-        var user = new ApplicationUser
+        try
         {
-            //UserName = StringHelper.ConvertToEnglish(model.Name + model.Surname).ToLower(),
-            UserName = model.Email,
-            Email = model.Email,
-            PhoneNumber = model.PhoneNumber,
-            Name = model.Name,
-            Surname = model.Surname,
-            Type = ApplicationUserType.USER,
+            var user = new ApplicationUser
+            {
+                //UserName = StringHelper.ConvertToEnglish(model.Name + model.Surname).ToLower(),
+                UserName = model.Email,
+                Email = model.Email,
+                PhoneNumber = model.PhoneNumber,
+                Name = model.Name,
+                Surname = model.Surname,
+                Type = ApplicationUserType.USER,
 
-            Province = model.Province,
-            District = model.District,
-            Address = model.Address,
-        };
-        var result = await _userManager.CreateAsync(user, model.Password);
-        if (result.Succeeded)
-        {
-            await _signInManager.SignInAsync(user, isPersistent: false);
-
-            return RedirectPermanent("/User/Account/Profile");
+                Province = model.Province,
+                District = model.District,
+                Address = model.Address,
+            };
+            var mailCheck = await _userManager.FindByEmailAsync(model.Email);
+            if (mailCheck != null)
+            {
+                Notification("Bu e-posta adresi sistemimizde zaten kayıtlı!", NotificationType.Info);
+                return View(model);
+            }
+            var result = await _userManager.CreateAsync(user, model.Password);
+            if (result.Succeeded)
+            {
+                await _signInManager.SignInAsync(user, isPersistent: false);
+                return RedirectPermanent("/Pharmacy/Account/Profile");
+            }
+            return View(model);
         }
-        foreach (var error in result.Errors)
+        catch (Exception)
         {
-            ModelState.AddModelError(string.Empty, error.Description);
+            Notification("Kayıt olma işlemi esnasında bir hata meydana geldi!", NotificationType.Error);
+            return View(model);
         }
-
-        return RedirectToAction("Index", "Home");
     }
 
     [HttpPost]
@@ -160,36 +186,50 @@ public class AccountController : BaseController
     [ValidateAntiForgeryToken]
     public async Task<IActionResult> RegisterPharmacy(RegisterPharmacyVM model)
     {
-        var user = new ApplicationUser
+        try
         {
-            //UserName = StringHelper.ConvertToEnglish(model.Name + model.Surname).ToLower(),
-            UserName = model.Email,
-            Email = model.Email,
-            PhoneNumber = model.PhoneNumber,
-            Name = model.Name,
-            Surname = model.Surname,
-            Type = ApplicationUserType.PHARMACY,
+            var user = new ApplicationUser
+            {
+                //UserName = StringHelper.ConvertToEnglish(model.Name + model.Surname).ToLower(),
+                UserName = model.Email,
+                Email = model.Email,
+                PhoneNumber = model.PhoneNumber,
+                Name = model.Name,
+                Surname = model.Surname,
+                Type = ApplicationUserType.PHARMACY,
 
-            PharmacyName = model.PharmacyName,
-            GLNCode = model.GLNCode,
+                PharmacyName = model.PharmacyName,
+                GLNCode = model.GLNCode,
 
-            Province = model.Province,
-            District = model.District,
-            Address = model.Address,
-        };
-        var result = await _userManager.CreateAsync(user, model.Password);
-        if (result.Succeeded)
-        {
-            await _signInManager.SignInAsync(user, isPersistent: false);
-
-            return RedirectPermanent("/Pharmacy/Account/Profile");
+                Province = model.Province,
+                District = model.District,
+                Address = model.Address,
+            };
+            var mailCheck = await _userManager.FindByEmailAsync(model.Email);
+            if (mailCheck != null)
+            {
+                Notification("Bu e-posta adresi sistemimizde zaten kayıtlı!", NotificationType.Info);
+                return View(model);
+            }
+            var glnCheck = await _context.Users.Where(x => x.GLNCode == model.GLNCode).FirstOrDefaultAsync();
+            if (glnCheck != null)
+            {
+                Notification("Bu GLN numarası sistemimizde zaten kayıtlı!", NotificationType.Info);
+                return View(model);
+            }
+            var result = await _userManager.CreateAsync(user, model.Password);
+            if (result.Succeeded)
+            {
+                await _signInManager.SignInAsync(user, isPersistent: false);
+                return RedirectPermanent("/Pharmacy/Account/Profile");
+            }
+            return View(model);
         }
-        foreach (var error in result.Errors)
+        catch (Exception)
         {
-            ModelState.AddModelError(string.Empty, error.Description);
+            Notification("Kayıt olma işlemi esnasında bir hata meydana geldi!", NotificationType.Error);
+            return View(model);
         }
-
-        return RedirectToAction("Index", "Home");
     }
 
     [Authorize]

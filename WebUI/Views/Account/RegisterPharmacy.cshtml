@@ -62,21 +62,21 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input asp-for="Name" type="text" placeholder="Eczacı Adı" class="form-control" required>
+                                            <input asp-for="Name" value="@Model?.Name" type="text" placeholder="Eczacı Adı" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input asp-for="Surname" type="text" placeholder="Eczacı Soyadı" class="form-control" required>
+                                            <input asp-for="Surname" value="@Model?.Surname" type="text" placeholder="Eczacı Soyadı" class="form-control">
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input asp-for="PharmacyName" type="text" placeholder="Eczane Adı" class="form-control" required>
+                                            <input asp-for="PharmacyName" value="@Model?.PharmacyName" type="text" placeholder="Eczane Adı" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -84,7 +84,7 @@
 
                                     <div class="input-group form-group">
 
-                                        <input type="text" asp-for="GLNCode" class="form-control" id="glnNumber" placeholder="GLN Numaranız:" required>
+                                        <input type="text" asp-for="GLNCode" value="@Model?.GLNCode" class="form-control" id="glnNumber" placeholder="GLN Numaranız:">
 
                                         <script>
                                             const initialValue = "8680001";
@@ -120,7 +120,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input asp-for="PhoneNumber" type="text" placeholder="Telefon Numaranız" class="form-control" required>
+                                            <input asp-for="PhoneNumber" value="@Model?.PhoneNumber" type="text" placeholder="Telefon Numaranız" class="form-control">
                                         </div>
                                     </div>
                                 </div>
@@ -141,7 +141,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group textareaform">
 
-                                        <textarea asp-for="Address" class="form-control" rows="5" value="" placeholder="Açık Adresiniz..." required></textarea>
+                                        <textarea asp-for="Address" value="@Model?.Address" class="form-control" rows="5" value="" placeholder="Açık Adresiniz..."></textarea>
                                     </div>
                                 </div>
 
@@ -173,11 +173,11 @@
                                         border-color: red;
                                     }
                                 </style>
-                                <script src="~/scripts/ililce.js" province="34" district="1"></script> <!--il-ilçe-script-->
+                                <script src="~/scripts/ililce.js" province="@(Model?.Province ?? "34")" district="@(Model?.District ?? "1")"></script> <!--il-ilçe-script-->
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input asp-for="Email" type="email" placeholder="E-Posta Adresiniz" class="form-control" required>
+                                            <input asp-for="Email" value="@Model?.Email" type="email" placeholder="E-Posta Adresiniz" class="form-control">
                                         </div>
                                     </div>
                                 </div>

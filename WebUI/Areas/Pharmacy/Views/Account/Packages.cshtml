@@ -1,4 +1,6 @@
-﻿@{
+﻿@using Domain.ViewModel.User;
+@model PackagesVM
+@{
     ViewData["Title"] = "Paketler";
 }
 
@@ -7,7 +9,7 @@
         <div class="container premcon">
             <div class="row">
                 <div class="col-md-4 col-sm-4">
-                    <div class="premcard card_three text-center">
+                    <div class="premcard card_three text-center" style="height: 560px !important;">
                         <div class="title">
                             <i class="fa fa-paper-plane" aria-hidden="true"></i>
                             <h2>Başlangıç Paketi</h2>
@@ -23,11 +25,11 @@
                                 @*            <li><div style="margin:78px;">&nbsp;</div></li> *@
                             </ul>
                         </div>
-                        <a href="/Pharmacy/Account/Packages">Satın Al</a>
+                        <a href="/PayTR/Buy?proc=advert&categoryId=1">Satın Al</a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 mpremcon">
-                    <div class="premcard card_three text-center">
+                    <div class="premcard card_three text-center" style="height: 560px !important;">
                         <div class="title">
                             <i class="fa fa-plane" aria-hidden="true"></i>
                             <h2>Gelişmiş Paket</h2>
@@ -41,11 +43,11 @@
                                 <li>Her ilan 30 gün yayında kalır</li>
                             </ul>
                         </div>
-                        <a style="margin-bottom: 12px;" href="/Pharmacy/Account/Packages">Satın Al</a>
+                        <a style="margin-bottom: 12px;" href="/PayTR/Buy?proc=advert&categoryId=2">Satın Al</a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4">
-                    <div class="premcard card_three text-center">
+                    <div class="premcard card_three text-center" style="height: 560px !important;">
                         <div class="title">
                             <i class="fa fa-rocket" aria-hidden="true"></i>
                             <h2>Sınırsız Paket</h2>
@@ -59,7 +61,7 @@
                                 <li>Her ilan 30 gün yayında kalır</li>
                             </ul>
                         </div>
-                        <a href="/Pharmacy/Account/Packages">Satın Al</a>
+                        <a href="/PayTR/Buy?proc=advert&categoryId=3">Satın Al</a>
                     </div>
                 </div>
             </div>
