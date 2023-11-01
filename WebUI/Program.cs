@@ -3,11 +3,21 @@ using Core.Services;
 using DataAccess.Context;
 using Domain.Model;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using QuestPDF.Infrastructure;
+using System.Security.Authentication;
 
 var builder = WebApplication.CreateBuilder(args);
 QuestPDF.Settings.License = LicenseType.Community;
+
+builder.Services.Configure<KestrelServerOptions>(options =>
+{
+    options.ConfigureHttpsDefaults(httpsOptions =>
+    {
+        httpsOptions.SslProtocols = SslProtocols.Tls12 | SslProtocols.Tls13;
+    });
+});
 
 builder.Services.AddControllersWithViews();
 
@@ -61,7 +71,11 @@ app.UseRouting();
 
 app.UseSession();
 
-app.UseCookiePolicy();
+app.UseCookiePolicy(
+            new CookiePolicyOptions
+            {
+                Secure = CookieSecurePolicy.Always
+            });
 
 app.UseAuthentication();
 
