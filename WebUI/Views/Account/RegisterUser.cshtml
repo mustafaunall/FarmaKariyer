@@ -56,34 +56,34 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input asp-for="Name" value="@Model?.Name" type="text" placeholder="Adınız" class="form-control">
+                                            <input asp-for="Name" value="@Model?.Name" type="text" placeholder="Adınız" class="form-control" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input asp-for="Surname" value="@Model?.Surname" type="text" placeholder="Soyadınız" class="form-control">
+                                            <input asp-for="Surname" value="@Model?.Surname" type="text" placeholder="Soyadınız" class="form-control" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input asp-for="PhoneNumber" value="@Model?.PhoneNumber" type="text" placeholder="Telefon Numaranız" class="form-control">
+                                            <input asp-for="PhoneNumber" value="@Model?.PhoneNumber" type="text" placeholder="Telefon Numaranız" class="form-control" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <select asp-for="Province" id="Iller" class="input-group" name="Province">
+                                        <select asp-for="Province" id="Iller" class="input-group" name="Province" required>
                                             <option disabled value="0">İl Seçiniz</option>
                                         </select>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <select asp-for="District" id="Ilceler" class="input-group" name="District">
+                                        <select asp-for="District" id="Ilceler" class="input-group" name="District" required>
                                             <option disabled value="0">Lütfen Önce bir İl seçiniz</option>
                                         </select>
                                     </div>
@@ -91,7 +91,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group textareaform">
 
-                                        <textarea asp-for="Address" value="@Model?.Address" class="form-control" rows="5" value="" placeholder="Açık Adresiniz..."></textarea>
+                                        <textarea asp-for="Address" value="@Model?.Address" class="form-control" rows="5" value="" placeholder="Açık Adresiniz..."  required></textarea>
                                     </div>
                                 </div>
 
@@ -127,21 +127,21 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input asp-for="Email" value="@Model?.Email" type="email" placeholder="E-Posta Adresiniz" class="form-control">
+                                            <input asp-for="Email" value="@Model?.Email" type="email" placeholder="E-Posta Adresiniz" class="form-control" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input asp-for="Password" type="password" class="form-control" placeholder="Şifreniz">
+                                            <input asp-for="Password" type="password" class="form-control" placeholder="Şifreniz" required>
                                         </div>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Şifreniz Tekrar">
+                                            <input asp-for="ConfirmPassword" type="password" class="form-control" placeholder="Şifreniz Tekrar" required>
                                         </div>
                                     </div>
                                 </div>
