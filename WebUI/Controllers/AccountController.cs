@@ -104,6 +104,19 @@ public class AccountController : BaseController
         var user = await _userManager.FindByEmailAsync(model.Email);
         if (user != null)
         {
+            if ((int)user.Type != model.UserType)
+            {
+                if (model.UserType == (int)ApplicationUserType.PHARMACY)
+                {
+                    Notification("İşveren girişine yetkiniz bulunamadı, iş arayan girişine yönlendiriliyorsunuz...", NotificationType.Info);
+                    return RedirectToAction("LoginUser", "Account");
+                }
+                else if (model.UserType == (int)ApplicationUserType.USER)
+                {
+                    Notification("İş arayan girişine yetkiniz bulunamadı, işveren girişine yönlendiriliyorsunuz...", NotificationType.Info);
+                    return RedirectToAction("LoginPharmacy", "Account");
+                }
+            }
             var result = await _signInManager.PasswordSignInAsync(user.UserName, model.Password, false, false);
 
             if (result.Succeeded)
@@ -115,9 +128,14 @@ public class AccountController : BaseController
             }
             else
             {
-                return RedirectToAction("LoginUser", "Account");
+                Notification("E-postanız veya şifreniz yanlış, lütfen tekrar deneyin!", NotificationType.Error);
+                if (model.UserType == (int)ApplicationUserType.PHARMACY)
+                    return RedirectToAction("LoginPharmacy", "Account");
+                else if (model.UserType == (int)ApplicationUserType.USER)
+                    return RedirectToAction("LoginUser", "Account");
             }
         }
+        Notification("Kullanıcı bulunamadı", NotificationType.Error);
         return RedirectToAction("LoginUser", "Account");
     }
 
