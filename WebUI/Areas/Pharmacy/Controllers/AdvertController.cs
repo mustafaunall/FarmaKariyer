@@ -51,6 +51,7 @@ namespace WebUI.Areas.Pharmacy.Controllers
             }
             return View();
         }
+
         public async Task<IActionResult> ApplyList()
         {
             var u = await _userManager.GetUserAsync(User);
@@ -68,6 +69,24 @@ namespace WebUI.Areas.Pharmacy.Controllers
                     .ToListAsync();
 
             return View(model);
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Passive(int id)
+        {
+            var advert = await _context.Adverts.Where(x => x.Id == id).FirstOrDefaultAsync();
+            if (advert == null)
+            {
+                Notification("İlan bulunamadı!", NotificationType.Error);
+            }
+            else
+            {
+                advert.IsActive = false;
+                await _context.SaveChangesAsync();
+                Notification("İlan başarıyla pasife alındı", NotificationType.Success);
+            }
+
+            return RedirectPermanent("/Pharmacy/Advert/List");
         }
 
         public IActionResult ApplyDetail(int id)
