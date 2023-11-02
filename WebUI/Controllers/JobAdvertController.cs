@@ -126,10 +126,10 @@ public class JobAdvertController : BaseController
             .OrderByDescending(x => x.CreateDate)
             .Skip((page - 1) * _pageLimit)
             .Take(_pageLimit)
-            .Where(x => x.Type == AdvertType.TECHNICIAN && x.IsActive)
+            .Where(x => x.Type == AdvertType.TECHNICIAN && x.IsDermocosmetic && x.IsActive)
             .ToList();
         var modelCount = _context.Adverts
-            .Where(x => x.Type == AdvertType.TECHNICIAN && x.IsActive)
+            .Where(x => x.Type == AdvertType.TECHNICIAN && x.IsDermocosmetic && x.IsActive)
             .Count();
         ViewBag.Page = page;
         ViewBag.PageCount = modelCount % _pageLimit == 0 ? (modelCount / _pageLimit) : (modelCount / _pageLimit + 1);

@@ -167,11 +167,15 @@
                             {
                                 <li>Aylık Ciro: @Model.MonthlyTurnover</li>
                             }
-                            if (Model?.LicenseRightLeft != null)
+                            if (Model?.WithLicenseRight != null && Model?.WithLicenseRight == true)
                             {
-                                <li>@(Model.LicenseRightLeft == true ? "Ruhsatlı Devir" : "Ruhsatsız Devir")</li>
+                                    <li>Ruhsatlı Devir</li>
                             }
-                            if (Model?.HasRightToCarry != null)
+                            if (Model?.WithoutLicenseRight != null && Model?.WithoutLicenseRight == true)
+                            {
+                                <li>Ruhsatsız Devir</li>
+                            }
+                            if (Model?.HasRightToCarry != null && Model?.HasRightToCarry == true)
                             {
                                 <li>@(Model.HasRightToCarry == true ? "Taşıma Hakkı Var" : "Taşıma Hakkı Yok")</li>
                             }

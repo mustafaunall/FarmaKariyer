@@ -28,6 +28,12 @@ public class Advert : BaseEntity
 
     #endregion
 
+    #region Dermocosmetic
+
+    public bool IsDermocosmetic { get; set; } = false;
+
+    #endregion
+
     #region Intern
 
     public string? EducationStatus { get; set; }
@@ -44,7 +50,8 @@ public class Advert : BaseEntity
 
     public string? SquareMeter { get; set; }
     public int MonthlyTurnover { get; set; }
-    public bool LicenseRightLeft { get; set; }
+    public bool WithLicenseRight { get; set; }
+    public bool WithoutLicenseRight { get; set; }
     public bool HasRightToCarry { get; set; }
 
     #endregion

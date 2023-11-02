@@ -133,6 +133,8 @@ namespace WebUI.Areas.Pharmacy.Controllers
                     advert.PrivateInsuranceEntryInfo = model.PrivateInsuranceEntryInfo;
                     advert.OTCInfo = model.OTCInfo;
                     advert.DermocosmeticInfo = model.DermocosmeticInfo;
+                    if (model.DermocosmeticInfo == true)
+                        advert.IsDermocosmetic = true;
                     advert.OtherInfo = model.OtherInfo;
                 }
                 else if (model.Type == AdvertType.INTERN)
@@ -143,11 +145,12 @@ namespace WebUI.Areas.Pharmacy.Controllers
                 {
                     advert.EducationStatus = model.EducationStatus;
                 }
-                else if (model.Type == AdvertType.INTERN)
+                else if (model.Type == AdvertType.LICENSE)
                 {
                     advert.SquareMeter = model.SquareMeter;
                     advert.MonthlyTurnover = model.MonthlyTurnover;
-                    advert.LicenseRightLeft = model.LicenseRightLeft;
+                    advert.WithLicenseRight = model.WithLicenseRight;
+                    advert.WithoutLicenseRight = model.WithoutLicenseRight;
                     advert.HasRightToCarry = model.HasRightToCarry;
                 }
                 else if (model.Type == AdvertType.OTHER)

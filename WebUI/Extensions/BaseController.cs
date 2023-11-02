@@ -11,8 +11,8 @@ public enum NotificationType
 
 public class BaseController : Controller
 {
-    public void Notification(string msg, NotificationType type = NotificationType.Info, string title = "")
+    public void Notification(string msg, NotificationType type = NotificationType.Info, string title = "", string okText = "Tamam")
     {
-        TempData["notification"] = $"Swal.fire('{title}', '{msg}', '{type.ToString().ToLower()}')";
+        TempData["notification"] = $"Swal.fire({{title: '{title}', text: '{msg}', icon: '{type.ToString().ToLower()}', confirmButtonText: '{okText}'}})";
     }
 }

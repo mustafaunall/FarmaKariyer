@@ -125,6 +125,11 @@ public class AccountController : BaseController
 
             if (result.Succeeded)
             {
+                if (user.Type == ApplicationUserType.USER && user.ActiveResumeId == null)
+                {
+                    Notification("Farma Kariyer'e hoş geldiniz, şimdi özgeçmişinizi oluşturabilirsiniz.", NotificationType.Info);
+                }
+
                 if (user.Type == ApplicationUserType.USER)
                     return RedirectPermanent("/User/Account/Profile");
                 else if (user.Type == ApplicationUserType.PHARMACY)
@@ -174,6 +179,7 @@ public class AccountController : BaseController
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(user, isPersistent: false);
+                Notification("Farma Kariyer'e hoş geldiniz, şimdi özgeçmişinizi oluşturabilirsiniz.", NotificationType.Info);
                 return RedirectPermanent("/Pharmacy/Account/Profile");
             }
             return View(model);

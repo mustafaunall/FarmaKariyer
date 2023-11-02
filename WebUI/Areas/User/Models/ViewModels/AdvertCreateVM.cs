@@ -40,7 +40,8 @@ public class AdvertCreateVM
 
     public string SquareMeter { get; set; }
     public int MonthlyTurnover { get; set; }
-    public bool LicenseRightLeft { get; set; }
+    public bool WithLicenseRight { get; set; }
+    public bool WithoutLicenseRight { get; set; }
     public bool HasRightToCarry { get; set; }
 
     #endregion
