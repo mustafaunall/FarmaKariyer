@@ -29,7 +29,10 @@ namespace WebUI.Areas.Pharmacy.Controllers
             var u = await _userManager.GetUserAsync(User);
             var user = _context.Users.Where(x => x.Id == u.Id).FirstOrDefault();
 
-            var model = await _context.Adverts.Include(x => x.ApplicationUser).Where(x => x.ApplicationUserId == user!.Id).ToListAsync();
+            var model = await _context.Adverts
+                .Include(x => x.ApplicationUser)
+                .Where(x => x.ApplicationUserId == user!.Id && x.IsActive)
+                .ToListAsync();
 
             return View(model);
         }
@@ -72,7 +75,7 @@ namespace WebUI.Areas.Pharmacy.Controllers
         }
 
         [HttpPost]
-        public async Task<IActionResult> Passive(int id)
+        public async Task<IActionResult> Passive([FromForm] int id)
         {
             var advert = await _context.Adverts.Where(x => x.Id == id).FirstOrDefaultAsync();
             if (advert == null)

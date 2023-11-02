@@ -21,7 +21,7 @@
                                     <!-- Tarih kısmını ortalamak için değişiklik -->
                                     <div style="background-color:#ff2b58; width:fit-content; padding:3px 5px;">
                                         <h3 style="font-size:18px; margin:0; color:white;">@item.CreateDate.ToString("dd MMMM", CultureInfo.CreateSpecificCulture("tr-TR"))</h3>
-                                        </div>
+                                    </div>
                                     <!-- Resim ve Overlay kısmını dikey olarak ortalamak için height kullanılır -->
                                     <div class="pharmacylistp">
                                         <div style="display:flex; justify-content:center; align-items: center; padding:5px 0;">
@@ -53,27 +53,27 @@
                                     <div>
                                         <span><span style="font-weight:bold;">Sahibi: </span> @item.ApplicationUser.Name <br /> <span style="font-weight:bold;">Aranan Kategori: </span>@item.Type.GetDescription()</span>
                                         <div style="float:right;">
-                                                <a href="/JobAdvert/Detail/@item.Id">
-                                                    <span style=" padding:1px 10px; background: #ff2b58; color: #fff;">
-                                                        İlanı Gör
-                                                    </span>
-                                                </a>
+                                            <a href="/JobAdvert/Detail/@item.Id">
+                                                <span style=" padding:1px 10px; background: #ff2b58; color: #fff;">
+                                                    İlanı Gör
+                                                </span>
+                                            </a>
                                         </div>
                                         @if (item.IsBoosted == false)
                                         {
                                             <div style="float:right;" class="mx-3">
-                                                    <a href="/PayTR/Buy?proc=boost&advertId=@item.Id">
-                                                        <span style=" padding:5px 10px; background: #ff2b58; color: #fff;">
-                                                            İlanı Öne Çıkar
-                                                        </span>
-                                                    </a>
+                                                <a href="/PayTR/Buy?proc=boost&advertId=@item.Id">
+                                                    <span style=" padding:5px 10px; background: #ff2b58; color: #fff;">
+                                                        İlanı Öne Çıkar
+                                                    </span>
+                                                </a>
                                             </div>
                                         }
                                     </div>
                                 </div>
 
                                 <div style="position:absolute; top:10px; right:20px;">
-                                    <a href="#" data-toggle="modal" data-target="#confirmationModal">
+                                    <a href="#" data-advertid="@item.Id" data-toggle="modal" data-target="#confirmationModal">
                                         <i class="fa-regular fa-circle-xmark" style="color:red; font-size:25px;"></i>
                                     </a>
                                 </div>
@@ -85,6 +85,31 @@
             </div>
             <div class="col-md-3"></div>
         </div>
+
+        <!-- Modal -->
+        <div class="modal fade" id="confirmationModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+                <div class="modal-content">
+                    <form method="post" action="/Pharmacy/Advert/Passive">
+                        <input id="modalAdvertId" type="hidden" name="id" value="" />
+                        <div class="modal-body text-center" style="margin:30px 0;">
+                            <h5 style="color:black !important; margin-bottom:20px;">İlanınız Silinecek, Emin misiniz?</h5>
+                            <button type="submit" class="btn btn-success" style="margin-right:20px;">Evet</button>
+                            <button type="button" class="btn btn-danger" data-dismiss="modal">Hayır</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        @section Scripts {
+            <script>
+                $('#confirmationModal').on('show.bs.modal', function (event) {
+                    let id = event.relatedTarget.dataset.advertid;
+                    $('#modalAdvertId').val(id)
+                });
+            </script>
+        }
+
     </div>
 </section>
 

@@ -92,8 +92,12 @@ public class JobAdvertController : BaseController
     {
         var model = _context.Adverts
             .Include(x => x.ApplicationUser)
-            .Where(x => x.Id == id)
+            .Where(x => x.Id == id && x.IsActive)
             .FirstOrDefault();
+        if (model == null)
+        {
+            return Redirect("/Error/ErrorHandler?statusCode=404");
+        }
         ViewBag.AdvertId = model?.Id;
         return View(model);
     }
