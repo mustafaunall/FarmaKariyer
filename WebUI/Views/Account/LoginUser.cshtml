@@ -40,10 +40,7 @@
             </div>
             <div>
                 <div class="col-lg-6">
-                    <div style="
-
-align-items:center;
-display:flex;">
+                    <div style="align-items:center; display:flex;">
                         <div class="account-container" style="max-width:450px;">
                             <div class="heading-bx left">
                                 <h2 class="title-head" style="font-size:34px;">
@@ -75,17 +72,19 @@ display:flex;">
                                     </div>
                                     <div class="col-lg-12">
                                         <div class="form-group form-forget">
-                                            <div class="custom-control custom-checkbox">
+                                            <div class="custom-control custom-checkbox col-lg-6">
                                                 <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
                                                 <label class="custom-control-label" for="customControlAutosizing">Beni hatırla</label>
-                                            </div><a class="ml-auto" href="/react/forget-password">Şifremi Unuttum</a>
+                                            </div>
+                                            <div class="col-lg-6">
+                                                <a class="ml-auto" style="color: #848484; font-weight: 700;" href="@Url.Action("ForgotPassword","Account")">Şifremi Unuttum</a>
+                                            </div>
                                         </div>
                                     </div>
                                     <div class="col-lg-12 m-b30">
                                         <input type="hidden" asp-for="UserType" value="0" />
                                         <button name="submit" type="submit" value="Submit" class="btn button-md" style="padding: 10px 50px;">Giriş Yap</button>
                                     </div>
-
                                 </div>
                             </form>
                         </div>
