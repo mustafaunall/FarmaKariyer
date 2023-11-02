@@ -70,6 +70,10 @@ public class AccountController : BaseController
     {
         return View();
     }
+    public IActionResult ResetPassword()
+    {
+        return View();
+    }
 
     public IActionResult CV()
     {

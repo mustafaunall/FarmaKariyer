@@ -39,16 +39,18 @@
                                             <h3>@item.Advert?.Title</h3>
                                             <p style="    height: 140px;">@item.Advert?.Description<p>
                                         </div>
-                                        <span>
-                                            <b>Sahibi: </b>@item.Advert?.ApplicationUser?.Name @item.Advert?.ApplicationUser?.Surname
-                                        </span>
-                                        <div style="float:right;">
-                                            <div>
-                                                <a href="/JobAdvert/Detail/@item.Advert?.Id">
-                                                    <span style=" padding:1px 10px; background: #ff2b58; color: #fff;">
-                                                        İlanı Gör
-                                                    </span>
-                                                </a>
+                                        <div style="padding:10px 0;">
+                                            <span>
+                                                <b>Sahibi: </b>@item.Advert?.ApplicationUser?.Name @item.Advert?.ApplicationUser?.Surname
+                                            </span>
+                                            <div style="float:right;">
+                                                <div>
+                                                    <a href="/JobAdvert/Detail/@item.Advert?.Id">
+                                                        <span style=" padding:5px 10px; background: #ff2b58; color: #fff;">
+                                                            İlanı Gör
+                                                        </span>
+                                                    </a>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
