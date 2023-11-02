@@ -86,7 +86,7 @@ namespace WebUI.Areas.Pharmacy.Controllers
             {
                 advert.IsActive = false;
                 await _context.SaveChangesAsync();
-                Notification("İlan başarıyla pasife alındı", NotificationType.Success);
+                Notification("İlan başarıyla silindi", NotificationType.Success);
             }
 
             return RedirectPermanent("/Pharmacy/Advert/List");
