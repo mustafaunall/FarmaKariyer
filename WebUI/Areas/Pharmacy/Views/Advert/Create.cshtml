@@ -100,7 +100,18 @@
                                                 <ul class="categories clearfix uljobs">
                                                     <li>
                                                         <div style="display: flex; align-items: center;">
-                                                            <input asp-for="SalaryRange" class="form-control" id="maasaraligi" placeholder="Ortalama Maaş Giriniz" min="0" pattern="\d+" style="flex: 1;">
+                                                            <input asp-for="SalaryRange" class="form-control" id="maasaraligi" placeholder="Ortalama Maaş Giriniz" min="0" type="number" style="flex: 1;">
+                                                            <script>
+                                                                function onlyNumbers(event) {
+                                                                    // Eğer 'e', 'E', '-', veya '+' tuşlarına basıldıysa, girişi engelle
+                                                                    if (event.key === 'e' || event.key === 'E' || event.key === '-' || event.key === '+') {
+                                                                        return false;
+                                                                    }
+                                                                    // Diğer tüm tuşlara izin ver
+                                                                    return true;
+                                                                }
+                                                            </script>
+
                                                             <span style="margin-left: 5px;">TL</span>
                                                         </div>
                                                     </li>
