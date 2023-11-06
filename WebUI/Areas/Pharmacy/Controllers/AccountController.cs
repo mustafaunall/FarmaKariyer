@@ -47,7 +47,7 @@ public class AccountController : BaseController
                 .Include(x => x.Advert)
                 .Where(x => x.Advert.ApplicationUserId == user.Id)
                 .CountAsync();
-            var averageApplyCount = totalApplyCount / advertCount;
+            var averageApplyCount = advertCount == 0 ? 0 : (totalApplyCount / advertCount);
             return View(new PharmacyProfileVM()
             {
                 User = user,

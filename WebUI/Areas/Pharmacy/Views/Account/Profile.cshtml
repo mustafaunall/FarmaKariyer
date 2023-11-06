@@ -152,7 +152,7 @@
                                                             var mapOptions = {
                                                                 //center: new google.maps.LatLng(39.9334, 32.8597),
                                                                 center: new google.maps.LatLng(@(Model.User.Latitude ?? "39.9334"), @(Model.User.Longitude ?? "32.8597")),
-                                                                zoom: 6
+                                                                zoom: @(string.IsNullOrEmpty(Model.User.Latitude) ? "6" : "16")
                                                             };
 
                                                             var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
@@ -160,6 +160,12 @@
                                                             google.maps.event.addListener(map, 'click', function (event) {
                                                                 placeMarker(event.latLng, map);
                                                             });
+
+                                                            let check = "@(Model.User.Latitude ?? "undefined")"
+                                                            if (check != "undefined") {
+                                                                let initLatLng = new google.maps.LatLng(@(Model.User.Latitude ?? "39.9334"), @(Model.User.Longitude ?? "32.8597"));
+                                                                placeMarker(initLatLng, map);
+                                                            }
                                                         }
 
                                                         function placeMarker(location, map) {
@@ -328,13 +334,13 @@
                                         </div>
                                     </div>
                                     @*<div class="form-group row">
-                                        <div class="offset-sm-2 col-sm-10">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input required type="checkbox"> <a href="#" style="color:#ff2b58;">Şartlar ve koşullar</a>'ı kabul ediyorum.
-                                                </label>
-                                            </div>
-                                        </div>
+                                    <div class="offset-sm-2 col-sm-10">
+                                    <div class="checkbox">
+                                    <label>
+                                    <input required type="checkbox"> <a href="#" style="color:#ff2b58;">Şartlar ve koşullar</a>'ı kabul ediyorum.
+                                    </label>
+                                    </div>
+                                    </div>
                                     </div>*@
                                     <div class="form-group row">
                                         <div class="offset-sm-2 col-sm-10">
