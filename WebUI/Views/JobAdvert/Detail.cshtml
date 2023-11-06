@@ -81,7 +81,6 @@
             </div>
             <div class="col-md-8">
                 <div class="text-holder">
-                    <p>"Eczane Açma ve İşletme Ruhsatı" başvuru süreci, titiz ve özenle yürütülmesi gereken bir süreçtir. İlk olarak, başvuru sahibi, yerel sağlık otoritelerine veya ilgili devlet kurumlarına başvurmalıdır. Bu başvurunun bir parçası olarak, işletme sahibinin ve yöneticilerinin eğitim ve deneyim belgeleri, işletme yerinin uygunluğu ve güvenliği, ilaçların saklanması ve dağıtılması için gerekli tesislerin varlığı gibi bir dizi belge sunması gerekebilir.</p>
                     <ul>
                         @if (Model?.Type == Domain.Model.Enum.AdvertType.TECHNICIAN)
                         {
@@ -189,12 +188,19 @@
                         }
                     </ul>
                 </div>
+            </div>
+            <div class="col-md-12" style="display:flex; justify-content:center;">
                 <form method="post" action="/JobAdvert/Apply">
                     <input type="hidden" name="AdvertId" value="@AdvertId" />
-                    <button class="thm-btn bg-clr1" style="padding:0px 8px;" type="submit" data-loading-text="Lütfen bekleyiniz...">Başvur</button>
+                    <button class="thm-btn bg-clr1 btnapply" type="submit" data-loading-text="Lütfen bekleyiniz..."> Başvur</button>
                 </form>
             </div>
         </div>
     </div>
 </section>
+<style>
+    .btnapply{
+        padding:10px 30px;
+    }
+</style>
 <!--End Project grid with text area-->

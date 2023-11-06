@@ -112,7 +112,7 @@
                                     <ul class="navigation clearfix">
                                         <li class="home current"><a href="@Url.Action("Index","Home")"><span class="fa fa-home"></span></a></li>
                                         <li class="dropdown">
-                                            <a>İlanlar</a>
+                                            <a href="#">İlanlar</a>
                                             <ul>
                                                 <li id="mainMenuItem">
                                                     <a style="display: flex; justify-content: space-between;" href="@Url.Action("Technician", "JobAdvert")">
@@ -233,9 +233,9 @@
                                 <h3>Politikalar</h3>
                             </div>
                             <ul class="we-do-list">
-                                <li><a href="/Home/Policies#privacy">Gizlilik Politikası</a></li>
-                                <li><a href="/Home/Policies#cookie">Çerez Politikası</a></li>
-                                <li><a href="/Home/Policies#security">Güvenlik Politikası</a></li>
+                                <li><a href="@Url.Action("Policies","Home")">Gizlilik Politikası</a></li>
+                                <li><a href="@Url.Action("Policies","Home")">Çerez Politikası</a></li>
+                                <li><a href="@Url.Action("Policies","Home")">Güvenlik Politikası</a></li>
                             </ul>
                         </div>
                     </div>
