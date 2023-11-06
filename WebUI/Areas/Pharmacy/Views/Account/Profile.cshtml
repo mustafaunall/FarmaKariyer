@@ -200,7 +200,7 @@
                                                     }
                                                     <label>Eczane Tipi</label>
                                                     <div id="experienceGroup" class="w-100">
-                                                        <select class="form-control" id="yilSeciniz" name="PharmacyType" asp-items="@(new SelectList(pharmacyTypes, Model?.User.PharmacyType))">
+                                                        <select class="form-control" id="yilSeciniz" name="PharmacyType" asp-items="@(new SelectList(pharmacyTypes, Model?.User.PharmacyType))" required>
                                                             <option value="" disabled selected>Eczane Tipini Seçiniz</option>
                                                         </select>
                                                     </div>
@@ -217,7 +217,7 @@
                                                             "1","2","3","4","5-10","11-15","16-20","21+"
                                                             };
                                                             }
-                                                            <select class="form-control" id="employeecount" name="EmployeeCount" asp-items="@(new SelectList(employeeCount, Model?.User.EmployeeCount))">
+                                                            <select class="form-control" id="employeecount" name="EmployeeCount" asp-items="@(new SelectList(employeeCount, Model?.User.EmployeeCount))" required>
                                                                 <option value="" disabled selected>Kişi Sayısı</option>
                                                             </select>
                                                         </li>
@@ -244,7 +244,7 @@
                                                     };
                                                     }
                                                     <label>Öğrenim Durumu</label>
-                                                    <select name="Education" class="form-control" name="EducationStatus" asp-items="@(new SelectList(educationStatuses, Model?.User.EducationStatus))">
+                                                    <select name="Education" class="form-control" name="EducationStatus" asp-items="@(new SelectList(educationStatuses, Model?.User.EducationStatus))" required>
                                                         <option disabled selected>Öğrenim Durumunuz</option>
                                                     </select>
                                                 </div>
