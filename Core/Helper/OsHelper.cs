@@ -22,6 +22,7 @@ public static class OsHelper
 
         return resourcesPath;
     }
+
     public static string GetResumeFilesPath()
     {
         string resourcesPath = string.Empty;
@@ -32,6 +33,21 @@ public static class OsHelper
         else if (Environment.OSVersion.Platform == PlatformID.Win32NT)
         {
             resourcesPath = Path.Combine(AppContext.BaseDirectory, @"..\..\..\", "wwwroot", "Resources", "ResumeFiles");
+        }
+
+        return resourcesPath;
+    }
+
+    public static string GetPhotoFilesPath()
+    {
+        string resourcesPath = string.Empty;
+        if (Environment.OSVersion.Platform == PlatformID.Unix)
+        {
+            resourcesPath = Path.Combine(AppContext.BaseDirectory, "wwwroot", "Resources", "PhotoFiles");
+        }
+        else if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+        {
+            resourcesPath = Path.Combine(AppContext.BaseDirectory, @"..\..\..\", "wwwroot", "Resources", "PhotoFiles");
         }
 
         return resourcesPath;

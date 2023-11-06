@@ -50,6 +50,7 @@
   <ItemGroup>
     <Folder Include="Resources\Assets\" />
     <Folder Include="Resources\Fonts\" />
+    <Folder Include="wwwroot\Resources\PhotoFiles\" />
   </ItemGroup>
 
   <ItemGroup>
