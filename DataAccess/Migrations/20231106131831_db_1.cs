@@ -13,6 +13,20 @@ namespace DataAccess.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
+                name: "AdvertCategories",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    QuotaCount = table.Column<int>(type: "integer", nullable: false),
+                    Price = table.Column<float>(type: "real", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_AdvertCategories", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
@@ -39,8 +53,17 @@ namespace DataAccess.Migrations
                     Province = table.Column<string>(type: "text", nullable: true),
                     District = table.Column<string>(type: "text", nullable: true),
                     Address = table.Column<string>(type: "text", nullable: true),
+                    Latitude = table.Column<string>(type: "text", nullable: true),
+                    Longitude = table.Column<string>(type: "text", nullable: true),
+                    AdvertPostingQuota = table.Column<int>(type: "integer", nullable: false),
                     PharmacyName = table.Column<string>(type: "text", nullable: true),
                     GLNCode = table.Column<string>(type: "text", nullable: true),
+                    PharmacyType = table.Column<string>(type: "text", nullable: true),
+                    EmployeeCount = table.Column<string>(type: "text", nullable: true),
+                    SchoolName = table.Column<string>(type: "text", nullable: true),
+                    EducationStatus = table.Column<string>(type: "text", nullable: true),
+                    Certificates = table.Column<string>(type: "text", nullable: true),
+                    Description = table.Column<string>(type: "text", nullable: true),
                     Type = table.Column<int>(type: "integer", nullable: false),
                     ActiveResumeId = table.Column<int>(type: "integer", nullable: true),
                     UserName = table.Column<string>(type: "character varying(256)", maxLength: 256, nullable: true),
@@ -93,22 +116,25 @@ namespace DataAccess.Migrations
                     Title = table.Column<string>(type: "text", nullable: false),
                     Description = table.Column<string>(type: "text", nullable: false),
                     Type = table.Column<int>(type: "integer", nullable: false),
+                    IsBoosted = table.Column<bool>(type: "boolean", nullable: false),
                     CreateDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
                     IsActive = table.Column<bool>(type: "boolean", nullable: false),
                     ExperienceYear = table.Column<string>(type: "text", nullable: true),
                     BonusBenefit = table.Column<bool>(type: "boolean", nullable: false),
                     TravelBenefit = table.Column<bool>(type: "boolean", nullable: false),
                     FoodBenefit = table.Column<bool>(type: "boolean", nullable: false),
-                    SalaryRange = table.Column<string>(type: "text", nullable: true),
+                    SalaryRange = table.Column<int>(type: "integer", nullable: false),
                     PrescriptionInfo = table.Column<bool>(type: "boolean", nullable: false),
                     PrivateInsuranceEntryInfo = table.Column<bool>(type: "boolean", nullable: false),
                     OTCInfo = table.Column<bool>(type: "boolean", nullable: false),
                     DermocosmeticInfo = table.Column<bool>(type: "boolean", nullable: false),
                     OtherInfo = table.Column<string>(type: "text", nullable: true),
+                    IsDermocosmetic = table.Column<bool>(type: "boolean", nullable: false),
                     EducationStatus = table.Column<string>(type: "text", nullable: true),
                     SquareMeter = table.Column<string>(type: "text", nullable: true),
                     MonthlyTurnover = table.Column<int>(type: "integer", nullable: false),
-                    LicenseRightLeft = table.Column<bool>(type: "boolean", nullable: false),
+                    WithLicenseRight = table.Column<bool>(type: "boolean", nullable: false),
+                    WithoutLicenseRight = table.Column<bool>(type: "boolean", nullable: false),
                     HasRightToCarry = table.Column<bool>(type: "boolean", nullable: false),
                     DriverLicenses = table.Column<List<string>>(type: "jsonb", nullable: true),
                     ApplicationUserId = table.Column<int>(type: "integer", nullable: false)
@@ -242,10 +268,105 @@ namespace DataAccess.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "Orders",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    Date = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    Price = table.Column<float>(type: "real", nullable: false),
+                    PayTrOrderId = table.Column<string>(type: "text", nullable: false),
+                    OrderStatus = table.Column<int>(type: "integer", nullable: false),
+                    OrderType = table.Column<int>(type: "integer", nullable: false),
+                    ApplicationUserId = table.Column<int>(type: "integer", nullable: false),
+                    AdvertId = table.Column<int>(type: "integer", nullable: true),
+                    AdvertCategoryId = table.Column<int>(type: "integer", nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Orders", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Orders_AdvertCategories_AdvertCategoryId",
+                        column: x => x.AdvertCategoryId,
+                        principalTable: "AdvertCategories",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Orders_Adverts_AdvertId",
+                        column: x => x.AdvertId,
+                        principalTable: "Adverts",
+                        principalColumn: "Id");
+                    table.ForeignKey(
+                        name: "FK_Orders_AspNetUsers_ApplicationUserId",
+                        column: x => x.ApplicationUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "Applies",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "integer", nullable: false)
+                        .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
+                    ApplyDate = table.Column<DateTime>(type: "timestamp without time zone", nullable: false),
+                    ApplicantUserId = table.Column<int>(type: "integer", nullable: false),
+                    AdvertId = table.Column<int>(type: "integer", nullable: false),
+                    CurrentResumeId = table.Column<int>(type: "integer", nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_Applies", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Applies_Adverts_AdvertId",
+                        column: x => x.AdvertId,
+                        principalTable: "Adverts",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Applies_AspNetUsers_ApplicantUserId",
+                        column: x => x.ApplicantUserId,
+                        principalTable: "AspNetUsers",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Applies_Resumes_CurrentResumeId",
+                        column: x => x.CurrentResumeId,
+                        principalTable: "Resumes",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
+            migrationBuilder.InsertData(
+                table: "AdvertCategories",
+                columns: new[] { "Id", "Price", "QuotaCount" },
+                values: new object[,]
+                {
+                    { 1, 500f, 1 },
+                    { 2, 1000f, 3 },
+                    { 3, 3000f, -1 }
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_Adverts_ApplicationUserId",
                 table: "Adverts",
                 column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Applies_AdvertId",
+                table: "Applies",
+                column: "AdvertId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Applies_ApplicantUserId",
+                table: "Applies",
+                column: "ApplicantUserId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Applies_CurrentResumeId",
+                table: "Applies",
+                column: "CurrentResumeId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
@@ -285,6 +406,21 @@ namespace DataAccess.Migrations
                 unique: true);
 
             migrationBuilder.CreateIndex(
+                name: "IX_Orders_AdvertCategoryId",
+                table: "Orders",
+                column: "AdvertCategoryId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_AdvertId",
+                table: "Orders",
+                column: "AdvertId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Orders_ApplicationUserId",
+                table: "Orders",
+                column: "ApplicationUserId");
+
+            migrationBuilder.CreateIndex(
                 name: "IX_Resumes_ApplicationUserId",
                 table: "Resumes",
                 column: "ApplicationUserId");
@@ -293,7 +429,7 @@ namespace DataAccess.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Adverts");
+                name: "Applies");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoleClaims");
@@ -311,10 +447,19 @@ namespace DataAccess.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "Orders");
+
+            migrationBuilder.DropTable(
                 name: "Resumes");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
+
+            migrationBuilder.DropTable(
+                name: "AdvertCategories");
+
+            migrationBuilder.DropTable(
+                name: "Adverts");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");

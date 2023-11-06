@@ -16,6 +16,12 @@ public class UpdateProfileVM
     public string? Province { get; set; }
     public string? District { get; set; }
     public string? Address { get; set; }
+    #region Map
+
+    public string? Latitude { get; set; }
+    public string? Longitude { get; set; }
+
+    #endregion
     public string? PharmacyType { get; set; }
     public string? EmployeeCount { get; set; }
     public string? SchoolName { get; set; }

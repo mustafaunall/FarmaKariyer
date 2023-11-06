@@ -140,6 +140,8 @@
                                                         padding: 10px 0;
                                                     }
                                                 </style>
+                                                <input type="hidden" name="Latitude" value="" />
+                                                <input type="hidden" name="Longitude" value="" />
                                                 @section Scripts{
                                                     <script src="~/scripts/ililce.js" province="@(Model.User.Province ?? "34")" district="@(Model.User.District ?? "")"></script> <!--il-ilçe-script-->
                                                     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyC8-fa4-gwVuTtkyYeeH1DGATIJBj3dZYk"></script>
@@ -148,8 +150,9 @@
 
                                                         function initialize() {
                                                             var mapOptions = {
-                                                                center: new google.maps.LatLng(39.9334, 32.8597), // Türkiye'nin merkezi olan Ankara koordinatları
-                                                                zoom: 6 // Harita başlangıç yakınlaştırma seviyesi (6, Türkiye genelini iyi bir şekilde gösterir)
+                                                                //center: new google.maps.LatLng(39.9334, 32.8597),
+                                                                center: new google.maps.LatLng(@(Model.User.Latitude ?? "39.9334"), @(Model.User.Longitude ?? "32.8597")),
+                                                                zoom: @(string.IsNullOrEmpty(Model.User.Latitude) ? "6" : "16")
                                                             };
 
                                                             var map = new google.maps.Map(document.getElementById("googleMap"), mapOptions);
@@ -157,6 +160,12 @@
                                                             google.maps.event.addListener(map, 'click', function (event) {
                                                                 placeMarker(event.latLng, map);
                                                             });
+
+                                                            let check = "@(Model.User.Latitude ?? "undefined")"
+                                                            if (check != "undefined") {
+                                                                let initLatLng = new google.maps.LatLng(@(Model.User.Latitude ?? "39.9334"), @(Model.User.Longitude ?? "32.8597"));
+                                                                placeMarker(initLatLng, map);
+                                                            }
                                                         }
 
                                                         function placeMarker(location, map) {
@@ -171,7 +180,11 @@
 
                                                             var latitude = location.lat();
                                                             var longitude = location.lng();
-                                                            alert("Latitude: " + latitude + "\nLongitude: " + longitude);
+                                                            //alert("Latitude: " + latitude + "\nLongitude: " + longitude);
+                                                            //console.table({ latitude, longitude })
+
+                                                            $("input[name='Latitude']").val(latitude);
+                                                            $("input[name='Longitude']").val(longitude);
                                                         }
 
                                                         google.maps.event.addDomListener(window, 'load', initialize);
@@ -321,13 +334,13 @@
                                         </div>
                                     </div>
                                     @*<div class="form-group row">
-                                        <div class="offset-sm-2 col-sm-10">
-                                            <div class="checkbox">
-                                                <label>
-                                                    <input required type="checkbox"> <a href="#" style="color:#ff2b58;">Şartlar ve koşullar</a>'ı kabul ediyorum.
-                                                </label>
-                                            </div>
-                                        </div>
+                                    <div class="offset-sm-2 col-sm-10">
+                                    <div class="checkbox">
+                                    <label>
+                                    <input required type="checkbox"> <a href="#" style="color:#ff2b58;">Şartlar ve koşullar</a>'ı kabul ediyorum.
+                                    </label>
+                                    </div>
+                                    </div>
                                     </div>*@
                                     <div class="form-group row">
                                         <div class="offset-sm-2 col-sm-10">

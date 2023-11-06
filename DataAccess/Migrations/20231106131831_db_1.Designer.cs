@@ -14,8 +14,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20231024182659_db_8")]
-    partial class db_8
+    [Migration("20231106131831_db_1")]
+    partial class db_1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -71,7 +71,7 @@ namespace DataAccess.Migrations
                     b.Property<bool>("IsBoosted")
                         .HasColumnType("boolean");
 
-                    b.Property<bool>("LicenseRightLeft")
+                    b.Property<bool>("IsDermocosmetic")
                         .HasColumnType("boolean");
 
                     b.Property<int>("MonthlyTurnover")
@@ -89,8 +89,8 @@ namespace DataAccess.Migrations
                     b.Property<bool>("PrivateInsuranceEntryInfo")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("SalaryRange")
-                        .HasColumnType("text");
+                    b.Property<int>("SalaryRange")
+                        .HasColumnType("integer");
 
                     b.Property<string>("SquareMeter")
                         .HasColumnType("text");
@@ -104,6 +104,12 @@ namespace DataAccess.Migrations
 
                     b.Property<int>("Type")
                         .HasColumnType("integer");
+
+                    b.Property<bool>("WithLicenseRight")
+                        .HasColumnType("boolean");
+
+                    b.Property<bool>("WithoutLicenseRight")
+                        .HasColumnType("boolean");
 
                     b.HasKey("Id");
 
@@ -134,19 +140,19 @@ namespace DataAccess.Migrations
                         new
                         {
                             Id = 1,
-                            Price = 150f,
+                            Price = 500f,
                             QuotaCount = 1
                         },
                         new
                         {
                             Id = 2,
-                            Price = 380f,
+                            Price = 1000f,
                             QuotaCount = 3
                         },
                         new
                         {
                             Id = 3,
-                            Price = 2500f,
+                            Price = 3000f,
                             QuotaCount = -1
                         });
                 });
@@ -203,11 +209,17 @@ namespace DataAccess.Migrations
                     b.Property<bool>("IsAdmin")
                         .HasColumnType("boolean");
 
+                    b.Property<string>("Latitude")
+                        .HasColumnType("text");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("boolean");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Longitude")
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -310,7 +322,10 @@ namespace DataAccess.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("AdvertCategoryId")
+                    b.Property<int?>("AdvertCategoryId")
+                        .HasColumnType("integer");
+
+                    b.Property<int?>("AdvertId")
                         .HasColumnType("integer");
 
                     b.Property<int>("ApplicationUserId")
@@ -320,6 +335,9 @@ namespace DataAccess.Migrations
                         .HasColumnType("timestamp without time zone");
 
                     b.Property<int>("OrderStatus")
+                        .HasColumnType("integer");
+
+                    b.Property<int>("OrderType")
                         .HasColumnType("integer");
 
                     b.Property<string>("PayTrOrderId")
@@ -332,6 +350,8 @@ namespace DataAccess.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("AdvertCategoryId");
+
+                    b.HasIndex("AdvertId");
 
                     b.HasIndex("ApplicationUserId");
 
@@ -580,15 +600,19 @@ namespace DataAccess.Migrations
                 {
                     b.HasOne("Domain.Model.AdvertCategory", "AdvertCategory")
                         .WithMany()
-                        .HasForeignKey("AdvertCategoryId")
-                        .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
+                        .HasForeignKey("AdvertCategoryId");
+
+                    b.HasOne("Domain.Model.Advert", "Advert")
+                        .WithMany()
+                        .HasForeignKey("AdvertId");
 
                     b.HasOne("Domain.Model.ApplicationUser", "ApplicationUser")
                         .WithMany()
                         .HasForeignKey("ApplicationUserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.Navigation("Advert");
 
                     b.Navigation("AdvertCategory");
 
