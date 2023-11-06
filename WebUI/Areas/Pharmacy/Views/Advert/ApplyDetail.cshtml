@@ -1,5 +1,5 @@
-﻿@using Domain.Model;
-@model ApplicationUser
+﻿@using WebUI.Areas.Pharmacy.Models.ViewModels;
+@model ApplicantProfileVM
 @{
     ViewData["Title"] = "Gelen Başvuru Profili";
 }
@@ -15,7 +15,7 @@
                                  src="~/user/img/user1-128x128.jpg"
                                  alt="User profile picture">
                         </div>
-                        <h3 class="profile-username text-center">@Model?.Name</h3>
+                        <h3 class="profile-username text-center">@Model?.User?.Name</h3>
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
                                 <b>Toplam Başvurularım</b> <a class="float-right" style="color:#ff2b58;">3</a>
@@ -87,7 +87,7 @@
                                     <div class="user-block">
                                         <img class="img-circle img-bordered-sm" src="~/user/img/user1-128x128.jpg" alt="user image">
                                         <span class="username">
-                                            <a href="#" style="color:#ff2b58;">@Model?.Name @Model?.Surname</a>
+                                            <a href="#" style="color:#ff2b58;">@Model?.User?.Name @Model?.User?.Surname</a>
                                             @*<a href="#" class="float-right btn-tool"><i class="fas fa-times"></i></a>*@
                                         </span>
                                         @*<span class="description">20/04/2023 14:50</span> *@
@@ -240,25 +240,25 @@
                                     <div class="form-group row">
                                         <label for="inputName" class="col-sm-2 col-form-label">İsim</label>
                                         <div class="col-sm-10">
-                                            <input required minlenght="3" type="text" class="form-control" id="inputName" name="Name" value="@Model?.Name" placeholder="İsim">
+                                            <input required minlenght="3" type="text" class="form-control" id="inputName" name="Name" value="@Model?.User?.Name" placeholder="İsim">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputSurname" class="col-sm-2 col-form-label">Soyisim</label>
                                         <div class="col-sm-10">
-                                            <input required type="text" class="form-control" id="inputSurname" name="Surname" value="@Model?.Surname" placeholder="Soyisim">
+                                            <input required type="text" class="form-control" id="inputSurname" name="Surname" value="@Model?.User?.Surname" placeholder="Soyisim">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputPhone" class="col-sm-2 col-form-label">Telefon</label>
                                         <div class="col-sm-10">
-                                            <input required type="text" class="form-control" id="inputPhone" name="PhoneNumber" value="@Model?.PhoneNumber" placeholder="Telefon">
+                                            <input required type="text" class="form-control" id="inputPhone" name="PhoneNumber" value="@Model?.User?.PhoneNumber" placeholder="Telefon">
                                         </div>
                                     </div>
                                     <div class="form-group row">
                                         <label for="inputEmail" class="col-sm-2 col-form-label">E-Posta</label>
                                         <div class="col-sm-10">
-                                            <input required type="email" class="form-control" id="inputEmail" name="Email" value="@Model?.Email" placeholder="E-Posta">
+                                            <input required type="email" class="form-control" id="inputEmail" name="Email" value="@Model?.User?.Email" placeholder="E-Posta">
                                         </div>
                                     </div>
                                     <div class="form-group row">

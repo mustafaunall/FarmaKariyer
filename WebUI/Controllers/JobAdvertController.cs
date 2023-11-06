@@ -53,7 +53,7 @@ public class JobAdvertController : BaseController
                 return Redirect($"/JobAdvert/Detail/{AdvertId}");
             }
 
-            var applyCheck = _context.Applies.Where(x => x.ApplicantUserId == user.Id).FirstOrDefault();
+            var applyCheck = _context.Applies.Where(x => x.ApplicantUserId == user.Id && x.AdvertId == AdvertId).FirstOrDefault();
             if (applyCheck != null)
             {
                 // TODO: Bir ilana birden fazla başvuru olacak mı ?

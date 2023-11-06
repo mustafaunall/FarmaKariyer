@@ -4,6 +4,7 @@ using Domain.Model.Enum;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using WebUI.Areas.Pharmacy.Models.ViewModels;
 using WebUI.Extensions;
 using WebUI.Models.ViewModels;
 
@@ -55,7 +56,7 @@ namespace WebUI.Areas.Pharmacy.Controllers
             return View();
         }
 
-        public async Task<IActionResult> ApplyList()
+        public async Task<IActionResult> ApplyList(int id)
         {
             var u = await _userManager.GetUserAsync(User);
             var user = _context.Users.Where(x => x.Id == u.Id).FirstOrDefault();
@@ -68,7 +69,8 @@ namespace WebUI.Areas.Pharmacy.Controllers
                     .Include(x => x.ApplicantUser)
                     .Include(x => x.CurrentResume)
                     .Include(x => x.Advert)
-                    .Where(x => x.Advert.ApplicationUser.Id == user!.Id)
+                    .ThenInclude(x => x.ApplicationUser)
+                    .Where(x => x.Advert.ApplicationUserId == user!.Id && x.AdvertId == id && x.Advert.IsActive == true)
                     .ToListAsync();
 
             return View(model);
@@ -94,10 +96,37 @@ namespace WebUI.Areas.Pharmacy.Controllers
 
         public IActionResult ApplyDetail(int id)
         {
-            var model = _context.Users
-                .Where(x => x.Id == id)
+            var apply = _context.Applies
+                    .Include(x => x.ApplicantUser)
+                    .Include(x => x.CurrentResume)
+                    .Include(x => x.Advert)
+                    .ThenInclude(x => x.ApplicationUser)
+                    .Where(x => x.Id == id)
+                    .FirstOrDefault();
+            if (apply == null || apply.Advert == null)
+                return NotFound();
+
+            var user = _context.Users
+                .Where(x => x.Id == apply!.ApplicantUserId)
                 .FirstOrDefault();
-            return View(model);
+
+            if (user == null)
+                return NotFound();
+
+            var resume = _context.Resumes
+                .Where(x => x.Id == apply.CurrentResumeId)
+                .FirstOrDefault();
+
+            if (resume == null)
+                return NotFound();
+
+            return View(new ApplicantProfileVM()
+            {
+                Apply = apply,
+                Advert = apply.Advert,
+                User = user,
+                Resume = resume,
+            });
         }
 
         [HttpPost]
