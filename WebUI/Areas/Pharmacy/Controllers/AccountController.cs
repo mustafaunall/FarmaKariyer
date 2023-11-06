@@ -68,20 +68,26 @@ public class AccountController : BaseController
             Notification("Lütfen tüm alanları doldurunuz!", NotificationType.Info);
             return RedirectToAction(nameof(Profile));
         }
-        if (vm.RequirePassword == 1 && string.IsNullOrEmpty(vm.CurrentPassword))
+        var user = await _userManager.GetUserAsync(User);
+        if (vm.RequirePassword == 1)
         {
-            Notification("Bilgileriniz güncellenemedi, lütfen şu anki şifrenizi giriniz!", NotificationType.Info);
-            return RedirectToAction(nameof(Profile));
+            if (string.IsNullOrEmpty(vm.CurrentPassword))
+            {
+                Notification("Bilgileriniz güncellenemedi, lütfen şu anki şifrenizi giriniz!", NotificationType.Info);
+                return RedirectToAction(nameof(Profile));
+            }
+            else
+            {
+                if (!(await _userManager.CheckPasswordAsync(user, vm.CurrentPassword)))
+                {
+                    Notification("Bilgilerinizi güncellemek için lütfen şifrenizi doğru giriniz!", NotificationType.Info);
+                    return RedirectToAction(nameof(Profile));
+                }
+            }
         }
 
         try
         {
-            var user = await _userManager.GetUserAsync(User);
-            if (!(await _userManager.CheckPasswordAsync(user, vm.CurrentPassword)))
-            {
-                Notification("Bilgilerinizi güncellemek için lütfen şifrenizi doğru giriniz!", NotificationType.Info);
-                return RedirectToAction(nameof(Profile));
-            }
             if (!string.IsNullOrEmpty(vm.Name))
                 user.Name = vm.Name.Trim();
             if (!string.IsNullOrEmpty(vm.Surname))
@@ -96,6 +102,10 @@ public class AccountController : BaseController
                 user.District = vm.District.Trim();
             if (!string.IsNullOrEmpty(vm.Address))
                 user.Address = vm.Address.Trim();
+            if (!string.IsNullOrEmpty(vm.Latitude))
+                user.Latitude = vm.Latitude.Trim();
+            if (!string.IsNullOrEmpty(vm.Longitude))
+                user.Longitude = vm.Longitude.Trim();
             if (!string.IsNullOrEmpty(vm.PharmacyType))
                 user.PharmacyType = vm.PharmacyType.Trim();
             if (!string.IsNullOrEmpty(vm.EmployeeCount))
@@ -172,7 +182,8 @@ public class AccountController : BaseController
         var u = await _userManager.GetUserAsync(User);
         var user = await _userManager.Users
             .SingleAsync(x => x.Email == u.Email);
-        if (user.AdvertPostingQuota == -1) {
+        if (user.AdvertPostingQuota == -1)
+        {
             Notification("Şu an zaten yıllık paket kullanıyorsunuz!", NotificationType.Info);
             return Redirect("/Pharmacy/Account/Profile");
         }

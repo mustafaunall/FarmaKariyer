@@ -15,7 +15,7 @@ public class AdvertCreateVM
     public bool BonusBenefit { get; set; }
     public bool TravelBenefit { get; set; }
     public bool FoodBenefit { get; set; }
-    public string SalaryRange { get; set; }
+    public int SalaryRange { get; set; }
     public bool PrescriptionInfo { get; set; }
     public bool PrivateInsuranceEntryInfo { get; set; }
     public bool OTCInfo { get; set; }

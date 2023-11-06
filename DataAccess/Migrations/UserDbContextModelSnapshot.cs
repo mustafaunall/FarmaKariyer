@@ -87,8 +87,8 @@ namespace DataAccess.Migrations
                     b.Property<bool>("PrivateInsuranceEntryInfo")
                         .HasColumnType("boolean");
 
-                    b.Property<string>("SalaryRange")
-                        .HasColumnType("text");
+                    b.Property<int>("SalaryRange")
+                        .HasColumnType("integer");
 
                     b.Property<string>("SquareMeter")
                         .HasColumnType("text");
@@ -207,11 +207,17 @@ namespace DataAccess.Migrations
                     b.Property<bool>("IsAdmin")
                         .HasColumnType("boolean");
 
+                    b.Property<string>("Latitude")
+                        .HasColumnType("text");
+
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("boolean");
 
                     b.Property<DateTimeOffset?>("LockoutEnd")
                         .HasColumnType("timestamp with time zone");
+
+                    b.Property<string>("Longitude")
+                        .HasColumnType("text");
 
                     b.Property<string>("Name")
                         .IsRequired()
