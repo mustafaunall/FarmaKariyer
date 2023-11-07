@@ -5,17 +5,17 @@
     ViewData["Title"] = "Eczane Girişi";
 }
 
-<div class="container" style="margin-top:35px;">
+<div class="container registertopmargin">
     <div style="margin-top:40px;">
         <div class="row" style="justify-content:center; display:flex;">
             <div class="col-lg-3" style="transform: skewX(-20deg); margin-right: 5px;">
                 <a href="@Url.Action("LoginUser","Account")" class="thm-btn bg-clr1 loginbtn" style="padding:10px;">
-                    <h1 class="text-center" style="color:white; transform: skewX(20deg); font-size:26px;">İŞ ARAYAN GİRİŞİ</h1>
+                    <h1 class="text-center registerpharmacys">İŞ ARAYAN GİRİŞİ</h1>
                 </a>
             </div>
             <div class="col-lg-3" style="transform: skewX(-20deg); margin-left: 5px;">
                 <a href="@Url.Action("LoginPharmacy","Account")" class="thm-btn bg-clr1" style="padding:10px;">
-                    <h1 class="text-center" style="color:white; transform: skewX(20deg); font-size:26px;">İŞVEREN GİRİŞİ</h1>
+                    <h1 class="text-center registerpharmacys">İŞVEREN GİRİŞİ</h1>
                 </a>
             </div>
         </div>
@@ -31,10 +31,10 @@
 
     </style>
     <div class="clearfix"></div>
-    <section style=" margin-top: 35px;">
+    <section style="margin: 35px 0;">
         <div class="row">
             <div class="col-lg-6" style="padding:0;">
-                <div style="display:flex; justify-content:center;align-items:center; padding:15px 0; height: 450px;">
+                <div style="display:flex; justify-content:center;align-items:center; padding:15px 0;">
                     <img src="~/images/ffarma.png" />
                 </div>
             </div>
@@ -76,20 +76,23 @@ display:flex;">
 
                                     <div class="col-lg-12">
                                         <div class="form-group form-forget">
-                                            <div class="custom-control custom-checkbox col-lg-6">
+                                            <div class="col-lg-2"></div>
+                                            <div class="custom-control custom-checkbox col-lg-4 col-sm-6 col-xs-6">
                                                 <input type="checkbox" class="custom-control-input" id="customControlAutosizing">
                                                 <label class="custom-control-label" for="customControlAutosizing">Beni hatırla</label>
                                             </div>
-                                            <div class="col-lg-6">
+                                            <div class="col-lg-4 col-sm-6 col-xs-6">
                                                 <a class="ml-auto" style="color: #848484; font-weight: 700;" href="@Url.Action("ForgotPassword","Account")">Şifremi Unuttum</a>
                                             </div>
+                                            <div class="col-lg-2"></div>
                                         </div>
                                     </div>
-                                    <div class="col-lg-12 m-b30" style="margin-top:10px;">
-                                        <input type="hidden" asp-for="UserType" value="1"/>
-                                        <button name="submit" type="submit" value="Submit" class="btn button-md" style="padding: 10px 50px;">Giriş Yap</button>
+                                    <div class="col-lg-12 margintopsre">
+                                        <div class="btnmidd">
+                                            <input type="hidden" asp-for="UserType" value="0" />
+                                            <button name="submit" type="submit" value="Submit" class="btn button-md">Giriş Yap</button>
+                                        </div>
                                     </div>
-
                                 </div>
                             </form>
                         </div>
