@@ -70,6 +70,32 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="input-group">
+                                            <input type="text" name="BirthDate" id="birthdate" class="form-control" placeholder="Doğum Tarihiniz" onfocus="changeTypeToDate(this)" onblur="changeTypeToText(this)">
+                                        </div>
+                                    </div>
+                                </div>
+                                <script>
+                                    function changeTypeToDate(input) {
+                                        input.type = 'date';
+                                    }
+
+                                    function changeTypeToText(input) {
+                                        if (!input.value.trim()) {
+                                            input.type = 'text';
+                                        }
+                                    }
+                                    document.addEventListener('DOMContentLoaded', function () {
+                                        var birthdateInput = document.getElementById('birthdate');
+                                        birthdateInput.addEventListener('change', function () {
+                                            if (this.value.trim()) {
+                                                this.setAttribute('type', 'date');
+                                            }
+                                        });
+                                    });
+                                </script>
+                                <div class="col-lg-12">
+                                    <div class="form-group">
+                                        <div class="input-group">
                                             <input asp-for="PhoneNumber" value="@Model?.PhoneNumber" type="text" placeholder="Telefon Numaranız" class="form-control" required>
                                         </div>
                                     </div>
@@ -91,7 +117,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group textareaform">
 
-                                        <textarea asp-for="Address" value="@Model?.Address" class="form-control" rows="5" value="" placeholder="Açık Adresiniz..."  required></textarea>
+                                        <textarea asp-for="Address" value="@Model?.Address" class="form-control" rows="5" value="" placeholder="Açık Adresiniz..." required></textarea>
                                     </div>
                                 </div>
 
