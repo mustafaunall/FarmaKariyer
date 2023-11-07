@@ -17,7 +17,14 @@
                         <h3 class="profile-username text-center">@Model?.User?.Name @Model?.User?.Surname</h3>
                         <ul class="list-group list-group-unbordered mb-3">
                             <li class="list-group-item">
-                                <b>Doğum Tarihi</b> <a class="float-right" style="color:#ff2b58;">a</a>
+                                <b>Doğum Tarihi:</b> <a class="float-right" style="color:#ff2b58;">
+                                    @Model?.Resume?.BirthDate.ToString("dd.MM.yyyy")
+                                </a>
+                            </li>
+                            <li class="list-group-item">
+                                <b>Başvuru Tarihi:</b> <a class="float-right" style="color:#ff2b58;">
+                                   @Model?.Apply?.ApplyDate.ToString("dd.MM.yyyy")
+                                </a>
                             </li>
                         </ul>
                     </div>
@@ -28,7 +35,6 @@
                     </div>
                     <div class="card-body">
                         <strong><i class="fas fa-book mr-1"></i>Eğitim</strong>
-
                         <p class="text-muted">
                             @(Model?.User?.SchoolName ?? "Belirtilmedi") @(string.IsNullOrEmpty(Model?.User?.EducationStatus) ? "" : $"- {Model?.User?.EducationStatus}")
                         </p>
