@@ -163,6 +163,8 @@ public class AccountController : BaseController
                 PhoneNumber = model.PhoneNumber,
                 Name = model.Name,
                 Surname = model.Surname,
+                BirthDate = model.BirthDate,
+                RegisterDate = DateTime.Now,
                 Type = ApplicationUserType.USER,
 
                 Province = model.Province,
@@ -206,6 +208,8 @@ public class AccountController : BaseController
                 PhoneNumber = model.PhoneNumber,
                 Name = model.Name,
                 Surname = model.Surname,
+                BirthDate = model.BirthDate,
+                RegisterDate = DateTime.Now,
                 Type = ApplicationUserType.PHARMACY,
 
                 PharmacyName = model.PharmacyName,

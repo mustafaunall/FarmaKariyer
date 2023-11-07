@@ -18,6 +18,9 @@ public class RegisterUserVM
     public string Surname { get; set; }
 
     [Required]
+    public DateTime BirthDate { get; set; }
+
+    [Required]
     public string PhoneNumber { get; set; }
 
     [Required]
