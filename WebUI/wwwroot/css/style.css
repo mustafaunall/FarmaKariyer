@@ -5887,3 +5887,31 @@ b {
     background-repeat: repeat;
     width: 100%; 
 }
+
+.registerpharmacys {
+    color: white;
+    transform: skewX(20deg);
+    font-size: 26px;
+}
+@media(max-width:768px)
+{
+    .registerpharmacys{
+        font-size:20px;
+    }
+    .margintopsre {
+        margin-top: 35px !important;
+    }
+}
+@media(min-width:768px)
+{
+    .registertopmargin {
+        margin-top: 35px;
+    }
+
+}
+.btnmidd{
+    display:flex;justify-content:center;
+}
+.margintopsre{
+    margin-top:15px;
+}
