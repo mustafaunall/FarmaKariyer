@@ -13,6 +13,7 @@ using WebUI.Extensions;
 using static SkiaSharp.HarfBuzz.SKShaper;
 using WebUI.Areas.User.Models.ViewModels;
 using WebUI.Areas.Pharmacy.Models.ViewModels;
+using static IdentityServer4.Models.IdentityResources;
 
 namespace WebUI.Areas.Pharmacy.Controllers;
 
@@ -57,6 +58,51 @@ public class AccountController : BaseController
             });
         }
         return View();
+    }
+
+    [Authorize]
+    [HttpPost]
+    public async Task<IActionResult> UpdatePhoto(IFormFile Photo)
+    {
+        if (Photo == null)
+        {
+            Notification("Lütfen fotoğraf seçiniz!", NotificationType.Info);
+            return Redirect("/Pharmacy/Account/Profile");
+        }
+
+        try
+        {
+            if (!Directory.Exists(OsHelper.GetPhotoFilesPath()))
+            {
+                Directory.CreateDirectory(OsHelper.GetPhotoFilesPath());
+            }
+
+            var u = await _userManager.GetUserAsync(User);
+            var user = await _context.Users.Where(x => x.Id == u.Id).FirstOrDefaultAsync();
+
+            if (user == null)
+            {
+                Notification($"Kullanıcı bulunamadı!", NotificationType.Error);
+                return Redirect("/Pharmacy/Account/Profile");
+            }
+
+            var fileName = Photo?.FileName;
+            var extension = Path.GetExtension(Path.Combine(OsHelper.GetPhotoFilesPath(), fileName));
+            string guidFileName = $"{DateTime.Now.Ticks.ToString()}{extension}";
+            var uploadPath = Path.Combine(OsHelper.GetPhotoFilesPath(), guidFileName);
+            var stream = new FileStream(uploadPath, FileMode.Create);
+            await Photo!.CopyToAsync(stream);
+            user.PhotoPath = guidFileName;
+            await _context.SaveChangesAsync();
+
+            Notification($"Sayın {user.Name} {user.Surname}, profil fotoğrafınız başarıyla güncellendi.", NotificationType.Success);
+            return Redirect("/Pharmacy/Account/Profile");
+        }
+        catch (Exception)
+        {
+            Notification("Bir hata meydana geldi!", NotificationType.Error);
+            return Redirect("/Pharmacy/Account/Profile");
+        }
     }
 
     [Authorize]

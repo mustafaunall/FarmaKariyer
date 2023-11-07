@@ -11,10 +11,36 @@
             <div class="col-md-3">
                 <div class="card card-primary card-outline">
                     <div class="card-body box-profile">
-                        <div class="text-center">
-                            <img class="profile-user-img img-fluid img-circle"
-                                 src="~/user/img/user1-128x128.jpg"
-                                 alt="User profile picture">
+                        <div class="text-center" style="position:relative;">
+                            <img id="file-result" src="@(Url.Content(UserHelper.UserPhotoOrDefault(Model.User.PhotoPath)))" height="150px;" style="border:3px solid #ff2b58; border-radius:50%; height: 150px; width: 150px;" />
+
+                            <form action="/Pharmacy/Account/UpdatePhoto" method="post" enctype="multipart/form-data">
+                                <div class="d-flex flex-column mx-3 my-1">
+                                    <div class="custom-file mb-2">
+                                        <input type="file" class="custom-file-input" id="file-input" name="Photo">
+                                        <label class="custom-file-label" for="inputGroupFile01">Fotoğraf seç</label>
+                                    </div>
+
+                                    <input type="submit" value="Güncelle" style="background-color:#ff2b58;" class="btn btn-danger" />
+                                </div>
+                            </form>
+
+
+                            <script>
+                                const fileInput = document.getElementById('file-input');
+
+                                fileInput.addEventListener('change', (event) => {
+                                    const file = event.target.files[0];
+                                    const reader = new FileReader();
+
+                                    reader.onload = (event) => {
+                                        const base64Data = event.target.result;
+                                        document.getElementById('file-result').src = base64Data;
+                                    };
+
+                                    reader.readAsDataURL(file);
+                                });
+                            </script>
                         </div>
                         <h3 class="profile-username text-center">@Model.User.Name @Model.User.Surname</h3>
                         <ul class="list-group list-group-unbordered mb-3">
