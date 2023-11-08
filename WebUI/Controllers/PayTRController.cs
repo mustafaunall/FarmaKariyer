@@ -183,7 +183,7 @@ namespace WebUI.Controllers
             // buraya dış ip adresinizi (https://www.whatismyip.com/) yazmalısınız. Aksi halde geçersiz paytr_token hatası alırsınız.
             //string user_ip = Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
             //string user_ip = HttpContext.Connection.RemoteIpAddress.ToString();
-            //string user_ip = "80.253.246.121";
+            //string user_ip = "160.20.108.234";
 
             string user_ip = string.Empty;
 

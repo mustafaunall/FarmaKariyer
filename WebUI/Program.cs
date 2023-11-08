@@ -26,7 +26,7 @@ builder.Services.AddScoped<PdfService>();
 builder.Services.AddScoped<DbService>();
 
 builder.Services.AddDbContext<UserDbContext>(options =>
-options.UseNpgsql("host=80.253.246.121; port=5454; database=FarmaKariyer; username=postgres; password=Secure2023Password."), ServiceLifetime.Transient);
+options.UseNpgsql("host=160.20.108.234; port=5432; database=FarmaKariyer; username=postgres; password=pJn91Yn7WdjxKtjvZrAn"), ServiceLifetime.Transient);
 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole<int>>()
         .AddEntityFrameworkStores<UserDbContext>()
