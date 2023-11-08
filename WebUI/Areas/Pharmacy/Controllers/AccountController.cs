@@ -95,7 +95,7 @@ public class AccountController : BaseController
             user.PhotoPath = guidFileName;
             await _context.SaveChangesAsync();
 
-            Notification($"Sayın {user.Name} {user.Surname}, profil fotoğrafınız başarıyla güncellendi.", NotificationType.Success);
+            Notification($"Profil fotoğrafınız başarıyla güncellendi.", NotificationType.Success);
             return Redirect("/Pharmacy/Account/Profile");
         }
         catch (Exception)
