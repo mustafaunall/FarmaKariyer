@@ -183,7 +183,7 @@ namespace WebUI.Controllers
             // buraya dış ip adresinizi (https://www.whatismyip.com/) yazmalısınız. Aksi halde geçersiz paytr_token hatası alırsınız.
             //string user_ip = Request.ServerVariables["HTTP_X_FORWARDED_FOR"];
             //string user_ip = HttpContext.Connection.RemoteIpAddress.ToString();
-            //string user_ip = "80.253.246.121";
+            //string user_ip = "160.20.108.234";
 
             string user_ip = string.Empty;
 
@@ -207,7 +207,7 @@ namespace WebUI.Controllers
             string debug_on = "0";
             //
             // Mağaza canlı modda iken test işlem yapmak için 1 olarak gönderilebilir.
-            string test_mode = "1";
+            string test_mode = TestMode;
             //
             // Taksit yapılmasını istemiyorsanız, sadece tek çekim sunacaksanız 1 yapın
             string no_installment = "0";

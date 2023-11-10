@@ -14,8 +14,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    [Migration("20231107101205_db_2")]
-    partial class db_2
+    [Migration("20231108103127_prod_1")]
+    partial class prod_1
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -177,6 +177,9 @@ namespace DataAccess.Migrations
                     b.Property<int>("AdvertPostingQuota")
                         .HasColumnType("integer");
 
+                    b.Property<DateTime>("BirthDate")
+                        .HasColumnType("timestamp without time zone");
+
                     b.Property<string>("Certificates")
                         .HasColumnType("text");
 
@@ -253,6 +256,9 @@ namespace DataAccess.Migrations
 
                     b.Property<string>("Province")
                         .HasColumnType("text");
+
+                    b.Property<DateTime>("RegisterDate")
+                        .HasColumnType("timestamp without time zone");
 
                     b.Property<string>("SchoolName")
                         .HasColumnType("text");

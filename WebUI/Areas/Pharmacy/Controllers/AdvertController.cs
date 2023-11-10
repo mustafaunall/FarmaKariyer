@@ -48,7 +48,7 @@ namespace WebUI.Areas.Pharmacy.Controllers
             }
 
             var userAdvertQuota = user!.AdvertPostingQuota;
-            if (userAdvertQuota < 1)
+            if (userAdvertQuota != -1 && userAdvertQuota < 1)
             {
                 Notification("İlan verme hakkınız yok, lütfen paket alımı gerçekleştiriniz.", NotificationType.Info);
                 return Redirect("/Pharmacy/Account/Packages");

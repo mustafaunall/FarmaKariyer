@@ -10,7 +10,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 
 builder.Services.AddDbContext<UserDbContext>(options =>
-options.UseNpgsql("host=80.253.246.121; port=5454; database=FarmaKariyer; username=postgres; password=Secure2023Password."));
+options.UseNpgsql("host=160.20.108.234; port=5432; database=FarmaKariyer; username=postgres; password=pJn91Yn7WdjxKtjvZrAn"));
 
 builder.Services.AddCoreAdmin(new CoreAdminOptions()
 {
