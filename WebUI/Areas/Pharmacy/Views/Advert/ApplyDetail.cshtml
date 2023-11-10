@@ -1,4 +1,5 @@
 ﻿@using Core.Helper;
+@using System.Globalization;
 @using WebUI.Areas.Pharmacy.Models.ViewModels;
 @model ApplicantProfileVM
 @{
@@ -16,16 +17,46 @@
                         </div>
                         <h3 class="profile-username text-center">@Model?.User?.Name @Model?.User?.Surname</h3>
                         <ul class="list-group list-group-unbordered mb-3">
-                            <li class="list-group-item">
-                                <b>Doğum Tarihi:</b> <a class="float-right" style="color:#ff2b58;">
-                                    @Model?.Resume?.BirthDate.ToString("dd.MM.yyyy")
-                                </a>
-                            </li>
-                            <li class="list-group-item">
-                                <b>Başvuru Tarihi:</b> <a class="float-right" style="color:#ff2b58;">
-                                   @Model?.Apply?.ApplyDate.ToString("dd.MM.yyyy")
-                                </a>
-                            </li>
+                            @if (Model?.User?.BirthDate != null)
+                            {
+                                <li class="list-group-item">
+                                    <b>Doğum Tarihi:</b> <a class="float-right" style="color:#ff2b58;">
+                                        @Model?.User?.BirthDate.ToString("dd MMMM yyyy", CultureInfo.CreateSpecificCulture("tr-TR"))
+                                    </a>
+                                </li>
+                            }
+                            @if (Model?.Apply?.ApplyDate != null)
+                            {
+                                <li class="list-group-item">
+                                    <b>Başvuru Tarihi:</b> <a class="float-right" style="color:#ff2b58;">
+                                        @Model?.Apply?.ApplyDate.ToString("dd MMMM yyyy", CultureInfo.CreateSpecificCulture("tr-TR"))
+                                    </a>
+                                </li>
+                            }
+                            @if (!string.IsNullOrEmpty(Model?.User?.PhoneNumber))
+                            {
+                                <li class="list-group-item">
+                                    <b>Telefon Numarası:</b> <a href="tel:@Model?.User?.PhoneNumber" class="float-right" style="color:#ff2b58;">
+                                        @Model?.User?.PhoneNumber
+                                    </a>
+                                </li>
+                            }
+                            @if (!string.IsNullOrEmpty(Model?.User?.Email))
+                            {
+                                <li class="list-group-item">
+                                    <b>E-Posta Adresi:</b> <a href="mailto:@Model?.User?.Email" class="float-right" style="color:#ff2b58;">
+                                        @Model?.User?.Email
+                                    </a>
+                                </li>
+                            }
+                            @if (!string.IsNullOrEmpty(Model?.User?.Address))
+                            {
+                                <li class="list-group-item">
+                                    <b>Açık Adresi:</b> <a class="float-right" style="color:#ff2b58;">
+                                        @Model?.User?.Address
+                                    </a>
+                                </li>
+                            }
                         </ul>
                     </div>
                 </div>
@@ -51,13 +82,13 @@
             </div>
             <div class="col-md-9">
                 <div class="card">
- 
+
                     <div class="card-body" style="padding-top:10px !important;">
                         <div class="tab-content">
                             <div class="active tab-pane" id="activity">
                                 <div class="post">
                                     <h3><b>Başvuran Hakkında</b></h3>
-                                        <p style="word-wrap: break-word; word-break: break-all; overflow-wrap: break-word;">
+                                    <p style="word-wrap: break-word; word-break: break-all; overflow-wrap: break-word;">
                                         @Model?.Resume?.Description
                                     </p>
                                 </div>
