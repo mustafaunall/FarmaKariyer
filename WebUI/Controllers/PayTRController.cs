@@ -207,7 +207,7 @@ namespace WebUI.Controllers
             string debug_on = "0";
             //
             // Mağaza canlı modda iken test işlem yapmak için 1 olarak gönderilebilir.
-            string test_mode = "1";
+            string test_mode = TestMode;
             //
             // Taksit yapılmasını istemiyorsanız, sadece tek çekim sunacaksanız 1 yapın
             string no_installment = "0";
