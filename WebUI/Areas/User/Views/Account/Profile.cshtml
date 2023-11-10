@@ -18,14 +18,12 @@
                                 <div class="d-flex flex-column mx-3 my-1">
                                     <div class="custom-file mb-2">
                                         <input type="file" class="custom-file-input" id="file-input" name="Photo">
-                                        <label class="custom-file-label" for="inputGroupFile01">Fotoğraf seç</label>
+                                        <label class="custom-file-label" for="inputGroupFile01"> Seç</label>
                                     </div>
 
                                     <input type="submit" value="Güncelle" style="background-color:#ff2b58;" class="btn btn-danger" />
                                 </div>
-                            </form>
-
-
+                            </form> 
                             <script>
                                 const fileInput = document.getElementById('file-input');
 
@@ -41,6 +39,7 @@
                                     reader.readAsDataURL(file);
                                 });
                             </script>
+  
                         </div>
                         <h3 class="profile-username text-center">@Model.User.Name @Model.User.Surname</h3>
                         <ul class="list-group list-group-unbordered mb-3">
@@ -50,12 +49,9 @@
                             <li class="list-group-item">
                                 <b>Özgeçmiş Güncelleme</b> <a class="float-right" style="color:#ff2b58;">@Model.ResumeCount</a>
                             </li>
-                            @*  <li class="list-group-item">
-                            <b>Beğeni</b> <a class="float-right" style="color:#ff2b58;">1,322</a>
+                              <li class="list-group-item">
+                                <b>Doğum Tarihiniz:</b> <a class="float-right" style="color:#ff2b58;">@Model.Resume.BirthDate.ToString("dd.MM.yyyy")</a>
                             </li>
-                            <li class="list-group-item">
-                            <b>Yorum</b> <a class="float-right" style="color:#ff2b58;">543</a>
-                            </li> *@
                         </ul>
                     </div>
                 </div>
