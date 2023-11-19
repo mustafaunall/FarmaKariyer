@@ -5,6 +5,7 @@ using DataAccess.Context;
 using Domain.Model;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
@@ -13,9 +14,10 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace DataAccess.Migrations
 {
     [DbContext(typeof(UserDbContext))]
-    partial class UserDbContextModelSnapshot : ModelSnapshot
+    [Migration("20231119172144_prod_2")]
+    partial class prod_2
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -113,7 +115,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.ToTable("Adverts", (string)null);
+                    b.ToTable("Adverts");
                 });
 
             modelBuilder.Entity("Domain.Model.AdvertCategory", b =>
@@ -132,7 +134,7 @@ namespace DataAccess.Migrations
 
                     b.HasKey("Id");
 
-                    b.ToTable("AdvertCategories", (string)null);
+                    b.ToTable("AdvertCategories");
 
                     b.HasData(
                         new
@@ -324,7 +326,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("CurrentResumeId");
 
-                    b.ToTable("Applies", (string)null);
+                    b.ToTable("Applies");
                 });
 
             modelBuilder.Entity("Domain.Model.Order", b =>
@@ -368,7 +370,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.ToTable("Orders", (string)null);
+                    b.ToTable("Orders");
                 });
 
             modelBuilder.Entity("Domain.Model.Resume", b =>
@@ -436,7 +438,7 @@ namespace DataAccess.Migrations
 
                     b.HasIndex("ApplicationUserId");
 
-                    b.ToTable("Resumes", (string)null);
+                    b.ToTable("Resumes");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole<int>", b =>

@@ -48,9 +48,9 @@ public class HomeController : Controller
 
 
 		vm.BoostedAdvertsDermocosmetic.AddRange(boostedSql
-			.Where(x => x.Type == Domain.Model.Enum.AdvertType.TECHNICIAN).ToList());
+			.Where(x => x.Type == Domain.Model.Enum.AdvertType.DERMOCOSMETİC).ToList());
 		vm.BoostedAdvertsDermocosmetic.AddRange(defaultSql
-			.Where(x => x.Type == Domain.Model.Enum.AdvertType.TECHNICIAN).ToList());
+			.Where(x => x.Type == Domain.Model.Enum.AdvertType.DERMOCOSMETİC).ToList());
 
 
 		vm.BoostedAdvertsIntern.AddRange(boostedSql

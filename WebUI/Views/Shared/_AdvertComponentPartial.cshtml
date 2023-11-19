@@ -33,7 +33,7 @@
                     <div class="meta-info clearfix">
                         <div class="left pull-left">
                             <ul class="post-info">
-                                <li><b>İlan Sahibi: </b>@Model.ApplicationUser.Name @Model.ApplicationUser.Surname</li>
+                                <li><b>Eczane İsmi: </b>@Model.ApplicationUser.PharmacyName</li>
                                 <br />
                                 <li><b>Konum: </b>@(ProvinceHelper.GetProvinceName(Convert.ToInt32(Model.ApplicationUser?.Province ?? "1"))), @Model.ApplicationUser?.District</li>
                                 @*<li><a href="#">Eczane, Teknisyen</a></li>*@

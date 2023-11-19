@@ -27,6 +27,12 @@ public class RegisterPharmacyVM
     public string PharmacyName { get; set; }
 
     [Required]
+    public string TaxOffice { get; set; }
+
+    [Required]
+    public string TaxNumber { get; set; }
+
+    [Required]
     public string GLNCode { get; set; }
 
     [Required]

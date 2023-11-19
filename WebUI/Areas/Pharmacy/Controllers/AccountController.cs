@@ -152,6 +152,10 @@ public class AccountController : BaseController
                 user.Latitude = vm.Latitude.Trim();
             if (!string.IsNullOrEmpty(vm.Longitude))
                 user.Longitude = vm.Longitude.Trim();
+            if (!string.IsNullOrEmpty(vm.TaxOffice))
+                user.TaxOffice = vm.TaxOffice.Trim();
+            if (!string.IsNullOrEmpty(vm.TaxNumber))
+                user.TaxNumber = vm.TaxNumber.Trim();
             if (!string.IsNullOrEmpty(vm.PharmacyType))
                 user.PharmacyType = vm.PharmacyType.Trim();
             if (!string.IsNullOrEmpty(vm.EmployeeCount))
