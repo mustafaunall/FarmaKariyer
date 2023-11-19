@@ -26,7 +26,7 @@
                 <div class="meta-info clearfix" style="margin-left:0;">
                     <div class="left pull-left">
                         <ul class="post-info">
-                            <li style="border:none; padding-bottom:3px;"><b>İlan Sahibi: </b>@Model.ApplicationUser?.Name @Model.ApplicationUser?.Surname</li>
+                            <li style="border:none; padding-bottom:3px;"><b>Eczane İsmi: </b>@Model.ApplicationUser?.PharmacyName</li>
                             <li><b>Konum: </b>@(ProvinceHelper.GetProvinceName(Convert.ToInt32(Model.ApplicationUser?.Province ?? "1"))), @Model.ApplicationUser?.District</li>
                         </ul>
                     </div>

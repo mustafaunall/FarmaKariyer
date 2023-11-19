@@ -213,6 +213,8 @@ public class AccountController : BaseController
                 Type = ApplicationUserType.PHARMACY,
 
                 PharmacyName = model.PharmacyName,
+                TaxOffice = model.TaxOffice,
+                TaxNumber = model.TaxNumber,
                 GLNCode = model.GLNCode,
 
                 Province = model.Province,

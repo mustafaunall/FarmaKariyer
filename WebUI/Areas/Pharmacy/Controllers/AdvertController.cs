@@ -151,7 +151,7 @@ namespace WebUI.Areas.Pharmacy.Controllers
                 advert.Description = model.Description;
                 advert.Type = (AdvertType)model.Type;
                 advert.IsBoosted = model.IsBoosted;
-                if (model.Type == AdvertType.TECHNICIAN)
+                if (model.Type == AdvertType.TECHNICIAN || model.Type == AdvertType.DERMOCOSMETİC)
                 {
                     advert.ExperienceYear = model.ExperienceYear;
                     advert.BonusBenefit = model.BonusBenefit;

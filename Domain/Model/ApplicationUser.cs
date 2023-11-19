@@ -22,6 +22,8 @@ public class ApplicationUser : IdentityUser<int>
     public string? Longitude { get; set; }
     public int AdvertPostingQuota { get; set; } = 0;
     public string? PharmacyName { get; set; }
+    public string? TaxOffice { get; set; }
+    public string? TaxNumber { get; set; }
     public string? GLNCode { get; set; }
     public string? PharmacyType { get; set; }
     public string? EmployeeCount { get; set; }

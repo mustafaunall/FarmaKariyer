@@ -40,6 +40,7 @@
                                             <select class="form-control" asp-for="Type" id="jobType">
                                                 <option disabled selected>Kategori Seçiniz</option>
                                                 <option value="0">Teknisyen</option>
+                                                <option value="6">Dermokozmetik</option>
                                                 <option value="1">Stajyer</option>
                                                 <option value="2">Yardımcı Eczacı</option>
                                                 <option value="3">İkinci Eczacı</option>
@@ -360,7 +361,7 @@
 
                                                 $('.collapsable').css('display', 'none');
 
-                                                if (selectedValue === '0') {
+                                                if (selectedValue === '0' || selectedValue === '6') {
                                                     $('#form-teknisyen').css('display', 'block');
                                                 }
                                                 else if (selectedValue === '1') {

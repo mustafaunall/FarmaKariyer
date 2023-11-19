@@ -16,4 +16,6 @@ public enum AdvertType
     LICENSE,
     [Description("Diğer")]
     OTHER,
+    [Description("Dermokozmetik")]
+    DERMOCOSMETİC,
 }
