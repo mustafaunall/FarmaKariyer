@@ -1,12 +1,17 @@
 using Core.Helper;
 using Core.Services;
+using Core.Services.Hangfire.CheckAdvert;
+using Core.Services.Hangfire.RecurringJobs;
 using DataAccess.Context;
 using Domain.Model;
+using Hangfire;
+using Hangfire.PostgreSql;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Server.Kestrel.Core;
 using Microsoft.EntityFrameworkCore;
 using QuestPDF.Infrastructure;
 using System.Security.Authentication;
+using WebUI.Operation;
 
 var builder = WebApplication.CreateBuilder(args);
 QuestPDF.Settings.License = LicenseType.Community;
@@ -24,6 +29,10 @@ builder.Services.AddControllersWithViews();
 builder.Services.AddScoped<PdfService>();
 
 builder.Services.AddScoped<DbService>();
+
+builder.Services.AddScoped<IRecurringJobs, RecurringJobs>();
+
+builder.Services.AddScoped<IAdvertCheckJob, AdvertCheckJob>();
 
 builder.Services.AddDbContext<UserDbContext>(options =>
 options.UseNpgsql("host=160.20.108.234; port=5432; database=FarmaKariyer; username=postgres; password=pJn91Yn7WdjxKtjvZrAn"), ServiceLifetime.Transient);
@@ -50,6 +59,20 @@ builder.Services.AddSession(options =>
     options.IdleTimeout = TimeSpan.FromMinutes(30);
 });
 
+builder.Services.AddHangfire(config =>
+{
+    var option = new PostgreSqlStorageOptions()
+    {
+        PrepareSchemaIfNecessary = true,
+        QueuePollInterval = TimeSpan.FromSeconds(5),
+        SchemaName = "job_prod"
+    };
+    config.SetDataCompatibilityLevel(CompatibilityLevel.Version_170);
+    config.UseSimpleAssemblyNameTypeSerializer();
+    config.UseRecommendedSerializerSettings();
+    config.UsePostgreSqlStorage("host=160.20.108.234; port=5432; database=FarmaKariyer; username=postgres; password=pJn91Yn7WdjxKtjvZrAn", option);
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -72,22 +95,21 @@ app.UseRouting();
 app.UseSession();
 
 app.UseCookiePolicy(
-            new CookiePolicyOptions
-            {
-                Secure = CookieSecurePolicy.Always
-            });
+    new CookiePolicyOptions
+    {
+        Secure = CookieSecurePolicy.Always
+    });
 
 app.UseAuthentication();
 
 app.UseAuthorization();
 
-//app.MapControllerRoute(
-//    name: "MyArea",
-//    pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
-
-//app.MapControllerRoute(
-//    name: "default",
-//    pattern: "{controller=Home}/{action=Index}/{id?}");
+app.UseHangfireServer(new BackgroundJobServerOptions
+{
+    WorkerCount = 1,
+});
+//app.UseHangfireDashboard("/hangfire", new DashboardOptions { Authorization = new[] { new HangfireDashboardAuthorizationFilter() } });
+app.UseHangfireDashboard("/hangfire");
 
 app.UseEndpoints(endpoints =>
 {
@@ -99,5 +121,18 @@ app.UseEndpoints(endpoints =>
         name: "areaRoute",
         pattern: "{area:exists}/{controller=Home}/{action=Index}/{id?}");
 });
+
+using (var scope = app.Services.CreateScope())
+{
+    var services = scope.ServiceProvider;
+    try
+    {
+        var jobService = services.GetRequiredService<IRecurringJobs>();
+        jobService.CheckExpiredAdverts();
+        jobService.CheckExpiredBoostedAdverts();
+
+    }
+    catch (Exception) { }
+}
 
 app.Run();

@@ -357,6 +357,7 @@ namespace WebUI.Controllers
                     if (user != null && advert != null)
                     {
                         advert.IsBoosted = true;
+                        advert.BoostCreateDate = DateTime.Now;
                     }
                 }
 
