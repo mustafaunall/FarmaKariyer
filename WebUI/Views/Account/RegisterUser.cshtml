@@ -70,29 +70,11 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input type="text" name="BirthDate" id="birthdate" class="form-control" placeholder="Doğum Tarihiniz" onfocus="changeTypeToDate(this)" onblur="changeTypeToText(this)" required>
+                                            <input type="text" class="form-control datepicker" placeholder="Lütfen Tarih Seçiniz" required>
                                         </div>
                                     </div>
                                 </div>
-                                <script>
-                                    function changeTypeToDate(input) {
-                                        input.type = 'date';
-                                    }
 
-                                    function changeTypeToText(input) {
-                                        if (!input.value.trim()) {
-                                            input.type = 'text';
-                                        }
-                                    }
-                                    document.addEventListener('DOMContentLoaded', function () {
-                                        var birthdateInput = document.getElementById('birthdate');
-                                        birthdateInput.addEventListener('change', function () {
-                                            if (this.value.trim()) {
-                                                this.setAttribute('type', 'date');
-                                            }
-                                        });
-                                    });
-                                </script>
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="input-group">
@@ -151,6 +133,11 @@
                                 </style>
                                 @section Scripts {
                                     <script src="~/scripts/ililce.js" province="@(Model?.Province ?? "34")" district="@(Model?.District ?? "1")"></script> <!--il-ilçe-script-->
+                                    <script>
+                                        $(".datepicker").flatpickr({
+                                            dateFormat: "d-m-Y"
+                                        });
+                                    </script>
                                 }
                                 <div class="col-lg-12">
                                     <div class="form-group">
