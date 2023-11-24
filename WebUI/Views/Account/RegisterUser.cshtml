@@ -70,7 +70,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input type="text" class="form-control datepicker" style="background-color:white;" placeholder="Lütfen Tarih Seçiniz" required>
+                                            <input type="text" name="BirthDate" class="form-control datepicker" style="background-color:white;" onblur="(this.type='text')" placeholder="Lütfen Tarih Seçiniz" required>
                                         </div>
                                     </div>
                                 </div>
@@ -134,6 +134,7 @@
                                     <script src="~/scripts/ililce.js" province="@(Model?.Province ?? "34")" district="@(Model?.District ?? "1")"></script> <!--il-ilçe-script-->
                                     <script>
                                         $(".datepicker").flatpickr({
+                                            "locale": "tr",
                                             dateFormat: "d-m-Y"
                                         });
                                     </script>
