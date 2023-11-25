@@ -554,7 +554,7 @@ select:focus {
   margin-bottom: -35px;
   margin-top: -35px;
   position: relative;
-  z-index: 999999;
+  z-index:1;
 }
 .mainmenu-area .mainmenu-bg {
   background: #ff2b58;
