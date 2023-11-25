@@ -1,12 +1,15 @@
 version: '3.8'
 services:
-  webui:
-    image: ${DOCKER_REGISTRY-}webui
+  farmakariyer:
+    image: ${DOCKER_REGISTRY-}farmakariyer
     build:
       context: .
       dockerfile: WebUI/Dockerfile
+    container_name: farmakariyer
     ports:
-      - "5200:80"
+      - "6100:80"
     environment:
+      - TZ=Europe/Istanbul
       - ASPNETCORE_ENVIRONMENT=Development
       - ASPNETCORE_URLS=http://+:80
+    restart: unless-stopped
