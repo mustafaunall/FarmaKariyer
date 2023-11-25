@@ -112,19 +112,22 @@
                                     <ul class="navigation clearfix">
                                         <li class="home current"><a href="@Url.Action("Index","Home")"><span class="fa fa-home"></span></a></li>
                                         <li class="dropdown">
-                                            <a href="#">İlanlar</a>
-                                            <ul>
+      
+                                            <a id="dropdownNavbarMenu" onclick="toggleMenu()" style="display: flex; justify-content: space-between; align-items: center; cursor:pointer;">
+                                                İlanlar
+                                                <i class="fa-solid fa-angle-right mobile-only-icon" style="line-height: 20px;"></i>
+                                            </a>
+                                            <ul id="menuItems" style="display:none;">
                                                 <li id="mainMenuItem">
                                                     <a style="display: flex; justify-content: space-between;" href="@Url.Action("Technician", "JobAdvert")">
                                                         Teknisyen İlanları
-                                                        <i class="fa-solid fa-angle-right" style="line-height:20px;"></i>
                                                     </a>
                                                     <div id="subMenu">
                                                         <a href="@Url.Action("Dermocosmetic", "JobAdvert")" class="submenuder">Dermokozmetik Elemanı</a>
                                                     </div>
                                                 </li>
                                                 @* mobil ile alakalı yer. *@
-                                                <li id="dermonav"><a href="@Url.Action("Dermocosmetic","JobAdvert")">Dermokozmetik Elemanı</a></li>
+                                                <li><a href="@Url.Action("Dermocosmetic","JobAdvert")">Dermokozmetik Elemanı</a></li>
                                                 <li><a href="@Url.Action("Intern","JobAdvert")">Stajyer İlanları</a></li>
                                                 <li><a href="@Url.Action("License","JobAdvert")">Ruhsat İlanları</a></li>
                                                 <li><a href="@Url.Action("OtherAds","JobAdvert")">Diğer İlanlar</a></li>
@@ -138,7 +141,16 @@
                                     </ul>
                                 </div>
                             </nav>
-
+                            <script>
+                                function toggleMenu() {
+                                    var menu = document.getElementById("menuItems");
+                                    if (menu.style.display === "none") {
+                                        menu.style.display = "block";
+                                    } else {
+                                        menu.style.display = "none";
+                                    }
+                                }
+                            </script>
                             <!--End mainmenu-->
                             <!--Start search box-->
                             <!--End search box-->
@@ -313,7 +325,7 @@
         </section>
         <!--End footer bottom area-->
         <!--Scroll to top-->
-@*         <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
+        @*         <div class="scroll-to-top scroll-to-target" data-target="html"><span class="fa fa-angle-up"></span></div>
 
 
         <!--Scroll to top-->
@@ -323,14 +335,13 @@
 
 
     <!--footer end-->
-
     <!-- main jQuery -->
-@*     <script src="~/js/jquery-1.11.1.min.js"></script> *@
+    @*     <script src="~/js/jquery-1.11.1.min.js"></script> *@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- bootstrap -->
     <script src="~/js/bootstrap.min.js"></script>
     <!-- bx slider -->
-@*     <script src="~/js/jquery.bxslider.min.js"></script> *@
+    @*     <script src="~/js/jquery.bxslider.min.js"></script> *@
     <!-- count to -->
     <script src="~/js/jquery.countTo.js"></script>
     <!-- owl carousel -->
@@ -338,9 +349,9 @@
     <!-- validate -->
     <script src="~/js/validation.js"></script>
     <!-- mixit up -->
-@*     <script src="~/js/jquery.mixitup.min.js"></script> *@
+    @*     <script src="~/js/jquery.mixitup.min.js"></script> *@
     <!-- easing -->
-@*     <script src="~/js/jquery.easing.min.js"></script> *@
+    @*     <script src="~/js/jquery.easing.min.js"></script> *@
     <!-- gmap helper -->
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAHzPSV2jshbjI8fqnC_C4L08ffnj5EN3A"></script>
     <!--gmap script-->
@@ -357,7 +368,7 @@
     <!--select2-->
     <script src="https://cdn.jsdelivr.net/npm/select2@@4.1.0-rc.0/dist/js/select2.min.js"></script>
     <!--pretty-photo-->
-@*     <script src="https://cdnjs.cloudflare.com/ajax/libs/prettyPhoto/3.1.6/js/jquery.prettyPhoto.min.js" integrity="sha512-IB7NSySDRedVEsYsOVuzN5O5jwRjV2ewVVmkDFIgE0yNu11GreBCOMv07i7hlQck41T+sTXSL05/cG+De4cZDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> *@
+    @*     <script src="https://cdnjs.cloudflare.com/ajax/libs/prettyPhoto/3.1.6/js/jquery.prettyPhoto.min.js" integrity="sha512-IB7NSySDRedVEsYsOVuzN5O5jwRjV2ewVVmkDFIgE0yNu11GreBCOMv07i7hlQck41T+sTXSL05/cG+De4cZDw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script> *@
     <script src="~/js/jquery.prettyPhoto.js"></script>
     @*  <script src="~/js/jquery.bootstrap-touchspin.js"></script> *@
     <!-- jQuery timepicker js -->
@@ -366,7 +377,7 @@
     <script src="~/assets/bootstrap-sl-1.12.1/bootstrap-select.js"></script>
     <!-- Bootstrap bootstrap touchspin js -->
     <!-- jQuery ui js -->
- @*    <script src="~/assets/jquery-ui-1.11.4/jquery-ui.js"></script> *@
+    @*    <script src="~/assets/jquery-ui-1.11.4/jquery-ui.js"></script> *@
     <!-- Language Switche  -->
     <script src="~/assets/language-switcher/jquery.polyglot.language.switcher.js"></script>
     <!-- Html 5 light box script-->
@@ -374,9 +385,9 @@
     <!--owl-carousel-->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
     <!-- revolution slider js -->
-@*     <script src="~/assets/revolution/js/jquery.themepunch.tools.min.js"></script>
+    @*     <script src="~/assets/revolution/js/jquery.themepunch.tools.min.js"></script>
     <script src="~/assets/revolution/js/jquery.themepunch.revolution.min.js"></script> *@
-@* 
+    @*
     <script src="~/assets/revolution/js/extensions/revolution.extension.actions.min.js"></script>
     <script src="~/assets/revolution/js/extensions/revolution.extension.carousel.min.js"></script>
     <script src="~/assets/revolution/js/extensions/revolution.extension.kenburn.min.js"></script>
