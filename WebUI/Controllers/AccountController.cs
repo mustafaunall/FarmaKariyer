@@ -182,7 +182,7 @@ public class AccountController : BaseController
             {
                 await _signInManager.SignInAsync(user, isPersistent: false);
                 Notification("Farma Kariyer'e hoş geldiniz, şimdi özgeçmişinizi oluşturabilirsiniz.", NotificationType.Info);
-                return RedirectPermanent("/Pharmacy/Account/Profile");
+                return RedirectPermanent("/User/Account/Profile");
             }
             return View(model);
         }
@@ -237,6 +237,7 @@ public class AccountController : BaseController
             if (result.Succeeded)
             {
                 await _signInManager.SignInAsync(user, isPersistent: false);
+                Notification("Farma Kariyer'e hoş geldiniz, şimdi ilan verebilirsiniz.", NotificationType.Info);
                 return RedirectPermanent("/Pharmacy/Account/Profile");
             }
             return View(model);

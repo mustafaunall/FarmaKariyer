@@ -4,16 +4,11 @@ using Microsoft.AspNetCore.Mvc;
 using Domain.ViewModel.User;
 using Microsoft.EntityFrameworkCore;
 using DataAccess.Context;
-using System.Xml.Linq;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Core.Helper;
 using Domain.Model;
 using WebUI.Attributes;
 using WebUI.Extensions;
-using static SkiaSharp.HarfBuzz.SKShaper;
-using WebUI.Areas.User.Models.ViewModels;
 using WebUI.Areas.Pharmacy.Models.ViewModels;
-using static IdentityServer4.Models.IdentityResources;
 
 namespace WebUI.Areas.Pharmacy.Controllers;
 
@@ -309,7 +304,7 @@ public class AccountController : BaseController
     [HttpPost]
     [AllowAnonymous]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Register(RegisterUserVM model)
+    public async Task<IActionResult> Register(RegisterPharmacyVM model)
     {
         var user = new ApplicationUser
         {
@@ -318,20 +313,22 @@ public class AccountController : BaseController
             PhoneNumber = model.PhoneNumber,
             Name = model.Name,
             Surname = model.Surname,
+            TaxOffice = model.TaxOffice,
+            TaxNumber = model.TaxNumber,
+
+            Type = ApplicationUserType.PHARMACY,
         };
         var result = await _userManager.CreateAsync(user, model.Password);
         if (result.Succeeded)
         {
             await _signInManager.SignInAsync(user, isPersistent: false);
-
-            return RedirectToAction("Index", "Home");
+            return RedirectPermanent("/Pharmacy/Account/Profile");
         }
-        foreach (var error in result.Errors)
+        else
         {
-            ModelState.AddModelError(string.Empty, error.Description);
+            Notification("Kayıt işleminde bir hata oluştu", NotificationType.Error);
+            return View(model);
         }
-
-        return RedirectToAction("Profile", "Account");
     }
 
     [Authorize]
