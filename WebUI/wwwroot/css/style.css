@@ -5921,3 +5921,11 @@ b {
     margin-left: 0px;
     margin-right: 0px;
 }
+.mobile-only-icon {
+    display: none !important;
+}
+@media (max-width: 768px) {
+    .mobile-only-icon {
+        display: inline !important;
+    }
+}
