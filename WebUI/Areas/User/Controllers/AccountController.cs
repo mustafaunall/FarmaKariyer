@@ -4,8 +4,6 @@ using Microsoft.AspNetCore.Mvc;
 using Domain.ViewModel.User;
 using Microsoft.EntityFrameworkCore;
 using DataAccess.Context;
-using System.Xml.Linq;
-using Microsoft.AspNetCore.Mvc.ModelBinding;
 using Core.Helper;
 using Domain.Model;
 using WebUI.Attributes;
@@ -220,20 +218,20 @@ public class AccountController : BaseController
             PhoneNumber = model.PhoneNumber,
             Name = model.Name,
             Surname = model.Surname,
+
+            Type = ApplicationUserType.USER,
         };
         var result = await _userManager.CreateAsync(user, model.Password);
         if (result.Succeeded)
         {
             await _signInManager.SignInAsync(user, isPersistent: false);
-
-            return RedirectToAction("Index", "Home");
+            return RedirectPermanent("/User/Account/Profile");
         }
-        foreach (var error in result.Errors)
+        else
         {
-            ModelState.AddModelError(string.Empty, error.Description);
+            Notification("Kayıt işleminde bir hata oluştu", NotificationType.Error);
+            return View(model);
         }
-
-        return RedirectToAction("Profile", "Account");
     }
 
     [Authorize]
