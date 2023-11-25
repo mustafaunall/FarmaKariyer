@@ -5696,7 +5696,7 @@ select:focus {
 
 @media only screen and (max-width: 991px) {
     .account-container {
-        padding: 50px 20px;
+        padding: 30px 10px;
     }
 }
     
@@ -5914,4 +5914,10 @@ b {
 }
 .margintopsre{
     margin-top:15px;
+}
+.farmabuttons {
+    justify-content: center;
+    display: flex;
+    margin-left: 0px;
+    margin-right: 0px;
 }
