@@ -144,10 +144,16 @@
                             <script>
                                 function toggleMenu() {
                                     var menu = document.getElementById("menuItems");
+                                    var dropdownIcon = document.querySelector('#dropdownNavbarMenu .fa-solid');
+
                                     if (menu.style.display === "none") {
                                         menu.style.display = "block";
+                                        dropdownIcon.classList.remove('fa-angle-right');
+                                        dropdownIcon.classList.add('fa-angle-down');
                                     } else {
                                         menu.style.display = "none";
+                                        dropdownIcon.classList.remove('fa-angle-down');
+                                        dropdownIcon.classList.add('fa-angle-right');
                                     }
                                 }
                             </script>
