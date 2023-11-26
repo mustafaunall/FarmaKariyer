@@ -51,7 +51,10 @@
   .owl-carousel .owl-stage {
     position: relative;
     -ms-touch-action: pan-Y; }
-  .owl-carousel .owl-stage:after {
+    .owl-carousel .owl-stage {
+    width:1200px !important; 
+    }
+        .owl-carousel .owl-stage:after {
     content: ".";
     display: block;
     clear: both;

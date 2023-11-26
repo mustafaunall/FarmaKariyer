@@ -5929,3 +5929,28 @@ b {
         display: inline !important;
     }
 }
+
+.farmaref .owl-nav {
+    display: none; /* Varsayýlan olarak gizle */
+}
+
+@media screen and (max-width: 600px) {
+    .farmaref .owl-nav {
+        display: block; /* Mobil cihazlarda göster */
+    }
+
+    .farmaref .owl-prev, .farmaref .owl-next {
+        /* Ok stilleri */
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+    }
+
+    .farmaref .owl-prev {
+        left: 10px;
+    }
+
+    .farmaref .owl-next {
+        right: 10px;
+    }
+}

@@ -254,22 +254,25 @@
 </style>
 @section Scripts{
     <script>
-        var owl = $('.farmaref');
-        owl.owlCarousel({
+        $('.farmaref').owlCarousel({
             loop: false,
             dots: false,
             autoplay: true,
             autoplayTimeout: 3000,
             autoplayHoverPause: true,
+            nav: false, // varsayılan olarak kapalı
             responsive: {
                 0: {
-                    items: 1
+                    items: 1,
+                    nav: true // mobil cihazlar için açık
                 },
                 600: {
-                    items: 2
+                    items: 2,
+                    nav: false // geniş ekranlarda kapalı
                 },
                 1000: {
-                    items: 3
+                    items: 3,
+                    nav: false // geniş ekranlarda kapalı
                 }
             }
         });
