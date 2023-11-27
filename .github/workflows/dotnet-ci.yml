@@ -10,17 +10,17 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
         dotnet-version: '6.0'
 
     - name: Restore dependencies
-      run: dotnet restore
+      run: dotnet restore WebUI/WebUI.sln
 
     - name: Build
-      run: dotnet build --no-restore
+      run: dotnet build WebUI/WebUI.sln --no-restore
 
     - name: Test
-      run: dotnet test --no-restore --verbosity normal
-
+      run: dotnet test WebUI/WebUI.sln --no-restore --verbosity normal
