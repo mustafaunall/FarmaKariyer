@@ -97,8 +97,11 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
-                                        <div class="input-group">
-                                            <input type="text" name="BirthDate" class="form-control datepicker" style="background-color:white;" onblur="(this.type='text')" placeholder="Lütfen Tarih Seçiniz" required>
+                                        <div style="display:flex;">
+                                            <input type="text" placeholder="Doğum Tarihiniz" class="form-control" style="background-color:white; height:50px; border-radius:0;" readonly>
+                                            <select id="dobday" class="input-group" name="BirthDateDay" required></select>
+                                            <select id="dobmonth" class="input-group" name="BirthDateMonth" required></select>
+                                            <select id="dobyear" class="input-group" name="BirthDateYear" required></select>
                                         </div>
                                     </div>
                                 </div>
@@ -170,6 +173,21 @@
                                         $(".datepicker").flatpickr({
                                             "locale": "tr",
                                             dateFormat: "d-m-Y"
+                                        });
+                                    </script>
+                                    <script src="~/scripts/dobpicker.js"></script>
+                                    <script>
+                                        $(document).ready(function () {
+                                            $.dobPicker({
+                                                daySelector: '#dobday', /* Required */
+                                                monthSelector: '#dobmonth', /* Required */
+                                                yearSelector: '#dobyear', /* Required */
+                                                dayDefault: 'Gün', /* Optional */
+                                                monthDefault: 'Ay', /* Optional */
+                                                yearDefault: 'Yıl', /* Optional */
+                                                minimumAge: 18, /* Optional */
+                                                maximumAge: 80 /* Optional */
+                                            });
                                         });
                                     </script>
                                     <script>
