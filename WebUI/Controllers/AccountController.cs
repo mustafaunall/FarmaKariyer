@@ -220,7 +220,7 @@ public class AccountController : BaseController
                 PhoneNumber = model.PhoneNumber,
                 Name = model.Name,
                 Surname = model.Surname,
-                BirthDate = model.birthDate,
+                BirthDate = birthDate,
                 RegisterDate = DateTime.Now,
                 Type = ApplicationUserType.PHARMACY,
 
