@@ -693,7 +693,7 @@
 .mainmenu-area {
     margin-bottom: 0px;
     margin-top: 0px;
-    z-index: 999999;
+    z-index: 5;
 } 
 .mainmenu-area.stricky-fixed{
     position: static;
@@ -709,7 +709,7 @@
     height: 40px;
     float: left !important;
     margin-top: -40px;
-    z-index: 9999999999;
+    z-index: 1;
 }
 .free-consulation-button:before {
     background: none;

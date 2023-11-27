@@ -13,9 +13,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="Farma Kariyer - İlk ve tek eczaneler arası kariyer platformu" />
+    <!--favicon-->
+    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+    <meta name="msapplication-TileColor" content="#da532c">
+    <meta name="theme-color" content="#ffffff">
     <!-- For IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Farma Kariyer - İlk ve tek eczaneler arası kariyer platformu</title>
+    <!--jqeryui-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/themes/base/jquery-ui.min.css" integrity="sha512-ELV+xyi8IhEApPS/pSj66+Jiw+sOT1Mqkzlh8ExXihe4zfqbWkxPRi8wptXIO9g73FSlhmquFlUOuMSoXz5IRw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
     <!--flatpickr-->
     <link href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css" rel="stylesheet" />
     <!-- master stylesheet -->
@@ -144,10 +154,16 @@
                             <script>
                                 function toggleMenu() {
                                     var menu = document.getElementById("menuItems");
+                                    var dropdownIcon = document.querySelector('#dropdownNavbarMenu .fa-solid');
+
                                     if (menu.style.display === "none") {
                                         menu.style.display = "block";
+                                        dropdownIcon.classList.remove('fa-angle-right');
+                                        dropdownIcon.classList.add('fa-angle-down');
                                     } else {
                                         menu.style.display = "none";
+                                        dropdownIcon.classList.remove('fa-angle-down');
+                                        dropdownIcon.classList.add('fa-angle-right');
                                     }
                                 }
                             </script>
@@ -338,6 +354,8 @@
     <!-- main jQuery -->
     @*     <script src="~/js/jquery-1.11.1.min.js"></script> *@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.js" integrity="sha512-+k1pnlgt4F1H8L7t3z95o3/KO+o78INEcXTbnoJQ/F2VqDVhWoaiVml/OEHv9HsVgxUaVW+IbiZPUJQfF/YxZw==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <!--jqueryui-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.13.2/jquery-ui.min.js" integrity="sha512-57oZ/vW8ANMjR/KQ6Be9v/+/h6bq9/l3f0Oc7vn6qMqyhvPd1cvKBRWWpzu0QoneImqr2SkmO4MSqU+RpHom3Q==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- bootstrap -->
     <script src="~/js/bootstrap.min.js"></script>
     <!-- bx slider -->
@@ -397,8 +415,6 @@
     <script src="~/assets/revolution/js/extensions/revolution.extension.parallax.min.js"></script>
     <script src="~/assets/revolution/js/extensions/revolution.extension.slideanims.min.js"></script>
     <script src="~/assets/revolution/js/extensions/revolution.extension.video.min.js"></script> *@
-
-
     <!-- thm custom script -->
     <script src="~/js/custom.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.7.3/dist/sweetalert2.all.min.js" integrity="sha256-t0FDfwj/WoMHIBbmFfuOtZv1wtA977QCfsFR3p1K4No=" crossorigin="anonymous"></script>
