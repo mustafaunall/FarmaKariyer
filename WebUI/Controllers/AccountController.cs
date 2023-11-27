@@ -214,7 +214,7 @@ public class AccountController : BaseController
             var birthDate = new DateTime(model.BirthDateYear, model.BirthDateMonth, model.BirthDateYear);
             var user = new ApplicationUser
             {
-                //UserName = StringHelper.ConvertToEnglish(model.Name + model.Surname).ToLower()
+                //UserName = StringHelper.ConvertToEnglish(model.Name + model.Surname).ToLower(),
                 UserName = model.Email,
                 Email = model.Email,
                 PhoneNumber = model.PhoneNumber,
