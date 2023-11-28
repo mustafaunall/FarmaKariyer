@@ -85,13 +85,10 @@ namespace WebUI.Areas.User.Controllers
                     resume.ResumeFilePath = guidFileName;
                 }
 
-                resume.Name = model.Name;
-                resume.Surname = model.Surname;
                 resume.Phone = model.Phone;
                 resume.Email = model.Email;
                 resume.WorkExperience = model.WorkExperience;
                 resume.BirthDate = model.BirthDate;
-                resume.Address = model.Address;
                 resume.SchoolName = model.SchoolName;
                 resume.EducationStatus = model.EducationStatus;
                 if (!string.IsNullOrEmpty(model.EducationsAndCertificates))
