@@ -41,7 +41,8 @@
                                             <option disabled selected>Deneyim Yılı</option>
                                         </select>
                                     </div>
-                                </div>
+                                </div>    
+                               
                             </div>
                             @*   <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -72,8 +73,7 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">
-                                        Alınan Eğitimler / Sertifikalar
+                                    <label for="exampleInputEmail1">Alınan Eğitimler / Sertifikalar
                                     </label>
                                     <p style="color:red; font-size:14px;">*Birden fazla sertifika girişi için lütfen sertifikalarınızı alt alta yazınız.</p>
                                     <textarea class="form-control" rows="5" asp-for="EducationsAndCertificates" value="@Model?.EducationsAndCertificates" placeholder="Alınan Eğitimler / Sertifikalar"></textarea>
@@ -255,7 +255,7 @@
                                         }
                                     }
                                 </div>
-                                @section Scripts {
+                             @section Scripts{
                                     @* Telefon Numarası *@
                                     <script>
                                         const isNumericInput = (event) => {
@@ -370,7 +370,7 @@
                                         });
 
                                     </script>
-                                }
+                             }
                             </div>
                         </div>
                     </div>
