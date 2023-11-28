@@ -1,0 +1,26 @@
+name: .NET CI
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: '6.0'
+
+    - name: Restore dependencies
+      run: dotnet restore WebUI/WebUI.sln
+
+    - name: Build
+      run: dotnet build WebUI/WebUI.sln --no-restore
+
+    - name: Test
+      run: dotnet test WebUI/WebUI.sln --no-restore --verbosity normal

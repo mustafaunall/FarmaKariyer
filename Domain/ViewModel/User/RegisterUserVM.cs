@@ -18,8 +18,13 @@ public class RegisterUserVM
     public string Surname { get; set; }
 
     [Required]
-    //[DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:d-M-y}")]
-    public DateTime BirthDate { get; set; }
+    public int BirthDateDay { get; set; }
+
+    [Required]
+    public int BirthDateMonth { get; set; }
+
+    [Required]
+    public int BirthDateYear { get; set; }
 
     [Required]
     public string PhoneNumber { get; set; }

@@ -155,6 +155,12 @@ public class AccountController : BaseController
     {
         try
         {
+            if (model.BirthDateDay == 0 || model.BirthDateMonth == 0 || model.BirthDateYear == 0)
+            {
+                Notification("Doğum tarihi yanlış!", NotificationType.Error);
+                return View(model);
+            }
+            var birthDate = new DateTime(model.BirthDateYear, model.BirthDateMonth, model.BirthDateYear);
             var user = new ApplicationUser
             {
                 //UserName = StringHelper.ConvertToEnglish(model.Name + model.Surname).ToLower(),
@@ -163,7 +169,7 @@ public class AccountController : BaseController
                 PhoneNumber = model.PhoneNumber,
                 Name = model.Name,
                 Surname = model.Surname,
-                BirthDate = model.BirthDate,
+                BirthDate = birthDate,
                 RegisterDate = DateTime.Now,
                 Type = ApplicationUserType.USER,
 
@@ -200,6 +206,12 @@ public class AccountController : BaseController
     {
         try
         {
+            if (model.BirthDateDay == 0 || model.BirthDateMonth == 0 || model.BirthDateYear == 0)
+            {
+                Notification("Doğum tarihi yanlış!", NotificationType.Error);
+                return View(model);
+            }
+            var birthDate = new DateTime(model.BirthDateYear, model.BirthDateMonth, model.BirthDateYear);
             var user = new ApplicationUser
             {
                 //UserName = StringHelper.ConvertToEnglish(model.Name + model.Surname).ToLower(),
@@ -208,7 +220,7 @@ public class AccountController : BaseController
                 PhoneNumber = model.PhoneNumber,
                 Name = model.Name,
                 Surname = model.Surname,
-                BirthDate = model.BirthDate,
+                BirthDate = birthDate,
                 RegisterDate = DateTime.Now,
                 Type = ApplicationUserType.PHARMACY,
 
