@@ -36,13 +36,10 @@ namespace WebUI.Areas.User.Controllers
                 return View();
             ResumeUpdateVM vm = new()
             {
-                Name = resume.Name,
-                Surname = resume.Surname,
                 Phone = resume.Phone,
                 Email = resume.Email,
                 WorkExperience = resume.WorkExperience,
                 BirthDate = resume.BirthDate,
-                Address = resume.Address,
                 SchoolName = resume.SchoolName,
                 EducationStatus = resume.EducationStatus,
                 EducationsAndCertificates = resume.EducationsAndCertificates,
