@@ -160,7 +160,7 @@ public class AccountController : BaseController
                 Notification("Doğum tarihi yanlış!", NotificationType.Error);
                 return View(model);
             }
-            var birthDate = new DateTime(model.BirthDateYear, model.BirthDateMonth, model.BirthDateYear);
+            var birthDate = new DateTime(model.BirthDateYear, model.BirthDateMonth, model.BirthDateDay);
             var user = new ApplicationUser
             {
                 //UserName = StringHelper.ConvertToEnglish(model.Name + model.Surname).ToLower(),
@@ -211,7 +211,7 @@ public class AccountController : BaseController
                 Notification("Doğum tarihi yanlış!", NotificationType.Error);
                 return View(model);
             }
-            var birthDate = new DateTime(model.BirthDateYear, model.BirthDateMonth, model.BirthDateYear);
+            var birthDate = new DateTime(model.BirthDateYear, model.BirthDateMonth, model.BirthDateDay);
             var user = new ApplicationUser
             {
                 //UserName = StringHelper.ConvertToEnglish(model.Name + model.Surname).ToLower(),
