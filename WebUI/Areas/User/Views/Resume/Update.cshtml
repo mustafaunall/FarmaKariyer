@@ -21,16 +21,8 @@
                             </div>
                             <div class="card-body">
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Adınız</label>
-                                    <input type="text" class="form-control" asp-for="Name" value="@Model?.Name" placeholder="Adınız:">
-                                </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Soyadınız</label>
-                                    <input type="text" class="form-control" asp-for="Surname" value="@Model?.Surname" placeholder="Soyadınız:">
-                                </div>
-                                <div class="form-group">
                                     <label for="exampleInputEmail1">Telefon</label>
-                                    <input type="text" class="form-control" asp-for="Phone" value="@Model?.Phone" placeholder="Telefon Numaranız:">
+                                    <input asp-for="Phone" value="@Model?.Phone" type="text" placeholder="Telefon Numaranız:" class="form-control" id="phoneNumber" required>
                                 </div>
                                 <div class="form-group">
                                     <label for="exampleInputEmail1">E-Posta</label>
@@ -50,33 +42,7 @@
                                         </select>
                                     </div>
                                 </div>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Doğum Tarihiniz</label>
-                                    <input type="text" id="txtboxc" class="form-control" asp-for="BirthDate" value="@Model?.BirthDate" placeholder="Doğum Tarihiniz:">
-                                    <script>
-                                        var dtt = document.getElementById('txtboxc')
-                                        dtt.onfocus = function (event) {
-                                            this.type = 'date';
-                                            this.placeholder = '';
-                                        }
-                                        dtt.onblur = function (event) {
-                                            this.type = 'date';
-                                            this.placeholder = '';
-                                        }
-                                    </script>
-                                </div>
-                                <script>
-                                    function convertToDateInput() {
-                                        var inputField = document.getElementById("exampleInputEmail1");
-                                        inputField.setAttribute("type", "date");
-                                        inputField.removeAttribute("placeholder");
-                                        document.querySelector("button").style.display = "none"; // Düğmeyi gizle
-                                    }
-                                </script>
-                                <div class="form-group">
-                                    <label for="exampleInputEmail1">Adres</label>
-                                    <textarea class="form-control" rows="3" asp-for="Address" placeholder="Adres Bilginiz..."></textarea>
-                                </div>
+
                             </div>
                             @*   <div class="card-footer">
                             <button type="submit" class="btn btn-primary">Submit</button>
@@ -107,7 +73,8 @@
                                     </select>
                                 </div>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Alınan Eğitimler / Sertifikalar
+                                    <label for="exampleInputEmail1">
+                                        Alınan Eğitimler / Sertifikalar
                                     </label>
                                     <p style="color:red; font-size:14px;">*Birden fazla sertifika girişi için lütfen sertifikalarınızı alt alta yazınız.</p>
                                     <textarea class="form-control" rows="5" asp-for="EducationsAndCertificates" value="@Model?.EducationsAndCertificates" placeholder="Alınan Eğitimler / Sertifikalar"></textarea>
@@ -289,72 +256,122 @@
                                         }
                                     }
                                 </div>
-                                <script>
-                                    document.addEventListener("DOMContentLoaded", function () {
-                                        const textBoxContainer = document.getElementById('textBoxContainer');
-                                        let count = 0;
+                                @section Scripts {
+                                    @* Telefon Numarası *@
+                                    <script>
+                                        const isNumericInput = (event) => {
+                                            const key = event.keyCode;
+                                            return ((key >= 48 && key <= 57) || // Allow number line
+                                                (key >= 96 && key <= 105) // Allow number pad
+                                            );
+                                        };
 
-                                        document.getElementById("addLanguage").addEventListener('click', function (e) {
-                                            e.preventDefault(); // Sayfanın yenilenmesini engelle
+                                        const isModifierKey = (event) => {
+                                            const key = event.keyCode;
+                                            return (event.shiftKey === true || key === 35 || key === 36) || // Allow Shift, Home, End
+                                                (key === 8 || key === 9 || key === 13 || key === 46) || // Allow Backspace, Tab, Enter, Delete
+                                                (key > 36 && key < 41) || // Allow left, up, right, down
+                                                (
+                                                    // Allow Ctrl/Command + A,C,V,X,Z
+                                                    (event.ctrlKey === true || event.metaKey === true) &&
+                                                    (key === 65 || key === 67 || key === 86 || key === 88 || key === 90)
+                                                )
+                                        };
 
-                                            // En fazla 7 dil kontrolü
-                                            if (count >= 7) return;
+                                        const enforceFormat = (event) => {
+                                            // Input must be of a valid number format or a modifier key, and not longer than ten digits
+                                            if (!isNumericInput(event) && !isModifierKey(event)) {
+                                                event.preventDefault();
+                                            }
+                                        };
 
-                                            // Form grubunu oluştur
-                                            const formGroup = document.createElement('div');
-                                            formGroup.className = 'form-group d-flex justify-content-between';
-                                            formGroup.style.marginTop = '10px';
-                                            formGroup.style.marginBottom = '10px';
+                                        const formatToPhone = (event) => {
+                                            if (isModifierKey(event)) { return; }
 
-                                            // Dil için giriş alanı oluştur
-                                            const newInput = document.createElement('input');
-                                            newInput.type = 'text';
-                                            newInput.name = 'ForeignLanguageNames';
-                                            newInput.className = 'form-control';
-                                            newInput.placeholder = `Yabancı Dil`;
-                                            newInput.style.marginRight = '10px';
+                                            // I am lazy and don't like to type things more than once
+                                            const target = event.target;
+                                            const input = event.target.value.replace(/\D/g, '').substring(0, 10); // First ten digits of input only
+                                            const zip = input.substring(0, 3);
+                                            const middle = input.substring(3, 6);
+                                            const last = input.substring(6, 10);
 
-                                            // Seviye için select oluştur
-                                            const select = document.createElement('select');
-                                            select.className = 'form-control';
-                                            select.name = 'ForeignLanguageGrades';
+                                            if (input.length > 6) { target.value = `(${zip}) ${middle} - ${last}`; }
+                                            else if (input.length > 3) { target.value = `(${zip}) ${middle}`; }
+                                            else if (input.length > 0) { target.value = `(${zip}`; }
+                                        };
 
-                                            const firstOption = document.createElement('option');
-                                            firstOption.value = "";
-                                            firstOption.text = "Seviye";
-                                            firstOption.disabled = true;
-                                            firstOption.selected = true;
-                                            select.appendChild(firstOption);
+                                        const inputElement = document.getElementById('phoneNumber');
+                                        inputElement.addEventListener('keydown', enforceFormat);
+                                        inputElement.addEventListener('keyup', formatToPhone);
+                                    </script>
+                                    @*Dil Ekleme*@
+                                    <script>
+                                        document.addEventListener("DOMContentLoaded", function () {
+                                            const textBoxContainer = document.getElementById('textBoxContainer');
+                                            let count = 0;
 
-                                            ["Başlangıç", "Temel", "Orta", "İyi", "İleri"].forEach(function (level) {
-                                                const option = document.createElement('option');
-                                                option.value = level;
-                                                option.text = level;
-                                                select.appendChild(option);
+                                            document.getElementById("addLanguage").addEventListener('click', function (e) {
+                                                e.preventDefault(); // Sayfanın yenilenmesini engelle
+
+                                                // En fazla 7 dil kontrolü
+                                                if (count >= 7) return;
+
+                                                // Form grubunu oluştur
+                                                const formGroup = document.createElement('div');
+                                                formGroup.className = 'form-group d-flex justify-content-between';
+                                                formGroup.style.marginTop = '10px';
+                                                formGroup.style.marginBottom = '10px';
+
+                                                // Dil için giriş alanı oluştur
+                                                const newInput = document.createElement('input');
+                                                newInput.type = 'text';
+                                                newInput.name = 'ForeignLanguageNames';
+                                                newInput.className = 'form-control';
+                                                newInput.placeholder = `Yabancı Dil`;
+                                                newInput.style.marginRight = '10px';
+
+                                                // Seviye için select oluştur
+                                                const select = document.createElement('select');
+                                                select.className = 'form-control';
+                                                select.name = 'ForeignLanguageGrades';
+
+                                                const firstOption = document.createElement('option');
+                                                firstOption.value = "";
+                                                firstOption.text = "Seviye";
+                                                firstOption.disabled = true;
+                                                firstOption.selected = true;
+                                                select.appendChild(firstOption);
+
+                                                ["Başlangıç", "Temel", "Orta", "İyi", "İleri"].forEach(function (level) {
+                                                    const option = document.createElement('option');
+                                                    option.value = level;
+                                                    option.text = level;
+                                                    select.appendChild(option);
+                                                });
+
+                                                // Silme butonu oluştur
+                                                const removeBtn = document.createElement('button');
+                                                removeBtn.innerHTML = 'X';
+                                                removeBtn.className = 'btn';
+                                                removeBtn.style.marginLeft = '10px';
+                                                removeBtn.style.background = 'red';
+                                                removeBtn.style.color = 'white';
+                                                removeBtn.addEventListener('click', function () {
+                                                    formGroup.remove();
+                                                    count--;
+                                                });
+
+                                                formGroup.appendChild(newInput);
+                                                formGroup.appendChild(select);
+                                                formGroup.appendChild(removeBtn);
+                                                textBoxContainer.appendChild(formGroup);
+
+                                                count++;
                                             });
-
-                                            // Silme butonu oluştur
-                                            const removeBtn = document.createElement('button');
-                                            removeBtn.innerHTML = 'X';
-                                            removeBtn.className = 'btn';
-                                            removeBtn.style.marginLeft = '10px';
-                                            removeBtn.style.background = 'red';
-                                            removeBtn.style.color = 'white';
-                                            removeBtn.addEventListener('click', function () {
-                                                formGroup.remove();
-                                                count--;
-                                            });
-
-                                            formGroup.appendChild(newInput);
-                                            formGroup.appendChild(select);
-                                            formGroup.appendChild(removeBtn);
-                                            textBoxContainer.appendChild(formGroup);
-
-                                            count++;
                                         });
-                                    });
 
-                                </script>
+                                    </script>
+                                }
                             </div>
                         </div>
                     </div>

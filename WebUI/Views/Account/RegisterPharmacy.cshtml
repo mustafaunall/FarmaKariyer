@@ -91,7 +91,7 @@
                                 <div class="col-lg-12">
                                     <div class="form-group">
                                         <div class="input-group">
-                                            <input asp-for="TaxNumber" value="@Model?.TaxNumber" type="text" placeholder="Vergi Numarası" class="form-control" required>
+                                            <input asp-for="TaxNumber" value="@Model?.TaxNumber" type="text" placeholder="Vergi Numarası" class="form-control" required maxlength="10" oninput="this.value=this.value.replace(/[^0-9]/g,'');">
                                         </div>
                                     </div>
                                 </div>
@@ -273,11 +273,14 @@
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
-                                    <div class="form-group">
+                                    <div class="form-group" style="margin:0;">
                                         <div class="input-group">
                                             <input asp-for="Password" type="password" class="form-control" placeholder="Şifreniz" required>
                                         </div>
                                     </div>
+                                </div>
+                                <div class="col-lg-12">
+                                    <label class="form-group" style="color:red; margin:0; font-size:11px;">*Şifreniz en az bir büyük harf, en az bir küçük harf, en az bir rakam ve en az bir özel karakter(* ! ' - vb.) içermelidir.</label>
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="form-group">
