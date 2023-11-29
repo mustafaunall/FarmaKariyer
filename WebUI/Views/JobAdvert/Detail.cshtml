@@ -81,7 +81,7 @@
                 </div>
                 <div class="text-holder" style="margin-top:15px;">
                     <ul>
-                        @if (Model?.Type == Domain.Model.Enum.AdvertType.TECHNICIAN)
+                        @if (Model?.Type == Domain.Model.Enum.AdvertType.TECHNICIAN || Model?.Type == Domain.Model.Enum.AdvertType.DERMOCOSMETİC)
                         {
                             if (Model?.ExperienceYear != null)
                             {
@@ -104,9 +104,9 @@
                                     }
                                 </li>
                             }
-                            if (Model?.SalaryRange != null)
+                            if (Model?.SalaryRange != null && Model?.SalaryRange >= 0)
                             {
-                                <li>Maaş aralığı: @Model.SalaryRange</li>
+                                <li>Maaş aralığı: @(Model.SalaryRange == 0 ? "Belirtilmedi": Model.SalaryRange)</li>
                             }
                             if (Model?.PrescriptionInfo == true || Model?.PrivateInsuranceEntryInfo == true || Model?.OTCInfo == true || Model?.DermocosmeticInfo == true)
                             {
@@ -133,7 +133,7 @@
                             {
                                 <li>Diğer bilgiler: @Model.OtherInfo</li>
                             }
-                        }
+                        } 
                         @if (Model?.Type == Domain.Model.Enum.AdvertType.INTERN)
                         {
                             if (Model?.EducationStatus != null)
