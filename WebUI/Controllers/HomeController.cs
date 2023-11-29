@@ -20,10 +20,11 @@ public class HomeController : Controller
 	{
 		var defaultSql = _context.Adverts
 			.Include(x => x.ApplicationUser)
-			.AsQueryable();
+            .Where(x => x.IsActive == true)
+            .AsQueryable();
 		var boostedSql = _context.Adverts
 			.Include(x => x.ApplicationUser)
-			.Where(x => x.IsBoosted == true)
+			.Where(x => x.IsActive == true && x.IsBoosted == true)
 			.AsQueryable();
 		HomeVM vm = new()
         {
