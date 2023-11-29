@@ -141,11 +141,11 @@
                                     <i class="fa fa-angle-double-right" aria-hidden="true"></i>
                                 </a>
                             </li>
-                           @*  <li>
-                                <a href="@Url.Action("OurPartners","Home")">
-                                    Partnerlerimiz
-                                    <i class="fa fa-angle-double-right" aria-hidden="true"></i>
-                                </a>
+                            @*  <li>
+                            <a href="@Url.Action("OurPartners","Home")">
+                            Partnerlerimiz
+                            <i class="fa fa-angle-double-right" aria-hidden="true"></i>
+                            </a>
                             </li> *@
                             <li>
                                 <a href="@Url.Action("Faq","Home")">
@@ -163,3 +163,26 @@
     </div>
 </section>
 <!--End faq content area-->
+@section Scripts {
+    <script>
+        if ($('.accordion-box').length) {
+            $('.accordion-box .accord-btn').click(function () {
+                if ($(this).hasClass('active') !== true) {
+                    $('.accordion-box .accord-btn').removeClass('active');
+                }
+
+                if ($(this).next('.accord-content').is(':visible')) {
+                    $(this).removeClass('active');
+                    $(this).next('.accord-content').slideUp(500);
+                }
+
+                else {
+                    $(this).addClass('active');
+                    $('.accordion-box .accord-content').slideUp(500);
+                    $(this).next('.accord-content').slideDown(500);
+                }
+            });
+        }
+
+    </script>
+}
