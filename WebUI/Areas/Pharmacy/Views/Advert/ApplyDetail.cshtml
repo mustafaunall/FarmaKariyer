@@ -60,29 +60,7 @@
                         </ul>
                     </div>
                 </div>
-                <div class="card card-primary">
-                    <div class="card-header" style="background-color:#ff2b58;">
-                        <h3 class="card-title">Kişisel Bilgiler</h3>
-                    </div>
-                    <div class="card-body">
-                        <strong><i class="fas fa-book mr-1"></i>Eğitim</strong>
-                        <p class="text-muted">
-                            @(Model?.User?.SchoolName ?? "Belirtilmedi") @(string.IsNullOrEmpty(Model?.User?.EducationStatus) ? "" : $"- {Model?.User?.EducationStatus}")
-                        </p>
-                        <hr>
-                        <strong><i class="fas fa-map-marker-alt mr-1"></i>Adres</strong>
-                        <p class="text-muted"><b>Konum:</b> @ProvinceHelper.GetProvinceName(Convert.ToInt32(Model.User.Province)), @Model.User.District</p>
-                        <hr>
-                        <strong><i class="fas fa-pencil-alt mr-1"></i>Alınan Eğitimler / Sertifikalar</strong>
-                        <p class="text-muted">
-                            <span class="tag">@Model?.Resume?.EducationsAndCertificates</span> <br />
-                        </p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-9">
                 <div class="card">
-
                     <div class="card-body" style="padding-top:10px !important;">
                         <div class="tab-content">
                             <div class="active tab-pane" id="activity">
@@ -94,6 +72,58 @@
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="col-md-9">
+                <div class="card card-primary">
+                    <div class="card-header" style="background-color:#ff2b58;">
+                        <h3 class="card-title">Kişisel Bilgiler</h3>
+                    </div>
+                    <div class="card-body">
+                        <strong><i class="fas fa-book mr-1"></i>Eğitim</strong>
+                        <p class="text-muted">
+                            @(Model?.Resume?.SchoolName ?? "Belirtilmedi") @(string.IsNullOrEmpty(Model?.Resume?.EducationStatus) ? "" : $"- {Model?.Resume?.EducationStatus}")
+                        </p>
+                        <hr>
+                        <strong><i class="fas fa-map-marker-alt mr-1"></i>Adres</strong>
+                        <p class="text-muted"><b>Konum:</b> @ProvinceHelper.GetProvinceName(Convert.ToInt32(Model.User.Province)), @Model.User.District</p>
+                        <hr>
+                        <strong><i class="fas fa-pencil-alt mr-1"></i>Alınan Eğitimler / Sertifikalar</strong>
+                        <p class="text-muted">
+                            <span class="tag" style="display: table-caption;">@Model?.Resume?.EducationsAndCertificates</span>
+                        </p>
+                        <hr>
+                        <strong><i class="fa-solid fa-prescription-bottle-medical mr-1"></i>Referans Eczaneler</strong>
+                        <p class="text-muted">
+
+                            <span class="tag" style="display: table-caption;">
+                                @foreach (var item in Model?.Resume?.ReferencePharmacies)
+                                {
+                                    @item.PharmacyName
+                                }
+                            </span>
+                        </p>
+                        <hr>
+                        <strong><i class="fa-solid fa-language mr-1"></i>Yabancı Dil Bilgisi</strong>
+                        <p class="text-muted">
+
+                            <span class="tag" style="display: table-caption;">
+                                @foreach (var item in Model?.Resume?.ForeignLanguages)
+                                {
+                                    @item.LanguageName
+                                }
+                            </span>
+                        </p>
+                        <hr>
+                        <strong><i class="fa-regular fa-calendar mr-1"></i>Deneyim Yılı</strong>
+                        <p class="text-muted">@Model?.Resume.WorkExperience</p>
+                        <hr>
+                        <strong><i class="fa-regular fa-file mr-1"></i>CV</strong>
+                        <p class="text-muted">
+                            <a href="@($"/Resources/ResumeFiles/{Model?.Resume.ResumeFilePath}")" target="_blank">CV Dosyasını İndir</a>
+                        </p>
                     </div>
                 </div>
             </div>
