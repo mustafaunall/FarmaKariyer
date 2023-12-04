@@ -57,6 +57,31 @@ public class AccountController : BaseController
     }
 
     [Authorize]
+    public async Task<IActionResult> Packages()
+    {
+        if (User.Identity.IsAuthenticated)
+        {
+            var u = await _userManager.GetUserAsync(User);
+            var user = await _userManager.Users
+                .SingleAsync(x => x.Email == u.Email);
+            if (user == null)
+            {
+                return Redirect("/Account/LoginPharmacy");
+            }
+            if (user.Type == ApplicationUserType.PHARMACY)
+            {
+                return Redirect("/Pharmacy/Account/Packages");
+            }
+            else if (user.Type == ApplicationUserType.USER)
+            {
+                Notification("Bu işlem yalnızca işveren hesabı ile gerçekleştirilebilir!", NotificationType.Info);
+                return Redirect("/Home/Index");
+            }
+        }
+        return Redirect("/Account/LoginPharmacy");
+    }
+
+    [Authorize]
     [HttpPost]
     public async Task<IActionResult> UpdateProfile(UpdateProfileVM vm)
     {

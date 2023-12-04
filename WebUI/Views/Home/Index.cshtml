@@ -68,7 +68,7 @@
     </div>
 </div>
 *@
-<section class="breadcrumb-area" style="background-image: url(images/banner2.png);">
+<section class="breadcrumb-area" style="background-image: url(@(Url.Content("~/images/banner2.png")));">
     <div class="container text-center">
         <h1><b style="color:#ff2b58;">FarmaKariyer</b>'de Öne Çıkan İlanlar</h1>
     </div>
@@ -559,6 +559,7 @@
         </div>
     </div>
 </section> *@
+
 <section style="margin:60px 0;">
     <div class="container-fluid">
         <div class="container premcon">
@@ -585,7 +586,7 @@
                             </ul>
                         </div>
                         @*<a href="/Pharmacy/Account/Packages">Satın Al</a>*@
-                        <a style="font-size: 16pt;">Kullanmaya Başla</a>
+                        <a href="@ViewBag.RedirectUrl" style="font-size: 16pt;">Kullanmaya Başla</a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4 mpremcon">
@@ -604,7 +605,7 @@
                             </ul>
                         </div>
                         @*<a style="margin-bottom: 12px;" href="/Pharmacy/Account/Packages">Satın Al</a>*@
-                        <a style="margin-bottom: 12px; font-size: 16pt;">Kullanmaya Başla</a>
+                        <a href="@ViewBag.RedirectUrl" style="margin-bottom: 12px; font-size: 16pt;">Kullanmaya Başla</a>
                     </div>
                 </div>
                 <div class="col-md-4 col-sm-4">
@@ -623,7 +624,7 @@
                             </ul>
                         </div>
                         @*<a href="/Pharmacy/Account/Packages">Satın Al</a>*@
-                        <a style="font-size: 16pt;">Kullanmaya Başla</a>
+                        <a href="@ViewBag.RedirectUrl" style="font-size: 16pt;">Kullanmaya Başla</a>
                     </div>
                 </div>
             </div>

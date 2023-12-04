@@ -114,7 +114,7 @@ public class AccountController : BaseController
         {
             if (string.IsNullOrEmpty(vm.CurrentPassword))
             {
-                Notification("Bilgileriniz güncellenemedi, lütfen şu anki şifrenizi giriniz!", NotificationType.Info);
+                Notification("Bilgileriniz güncellenemedi, lütfen şu anki şifrenizi giriniz!", NotificationType.Error);
                 return RedirectToAction(nameof(Profile));
             }
             else

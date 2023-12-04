@@ -1,6 +1,8 @@
 ﻿using DataAccess.Context;
+using Domain.Model;
 using Domain.ViewModel;
 using Domain.ViewModel.Home;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using System.Diagnostics;
@@ -11,12 +13,14 @@ namespace WebUI.Controllers;
 public class HomeController : Controller
 {
     private readonly UserDbContext _context;
-    public HomeController(UserDbContext context)
+    private readonly UserManager<ApplicationUser> _userManager;
+    public HomeController(UserDbContext context, UserManager<ApplicationUser> userManager)
     {
         _context = context;
+        _userManager = userManager;
     }
 
-    public IActionResult Index()
+    public async Task<IActionResult> Index()
 	{
 		var defaultSql = _context.Adverts
 			.Include(x => x.ApplicationUser)
@@ -71,7 +75,29 @@ public class HomeController : Controller
 		vm.BoostedAdvertsOther.AddRange(defaultSql
 			.Where(x => x.Type == Domain.Model.Enum.AdvertType.OTHER).ToList());
 
-		return View(vm);
+        string redirectUrl = "/Account/LoginPharmacy";
+        if (User.Identity.IsAuthenticated)
+        {
+            var u = await _userManager.GetUserAsync(User);
+            var user = await _userManager.Users
+                .SingleAsync(x => x.Email == u.Email);
+
+            if (user != null)
+            {
+                if (user.Type == ApplicationUserType.PHARMACY)
+                {
+                    redirectUrl = "/Pharmacy/Account/Packages";
+                }
+                else if (user.Type == ApplicationUserType.USER)
+                {
+                    redirectUrl = "/User/Account/Packages";
+                }
+            }
+        }
+
+        ViewBag.RedirectUrl = redirectUrl;
+
+        return View(vm);
     }
     public IActionResult Faq()
     {
