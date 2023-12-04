@@ -709,7 +709,7 @@
     height: 40px;
     float: left !important;
     margin-top: -40px;
-    z-index: 1;
+    z-index: 999;
 }
 .free-consulation-button:before {
     background: none;
