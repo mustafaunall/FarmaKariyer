@@ -70,7 +70,7 @@
     }
 
     .owl-carousel .owl-stage {
-        width: 999999999px !important;
+        width: max-content !important;
     }
     @media (min-width:430px) and (max-width:576px)
     {
