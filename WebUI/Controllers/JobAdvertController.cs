@@ -106,10 +106,10 @@ public class JobAdvertController : BaseController
     {
         var model = _context.Adverts
             .Include(x => x.ApplicationUser)
+            .Where(x => x.Type == AdvertType.TECHNICIAN && x.IsActive)
             .OrderByDescending(x => x.CreateDate)
             .Skip((page - 1) * _pageLimit)
             .Take(_pageLimit)
-            .Where(x => x.Type == AdvertType.TECHNICIAN && x.IsActive)
             .ToList();
         var modelCount = _context.Adverts
             .Where(x => x.Type == AdvertType.TECHNICIAN && x.IsActive)
@@ -123,10 +123,10 @@ public class JobAdvertController : BaseController
     {
         var model = _context.Adverts
             .Include(x => x.ApplicationUser)
+            .Where(x => x.Type == AdvertType.DERMOCOSMETİC && x.IsActive)
             .OrderByDescending(x => x.CreateDate)
             .Skip((page - 1) * _pageLimit)
             .Take(_pageLimit)
-            .Where(x => x.Type == AdvertType.DERMOCOSMETİC && x.IsActive)
             .ToList();
         var modelCount = _context.Adverts
             .Where(x => x.Type == AdvertType.DERMOCOSMETİC && x.IsActive)
@@ -140,10 +140,10 @@ public class JobAdvertController : BaseController
     {
         var model = _context.Adverts
             .Include(x => x.ApplicationUser)
+            .Where(x => x.Type == AdvertType.INTERN && x.IsActive)
             .OrderByDescending(x => x.CreateDate)
             .Skip((page - 1) * _pageLimit)
             .Take(_pageLimit)
-            .Where(x => x.Type == AdvertType.INTERN && x.IsActive)
             .ToList();
         var modelCount = _context.Adverts
             .Where(x => x.Type == AdvertType.INTERN && x.IsActive)
@@ -156,10 +156,10 @@ public class JobAdvertController : BaseController
     {
         var model = _context.Adverts
             .Include(x => x.ApplicationUser)
+            .Where(x => x.Type == AdvertType.LICENSE && x.IsActive)
             .OrderByDescending(x => x.CreateDate)
             .Skip((page - 1) * _pageLimit)
             .Take(_pageLimit)
-            .Where(x => x.Type == AdvertType.LICENSE && x.IsActive)
             .ToList();
         var modelCount = _context.Adverts
             .Where(x => x.Type == AdvertType.LICENSE && x.IsActive)
@@ -173,10 +173,10 @@ public class JobAdvertController : BaseController
     {
         var model = _context.Adverts
             .Include(x => x.ApplicationUser)
+            .Where(x => x.Type == AdvertType.OTHER && x.IsActive)
             .OrderByDescending(x => x.CreateDate)
             .Skip((page - 1) * _pageLimit)
             .Take(_pageLimit)
-            .Where(x => x.Type == AdvertType.OTHER && x.IsActive)
             .ToList();
         var modelCount = _context.Adverts
             .Where(x => x.Type == AdvertType.OTHER && x.IsActive)
