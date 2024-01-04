@@ -1,4 +1,5 @@
-﻿using DataAccess.Context;
+﻿using Core.Services;
+using DataAccess.Context;
 using Domain.Model;
 using Domain.ViewModel;
 using Domain.ViewModel.Home;
@@ -13,11 +14,20 @@ namespace WebUI.Controllers;
 public class HomeController : Controller
 {
     private readonly UserDbContext _context;
+    private readonly MailService _mailService;
     private readonly UserManager<ApplicationUser> _userManager;
-    public HomeController(UserDbContext context, UserManager<ApplicationUser> userManager)
+    public HomeController(UserDbContext context, MailService mailService, UserManager<ApplicationUser> userManager)
     {
         _context = context;
+        _mailService = mailService;
         _userManager = userManager;
+    }
+
+    public ActionResult mail_test()
+    {
+        _mailService.TestMessage();
+        _mailService.SendMail("info@unalmustafa.com", "Test konu", "Test mesaj içeriği");
+        return Ok();
     }
 
     public async Task<IActionResult> Index()

@@ -30,6 +30,8 @@ builder.Services.AddScoped<PdfService>();
 
 builder.Services.AddScoped<DbService>();
 
+builder.Services.AddScoped<MailService>();
+
 builder.Services.AddScoped<IRecurringJobs, RecurringJobs>();
 
 builder.Services.AddScoped<IAdvertCheckJob, AdvertCheckJob>();
