@@ -35,6 +35,7 @@ public class ApplicationUser : IdentityUser<int>
     #endregion
 
     public ApplicationUserType Type { get; set; }
+    public string? PasswordResetCode { get; set; }
 
     #region Relation
 

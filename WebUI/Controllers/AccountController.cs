@@ -10,19 +10,21 @@ using Core.Helper;
 using Domain.Model;
 using WebUI.Attributes;
 using WebUI.Extensions;
+using Core.Services;
+using System.Text.Encodings.Web;
 
 namespace WebUI.Controllers;
 
 public class AccountController : BaseController
 {
     private readonly UserDbContext _context;
+    private readonly MailService _mailService;
     private readonly UserManager<ApplicationUser> _userManager;
     private readonly SignInManager<ApplicationUser> _signInManager;
-    private readonly ILogger<AccountController> _logger;
 
-    public AccountController(ILogger<AccountController> logger, UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, UserDbContext context)
+    public AccountController(UserManager<ApplicationUser> userManager, SignInManager<ApplicationUser> signInManager, UserDbContext context, MailService mailService)
     {
-        _logger = logger;
+        _mailService = mailService;
         _userManager = userManager;
         _signInManager = signInManager;
         _context = context;
@@ -96,6 +98,96 @@ public class AccountController : BaseController
     public IActionResult ForgotPassword()
     {
         return View();
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> ForgotPassword(ForgotPasswordVM vm)
+    {
+        if (!ModelState.IsValid)
+        {
+            return View(vm);
+        }
+        var user = _context.Users.Where(x => x.Email == vm.Email).FirstOrDefault();
+        if (user == null)
+        {
+            Notification("Kullanıcı bulunamadı!", NotificationType.Error, "Hata");
+            return View(vm);
+        }
+        string resetCode = await _userManager.GeneratePasswordResetTokenAsync(user);
+        user.PasswordResetCode = resetCode;
+        await _context.SaveChangesAsync();
+        _mailService.SendMail(user.Email, "Şifre Sıfırlama Talebi", $@"
+Merhabalar,
+
+FarmaKariyer.net üzerinden gerçekleştirdiğiniz şifre sıfırlama talebi tarafımıza iletilmiş olup, şifre sıfırlama bağlantı adresiniz aşağıda bulunmaktadır.
+Bu işlem sizin tarafınızdan gerçekleşmediyse bağlantı adresine giriş sağlamamanızı tavsiye ediyoruz.
+
+https://farmakariyer.net/Account/ResetPassword?email={user.Email}&code={UrlEncoder.Default.Encode(resetCode)}
+
+
+İyi günler dileriz.
+            ");
+        Notification("Şifre sıfırlama talebiniz alınmıştır, epostanızı kontrol ediniz.", NotificationType.Success, "Şifre Sıfırlama Başarılı");
+        return View(vm);
+    }
+
+    [HttpGet]
+    public async Task<IActionResult> ResetPassword([FromQuery] string email, [FromQuery] string code)
+    {
+        var user = _context.Users.Where(x => x.Email == email).FirstOrDefault();
+        if (user == null)
+        {
+            Notification("Kullanıcı bulunamadı!", NotificationType.Error, "Hata");
+            return RedirectPermanent("/Account/ForgotPassword");
+        }
+        if (user.PasswordResetCode != code)
+        {
+            Notification("Şifre sıfırlama kodu yanlış!", NotificationType.Error, "Hata");
+            return RedirectPermanent("/Account/ForgotPassword");
+        }
+        return View(new ResetPasswordVM()
+        {
+            Email = email,
+            Code = code,
+        });
+    }
+
+    [HttpPost]
+    public async Task<IActionResult> ResetPassword(ResetPasswordVM vm)
+    {
+        var user = await _userManager.FindByEmailAsync(vm.Email);
+        //var user = _context.Users.Where(x => x.Email == vm.Email).AsNoTracking().FirstOrDefault();
+        if (user == null)
+        {
+            Notification("Kullanıcı bulunamadı!", NotificationType.Error, "Hata");
+            return View(vm);
+        }
+        if (vm.Password != vm.ConfirmPassword)
+        {
+            Notification("Şifreler aynı olmalıdır!", NotificationType.Error, "Hata");
+            return View(vm);
+        }
+        if (string.IsNullOrEmpty(vm.Password) || string.IsNullOrEmpty(vm.ConfirmPassword))
+        {
+            Notification("Şifreler boş girilemez!", NotificationType.Error, "Hata");
+            return View(vm);
+        }
+        if (user.PasswordResetCode != vm.Code)
+        {
+            Notification("Şifre sıfırlama kodu yanlış!", NotificationType.Error, "Hata");
+            return View(vm);
+        }
+        var result = await _userManager.ResetPasswordAsync(user, vm.Code, vm.Password);
+        if (result.Succeeded == false)
+        {
+            Notification("Şifre sıfırlanırken bir hata oluştu!", NotificationType.Error, "Hata");
+            return View(vm);
+        }
+        user.PasswordResetCode = null;
+        _context.Users.Update(user);
+        await _context.SaveChangesAsync();
+        Notification("Şifreniz başarıyla güncellendi, şimdi giriş yapabilirsiniz.", NotificationType.Success, "Şifre Değiştirme Başarılı");
+        return RedirectPermanent("/Account/LoginUser");
     }
 
     [HttpPost]
