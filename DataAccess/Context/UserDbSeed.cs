@@ -28,7 +28,7 @@ namespace DataAccess.Context
             modelBuilder.Entity<AdvertCategory>().HasData(new AdvertCategory()
             {
                 Id = 3,
-                QuotaCount = -1,
+                QuotaCount = 10,
                 Price = 3000,
             });
         }

@@ -343,10 +343,7 @@ namespace WebUI.Controllers
                     var quotaCount = advertCategory!.QuotaCount;
                     if (user != null)
                     {
-                        if (quotaCount == -1)
-                            user.AdvertPostingQuota = quotaCount;
-                        else
-                            user.AdvertPostingQuota = user.AdvertPostingQuota + quotaCount;
+                        user.AdvertPostingQuota = user.AdvertPostingQuota + quotaCount;
                     }
                 }
                 else if (order.OrderType == OrderTypeEnum.BOOST)

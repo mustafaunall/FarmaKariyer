@@ -227,11 +227,11 @@ public class AccountController : BaseController
         var u = await _userManager.GetUserAsync(User);
         var user = await _userManager.Users
             .SingleAsync(x => x.Email == u.Email);
-        if (user.AdvertPostingQuota == -1)
-        {
-            Notification("Şu an zaten yıllık paket kullanıyorsunuz!", NotificationType.Info);
-            return Redirect("/Pharmacy/Account/Profile");
-        }
+        //if (user.AdvertPostingQuota == -1)
+        //{
+        //    Notification("Şu an zaten yıllık paket kullanıyorsunuz!", NotificationType.Info);
+        //    return Redirect("/Pharmacy/Account/Profile");
+        //}
         return View(new PackagesVM()
         {
             PackagePrice1 = _context.AdvertCategories.Where(x => x.Id == 1).Select(x => x.Price).FirstOrDefault(),
