@@ -1,4 +1,5 @@
-﻿@using Domain.Model;
+﻿@using Core.Helper
+@using Domain.Model;
 @model Advert
 
 @{
@@ -9,7 +10,14 @@
 <!--Start breadcrumb area-->
 <section class="breadcrumb-area" style="background-image: url(/images/sss.png);">
     <div class="container text-center">
-        <h1>@Model?.ApplicationUser?.PharmacyName</h1>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <h1>@Model?.ApplicationUser?.PharmacyName</h1>
+        }
+        else
+        {
+            <h1>@(StringHelper.ToCensoredAdvertTitle(Model?.ApplicationUser?.PharmacyName))</h1>
+        }
     </div>
 </section>
 
@@ -21,7 +29,14 @@
             <ul>
                 <li><a href="@Url.Action("Index","Home")">Anasayfa</a></li>
                 <li><i class="fa fa-angle-right" aria-hidden="true"></i></li>
-                <li>@Model?.ApplicationUser?.PharmacyName</li>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <li>@Model?.ApplicationUser?.PharmacyName</li>
+                }
+                else
+                {
+                    <li>@(StringHelper.ToCensoredAdvertTitle(Model?.ApplicationUser?.PharmacyName))</li>
+                }
             </ul>
         </div>
     </div>
@@ -39,9 +54,11 @@
         </div>
         </div> *@
 
-        <div class="row" style="margin-bottom:40px;">
-            <div class="col-md-12">
-                @*     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48143.43157062158!2d28.892559857172643!3d41.047905995345964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab1d021adf417%3A0xba3a3fdfdbb5f5d!2sEy%C3%BCp%20Sultan%20Camii!5e0!3m2!1str!2str!4v1697842674156!5m2!1str!2str"
+        @if (User.Identity.IsAuthenticated)
+        {
+            <div class="row" style="margin-bottom:40px;">
+                <div class="col-md-12">
+                    @*     <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d48143.43157062158!2d28.892559857172643!3d41.047905995345964!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x14cab1d021adf417%3A0xba3a3fdfdbb5f5d!2sEy%C3%BCp%20Sultan%20Camii!5e0!3m2!1str!2str!4v1697842674156!5m2!1str!2str"
                 width="100%"
                 height="500"
                 frameborder="0"
@@ -50,17 +67,19 @@
                 aria-hidden="false"
                 tabindex="0">
                 </iframe>    *@
-                <iframe width="100%"
-                        height="500"
-                        frameborder="0"
-                        style="border:0;"
-                        allowfullscreen=""
-                        aria-hidden="false"
-                        tabindex="0"
-                        src="https://www.google.com/maps?q=@Model.ApplicationUser.Latitude,@Model.ApplicationUser.Longitude&z=15&output=embed">
-                </iframe>
+                    <iframe width="100%"
+                            height="500"
+                            frameborder="0"
+                            style="border:0;"
+                            allowfullscreen=""
+                            aria-hidden="false"
+                            tabindex="0"
+                            src="https://www.google.com/maps?q=@Model.ApplicationUser.Latitude,@Model.ApplicationUser.Longitude&z=15&output=embed">
+                    </iframe>
+                </div>
             </div>
-        </div>
+        }
+
         <div class="row project-result">
             <div class="col-md-4">
                 <div class="project-info">
@@ -106,7 +125,7 @@
                             }
                             if (Model?.SalaryRange != null && Model?.SalaryRange >= 0)
                             {
-                                <li>Maaş aralığı: @(Model.SalaryRange == 0 ? "Belirtilmedi": Model.SalaryRange)</li>
+                                <li>Maaş aralığı: @(Model.SalaryRange == 0 ? "Belirtilmedi" : Model.SalaryRange)</li>
                             }
                             if (Model?.PrescriptionInfo == true || Model?.PrivateInsuranceEntryInfo == true || Model?.OTCInfo == true || Model?.DermocosmeticInfo == true)
                             {
@@ -133,7 +152,7 @@
                             {
                                 <li>Diğer bilgiler: @Model.OtherInfo</li>
                             }
-                        } 
+                        }
                         @if (Model?.Type == Domain.Model.Enum.AdvertType.INTERN)
                         {
                             if (Model?.EducationStatus != null)

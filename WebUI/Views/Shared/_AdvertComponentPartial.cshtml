@@ -16,7 +16,14 @@
                     <div class="overlay-style-one">
                         <div class="box">
                             <div class="content">
-                                <div style="background-color:#ff2b58; padding:5px; height:40px;"><span style="color:white; font-size:19px; font-weight:bold; text-transform:capitalize;     line-height: 34px;">@Model.ApplicationUser.PharmacyName</span></div>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <div style="background-color:#ff2b58; padding:5px; height:40px;"><span style="color:white; font-size:19px; font-weight:bold; text-transform:capitalize;     line-height: 34px;">@Model.ApplicationUser.PharmacyName</span></div>
+                                }
+                                else
+                                {
+                                    <div style="background-color:#ff2b58; padding:5px; height:40px;"><span style="color:white; font-size:19px; font-weight:bold; text-transform:capitalize;     line-height: 34px;">@(StringHelper.ToCensoredAdvertTitle(Model.ApplicationUser.PharmacyName))</span></div>
+                                }
                             </div>
                         </div>
                     </div>
@@ -33,7 +40,14 @@
                     <div class="meta-info clearfix">
                         <div class="left pull-left">
                             <ul class="post-info">
-                                <li><b>Eczane İsmi: </b>@Model.ApplicationUser.PharmacyName</li>
+                                @if (User.Identity.IsAuthenticated)
+                                {
+                                    <li><b>Eczane İsmi: </b>@Model.ApplicationUser.PharmacyName</li>
+                                }
+                                else
+                                {
+                                    <li><b>Eczane İsmi: </b>@(StringHelper.ToCensoredAdvertTitle(Model.ApplicationUser.PharmacyName))</li>
+                                }
                                 <br />
                                 <li><b>Konum: </b>@(ProvinceHelper.GetProvinceName(Convert.ToInt32(Model.ApplicationUser?.Province ?? "1"))), @Model.ApplicationUser?.District</li>
                                 @*<li><a href="#">Eczane, Teknisyen</a></li>*@

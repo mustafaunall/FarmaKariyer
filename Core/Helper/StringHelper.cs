@@ -45,4 +45,28 @@ public static class StringHelper
 
         return new string(chars);
     }
+
+    public static string ToCensoredAdvertTitle(string input)
+    {
+        if (input.Length == 0) return input;
+
+        string[] words = input.Split(' ');
+
+        for (int i = 0; i < words.Length; i++)
+        {
+            words[i] = ToCensoredText(words[i]);
+        }
+
+        return string.Join(" ", words);
+    }
+
+    public static string ToCensoredText(string input)
+    {
+        if (input.Length == 0) return input;
+
+        char firstChar = input[0];
+        string maskedPart = new string('*', 5);
+
+        return $"{firstChar}{maskedPart}";
+    }
 }
