@@ -19,6 +19,11 @@ public class UserDbContext : IdentityDbContext<ApplicationUser, IdentityRole<int
     public DbSet<Resume> Resumes { get; set; }
     public DbSet<Apply> Applies { get; set; }
 
+    //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+    //{
+    //    base.OnConfiguring(optionsBuilder);
+    //}
+
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
         base.OnModelCreating(modelBuilder);
